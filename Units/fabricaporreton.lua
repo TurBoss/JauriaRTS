@@ -54,7 +54,6 @@ local unitDef = {
 		"nm1",
 		"nk2",
 		"tkt3",
-		"bolun"
 	},
 }
 
