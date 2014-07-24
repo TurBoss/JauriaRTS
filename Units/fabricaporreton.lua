@@ -26,7 +26,7 @@ local unitDef = {
 	buildCostEnergy = 0,
 	buildTime = 25,
 	
-	--economy	
+	--economy
 	
 	EnergyStorage = 0,
 	EnergyUse = 0,
@@ -40,9 +40,9 @@ local unitDef = {
 	FootprintX = 8,
 	FootprintZ = 8,
 	MaxSlope = 15,
-	YardMap ="oooooooo occcccco occcccco occcccco occcccco occcccco occcccco occcccco",
+	YardMap =" oooooooo occcccco occcccco occcccco occcccco occcccco occcccco occcccco",
 	
-	-- Building	
+	-- Building
 	
 	Builder = true,
 	Reclaimable = false,
