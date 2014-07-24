@@ -5,13 +5,13 @@ local unitDef = {
 	Description = "Simple, mobile unit",
 	objectName = "nm1.dae",
 	script = "nm1.lua",
-	buildPic = "placeholder.png",
+	buildPic = "nm1.png",
 
 	--cost
 
 	buildCostMetal = 260,
 	buildCostEnergy = 0,
-	buildTime = 2,
+	buildTime = 3,
 
 	--Health
 
