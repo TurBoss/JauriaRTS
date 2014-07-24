@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.71.0 commit date:2014-06-25, commit time:18:36, hash:9337574</authoring_tool>
     </contributor>
-    <created>2014-07-23T23:28:01</created>
-    <modified>2014-07-23T23:28:01</modified>
+    <created>2014-07-24T20:01:35</created>
+    <modified>2014-07-24T20:01:35</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -518,17 +518,17 @@
             <matrix sid="transform">1 0 0 -7.60441e-8 0 1 0 -1.28162 0 0 1 25.35634 0 0 0 1</matrix>
             <instance_geometry url="#Sphere_001-mesh"/>
             <node id="armad" name="armad" type="NODE">
-              <matrix sid="transform">1 0 0 -13.33429 0 1 0 -1.418051 0 0 1 -4.839266 0 0 0 1</matrix>
+              <matrix sid="transform">1 0 0 -13.33429 0 0.9063078 0.4226182 -1.418051 0 -0.4226182 0.9063078 -4.028208 0 0 0 1</matrix>
               <instance_geometry url="#Cylinder-mesh"/>
               <node id="flared" name="flared" type="NODE">
-                <matrix sid="transform">1 0 0 -0.09554291 0 1 0 -12.8579 0 0 1 -0.08403587 0 0 0 1</matrix>
+                <matrix sid="transform">0.9999999 0 0 -0.09554195 0 1 2.98023e-8 -12.85791 0 0 0.9999999 -0.08403587 0 0 0 1</matrix>
               </node>
             </node>
             <node id="armai" name="armai" type="NODE">
-              <matrix sid="transform">1 0 0 13.27493 0 1 0 -1.418051 0 0 1 -4.839266 0 0 0 1</matrix>
+              <matrix sid="transform">1 0 0 13.27493 0 0.9063078 0.4226182 -1.418051 0 -0.4226182 0.9063078 -4.028208 0 0 0 1</matrix>
               <instance_geometry url="#Cylinder_003-mesh"/>
               <node id="flarei" name="flarei" type="NODE">
-                <matrix sid="transform">1 0 0 -0.01084709 2.98023e-8 1 0 -12.8579 0 0 1 -0.08403587 0 0 0 1</matrix>
+                <matrix sid="transform">1 -1.82007e-9 -6.66152e-8 -0.01084805 1.49012e-8 1 2.98023e-8 -12.8579 0 0 0.9999999 -0.08403778 0 0 0 1</matrix>
               </node>
             </node>
           </node>

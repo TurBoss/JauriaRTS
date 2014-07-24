@@ -7,7 +7,7 @@ local weaponDef = {
 	weaponType              = [[Cannon]],
 	
 	Accuracy=100,
-	
+	movingAccuracy=200,
 	--damage
 	
 	damage = {
@@ -20,8 +20,8 @@ local weaponDef = {
 	
 	weaponVelocity          = 500,
 	reloadtime              = 0.2,
-	range                   = 150,
-	sprayAngle              = 45,
+	range                   = 180,
+--	sprayAngle              = 45,
 	weaponaceleration       = 25,
 	tolerance               = 8000,
 	lineOfSight             = true,

@@ -4,29 +4,30 @@ local weaponName = "weaponnk2"
 local weaponDef = {
 	
 	name                    = "metralletaNK-2",
-	weaponType              = [[Cannon]],
+	weaponType              = "Cannon",
 	
-	Accuracy=2000,
-	
+	Accuracy=600,
+	movingAccuracy=800,
 	--damage
 	
 	damage = {
 		default = 80,
 		HeavyArmor = 0,
 	},
---	areaOfEffect            = 10,
+	--areaOfEffect            = 30,
 	
 	--physics
 	
-	weaponVelocity          = 400,
+	weaponVelocity          = 260,
 	reloadtime              = 0.8,
-	range                   = 310,
-	sprayAngle              = 45,
-	weaponaceleration       = 25,
+	range                   = 330,
+--	sprayAngle              = 45,
+	weaponaceleration       = 120,
 	tolerance               = 8000,
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 100,
+	highTrajectory          = 0,
 --	burst                   = 2,
 --	burstrate               = 1.5,
 	--proyectiles             = 2,
