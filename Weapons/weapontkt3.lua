@@ -4,7 +4,7 @@ local weaponDef={
 	name="weapontkt3",
 	weaponType=[[MissileLauncher]],
 
-	Accuracy=6000,
+	Accuracy=10000,
 
 	--Physic/flight path
 	range=500,
