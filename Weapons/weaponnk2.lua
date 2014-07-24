@@ -9,7 +9,7 @@ local weaponDef = {
 	--damage
 	
 	damage = {
-		default = 40,
+		default = 65,
 		HeavyArmor = 0,
 	},
 --	areaOfEffect            = 10,
