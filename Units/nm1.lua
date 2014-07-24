@@ -1,6 +1,7 @@
 local unitName = "nm1"
 
 local unitDef = {
+
 	name = "NM-1",
 	Description = "Simple, mobile unit",
 	objectName = "nm1.dae",

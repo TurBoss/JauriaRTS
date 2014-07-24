@@ -3,7 +3,7 @@ local unitName = "tkt3"
 local unitDef = {
 
 	name = "TKT-3",
-	Description = "heavy tank",
+	Description = "Heavy tank",
 	objectName = "tkt3.dae",
 	script = "tkt3.lua",
 	buildPic = "tkt3.png",
@@ -33,6 +33,8 @@ local unitDef = {
 
 	sightDistance = 700,
 
+	Category = [[LAND]],
+
 	Builder = false,
 	CanAttack = true,
 	CanGuard = true,
@@ -46,10 +48,6 @@ local unitDef = {
 		onlyTargetCategory = [[LAND]],
 		},
 	},
-
-	Category = [[LAND]],
-
-
 }
 
 return lowerkeys({[unitName] = unitDef})

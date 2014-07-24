@@ -1,8 +1,9 @@
 local unitName = "nk2"
 
 local unitDef = {
+
 	name = "NK-2",
-	Description = "Complex, mobile unit.",
+	Description = "Light Tank",
 	objectName = "nk2.dae",
 	script = "nk2.lua",
 	buildPic = "nk2.png",
@@ -34,13 +35,13 @@ local unitDef = {
 
 	Category = [[LAND]],
 
+	Builder = false,
 	CanAttack = true,
 	CanGuard = true,
 	CanMove = true,
 	CanPatrol = true,
 	CanStop = true,
 	LeaveTracks = false, 
-
 
 	weapons = {
 		[1]={name  = "weaponnk2",
