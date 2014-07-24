@@ -8,7 +8,7 @@ local weaponDef={
 
 	--Physic/flight path
 	range=500,
-	reloadtime=4.5,
+	reloadtime=3.5,
 	weaponVelocity=1100,
 	startVelocity=600,
 	weaponAcceleration=500,
@@ -44,7 +44,7 @@ local weaponDef={
 	----DAMAGE
 	
 	damage={
-		default=600,
+		default=500,
 		heavyarmor=0,
 	},
 	areaOfEffect=150,

@@ -3,16 +3,16 @@ local unitName = "tkt3"
 local unitDef = {
 
 	name = "TKT-3",
-	Description = "Heavy tank",
+	Description = "heavy tank",
 	objectName = "tkt3.dae",
 	script = "tkt3.lua",
 	buildPic = "tkt3.png",
 
 	--cost
 
-	buildCostMetal = 2200,
+	buildCostMetal = 2500,
 	buildCostEnergy = 0,
-	buildTime = 30,
+	buildTime = 12,
 
 	--Health
 
@@ -23,8 +23,8 @@ local unitDef = {
 
 	Acceleration = 0.2,
 	BrakeRate = 0.3,
-	FootprintX = 4,
-	FootprintZ = 4,
+	FootprintX = 3,
+	FootprintZ = 3,
 	MaxSlope = 15,
 	MaxVelocity = 3.0,
 	MaxWaterDepth = 20,
@@ -32,8 +32,6 @@ local unitDef = {
 	TurnRate = 350,
 
 	sightDistance = 700,
-
-	Category = [[LAND]],
 
 	Builder = false,
 	CanAttack = true,
@@ -48,6 +46,10 @@ local unitDef = {
 		onlyTargetCategory = [[LAND]],
 		},
 	},
+
+	Category = [[LAND]],
+
+
 }
 
 return lowerkeys({[unitName] = unitDef})

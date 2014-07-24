@@ -1,7 +1,6 @@
 local unitName = "nm1"
 
 local unitDef = {
-
 	name = "NM-1",
 	Description = "Simple, mobile unit",
 	objectName = "nm1.dae",
@@ -10,9 +9,9 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 100,
+	buildCostMetal = 130,
 	buildCostEnergy = 0,
-	buildTime = 5,
+	buildTime = 2,
 
 	--Health
 

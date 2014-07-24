@@ -1,30 +1,29 @@
 local unitName = "nk2"
 
 local unitDef = {
-
 	name = "NK-2",
-	Description = "Light Tank",
+	Description = "Complex, mobile unit.",
 	objectName = "nk2.dae",
 	script = "nk2.lua",
 	buildPic = "nk2.png",
 
 	--cost
 
-	buildCostMetal = 260,
+	buildCostMetal = 300,
 	buildCostEnergy = 0,
-	buildTime = 16,
+	buildTime = 8,
 
 	--Health
 
-	maxDamage = 1000,
+	maxDamage = 1200,
 	idleAutoHeal = 5,
 
 	--Movement
 
 	Acceleration = 1,
 	BrakeRate = 0.5,
-	FootprintX = 3,
-	FootprintZ = 3,
+	FootprintX = 2,
+	FootprintZ = 2,
 	MaxSlope = 12,
 	MaxVelocity = 3,
 	MaxWaterDepth = 20,
@@ -35,13 +34,13 @@ local unitDef = {
 
 	Category = [[LAND]],
 
-	Builder = false,
 	CanAttack = true,
 	CanGuard = true,
 	CanMove = true,
 	CanPatrol = true,
 	CanStop = true,
 	LeaveTracks = false, 
+
 
 	weapons = {
 		[1]={name  = "weaponnk2",
