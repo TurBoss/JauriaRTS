@@ -1,7 +1,10 @@
 local armorDefs = {
 	heavyarmor = {
-		"simplefactory",
-		"buildervehicle",
+		"tkt3",
+		"nk2",
+	},
+	lightarmor = {
+		"nm1",
 	},
 }
 

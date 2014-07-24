@@ -46,11 +46,11 @@ local weaponDef={
 	
 	damage={
 		default=600,
-		heavyarmor=0,
+		heavyarmor = 500,
+		ligtharmor = 600,
 	},
 	areaOfEffect=150,
 	craterMult=0,
-
 	--?FIXME***
 	
 	lineOfSight=true,

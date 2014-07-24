@@ -12,7 +12,8 @@ local weaponDef = {
 	
 	damage = {
 		default = 5,
-		HeavyArmor = 0,
+		heavyarmor = 5,
+		ligtharmor = 5.5,
 	},
 --	areaOfEffect            = 10,
 	
@@ -27,8 +28,8 @@ local weaponDef = {
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 100,
-	burst                   = 2,
-	burstrate               = 0.08,
+--	burst                   = 2,
+--	burstrate               = 0.08,
 	--proyectiles             = 2,
 	
 	--apperance
