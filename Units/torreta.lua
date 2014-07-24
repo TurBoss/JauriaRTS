@@ -34,7 +34,7 @@ local unitDef = {
 	CanStop = true,
 	LeaveTracks = false,
 
-	MetalMake = 5,
+	MetalMake = 2,
 
 	weapons = {
 	[1]={name  = "weapontorre",
