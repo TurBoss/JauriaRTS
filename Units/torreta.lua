@@ -15,7 +15,7 @@ local unitDef = {
 	
 	--Health
 
-	maxDamage = 8000,
+	maxDamage = 6800,
 	idleAutoHeal = 25,
 
 	--Movement
@@ -34,7 +34,7 @@ local unitDef = {
 	CanStop = true,
 	LeaveTracks = false,
 
-	MetalMake = 5,
+	MetalMake = 3,
 
 	weapons = {
 	[1]={name  = "weapontorre",

@@ -6,10 +6,12 @@ local weaponDef = {
 	name                    = "Metralletatorre",
 	weaponType              = [[Cannon]],
 	
+	Accuracy=2600,
+	
 	--damage
 	
 	damage = {
-		default = 100,
+		default = 130,
 		HeavyArmor = 0,
 	},
 	areaOfEffect            = 40,
