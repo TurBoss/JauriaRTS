@@ -4,11 +4,11 @@ local weaponDef={
 	name="weapontkt3",
 	weaponType=[[MissileLauncher]],
 
-	Accuracy=5000,
+	Accuracy=8000,
 
 	--Physic/flight path
 	range=500,
-	reloadtime=3.5,
+	reloadtime=4.2,
 	weaponVelocity=1100,
 	startVelocity=600,
 	weaponAcceleration=500,
@@ -44,7 +44,7 @@ local weaponDef={
 	----DAMAGE
 	
 	damage={
-		default=500,
+		default=600,
 		heavyarmor=0,
 	},
 	areaOfEffect=150,
