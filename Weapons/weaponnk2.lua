@@ -6,7 +6,7 @@ local weaponDef = {
 	name                    = "metralletaNK-2",
 	weaponType              = [[Cannon]],
 	
-	Accuracy=2200,
+	Accuracy=2000,
 	
 	--damage
 	
