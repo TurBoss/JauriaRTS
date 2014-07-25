@@ -11,15 +11,16 @@ local weaponDef = {
 	--damage
 	
 	damage = {
-		default = 80,
-		HeavyArmor = 0,
+		default = 120,
+		heavyarmor = 120,
+		ligtharmor = 80,
 	},
 	--areaOfEffect            = 30,
 	
 	--physics
 	
 	weaponVelocity          = 260,
-	reloadtime              = 0.8,
+	reloadtime              = 1,
 	range                   = 330,
 --	sprayAngle              = 45,
 	weaponaceleration       = 120,

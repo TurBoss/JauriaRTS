@@ -20,17 +20,17 @@ local unitDef = {
 
 	--Movement
 
-	Acceleration = 2,
-	BrakeRate = 2,
+	Acceleration = 1.2,
+	BrakeRate = 5,
 	FootprintX = 2,
 	FootprintZ = 2,
 	MaxSlope = 12,
-	MaxVelocity = 5.3,
+	MaxVelocity = 4,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
-	TurnRate = 2500,
+	TurnRate = 2600,
 
-	sightDistance = 500,
+	sightDistance = 600,
 
 	Category = [[LAND]],
 

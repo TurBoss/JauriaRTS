@@ -11,33 +11,34 @@ local weaponDef = {
 	--damage
 	
 	damage = {
-		default = 5,
-		HeavyArmor = 0,
+		default = 3,
+		heavyarmor = 3,
+		ligtharmor = 4,
 	},
 --	areaOfEffect            = 10,
 	
 	--physics
 	
 	weaponVelocity          = 500,
-	reloadtime              = 0.2,
+	reloadtime              = 0.15,
 	range                   = 180,
 --	sprayAngle              = 45,
 	weaponaceleration       = 25,
-	tolerance               = 8000,
+	tolerance               = 10000,
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 100,
-	burst                   = 2,
-	burstrate               = 0.08,
+--	burst                   = 2,
+--	burstrate               = 0.08,
 	--proyectiles             = 2,
 	
 	--apperance
 	
 	rgbColor                = [[0 1 0.5]],
-	size                    = 3,
+	size                    = 2.5,
 	stages                  = 5,
 	intensity               = 0.6,
-	separation              = 1,
+	separation              = 0.8,
 	
 	--sounds
 	
