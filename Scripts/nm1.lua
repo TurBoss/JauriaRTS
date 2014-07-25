@@ -466,7 +466,7 @@ function script.AimWeapon1( heading, pitch )
 	--make sure the aiming animation is only run once
 	Signal(SIG_AIM)
 	SetSignalMask(SIG_AIM)
-	Turn(torre_der, z_axis, heading, math.rad(225))
+	Turn(torre_der, z_axis, heading, math.rad(350))
 	--wait until the weapon is pointed in the right direction
 	WaitForTurn (torre_der, z_axis)
 	return true
@@ -476,7 +476,7 @@ function script.AimWeapon2( heading, pitch )
 	--make sure the aiming animation is only run once
 	Signal(SIG_AIM2)
 	SetSignalMask(SIG_AIM2)
-	Turn(torre_izq, z_axis, heading, math.rad(225))
+	Turn(torre_izq, z_axis, heading, math.rad(350))
 	--wait until the weapon is pointed in the right direction
 	WaitForTurn (torre_izq, z_axis)
 	return true
