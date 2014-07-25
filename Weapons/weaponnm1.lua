@@ -36,9 +36,9 @@ local weaponDef = {
 	
 	rgbColor                = [[0 1 0.5]],
 	size                    = 2.5,
-	stages                  = 5,
-	intensity               = 0.6,
-	separation              = 0.8,
+	stages                  = 4,
+	intensity               = 1.5,
+	separation              = 1,
 	
 	--sounds
 	
