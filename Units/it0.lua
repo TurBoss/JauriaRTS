@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Simple, mobile unit",
 	objectName = "it0.dae",
 	script = "it0.lua",
-	buildPic = "placeholder.png",
+	buildPic = "it0.png",
 
 	--cost
 
@@ -22,17 +22,17 @@ local unitDef = {
 
 	Acceleration = 0.1,
 	BrakeRate = 0.1,
-	FootprintX = 2,
-	FootprintZ = 2,
+	FootprintX = 1,
+	FootprintZ = 1,
 	--MaxSlope = 12,
 
 	MaxVelocity = 1.5
 	,
 	MaxWaterDepth = 20,
-	MovementClass = "Spider2x2",
+	MovementClass = "Spider1x1",
 	TurnRate = 3200,
 
-	sightDistance = 800,
+	sightDistance = 650,
 
 	Category = [[LAND]],
 
