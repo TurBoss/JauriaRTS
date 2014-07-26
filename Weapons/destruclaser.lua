@@ -9,7 +9,7 @@ local weaponDef = {
 	--damage
 	
 	damage = {
-		default = 50,
+		default = 8,
 	},
 	areaOfEffect            = 0,
 	
@@ -21,7 +21,7 @@ local weaponDef = {
 	largeBeamLaser			= true,
 	weaponVelocity          = 300,
 	reloadtime              = 0.2,
-	range                   = 250,
+	range                   = 300,
 	sprayAngle              = 300,
 	tolerance               = 8000,
 	lineOfSight             = true,

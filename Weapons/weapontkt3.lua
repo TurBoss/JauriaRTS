@@ -46,7 +46,7 @@ local weaponDef={
 	
 	damage={
 		default=600,
-		heavyarmor = 500,
+		heavyarmor = 550,
 		ligtharmor = 600,
 	},
 	areaOfEffect=150,

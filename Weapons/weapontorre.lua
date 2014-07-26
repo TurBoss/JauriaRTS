@@ -11,8 +11,9 @@ local weaponDef = {
 	--damage
 	
 	damage = {
-		default = 100,
-		heavyarmor = 130,
+		default = 300,
+		heavyarmor = 150,
+		ligtharmor = 300,
 	},
 	areaOfEffect            = 30,
 	
@@ -29,7 +30,7 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor                = [[1 0 0]],
+	rgbColor                = [[0 0.1 1]],
 	size                    = 8,
 	stages                  = 8,
 	separation              = 1.5,
