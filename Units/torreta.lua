@@ -25,7 +25,7 @@ local unitDef = {
 	
 	maxSlope = 20,
 
-	sightDistance = 700,
+	sightDistance = 500,
 
 	CanAttack = true,
 	CanGuard = true,
