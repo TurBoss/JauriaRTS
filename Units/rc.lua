@@ -9,28 +9,29 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 300,
+	buildCostMetal = 500,
 	buildCostEnergy = 0,
 	buildTime = 20,
 
 	--Health
 
-	maxDamage = 150,
+	maxDamage = 2000,
 	idleAutoHeal = 5,
 
 	--Movement
 
-	Acceleration = 0.1,
-	BrakeRate = 0.1,
+	mass=1800,
+	Acceleration =0.8,
+	BrakeRate = 0.5,
 	FootprintX = 3,
 	FootprintZ = 3,
 
 	MaxVelocity = 1.5,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
-	TurnRate = 3200,
+	TurnRate = 1000,
 
-	sightDistance = 650,
+	sightDistance = 400,
 
 	Category = [[LAND]],
 
@@ -47,7 +48,7 @@ local unitDef = {
 	ShowNanoSpray = true,
 	CanBeAssisted = true,  
 	workerTime = 5,
-	buildDistance = 400,
+	buildDistance = 100,
 }
 
 return lowerkeys({ [unitName] = unitDef })
