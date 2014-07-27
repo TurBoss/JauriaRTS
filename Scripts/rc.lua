@@ -3,6 +3,7 @@ local flare = piece "flare"
 local chasis = piece "chasis"
 local boca = piece "boca"
 local cajon = piece "cajon"
+local mineral = piece "mineral"
 
 local rueda1d, rueda2d, rueda1i, rueda2i = piece ("rueda1d", "rueda2d", "rueda1i", "rueda2i")
 
@@ -23,6 +24,7 @@ function script.Killed()
 end
 
 --------BUILDING---------
+
 function script.StopBuilding()
 	Turn (boca, z_axis, 0, math.rad(100))
 end
@@ -36,7 +38,6 @@ function script.QueryNanoPiece()
      return flare
 end
 
---http://answers.springlobby.info/questions/427/howto-spinning-wheels-on-moving-units
 function script.StartMoving()
     Spin(rueda1d, x_axis, wheel_speed)
     Spin(rueda2d, x_axis, wheel_speed)

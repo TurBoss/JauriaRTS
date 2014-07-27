@@ -22,12 +22,10 @@ local unitDef = {
 
 	Acceleration = 0.1,
 	BrakeRate = 0.1,
-	FootprintX = 1,
-	FootprintZ = 1,
-	--MaxSlope = 12,
+	FootprintX = 3,
+	FootprintZ = 3,
 
-	MaxVelocity = 1.5
-	,
+	MaxVelocity = 1.5,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
 	TurnRate = 3200,
@@ -51,7 +49,6 @@ local unitDef = {
 	workerTime = 1,
 	buildDistance = 400,
 	terraformSpeed = 9001,
-
 }
 
 return lowerkeys({ [unitName] = unitDef })
