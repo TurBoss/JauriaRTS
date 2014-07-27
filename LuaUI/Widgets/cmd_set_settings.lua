@@ -15,6 +15,8 @@ function widget:Initialize()
 	
 	Spring.SendCommands("togglelos")
 	Spring.SendCommands("toggleradarandjammer")
+	
+	Spring.LoadCmdColorsConfig('move  0.5 1.0 0.5 0.0')
 end
 
 function widget:GameStart()
