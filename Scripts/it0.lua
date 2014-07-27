@@ -9,6 +9,7 @@ local pata1d = piece('pata1d');
 local pata1i = piece('pata1i');
 local pata2d = piece('pata2d');
 local pata2i = piece('pata2i');
+
 local root = piece('root');
 local rootantena= piece('rootantena');
 
@@ -200,4 +201,17 @@ end
 function script.StopMoving()
 	--Spring.Echo ("stopped walking!")
 	Signal(SIG_WALK)
+end
+
+function script.Killed()
+	Explode (chasis, SFX.SHATTER)
+	Explode (bola1d, SFX.FIRE)
+	Explode (bola2d, SFX.FIRE)
+	Explode (bola1i, SFX.FIRE)
+	Explode (bola2i, SFX.FIRE)
+	Explode (pata1d, SFX.FIRE)
+	Explode (pata2d, SFX.FIRE)
+	Explode (pata1i, SFX.FIRE)
+	Explode (pata2i, SFX.FIRE)
+	Explode (antena, SFX.FIRE)
 end
