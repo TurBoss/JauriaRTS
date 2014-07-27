@@ -46,9 +46,8 @@ local unitDef = {
 	Builder = true,
 	ShowNanoSpray = true,
 	CanBeAssisted = true,  
-	workerTime = 1,
+	workerTime = 5,
 	buildDistance = 400,
-	terraformSpeed = 9001,
 }
 
 return lowerkeys({ [unitName] = unitDef })
