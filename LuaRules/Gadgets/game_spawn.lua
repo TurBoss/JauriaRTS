@@ -74,8 +74,8 @@ local function SpawnStartUnit(teamID)
 
 	-- set start resources, either from mod options or custom team keys
 	local teamOptions = select(7, Spring.GetTeamInfo(teamID))
-	local m = teamOptions.startmetal  or modOptions.startmetal  or 5000
-	local e = teamOptions.startenergy or modOptions.startenergy or 5000
+	local m = teamOptions.startmetal  or modOptions.startmetal  or 2000
+	local e = teamOptions.startenergy or modOptions.startenergy or 10000
 	local ms = 10000
 	local es = 10000
 
