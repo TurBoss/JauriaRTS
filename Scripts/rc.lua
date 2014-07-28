@@ -10,7 +10,7 @@ local rueda1d, rueda2d, rueda1i, rueda2i = piece ("rueda1d", "rueda2d", "rueda1i
 local wheel_speed = math.rad(180)
 
 function script.Create()
-
+	Hide(mineral)
 end
 
 function script.Killed()
@@ -31,7 +31,9 @@ end
 
 function script.StartBuilding(heading, pitch)  
 	Turn (boca, z_axis, heading, math.rad(100))
+	WaitForTurn(boca, z_axis)
 	SetUnitValue(COB.INBUILDSTANCE, 1)
+	Show(mineral)
 end
 
 function script.QueryNanoPiece()
