@@ -55,6 +55,7 @@ local unitDef = {
 		"nk2",
 		"tkt3",
 		"it0",
+		"rc",
 	},
 }
 
