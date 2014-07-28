@@ -39,7 +39,7 @@ local weaponDef={
 	----TARGETING
 	
 	turret=true,
-	CylinderTargetting=true,
+	CylinderTargeting=true,
 	avoidFeature=false,
 	avoidFriendly=false,
 	

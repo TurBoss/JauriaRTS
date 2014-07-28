@@ -20,7 +20,7 @@ local unitDef = {
 
 	--Movement
 
-	mass=1500,
+	mass=4000,
 	Acceleration = 0.5,
 	BrakeRate = 3,
 	FootprintX = 3,

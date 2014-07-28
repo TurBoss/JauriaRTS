@@ -34,7 +34,7 @@ local weaponDef={
 	----TARGETING
 	
 	turret=true,
-	CylinderTargetting=true,
+	CylinderTargeting=true,
 	avoidFeature=false,
 	avoidFriendly=false,
 	
@@ -47,7 +47,7 @@ local weaponDef={
 	damage={
 		default=600,
 		heavyarmor = 550,
-		ligtharmor = 600,
+		lightarmor = 600,
 	},
 	areaOfEffect=150,
 	craterMult=0,
