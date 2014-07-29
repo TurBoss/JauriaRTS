@@ -1,4 +1,4 @@
-function widget:GetInfo()
+function gadget:GetInfo()
 	return {
 		name      = "settings",
 		desc      = "Widget to set various settings on game start",
@@ -10,14 +10,11 @@ function widget:GetInfo()
 	}
 end
 
-function widget:Initialize()
+function gadget:GamePreload()
 	Spring.SendCommands("bind f4 showmetalmap")
 	
 	Spring.SendCommands("togglelos")
 	Spring.SendCommands("toggleradarandjammer")
 	
 	Spring.LoadCmdColorsConfig('move  0.5 1.0 0.5 0.0')
-end
-
-function widget:GameStart()
 end
