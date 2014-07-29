@@ -4,15 +4,15 @@ local weaponDef={
 	name="weaponlz4",
 	weaponType=[[MissileLauncher]],
 
-	Accuracy=500,
-	movingAccuracy=1300,
+	Accuracy=100,
+	movingAccuracy=10000,
 	
 	--Physic/flight path
-	range=500,
+	range=1500,
 	reloadtime=4.2,
-	weaponVelocity=1100,
-	startVelocity=600,
-	weaponAcceleration=500,
+	weaponVelocity=600,
+	startVelocity=50,
+	weaponAcceleration=200,
 	flightTime=6,
 	BurnBlow=0,
 	FixedLauncher=false,
