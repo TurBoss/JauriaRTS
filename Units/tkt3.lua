@@ -43,8 +43,8 @@ local unitDef = {
 	LeaveTracks = false, 
 	
 	weapons = {
-	[1]={name  = "weapontkt3",
-		onlyTargetCategory = [[LAND]],
+		[1]={name  = "weapontkt3",
+			onlyTargetCategory = [[LAND]],
 		},
 	},
 

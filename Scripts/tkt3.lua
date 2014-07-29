@@ -19,9 +19,10 @@ local flare = piece "flare"
 
 local rueda1d, rueda2d, ruueda3d, rueda4d = piece ("rueda1d", "rueda2d", "rueda3d", "rueda4d")
 local rueda1i, rueda2i, ruueda3i, rueda4i = piece ("rueda1i", "rueda2i", "rueda3i", "rueda4i")
+
 local wheel_speed = math.rad(180)
 
-
+local SIG_AIM = 1
 
 function script.Create()
 	
