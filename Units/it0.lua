@@ -32,7 +32,7 @@ local unitDef = {
 	MovementClass = "Spider1x1",
 	TurnRate = 3200,
 
-	sightDistance = 650,
+	sightDistance = 600,
 
 	Category = [[LAND]],
 
