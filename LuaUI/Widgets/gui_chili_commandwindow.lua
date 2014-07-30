@@ -18,7 +18,7 @@ VFS.Include("LuaRules/Gadgets/Includes/utilities.lua")
 local DEBUG = false
 
 local MAXBUTTONSONROW = 3
-local MAXBUTTONSONROWBUILD = 6
+local MAXBUTTONSONROWBUILD = 4
 
 local COMMANDSTOEXCLUDE = {"timewait","deathwait","squadwait","gatherwait","loadonto","nextmenu","prevmenu"}
 
@@ -140,7 +140,7 @@ function createMyButton(cmd, buildid)
 			
 			if texture then
 				if DEBUG then Spring.Echo("texture",texture) end
-				button:Resize(64,64)
+				button:Resize(96,96)
 				image= Chili.Image:New {
 					width="100%";
 					height="90%";
@@ -178,8 +178,8 @@ function createMyButton(cmd, buildid)
 				name = UnitDefs[-cmd.id],
 				tooltip = tooltip,
 				parent = container,
-				x = 64 * (result-1),
-				y = 64 * (container.ystep-1),
+				x = 96 * (result-1),
+				y = 96 * (container.ystep-1),
 				padding = {5, 5, 5, 5},
 				margin = {0, 0, 0, 0},
 				minWidth = 40,
@@ -192,31 +192,48 @@ function createMyButton(cmd, buildid)
 			--countText = tostring(buildQueueUnsorted[-cmd.id])
 			if(countText == 'nil') then countText = '' end
 			local label = Chili.Label:New{
-				x = '75%',
-				y = '60%',
 				parent = button,
-				caption = countText,
-				fontsize = 13,
-				autosize = false,
-				textColor = {1,1,1,1},
+				right = 0;
+				y = 5;
+				x = 5;
+				bottom = 3;
+				autosize=false;
+				align="right";
+				valign="bottom";
+				caption = string.format("%s ", countText);
+				fontSize = 18;
+				fontShadow = true;
 			}
 			
+			local nameLabel = Chili.Label:New {
+				parent = button,
+				right = 0;
+				y = 5;
+				x = 5;
+				bottom = 3;
+				autosize=false;
+				align="left";
+				valign="top";
+				caption = string.format("%s ", UnitDefs[-cmd.id].humanName);
+				fontSize = 18;
+				fontShadow = true;
+			}
 			local costLabel = Chili.Label:New {
-					parent = button,
-					right = 0;
-					y = 0;
-					x = 3;
-					bottom = 3;
-					autosize=false;
-					align="left";
-					valign="bottom";
-					caption = string.format("%d m", UnitDefs[-cmd.id].metalCost);
-					fontSize = 11;
-					fontShadow = true;
+				parent = button,
+				right = 0;
+				y = 2;
+				x = 5;
+				bottom = 3;
+				autosize=false;
+				align="left";
+				valign="bottom";
+				caption = string.format("%d m", UnitDefs[-cmd.id].metalCost);
+				fontSize = 14;
+				fontShadow = true;
 			}
 			if texture then
 				if DEBUG then Spring.Echo("texture",texture) end
-				button:Resize(64,64)
+				button:Resize(96,96)
 				image= Chili.Image:New {
 					width="100%";
 					height="90%";
