@@ -10,9 +10,9 @@ local weaponDef={
 	--Physic/flight path
 	range=1500,
 	reloadtime=30,
-	weaponVelocity=600,
+	weaponVelocity=800,
 	startVelocity=50,
-	weaponAcceleration=200,
+	weaponAcceleration=500,
 	flightTime=6,
 	BurnBlow=0,
 	FixedLauncher=false,
