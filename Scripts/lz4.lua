@@ -34,6 +34,13 @@ function script.QueryWeapon1()
 	return flare
 end
 
+function script.BlockShot(num, targetID)
+	if targetID ~= nil then
+		return false
+	else
+		return true
+	end
+end
 --called after the weapon has fired
 function script.FireWeapon1()
 	Hide(cohete)

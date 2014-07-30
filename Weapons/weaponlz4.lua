@@ -23,7 +23,7 @@ local weaponDef={
 	tracks=false,
 	Turnrate=16000,
 	collideFriendly=true,
-	commandFire = true
+	--commandFire = true
 	----APPEARANCE
 	
 	model="cohete.dae",
