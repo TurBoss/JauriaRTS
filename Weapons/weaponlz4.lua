@@ -49,7 +49,7 @@ local weaponDef={
 		heavyarmor = 2000,
 		lightarmor = 1800,
 	},
-	areaOfEffect=300,
+	areaOfEffect=330,
 	craterMult=0,
 	--?FIXME***
 	
