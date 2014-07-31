@@ -248,13 +248,3 @@ function quit()
 	end
 	Spring.SendLuaRulesMsg('quit' .. team)
 end
-
-function widget:GamePaused()
-	local _, _, pause = spGetGameSpeed()
-	
-	if not pause then
-		DestroyWindow()
-	elseif pause then
-		CreateWindow()
-	end
-end
