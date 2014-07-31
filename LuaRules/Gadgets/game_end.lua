@@ -265,3 +265,17 @@ end
 function gadget:UnitTaken(unitID, unitDefID, unitTeamID)
 	gadget:UnitDestroyed(unitID, unitDefID, unitTeamID)
 end
+	
+function gadget:RecvLuaMsg(msg)
+	local team = {}
+	if (msg:sub(1,4) == 'quit') then
+		team[0]  = msg:sub(5)
+		GameOver(team)
+		Spring.SendLuaUIMsg("gameover" .. team[0])
+		Spring.SendCommands("quit")
+	elseif (msg:sub(1,6) == 'resign') then
+		team[0] = msg:sub(7)
+		GameOver(team)
+		Spring.SendLuaUIMsg("gameover" .. team[0])
+	end
+end
