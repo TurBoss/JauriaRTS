@@ -24,7 +24,7 @@ end
 	
 function CreateUnitAtLocation(unitX,unitY,unitz,playerID)
 	local _,_,_,teamID = Spring.GetPlayerInfo(playerID)
-	--if spIsCheatingEnabled() and unitsByPlayerID[playerID] ~= nil then
+	if spIsCheatingEnabled() and unitsByPlayerID[playerID] ~= nil then
 		local unitDefId			= unitsByPlayerID[playerID]
 		local unitName			= UnitDefs[unitDefId].name
 		local unitSpawnTable	= {}
@@ -37,10 +37,10 @@ function CreateUnitAtLocation(unitX,unitY,unitz,playerID)
 
 		table.insert(unitsToBeCreated, #unitsToBeCreated+1, unitSpawnTable)
 		unitsByPlayerID[playerID]	= nil
-	--elseif unitsByPlayerID[playerID] ~= nil then
-	--	spEcho("you cannot use this ui without enabling cheat mode")
-	--	unitsByPlayerID[playerID]	= nil
-	--end
+	elseif unitsByPlayerID[playerID] ~= nil then
+		spEcho("you cannot use this ui without enabling cheat mode")
+		unitsByPlayerID[playerID]	= nil
+	end
 end
 	
 function gadget:RecvLuaMsg(msg, playerID)
