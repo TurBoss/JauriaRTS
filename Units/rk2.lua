@@ -1,11 +1,11 @@
-local unitName = "nk2"
+local unitName = "rk2"
 
 local unitDef = {
-	name = "NK-2",
+	name = "RK-2",
 	Description = "Complex, mobile unit.",
-	objectName = "nk2.dae",
-	script = "nk2.lua",
-	buildPic = "nk2.png",
+	objectName = "rk2.dae",
+	script = "rk2.lua",
+	buildPic = "placehorlder.png",
 
 	--cost
 
@@ -44,11 +44,7 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "weaponnk2",
-			onlyTargetCategory = [[LAND]],
-		},
-		[2]={name  = "weaponnk2",
-			slaveTo = 1,
+		[1]={name  = "weaponrk2",
 			onlyTargetCategory = [[LAND]],
 		},
 	},

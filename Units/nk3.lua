@@ -1,35 +1,35 @@
-local unitName = "lz4"
+local unitName = "nk3"
 
 local unitDef = {
-	name = "LZ-4",
-	Description = "Misile Launcher.",
-	objectName = "lz4.dae",
-	script = "lz4.lua",
-	buildPic = "lz4.png",
+	name = "NK-3",
+	Description = "Complex, mobile unit.",
+	objectName = "nk3.dae",
+	script = "nk3.lua",
+	buildPic = "nk3.png",
 
 	--cost
 
-	buildCostMetal = 2000,
+	buildCostMetal = 230,
 	buildCostEnergy = 0,
-	buildTime = 40,
+	buildTime = 22,
 
 	--Health
 
-	maxDamage = 3000,
+	maxDamage = 1400,
 	idleAutoHeal = 5,
 
 	--Movement
 
 	mass=1500,
-	Acceleration = 0.2,
-	BrakeRate = 0.2,
+	Acceleration = 1,
+	BrakeRate = 1,
 	FootprintX = 3,
 	FootprintZ = 3,
 	MaxSlope = 12,
-	MaxVelocity = 1.5,
+	MaxVelocity = 3.5,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
-	TurnRate = 500,
+	TurnRate = 1300,
 
 	sightDistance = 400,
 
@@ -44,7 +44,11 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "weaponlz4",
+		[1]={name  = "weaponnk3",
+			onlyTargetCategory = [[LAND]],
+		},
+		[2]={name  = "weaponnk3",
+			slaveTo = 1,
 			onlyTargetCategory = [[LAND]],
 		},
 	},

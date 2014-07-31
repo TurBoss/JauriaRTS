@@ -1,7 +1,7 @@
-local weaponName="weapontkt3"
+local weaponName="weapontkt4"
 
 local weaponDef={
-	name="weapontkt3",
+	name="weapontkt4",
 	weaponType=[[MissileLauncher]],
 
 	Accuracy=500,

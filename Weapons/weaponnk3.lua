@@ -1,9 +1,9 @@
 
-local weaponName = "weaponnk2"
+local weaponName = "weaponnk3"
 
 local weaponDef = {
 	
-	name                    = "metralletaNK-2",
+	name                    = "misilNK-3",
 	weaponType              = "Cannon",
 	
 	Accuracy=600,
@@ -28,7 +28,7 @@ local weaponDef = {
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 100,
-	highTrajectory          = 0,
+	highTrajectory          = 0.5,
 --	burst                   = 2,
 --	burstrate               = 1.5,
 	--proyectiles             = 2,

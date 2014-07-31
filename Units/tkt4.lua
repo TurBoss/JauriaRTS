@@ -1,12 +1,12 @@
-local unitName = "tkt3"
+local unitName = "tkt4"
 
 local unitDef = {
 
-	name = "TKT-3",
+	name = "TKT-4",
 	Description = "heavy tank",
-	objectName = "tkt3.dae",
-	script = "tkt3.lua",
-	buildPic = "tkt3.png",
+	objectName = "tkt4.dae",
+	script = "tkt4.lua",
+	buildPic = "tkt4.png",
 
 	--cost
 
@@ -43,7 +43,7 @@ local unitDef = {
 	LeaveTracks = false, 
 	
 	weapons = {
-		[1]={name  = "weapontkt3",
+		[1]={name  = "weapontkt4",
 			onlyTargetCategory = [[LAND]],
 		},
 	},

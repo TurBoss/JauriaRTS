@@ -17,9 +17,6 @@ local rueda4i = piece "rueda4i"
 local canon = piece "canon"
 local flare = piece "flare"
 
-local rueda1d, rueda2d, ruueda3d, rueda4d = piece ("rueda1d", "rueda2d", "rueda3d", "rueda4d")
-local rueda1i, rueda2i, ruueda3i, rueda4i = piece ("rueda1i", "rueda2i", "rueda3i", "rueda4i")
-
 local wheel_speed = math.rad(180)
 
 local SIG_AIM = 1
@@ -45,11 +42,10 @@ function script.AimWeapon1( heading, pitch )
 	SetSignalMask(SIG_AIM)
 	
 	Turn(canon, z_axis, heading, math.rad(80))
-	--Turn(canyon, z_axis, -pitch, math.rad(90))
 	
 	--wait until the weapon is pointed in the right direction
 	WaitForTurn (canon, z_axis)
-	--WaitForTurn (canyon, x_axis)
+
 	
 	return true
 end
@@ -84,8 +80,7 @@ end
 
 ----death animation: fall over & explode
 function script.Killed(recentDamage, maxHealth)
-	--Turn (root, x_axis, math.rad(90),math.rad(150))
-	--WaitForTurn (root, x_axis)	
+
 	Explode (chasis, SFX.SHATTER)	
 	Explode (canon, SFX.FIRE)
 	Explode (rueda1i, SFX.FIRE)
