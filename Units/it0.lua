@@ -15,18 +15,18 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 150,
+	maxDamage = 500,
 	idleAutoHeal = 5,
 
 	--Movement
 
-	Acceleration = 0.1,
-	BrakeRate = 0.1,
+	Acceleration = 0.5,
+	BrakeRate = 0.5,
 	FootprintX = 1,
 	FootprintZ = 1,
 	--MaxSlope = 12,
 
-	MaxVelocity = 1.5
+	MaxVelocity = 2.5
 	,
 	MaxWaterDepth = 20,
 	MovementClass = "Spider1x1",
