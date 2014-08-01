@@ -13,7 +13,7 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 250,
+		default = 300,
 		heavyarmor = 250,
 		lightarmor = 400,
 	},

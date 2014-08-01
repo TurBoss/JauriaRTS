@@ -5,7 +5,7 @@ local weaponDef={
 	weaponType=[[MissileLauncher]],
 
 	Accuracy=500,
-	movingAccuracy=1300,
+	movingAccuracy=800,
 	
 	--Physic/flight path
 	range=480,
