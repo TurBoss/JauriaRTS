@@ -135,7 +135,7 @@ function createMyButton(cmd, buildid)
 				caption = buttontext,
 				isDisabled = false,
 				cmdid = cmd.id,
-				OnMouseDown = {ClickFunc},
+				OnClick = {ClickFunc},
 			}
 			
 			if texture then
@@ -187,7 +187,7 @@ function createMyButton(cmd, buildid)
 				caption = buttontext,
 				isDisabled = false,
 				cmdid = cmd.id,
-				OnMouseDown = {ClickFunc},
+				OnClick = {ClickFunc},
 			}
 			--countText = tostring(buildQueueUnsorted[-cmd.id])
 			if(countText == 'nil') then countText = '' end

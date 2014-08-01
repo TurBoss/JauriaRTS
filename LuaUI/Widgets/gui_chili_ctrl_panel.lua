@@ -68,7 +68,7 @@ function CreateWindow()
 				width				= 80;
 				height				= 40;
 				fontsize			= 14;
-				OnMouseUp = {
+				OnClick = {
 					function()
 						if resignWindow == nil then
 							CreateResignWindow()
@@ -85,7 +85,7 @@ function CreateWindow()
 				width				= 80;
 				height				= 40;
 				fontsize			= 14;
-				OnMouseUp = {
+				OnClick = {
 					function()
 						if exitWindow == nil then
 							CreateExitWindow()
@@ -133,7 +133,7 @@ function CreateResignWindow()
 				width				= 80;
 				height				= 40;
 				fontsize			= 14;
-				OnMouseUp = {
+				OnClick = {
 					function()
 						resign()
 					end
@@ -148,7 +148,7 @@ function CreateResignWindow()
 				width				= 80;
 				height				= 40;
 				fontsize			= 14;
-				OnMouseUp = {
+				OnClick = {
 					function()
 						DestroyResignWindow()
 					end
@@ -193,7 +193,7 @@ function CreateExitWindow()
 				width				= 80;
 				height				= 40;
 				fontsize			= 14;
-				OnMouseUp = {
+				OnClick = {
 					function()
 						quit()
 					end
@@ -208,7 +208,7 @@ function CreateExitWindow()
 				width				= 80;
 				height				= 40;
 				fontsize			= 14;
-				OnMouseUp = {
+				OnClick = {
 					function()
 						DestroyExitWindow()
 					end

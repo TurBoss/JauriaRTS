@@ -10,7 +10,7 @@ local Sounds = {
 		},
 		MultiSelect = {
 			file = "sounds/multiselect.wav",
-			 rolloff = 0.1, 
+			rolloff = 0.1, 
 			maxdist = 10000,
 			priority = 100, --- higher numbers = less chance of cutoff
 			maxconcurrent = 1, ---how many maximum can we hear?
@@ -24,13 +24,13 @@ local Sounds = {
 		},
 		--- END RESERVED
 
---WEAPONS
+		--WEAPONS
 
 		disparo_gfx = { 
-            file = "sounds/8bit_gunloop_explosion.wav", 
-			rolloff=3, dopplerscale = 0, maxdist = 6000,
-
-
+			file = "sounds/8bit_gunloop_explosion.wav", 
+			rolloff=3,
+			dopplerscale = 0,
+			maxdist = 6000,
 			priority = 10, --- higher numbers = less chance of cutoff
 			maxconcurrent = 2, ---how many maximum can we hear?
 		},
