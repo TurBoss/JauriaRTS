@@ -103,8 +103,8 @@ function CreateResignWindow()
 	local screen0 = Chili.Screen0
 	
 	resignWindow = Chili.Window:New{
-		x = 0,
-		y = 0,
+		x = '40%',
+		y = '40%',
 		align="center";
 		valign="center";
 		dockable = true,
@@ -163,12 +163,11 @@ function CreateExitWindow()
 	local screen0 = Chili.Screen0
 	
 	exitWindow = Chili.Window:New{
-		x = 0,
-		y = 0,
+		x = '40%',
+		y = '40%',
 		align="center";
 		valign="center";
-		dockable = false
-		,
+		dockable = false,
 		parent = screen0,
 		caption = '',
 		draggable = false,

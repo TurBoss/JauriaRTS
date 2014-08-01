@@ -43,7 +43,7 @@ function CreateWindow()
 	
 	pauseWindow = Chili.Window:New{
 		x = '40%',
-		y = '40%',	
+		y = '40%',
 		dockable = true,
 		parent = screen0,
 		caption = '',

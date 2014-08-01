@@ -51,13 +51,13 @@ local unitDef = {
 	workerTime = 1,
 	
 	buildoptions = {
-		"nm1",
-		"nk2",
-		"tkt3",
-		"it0",
 		"rc",
-		"lz4",
+		"it0",
+		"nm1",
 		"rk2",
+		"nk3",
+		"tkt4",
+		"lz5",
 	},
 }
 

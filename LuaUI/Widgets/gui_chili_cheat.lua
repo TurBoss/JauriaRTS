@@ -74,7 +74,7 @@ function widget:Initialize()
 		backgroundColor = {1, 1, 1, 1},		
 		caption = "Cheats",
 		tooltip = "Toogle Cheats";
-		OnMouseDown = {function()
+		OnClick = {function()
 			sendCmd ("cheat")
 			end}
 	}
@@ -90,7 +90,7 @@ function widget:Initialize()
 		backgroundColor = {1, 1, 1, 1},		
 		caption = "LuaRules",
 		tooltip = "reload luarules";
-		OnMouseDown = {function()
+		OnClick = {function()
 			sendCmd ("luarules reload")
 			end}
 	}
@@ -106,7 +106,7 @@ function widget:Initialize()
 		backgroundColor = {1, 1, 1, 1},		
 		caption = "Los",
 		tooltip = "toogle globallos";
-		OnMouseDown = {function()
+		OnClick = {function()
 			sendCmd ("globallos")
 			end}
 	}
@@ -122,7 +122,7 @@ function widget:Initialize()
 		backgroundColor = {1, 1, 1, 1},		
 		caption = "Team 0",
 		tooltip = "join team 0";
-		OnMouseDown = {function()
+		OnClick = {function()
 			sendCmd ("team 0")
 			end}
 	}
@@ -138,7 +138,7 @@ function widget:Initialize()
 		backgroundColor = {1, 1, 1, 1},		
 		caption = "Team 1",
 		tooltip = "join team 1";
-		OnMouseDown = {function()
+		OnClick = {function()
 			sendCmd ("team 1")
 			end}
 	}
@@ -154,7 +154,7 @@ function widget:Initialize()
 		backgroundColor = {1, 1, 1, 1},		
 		caption = "GodMode",
 		tooltip = "Toogle god mode";
-		OnMouseDown = {function()
+		OnClick = {function()
 			sendCmd ("godmode")
 			end}
 	}
@@ -170,7 +170,7 @@ function widget:Initialize()
 		backgroundColor = {1, 1, 1, 1},		
 		caption="No Cost",
 		tooltip = "free 4 all";
-		OnMouseDown = {function()
+		OnClick = {function()
 			sendCmd ("nocost")
 			end}
 	}
@@ -186,7 +186,7 @@ function widget:Initialize()
 		backgroundColor = {1, 1, 1, 1},		
 		caption="Destroy",
 		tooltip = "Destroy units";
-		OnMouseDown = {function()
+		OnClick = {function()
 			sendCmd ("destroy")
 			end}
 	}
@@ -202,7 +202,7 @@ function widget:Initialize()
 		backgroundColor = {1, 1, 1, 1},		
 		caption="Start",
 		tooltip = "Start game";
-		OnMouseDown = {function()
+		OnClick = {function()
 			sendCmd ("forcestart")
 			end}
 	}
@@ -218,7 +218,7 @@ function widget:Initialize()
 		backgroundColor = {1, 1, 1, 1},		
 		caption="Pause",
 		tooltip = "Pause the game";
-		OnMouseDown = {function()
+		OnClick = {function()
 			sendCmd ("pause")
 			end}
 	}
@@ -234,7 +234,7 @@ function widget:Initialize()
 		backgroundColor = {1, 1, 1, 1},		
 		caption="ATM",
 		tooltip = "Give 1000";
-		OnMouseDown = {function()
+		OnClick = {function()
 			sendCmd ("atm")
 			end}
 	}
@@ -250,7 +250,7 @@ function widget:Initialize()
 		backgroundColor = {1, 1, 1, 1},		
 		caption="ColVol",
 		tooltip = "Collision and Volume";
-		OnMouseDown = {function()
+		OnClick = {function()
 			sendCmd ("debugcolvol")
 			end}
 	}
@@ -266,7 +266,7 @@ function widget:Initialize()
 		backgroundColor = {1, 1, 1, 1},		
 		caption="Quit",
 		tooltip = "Quit the game";
-		OnMouseDown = {function()
+		OnClick = {function()
 			sendCmd ("quit")
 			end}
 	}
