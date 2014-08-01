@@ -6,8 +6,8 @@ local weaponDef = {
 	name                    = "misilNK-3",
 	weaponType              = "Cannon",
 	
-	Accuracy=600,
-	movingAccuracy=800,
+	Accuracy=400,
+	movingAccuracy=500,
 	--damage
 	
 	avoidFeature = false,

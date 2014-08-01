@@ -13,7 +13,7 @@ local unitDef = {
 	-- Unit limitations and properties
 	
 	Description = "a simple factory that builds mobile units",
-	MaxDamage = 10000,
+	MaxDamage = 15000,
 	Name = "Fabrica",
 	RadarDistance = 0,
 	SightDistance = 500,
