@@ -9,6 +9,7 @@ local armorDefs = {
 		"nm1",
 		"it0",
 		"rc",
+		"rk2",
 	},
 }
 

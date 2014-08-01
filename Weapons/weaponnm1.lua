@@ -8,19 +8,22 @@ local weaponDef = {
 	
 	Accuracy=100,
 	movingAccuracy=200,
+	
 	--damage
 	
+	avoidFeature = false,
+	
 	damage = {
-		default = 5.5,
-		heavyarmor = 5.2,
-		lightarmor = 5.5,
+		default = 4,
+		heavyarmor = 1,
+		lightarmor = 6.5,
 	},
 --	areaOfEffect            = 10,
 	
 	--physics
 	
 	weaponVelocity          = 500,
-	reloadtime              = 0.15,
+	reloadtime              = 0.2,
 	range                   = 220,
 --	sprayAngle              = 45,
 	weaponaceleration       = 25,

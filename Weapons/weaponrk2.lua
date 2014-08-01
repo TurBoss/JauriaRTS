@@ -10,27 +10,29 @@ local weaponDef = {
 	movingAccuracy=800,
 	--damage
 	
+	avoidFeature = false,
+	
 	damage = {
-		default = 120,
-		heavyarmor = 120,
-		lightarmor = 80,
+		default = 200,
+		heavyarmor = 600,
+		lightarmor = 200,
 	},
 	--areaOfEffect            = 30,
 	
 	--physics
 	
-	weaponVelocity          = 260,
-	reloadtime              = 1.2,
-	range                   = 360,
---	sprayAngle              = 45,
+	weaponVelocity          = 350,
+	reloadtime              = 2,
+	range                   = 320,
+	--sprayAngle              = 45,
 	weaponaceleration       = 120,
 	tolerance               = 8000,
 	lineOfSight             = true,
 	turret                  = true,
-	craterMult              = 100,
+	--craterMult              = 100,
 	highTrajectory          = 0.5,
---	burst                   = 2,
---	burstrate               = 1.5,
+	--burst                   = 2,
+	--burstrate               = 1.5,
 	--proyectiles             = 2,
 	
 	--apperance

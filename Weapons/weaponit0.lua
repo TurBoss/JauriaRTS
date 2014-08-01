@@ -10,10 +10,11 @@ local weaponDef = {
 	movingAccuracy=200,
 	--damage
 	
+	paralyzer = true,
+	paralyzeTime = 3,
+	
 	damage = {
-		default = 5.5,
-		heavyarmor = 5.2,
-		lightarmor = 5.5,
+		default = 600,
 	},
 --	areaOfEffect            = 10,
 	
