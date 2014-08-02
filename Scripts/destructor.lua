@@ -159,7 +159,7 @@ end
 
 ----death animation
 function script.Killed(recentDamage, maxHealth) 
-	Spring.PlaySoundFile("sounds/wsight.ogg")
+	--Spring.PlaySoundFile("sounds/wsight.ogg")
 	Explode (bola, SFX.SHATTER)
 	Explode (pipas_der, SFX.FIRE)
 	Explode (pipas_izq, SFX.FIRE)
