@@ -9,8 +9,11 @@ local rueda1d, rueda2d, rueda1i, rueda2i = piece ("rueda1d", "rueda2d", "rueda1i
 
 local wheel_speed = math.rad(180)
 
+local smokecloud = SFX.CEG   --the first effect from the list in the unitdef
+
 function script.Create()
 	Hide(mineral)
+	EmitSfx(boca, smokecloud)   --emit the first effect
 end
 
 function script.Killed()
