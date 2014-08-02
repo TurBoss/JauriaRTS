@@ -45,7 +45,7 @@ local unitDef = {
 
 	weapons = {
 		[1]={name  = "weaponrk2",
-			onlyTargetCategory = [[LAND]],
+			onlyTargetCategory = [[LAND AIR]],
 		},
 	},
 }

@@ -33,7 +33,7 @@ local unitDef = {
 
 	sightDistance = 400,
 
-	Category = [[LAND]],
+	Category = [[LAND AIR]],
 
 	CanAttack = true,
 	CanGuard = true,
