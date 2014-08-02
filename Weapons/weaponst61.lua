@@ -4,13 +4,14 @@ local weaponName = "weaponst61"
 local weaponDef = {
 	
 	name                    = "laser ST-6",
-	weaponType              = [[Cannon]],
+	weaponType              = "Cannon",
 	
 	Accuracy=100,
 	movingAccuracy=200,
 	
 	--damage
 	
+	noSelfDamage = true,
 	avoidFeature = false,
 	
 	damage = {
@@ -25,14 +26,14 @@ local weaponDef = {
 	weaponVelocity          = 500,
 	reloadtime              = 0.1,
 	range                   = 450,
---	sprayAngle              = 45,
+	--sprayAngle              = 45,
 	weaponaceleration       = 25,
 	tolerance               = 10000,
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 0,
---	burst                   = 2,
---	burstrate               = 0.08,
+	--burst                   = 2,
+	--burstrate               = 0.08,
 	--proyectiles             = 2,
 	
 	--apperance

@@ -8,8 +8,10 @@ local weaponDef = {
 	
 	Accuracy=150,
 	movingAccuracy=200,
+	
 	--damage
 	
+	noSelfDamage = true,
 	avoidFeature = false,
 	
 	damage = {

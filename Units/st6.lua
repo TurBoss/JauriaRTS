@@ -62,16 +62,16 @@ unitDef = {
 
 
 	weapons = {
-		[1]={name  = "weaponst61",
+		[1]={name  = "weaponst62",
 			onlyTargetCategory = [[LAND AIR]],
 		},
-		[2]={name  = "weaponst62",
+		[2]={name  = "weaponst61",
 			onlyTargetCategory = [[LAND AIR]],
 			slaveTo = 1,
 			maxAngleDif = 220,
 			mainDir = [[1 0 0]],
 		},
-		[3]={name  = "weaponst62",
+		[3]={name  = "weaponst61",
 			onlyTargetCategory = [[LAND AIR]],
 			slaveTo = 1,
 			maxAngleDif = 220,
