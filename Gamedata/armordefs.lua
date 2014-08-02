@@ -3,6 +3,7 @@ local armorDefs = {
 		"tkt3",
 		"nk2",
 		"torreta",
+		"st6",
 	},
 	lightarmor = {
 		"nm1",
