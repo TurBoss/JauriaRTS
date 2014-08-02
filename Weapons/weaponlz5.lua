@@ -8,7 +8,7 @@ local weaponDef={
 	movingAccuracy=50,
 	
 	--Physic/flight path
-	range=1500,
+	range=1200,
 	reloadtime=30,
 	weaponVelocity=500,
 	startVelocity=300,
