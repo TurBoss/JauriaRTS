@@ -13,11 +13,11 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 150,
-		heavyarmor = 300,
-		lightarmor = 100,
+		default = 250,
+		heavyarmor = 400,
+		lightarmor = 250,
 	},
-	areaOfEffect            = 50,
+	areaOfEffect            = 80,
 	
 	--physics
 	

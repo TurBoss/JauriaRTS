@@ -17,10 +17,11 @@ unitDef = {
 	
 	buildCostEnergy     = 0,
 	buildCostMetal      = 3000,
+	buildTime = 60,
 	
 	----health
 	
-	maxDamage           = 4500,
+	maxDamage           = 6000,
 	idleAutoHeal        = 5,
 	
 	----movement
