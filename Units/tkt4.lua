@@ -12,11 +12,11 @@ local unitDef = {
 
 	buildCostMetal = 1000,
 	buildCostEnergy = 0,
-	buildTime = 30,
+	buildTime = 25,
 
 	--Health
 
-	maxDamage = 4000,
+	maxDamage = 5000,
 	idleAutoHeal = 15,
 
 	--Movement
