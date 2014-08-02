@@ -1,40 +1,52 @@
---http://springrts.com/wiki/Weapon_Variables#Cannon_.28Plasma.29_Visuals
+
 local weaponName = "weaponst62"
 
 local weaponDef = {
-
-	name                    = "weaponst62",
-	weaponType              = "BeamLaser",
 	
+	name                    = "Cañon ST-6",
+	weaponType              = "Cannon",
+	
+	Accuracy=150,
+	movingAccuracy=200,
 	--damage
 	
+	avoidFeature = false,
+	
 	damage = {
-		default = 10,
-		HeavyArmor = 1,
+		default = 150,
+		heavyarmor = 300,
+		lightarmor = 100,
 	},
-	areaOfEffect            = 0,
+	areaOfEffect            = 50,
 	
 	--physics
 	
-	beamTime				= 0.1,
-	beqamTTL				= 100,
-	laserFlareSize			= 10,
-	largeBeamLaser			= true,
-	weaponVelocity          = 500,
-	reloadtime              = 0.2,
-	range                   = 350,
-	sprayAngle              = 300,
+	weaponVelocity          = 350,
+	reloadtime              = 1,
+	range                   = 450,
+	--sprayAngle              = 45,
+	weaponaceleration       = 120,
 	tolerance               = 8000,
 	lineOfSight             = true,
 	turret                  = true,
-	craterMult              = 0,
+	craterMult              = 0.0,
+	highTrajectory          = 0.5,
+	--burst                   = 2,
+	--burstrate               = 1.5,
+	--proyectiles             = 2,
 	
 	--apperance
 	
-	rgbColor                = [[1 0.95 0.4]],
-	size                    = 4,
-	stages                  = 20,
+	rgbColor                = [[1 0.5 0]],
+	size                    = 6,
+	stages                  = 6,
+	intensity               = 5,
 	separation              = 1,
+	
+	--sounds
+	
+	soundStart              = "disparo_gfx",
+	
+	collideFriendly=true,
 }
-
 return lowerkeys({[weaponName] = weaponDef})

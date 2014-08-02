@@ -38,7 +38,7 @@ local unitDef = {
 
 	weapons = {
 	[1]={name  = "weapontorre",
-		onlyTargetCategory = [[LAND]],
+		onlyTargetCategory = [[LAND AIR]],
 		},
 	},
 
