@@ -37,7 +37,7 @@ local unitDef = {
 	MetalMake = 0,
 
 	weapons = {
-	[1]={name  = "weapontorre",
+	[1]={name  = "weaponit0",--"weapontorre",
 		onlyTargetCategory = [[LAND AIR]],
 		},
 	},
