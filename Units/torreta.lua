@@ -20,8 +20,8 @@ local unitDef = {
 
 	--Movement
 	
-	FootprintX = 4,
-	FootprintZ = 4,
+	FootprintX = 8,
+	FootprintZ = 8,
 	
 	maxSlope = 20,
 
@@ -37,7 +37,7 @@ local unitDef = {
 	MetalMake = 0,
 
 	weapons = {
-	[1]={name  = "weaponit0",--"weapontorre",
+	[1]={name  = "weapontorreta",
 		onlyTargetCategory = [[LAND AIR]],
 		},
 	},

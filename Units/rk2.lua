@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Complex, mobile unit.",
 	objectName = "rk2.dae",
 	script = "rk2.lua",
-	buildPic = "placehorlder.png",
+	buildPic = "placeholder.png",
 	iconType = "rk2",
 
 	--cost
