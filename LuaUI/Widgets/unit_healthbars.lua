@@ -41,7 +41,7 @@ local titlesAlpha   = 0.3*barAlpha
 
 local drawFullHealthBars = false
 
-local drawFeatureHealth  = false
+local drawFeatureHealth  = true
 local featureTitlesAlpha = featureBarAlpha * titlesAlpha/barAlpha
 local featureHpThreshold = 0.85
 
