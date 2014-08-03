@@ -6,6 +6,7 @@ local unitDef = {
 	objectName = "rk2.dae",
 	script = "rk2.lua",
 	buildPic = "placehorlder.png",
+	iconType = "rk2",
 
 	--cost
 
