@@ -48,7 +48,7 @@ local unitDef = {
 	CanBeAssisted = true,  
 	workerTime = 0.1,
 	repairSpeed = 0.05,
-	reclaimSpeed = 50,
+	reclaimSpeed = 150,
 	buildDistance = 180,
 }
 
