@@ -14,7 +14,7 @@ local weaponDef = {
 	
 	damage = {
 		default = 200,
-		heavyarmor = 600,
+		heavyarmor = 400,
 		lightarmor = 200,
 	},
 	--areaOfEffect            = 30,
@@ -22,7 +22,7 @@ local weaponDef = {
 	--physics
 	
 	weaponVelocity          = 350,
-	reloadtime              = 2,
+	reloadtime              = 1,
 	range                   = 320,
 	--sprayAngle              = 45,
 	weaponaceleration       = 120,
@@ -38,7 +38,7 @@ local weaponDef = {
 	--apperance
 	
 	rgbColor                = [[0.5 0 0]],
-	size                    = 4.5,
+	size                    = 4,
 	stages                  = 5,
 	intensity               = 1,
 	separation              = 0,
