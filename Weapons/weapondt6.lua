@@ -23,7 +23,7 @@ local weaponDef = {
 	--physics
 	
 	weaponVelocity          = 700,
-	reloadtime              = 0.8,
+	reloadtime              = 0.5,
 	range                   = 500,
 --	sprayAngle              = 45,
 	weaponaceleration       = 80,
@@ -37,11 +37,11 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor                = [[1 0 0.2]],
+	rgbColor                = [[1 0 0.1]],
 	size                    = 8,
 	stages                  = 8,
 	intensity               = 10,
-	separation              = 1.5,
+	separation              = 1.6,
 	
 	--sounds
 	
