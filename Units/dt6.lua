@@ -55,6 +55,18 @@ local unitDef = {
 			--maxAngleDif = 15,
 			--mainDir = [[0 0 1]],
 		},
+		[3]={name  = "weapondt62",
+			onlyTargetCategory = [[LAND]],
+			slaveTo = 1,
+			--maxAngleDif = 15,
+			--mainDir = [[0 0 1]],
+		},
+		[4]={name  = "weapondt62",
+			onlyTargetCategory = [[LAND]],
+			slaveTo = 1,
+			--maxAngleDif = 15,
+			--mainDir = [[0 0 1]],
+		},
 	},
 }
 

@@ -10,7 +10,6 @@ local pied = piece('pied');
 local piei = piece('piei');
 local piernad = piece('piernad');
 local piernai = piece('piernai');
-local Point = piece('Point');
 local rodillad = piece('rodillad');
 local rodillai = piece('rodillai');
 local root = piece('root');
@@ -103,7 +102,7 @@ end
 
 function script.StartMoving(heading)
 	--~ StartThread (caminapalante)
-	--~ Turn(root, z_axis, heading, math.rad(225))
+	Turn(cabeza, z_axis, heading, math.rad(150))
 end
 
 function script.StopMoving()
@@ -122,6 +121,14 @@ function script.AimFromWeapon2()
 	return canoni
 end
 
+function script.AimFromWeapon3() 
+	return canond
+end
+
+function script.AimFromWeapon4() 
+	return canoni
+end
+
 function script.QueryWeapon1() 
 	return flared
 end
@@ -130,11 +137,25 @@ function script.QueryWeapon2()
 	return flarei
 end
 
+function script.QueryWeapon3() 
+	return flared
+end
+
+function script.QueryWeapon4() 
+	return flarei
+end
+
 --called after the weapon has fired
 function script.FireWeapon1()
 end
 
 function script.FireWeapon2()
+end
+
+function script.FireWeapon3()
+end
+
+function script.FireWeapon4()
 end
 
 function script.AimWeapon1( heading, pitch )
@@ -151,6 +172,23 @@ function script.AimWeapon1( heading, pitch )
 end
 
 function script.AimWeapon2( heading, pitch )
+	Turn(canoni, x_axis, -pitch, math.rad(200))
+	WaitForTurn (cabeza, z_axis)
+	WaitForTurn (canoni, x_axis)
+	return true
+end
+
+function script.AimWeapon3( heading, pitch )
+	--make sure the aiming animation is only run once
+	Turn(canond, x_axis, -pitch, math.rad(200))
+
+	--wait until the weapon is pointed in the right direction
+	WaitForTurn (cabeza, z_axis)
+	WaitForTurn (canond, x_axis)
+	return true
+end
+
+function script.AimWeapon4( heading, pitch )
 	Turn(canoni, x_axis, -pitch, math.rad(200))
 	WaitForTurn (cabeza, z_axis)
 	WaitForTurn (canoni, x_axis)

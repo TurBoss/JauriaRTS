@@ -1,5 +1,5 @@
 
-local weaponName = "weapondt6"
+local weaponName = "weapondt62"
 
 local weaponDef = {
 	
@@ -15,15 +15,15 @@ local weaponDef = {
 	
 	damage = {
 		default = 15,
-		heavyarmor = 20,
-		lightarmor = 25,
+		heavyarmor = 3,
+		lightarmor = 18,
 	},
-	areaOfEffect            = 80,
+	areaOfEffect            = 150,
 	
 	--physics
 	
 	weaponVelocity          = 700,
-	reloadtime              = 0.5,
+	reloadtime              = 2,
 	range                   = 500,
 --	sprayAngle              = 45,
 	weaponaceleration       = 80,
@@ -37,11 +37,11 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor                = [[1 0 0.1]],
-	size                    = 6,
+	rgbColor                = [[0.5 0 0.2]],
+	size                    = 12,
 	stages                  = 8,
 	intensity               = 10,
-	separation              = 1.6,
+	separation              = 0,
 	
 	--sounds
 	
