@@ -21,15 +21,15 @@ local unitDef = {
 	--Movement
 
 	mass=500,
-	Acceleration = 1.2,
+	Acceleration = 3,
 	BrakeRate = 5,
 	FootprintX = 4,
 	FootprintZ = 4,
 	MaxSlope = 12,
-	MaxVelocity = 4.5,
+	MaxVelocity = 3.8,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
-	TurnRate = 2600,
+	TurnRate = 1000,
 
 	sightDistance = 550,
 
