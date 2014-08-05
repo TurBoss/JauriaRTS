@@ -6,8 +6,8 @@ local weaponDef = {
 	name                    = "metralletaNM-1",
 	weaponType              = "Cannon",
 	
-	Accuracy=100,
-	movingAccuracy=200,
+	Accuracy=80,
+	movingAccuracy=120,
 	
 	--damage
 	
@@ -18,11 +18,11 @@ local weaponDef = {
 		heavyarmor = 600,
 		lightarmor = 100,
 	},
-	areaOfEffect            = 150,
+	areaOfEffect            = 200,
 	
 	--physics
 	
-	weaponVelocity          = 700,
+	weaponVelocity          = 800,
 	reloadtime              = 3.5,
 	range                   = 500,
 	--sprayAngle              = 45,
