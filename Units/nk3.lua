@@ -6,6 +6,7 @@ local unitDef = {
 	objectName = "nk3.dae",
 	script = "nk3.lua",
 	buildPic = "nk3.png",
+	iconType = "nk3",
 
 	--cost
 

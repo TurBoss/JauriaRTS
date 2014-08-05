@@ -4,7 +4,7 @@ local weaponName = "weapondt6"
 local weaponDef = {
 	
 	name                    = "metralletaNM-1",
-	weaponType              = [[Cannon]],
+	weaponType              = "Cannon",
 	
 	Accuracy=100,
 	movingAccuracy=200,
@@ -42,7 +42,10 @@ local weaponDef = {
 	stages                  = 8,
 	intensity               = 10,
 	separation              = 1.6,
+	explosionScar			= true,
 	
+	--explosionGenerator		= "custom:humo",
+	explosiongenerator			= [[custom:genericshellexplosion-small-red]],
 	--sounds
 	
 	soundStart              = "disparo_gfx",

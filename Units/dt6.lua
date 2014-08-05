@@ -6,6 +6,7 @@ local unitDef = {
 	objectName = "dt6.dae",
 	script = "dt6.lua",
 	buildPic = "placeholder.png",
+	iconType = "dt6",
 
 	--cost
 

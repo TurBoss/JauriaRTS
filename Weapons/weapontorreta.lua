@@ -22,14 +22,14 @@ local weaponDef = {
 	weaponVelocity          = 800,
 	reloadtime              = 0.5,
 	range                   = 450,
---	sprayAngle              = 45,
+	--sprayAngle              = 45,
 	--weaponaceleration       = 25,
 	tolerance               = 10000,
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 0.0,
---	burst                   = 2,
---	burstrate               = 0.08,
+	--burst                   = 2,
+	--burstrate               = 0.08,
 	--proyectiles             = 2,
 	
 	--apperance
@@ -39,8 +39,9 @@ local weaponDef = {
 	--stages                  = 1,
 	intensity               = 1,
 	--separation              = 2,
-	--cegTag					= "custom:springlogo_flashing",
-	explosionGenerator			= "custom:humo",
+	
+	explosionGenerator			= [[custom:genericshellexplosion-small-lightning]],
+	
 	--sounds
 	
 	--soundStart              = "disparo_gfx",

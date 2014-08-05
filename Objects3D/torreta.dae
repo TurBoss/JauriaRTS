@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.71.0 commit date:2014-06-25, commit time:18:36, hash:9337574</authoring_tool>
     </contributor>
-    <created>2014-08-03T05:58:32</created>
-    <modified>2014-08-03T05:58:32</modified>
+    <created>2014-08-05T04:13:28</created>
+    <modified>2014-08-05T04:13:28</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -108,7 +108,7 @@
           <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 142.5176 0 0 0 1</matrix>
           <instance_geometry url="#Sphere-mesh"/>
           <node id="flare" name="flare" type="NODE">
-            <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 16.20284 0 0 0 1</matrix>
+            <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 6.18129 0 0 0 1</matrix>
           </node>
         </node>
         <node id="torre" name="torre" type="NODE">

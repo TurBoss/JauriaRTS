@@ -7,6 +7,7 @@ local unitDef = {
 	objectName = "tkt4.dae",
 	script = "tkt4.lua",
 	buildPic = "tkt4.png",
+	iconType = "tkt4",
 
 	--cost
 

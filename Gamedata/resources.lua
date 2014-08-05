@@ -24,7 +24,6 @@ local   resources = {
 			cartooncloud		= 'effects/cartooncloud.png',
 			springlogo			= 'effects/springlogo.png',
 			star				= 'effects/star.png',
-			humo				= 'effects/humo.png',
 		},
 	}
 }
