@@ -10,13 +10,13 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 2500,
+	buildCostMetal = 2600,
 	buildCostEnergy = 0,
-	buildTime = 5.5,
+	buildTime = 60,
 
 	--Health
 
-	maxDamage = 12000,
+	maxDamage = 12500,
 	idleAutoHeal = 5,
 
 	--Movement
@@ -32,7 +32,7 @@ local unitDef = {
 	MovementClass = "Default3x3",
 	TurnRate = 1000,
 
-	sightDistance = 520,
+	sightDistance = 580,
 
 	Category = [[LAND]],
 

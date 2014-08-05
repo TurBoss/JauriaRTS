@@ -33,7 +33,7 @@ local unitDef = {
 	MetalStorage = 0,
 	EnergyMake = 0, 
 	MakesMetal = 0, 
-	MetalMake = 6,
+	MetalMake = 6.5,
 	
 	--Pathfinding and related
 	
