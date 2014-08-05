@@ -12,7 +12,7 @@ local unitDef = {
 
 	buildCostMetal = 100,
 	buildCostEnergy = 0,
-	buildTime = 6.5,
+	buildTime = 6.8,
 
 	--Health
 
@@ -21,14 +21,13 @@ local unitDef = {
 
 	--Movement
 
+	mass=380,
 	Acceleration = 0.5,
 	BrakeRate = 0.5,
 	FootprintX = 1,
 	FootprintZ = 1,
 	--MaxSlope = 12,
-
-	MaxVelocity = 2.5
-	,
+	MaxVelocity = 2.5,
 	MaxWaterDepth = 20,
 	MovementClass = "Spider1x1",
 	TurnRate = 3200,

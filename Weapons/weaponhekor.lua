@@ -1,27 +1,29 @@
 
-local weaponName = "weaponit0"
+local weaponName = "weaponheik"
 
 local weaponDef = {
 	
-	name                    = "Lightningcannon",
-	weaponType              = "LightningCannon",
+	name                    = "metralletaNM-1",
+	weaponType              = "LaserCannon",
 	
 	Accuracy=100,
 	movingAccuracy=200,
+	
 	--damage
 	
-	paralyzer = true,
-	paralyzeTime = 3,
+	avoidFeature = false,
 	
 	damage = {
-		default = 0,
+		default = 15,
+		heavyarmor = 3.5,
+		lightarmor = 20,
 	},
 --	areaOfEffect            = 10,
 	
 	--physics
 	
 	weaponVelocity          = 500,
-	reloadtime              = 1,
+	reloadtime              = 0.3,
 	range                   = 220,
 --	sprayAngle              = 45,
 	weaponaceleration       = 25,
@@ -35,15 +37,15 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor                = [[0 1 0.5]],
-	size                    = 0.1,
-	stages                  = 1,
-	intensity               = 1,
-	separation              = 2,
+	rgbColor                = [[0 0 1]],
+	size                    = 1,
+	stages                  = 4,
+	intensity               = 1.5,
+	separation              = 1,
 	
 	--sounds
 	
-	--soundStart              = "disparo_gfx",
+	soundStart              = "metralleta_gfx",
 	
 	collideFriendly=true,
 }

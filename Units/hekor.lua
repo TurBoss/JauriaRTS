@@ -1,10 +1,10 @@
-local unitName = "rk2"
+local unitName = "hekor"
 
 local unitDef = {
-	name = "RK-2",
+	name = "Hekor",
 	Description = "Complex, mobile unit.",
-	objectName = "rk2.dae",
-	script = "rk2.lua",
+	objectName = "hekor.dae",
+	script = "hekor.lua",
 	buildPic = "placeholder.png",
 	iconType = "rk2",
 
@@ -22,15 +22,15 @@ local unitDef = {
 	--Movement
 
 	mass=800,
-	Acceleration = 1,
-	BrakeRate = 2,
+	Acceleration = 1.5,
+	BrakeRate = 0.5,
 	FootprintX = 2,
 	FootprintZ = 2,
 	MaxSlope = 12,
-	MaxVelocity = 4.2,
+	MaxVelocity = 4,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
-	TurnRate = 2300,
+	TurnRate = 2500,
 
 	sightDistance = 350,
 
@@ -45,8 +45,14 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "weaponrk2",
-			onlyTargetCategory = [[LAND AIR]],
+		[1]={name  = "weaponheik",
+			onlyTargetCategory = [[LAND]],
+		},
+		[2]={name  = "weaponheik",
+			onlyTargetCategory = [[LAND]],
+		},
+		[3]={name  = "weaponheik",
+			onlyTargetCategory = [[LAND]],
 		},
 	},
 }
