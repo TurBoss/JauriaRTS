@@ -33,7 +33,7 @@ local unitDef = {
 	MovementClass = "Default3x3",
 	TurnRate = 800,
 
-	sightDistance = 550,
+	sightDistance = 520,
 
 	Builder = false,
 	CanAttack = true,
