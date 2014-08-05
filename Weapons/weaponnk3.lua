@@ -6,8 +6,8 @@ local weaponDef = {
 	name                    = "misilNK-3",
 	weaponType              = "Cannon",
 	
-	Accuracy=400,
-	movingAccuracy=500,
+	Accuracy=460,
+	movingAccuracy=560,
 	
 	--damage
 	
@@ -18,15 +18,15 @@ local weaponDef = {
 		heavyarmor = 220,
 		lightarmor = 350,
 	},
-	areaOfEffect            = 60,
+	areaOfEffect            = 80,
 	
 	--physics
 	
-	weaponVelocity          = 280,
+	weaponVelocity          = 420,
 	reloadtime              = 3.8,
 	range                   = 360,
 --	sprayAngle              = 45,
-	weaponaceleration       = 120,
+	weaponaceleration       = 250,
 	tolerance               = 8000,
 	lineOfSight             = true,
 	turret                  = true,

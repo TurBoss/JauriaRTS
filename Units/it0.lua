@@ -12,7 +12,7 @@ local unitDef = {
 
 	buildCostMetal = 100,
 	buildCostEnergy = 0,
-	buildTime = 10,
+	buildTime = 6.5,
 
 	--Health
 
@@ -44,11 +44,11 @@ local unitDef = {
 	CanStop = true,
 	LeaveTracks = false, 
 
-	weapons = {
+--[[	weapons = {
 		[1]={name  = "weaponit0",
 			onlyTargetCategory = [[LAND]],
 		},
-	},
+	},--]]
 }
 
 return lowerkeys({ [unitName] = unitDef })
