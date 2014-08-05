@@ -27,10 +27,10 @@ local unitDef = {
 	FootprintX = 3,
 	FootprintZ = 3,
 	MaxSlope = 12,
-	MaxVelocity = 1.5,
+	MaxVelocity = 2.8,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
-	TurnRate = 500,
+	TurnRate = 600,
 
 	sightDistance = 400,
 

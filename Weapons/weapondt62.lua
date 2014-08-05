@@ -14,16 +14,16 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 15,
-		heavyarmor = 3,
-		lightarmor = 18,
+		default = 400,
+		heavyarmor = 600,
+		lightarmor = 100,
 	},
 	areaOfEffect            = 150,
 	
 	--physics
 	
 	weaponVelocity          = 700,
-	reloadtime              = 2,
+	reloadtime              = 3.5,
 	range                   = 500,
 	--sprayAngle              = 45,
 	weaponaceleration       = 80,
@@ -43,7 +43,7 @@ local weaponDef = {
 	intensity               = 10,
 	separation              = 0,
 	
-	explosionGenerator			= [[custom:genericshellexplosion-medium-red]],
+	explosionGenerator			= [[custom:genericshellexplosion-small-red]],
 	
 	--sounds
 	

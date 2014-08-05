@@ -15,7 +15,7 @@ local weaponDef = {
 	
 	damage = {
 		default = 15,
-		heavyarmor = 20,
+		heavyarmor = 15,
 		lightarmor = 25,
 	},
 	areaOfEffect            = 80,
@@ -23,7 +23,7 @@ local weaponDef = {
 	--physics
 	
 	weaponVelocity          = 700,
-	reloadtime              = 0.5,
+	reloadtime              = 0.3,
 	range                   = 500,
 --	sprayAngle              = 45,
 	weaponaceleration       = 80,
@@ -38,14 +38,14 @@ local weaponDef = {
 	--apperance
 	
 	rgbColor                = [[1 0 0.1]],
-	size                    = 6,
+	size                    = 5,
 	stages                  = 8,
 	intensity               = 10,
 	separation              = 1.6,
 	explosionScar			= true,
 	
 	--explosionGenerator		= "custom:humo",
-	explosiongenerator			= [[custom:genericshellexplosion-small-red]],
+	--explosiongenerator			= [[custom:genericshellexplosion-small]],
 	--sounds
 	
 	soundStart              = "disparo_gfx",
