@@ -40,6 +40,7 @@ local weaponDef = {
 	intensity               = 1,
 	--separation              = 2,
 	
+	CegTag						= [[genericshellexplosion-large-sparks-burn]],
 	explosionGenerator			= [[custom:lightning_stormbolt]],
 	
 	--sounds

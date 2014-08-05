@@ -71,6 +71,15 @@ local Sounds = {
 			--maxdist = FLT_MAX, --- no cutoff at all
 		},
 		
+		shoot_gfx = {
+			file = "sounds/stndr2.ogg",
+			gain = 1.0,
+			pitch = 1.0,
+			priority = 0,
+			maxconcurrent = 16, --- some reasonable limits
+			--maxdist = FLT_MAX, --- no cutoff at all
+		},
+		
 		--[[DefaultsForSounds = { -- this are default settings
 			file = "ThisEntryMustBePresent.wav",
 			gain = 1.0,

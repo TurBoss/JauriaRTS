@@ -38,7 +38,6 @@ local weaponDef={
 	avoidFeature=false,
 	avoidFriendly=false,
 	
-	soundStart              = "disparo_gfx",
 
 	--commandfire=true,
 
@@ -59,7 +58,7 @@ local weaponDef={
 	--sound
 	
 	soundHit="boom_gfx",
-	soundStart = "misil_gfx",
+	soundStart = "shoot_gfx",
 }
 
 return lowerkeys ({[weaponName]=weaponDef})
