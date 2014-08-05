@@ -4,7 +4,7 @@ local weaponName = "weapondt6"
 local weaponDef = {
 	
 	name                    = "metralletaNM-1",
-	weaponType              = "Cannon",
+	weaponType              = "LaserCannon",
 	
 	Accuracy=50,
 	movingAccuracy=80,
@@ -37,7 +37,7 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor                = [[1 0 0.1]],
+	rgbColor2                = [[1 0 0.1]],
 	size                    = 5,
 	stages                  = 8,
 	intensity               = 10,

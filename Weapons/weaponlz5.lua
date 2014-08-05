@@ -53,6 +53,7 @@ local weaponDef={
 	craterMult=0,
 	--?FIXME***
 	
+	
 	lineOfSight=true,
 
 

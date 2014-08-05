@@ -37,18 +37,13 @@ local unitDef = {
 
 	Category = [[LAND]],
 
-	CanAttack = true,
+	CanAttack = false,
 	CanGuard = true,
 	CanMove = true,
 	CanPatrol = true,
 	CanStop = true,
 	LeaveTracks = false, 
 
---[[	weapons = {
-		[1]={name  = "weaponit0",
-			onlyTargetCategory = [[LAND]],
-		},
-	},--]]
 }
 
 return lowerkeys({ [unitName] = unitDef })

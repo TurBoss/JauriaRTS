@@ -447,6 +447,10 @@ function script.AimFromWeapon2()
 	return torre_izq
 end
 
+function script.AimFromWeapon3() 
+	return root
+end
+
 function script.QueryWeapon1() 
 	return flare_der
 end
@@ -455,11 +459,18 @@ function script.QueryWeapon2()
 	return flare_izq
 end
 
+function script.QueryWeapon3() 
+	return root
+end
+
 --called after the weapon has fired
 function script.FireWeapon1()
 end
 
 function script.FireWeapon2()
+end
+
+function script.FireWeapon3()
 end
 
 function script.AimWeapon1( heading, pitch )
@@ -479,6 +490,11 @@ function script.AimWeapon2( heading, pitch )
 	Turn(torre_izq, z_axis, heading, math.rad(350))
 	--wait until the weapon is pointed in the right direction
 	WaitForTurn (torre_izq, z_axis)
+	return true
+end
+
+
+function script.AimWeapon3( heading, pitch )
 	return true
 end
 ----death animation
