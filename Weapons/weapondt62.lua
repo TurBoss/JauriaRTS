@@ -47,7 +47,7 @@ local weaponDef = {
 	
 	--sounds
 	
-	soundStart              = "disparo_gfx",
+	soundStart              = "plasma_gfx",
 	
 	collideFriendly=true,
 }

@@ -45,7 +45,7 @@ local weaponDef = {
 	
 	--sounds
 	
-	soundStart              = "disparo_gfx",
+	soundStart              = "metralleta_gfx",
 	
 	collideFriendly=true,
 }

@@ -40,7 +40,7 @@ local weaponDef = {
 	intensity               = 1,
 	--separation              = 2,
 	
-	explosionGenerator			= [[custom:genericshellexplosion-small-lightning]],
+	explosionGenerator			= [[custom:lightning_stormbolt]],
 	
 	--sounds
 	

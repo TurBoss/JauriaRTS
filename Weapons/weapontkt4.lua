@@ -28,8 +28,8 @@ local weaponDef={
 	
 	model="cobete.dae",
 	smokeTrail=true,
-	--explosionGenerator="custom:redsmoke",
-	--CegTag="smoketrail",
+	--explosionGenerator="custom:explosion1",
+	CegTag="light1",
 
 	----TARGETING
 	
@@ -58,8 +58,8 @@ local weaponDef={
 
 	--sound
 	
-	--soundHit=[[kanoba/SabotHitRemake.ogg]],
-	--soundStart=[[kanoba/RockLit1Remake.ogg]],
+	soundHit="boom_gfx",
+	soundStart = "misil_gfx",
 }
 
 return lowerkeys ({[weaponName]=weaponDef})

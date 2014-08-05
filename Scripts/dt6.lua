@@ -21,6 +21,8 @@ local flarei = piece('flarei');
 local Animations = {};
 
 local SIG_WALK = 1	--signal for the walk animation thread
+local SIG_TURN = 2
+
 
 Animations['caminar'] = {
 	{
@@ -497,6 +499,7 @@ end
 
 
 local function caminapalante()
+
 	Signal(SIG_WALK)
 	SetSignalMask(SIG_WALK)
 	while (true) do
@@ -510,8 +513,7 @@ local function caminareset()
 end
 
 function script.StartMoving(heading)
-	StartThread (caminapalante)
-	Turn(cabeza, z_axis, heading, math.rad(225))
+	StartThread(caminapalante)
 end
 
 function script.StopMoving()
