@@ -52,6 +52,7 @@ local weaponDef={
 	},
 	areaOfEffect=150,
 	craterMult=0,
+	
 	--?FIXME***
 	
 	lineOfSight=true,

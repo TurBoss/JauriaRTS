@@ -22,6 +22,13 @@ local Sounds = {
 			priority = 100, --- higher numbers = less chance of cutoff
 			maxconcurrent = 1, ---how many maximum can we hear?
 		},
+		FailedCommand = {
+			file = "sounds/mappoint.ogg",
+			rolloff = 0.1,
+			maxdist = 10000,
+			priority = 100, --- higher numbers = less chance of cutoff
+			maxconcurrent = 1, ---how many maximum can we hear?
+		},
 		--- END RESERVED
 
 		--WEAPONS

@@ -39,8 +39,6 @@ local weaponDef={
 	CylinderTargeting=true,
 	avoidFeature=false,
 	avoidFriendly=false,
-	
-	soundStart              = "disparo_gfx",
 
 	--commandfire=true,
 
