@@ -1,5 +1,5 @@
 
-local weaponName = "weaponheik"
+local weaponName = "weaponhekor"
 
 local weaponDef = {
 	
@@ -16,7 +16,7 @@ local weaponDef = {
 	damage = {
 		default = 15,
 		heavyarmor = 3.5,
-		lightarmor = 20,
+		lightarmor = 2000,
 	},
 --	areaOfEffect            = 10,
 	

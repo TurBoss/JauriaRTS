@@ -16,7 +16,7 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 800,
+	maxDamage = 680,
 	idleAutoHeal = 100,
 
 	--Movement
@@ -32,7 +32,7 @@ local unitDef = {
 	MovementClass = "Default3x3",
 	TurnRate = 2500,
 
-	sightDistance = 350,
+	sightDistance = 400,
 
 	Category = [[LAND]],
 
