@@ -3,6 +3,8 @@ local weaponName="weaponlz5"
 local weaponDef={
 	name="weaponlz5",
 	weaponType=[[MissileLauncher]],
+	
+	InterceptedByShieldType= 4,
 
 	Accuracy=50,
 	movingAccuracy=50,
