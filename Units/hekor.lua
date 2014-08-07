@@ -16,7 +16,7 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 1280,
+	maxDamage = 100,
 	idleAutoHeal = 5,
 
 	--Movement
@@ -53,6 +53,8 @@ local unitDef = {
 		},
 		[3]={name  = "weaponheik",
 			onlyTargetCategory = [[LAND]],
+		},
+		[4]={name  = "shieldhekor",
 		},
 	},
 }

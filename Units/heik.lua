@@ -10,14 +10,14 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 135,
+	buildCostMetal = 160,
 	buildCostEnergy = 0,
-	buildTime = 7.2,
+	buildTime = 12,
 
 	--Health
 
-	maxDamage = 1280,
-	idleAutoHeal = 5,
+	maxDamage = 800,
+	idleAutoHeal = 100,
 
 	--Movement
 
@@ -47,6 +47,8 @@ local unitDef = {
 	weapons = {
 		[1]={name  = "weaponheik",
 			onlyTargetCategory = [[LAND]],
+		},
+		[2]={name  = "shieldheik",
 		},
 	},
 }

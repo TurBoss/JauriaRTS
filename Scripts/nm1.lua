@@ -447,20 +447,12 @@ function script.AimFromWeapon2()
 	return torre_izq
 end
 
-function script.AimFromWeapon3() 
-	return root
-end
-
 function script.QueryWeapon1() 
 	return flare_der
 end
 
 function script.QueryWeapon2() 
 	return flare_izq
-end
-
-function script.QueryWeapon3() 
-	return root
 end
 
 --called after the weapon has fired
@@ -470,8 +462,6 @@ end
 function script.FireWeapon2()
 end
 
-function script.FireWeapon3()
-end
 
 function script.AimWeapon1( heading, pitch )
 	--make sure the aiming animation is only run once
@@ -493,10 +483,6 @@ function script.AimWeapon2( heading, pitch )
 	return true
 end
 
-
-function script.AimWeapon3( heading, pitch )
-	return true
-end
 ----death animation
 function script.Killed(recentDamage, maxHealth)
 	Explode (cabeza, SFX.SHATTER)

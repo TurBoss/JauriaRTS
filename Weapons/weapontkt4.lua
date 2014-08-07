@@ -7,6 +7,8 @@ local weaponDef={
 	Accuracy=500,
 	movingAccuracy=800,
 	
+	InterceptedByShieldType= 4,
+	
 	--Physic/flight path
 	range=480,
 	reloadtime=4,

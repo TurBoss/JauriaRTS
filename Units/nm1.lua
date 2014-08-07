@@ -56,8 +56,6 @@ local unitDef = {
 			--maxAngleDif = 15,
 			--mainDir = [[0 0 1]],
 		},
-		[3]={name  = "weaponnm1shield",
-		},
 	},
 }
 
