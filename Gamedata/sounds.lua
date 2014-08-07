@@ -35,8 +35,16 @@ local Sounds = {
 			maxconcurrent = 2, ---how many maximum can we hear?
 		},
 		
-		metralleta_gfx = {
+		laser_gfx = {
 			file = "sounds/ric1.ogg",
+			gain = 1.0,
+			pitch = 1.0,
+			priority = 0,
+			maxconcurrent = 16, --- some reasonable limits
+			--maxdist = FLT_MAX, --- no cutoff at all
+		},
+		metralleta_gfx = {
+			file = "sounds/ric2.ogg",
 			gain = 1.0,
 			pitch = 1.0,
 			priority = 0,
