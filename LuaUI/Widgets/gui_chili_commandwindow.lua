@@ -101,7 +101,7 @@ function findButtonData(cmd)
 		local indexChoice = cmd.params[1] + 2
 		buttontext = cmd.params[indexChoice]
 		container = stateCommandWindow
-	if
+	else
 		container = buildCommandWindow
 		texture = '#'..-cmd.id
 	end
