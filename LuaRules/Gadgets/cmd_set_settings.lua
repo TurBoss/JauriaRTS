@@ -17,4 +17,8 @@ function gadget:GamePreload()
 	Spring.SendCommands("toggleradarandjammer")
 	
 	Spring.LoadCmdColorsConfig('move  0.5 1.0 0.5 0.0')
+	Spring.SetUnitNoSelect(10501, true)
+	Spring.SetUnitNoSelect(10502, true)
+	Spring.SetUnitNoSelect(10503, true)
+	Spring.SetUnitNoSelect(10504, true)
 end
