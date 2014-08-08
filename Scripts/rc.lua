@@ -11,6 +11,8 @@ local wheel_speed = math.rad(180)
 
 local smokecloud = SFX.CEG   --the first effect from the list in the unitdef
 
+local SIG_RC = 1
+
 function script.Create()
 	Hide(mineral)
 	EmitSfx(boca, smokecloud)   --emit the first effect
@@ -33,6 +35,8 @@ function script.StopBuilding()
 end
 
 function script.StartBuilding(heading, pitch)  
+	Signal(SIG_RC)
+	SetSignalMask(SIG_RC)
 	Turn (boca, z_axis, heading, math.rad(100))
 	WaitForTurn(boca, z_axis)
 	SetUnitValue(COB.INBUILDSTANCE, 1)
@@ -44,6 +48,7 @@ function script.QueryNanoPiece()
 end
 
 function script.StartMoving()
+	Turn (boca, z_axis, 0, math.rad(100))
     Spin(rueda1d, x_axis, wheel_speed)
     Spin(rueda2d, x_axis, wheel_speed)
     Spin(rueda1i, x_axis, wheel_speed)
