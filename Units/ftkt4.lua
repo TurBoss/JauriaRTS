@@ -1,4 +1,4 @@
-local unitName = "tkt4"
+local unitName = "ftkt4"
 
 local unitDef = {
 

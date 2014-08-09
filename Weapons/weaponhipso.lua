@@ -1,5 +1,5 @@
 
-local weaponName = "weapontorreta"
+local weaponName = "weaponhipso"
 
 local weaponDef = {
 	
@@ -34,8 +34,8 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor				= [[1 1 0.0]],
-	--size                    = 0.1,
+	rgbColor				= [[0 0 1]],
+	size                    = 0.01,
 	--stages                  = 1,
 	intensity               = 1,
 	--separation              = 2,
