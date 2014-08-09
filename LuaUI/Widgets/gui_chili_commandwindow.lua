@@ -17,7 +17,7 @@ VFS.Include("LuaRules/Gadgets/Includes/utilities.lua")
 
 local DEBUG = false
 
-local MAXBUTTONSONROW = 3
+local MAXBUTTONSONROW = 1
 local MAXBUTTONSONROWBUILD = 4
 
 local COMMANDSTOEXCLUDE = {"timewait","deathwait","squadwait","gatherwait","loadonto","nextmenu","prevmenu"}
@@ -126,12 +126,12 @@ function createMyButton(cmd, buildid)
 			local color = {0,0,0,1}
 			local button = Chili.Button:New {
 				parent = container,
-				x = 80 * (result-1),
-				y = 45 * (container.ystep-1),
+				x = 45 * (result-1),
+				y = 20 * (container.ystep-1),
 				padding = {5, 5, 5, 5},
 				margin = {5, 5, 5, 5},
-				minWidth = 70,
-				minHeight = 40,
+				minWidth = 40,
+				minHeight = 20,
 				caption = buttontext,
 				isDisabled = false,
 				cmdid = cmd.id,
@@ -363,30 +363,30 @@ function widget:Initialize()
 	
 	window0 = Chili.Window:New{
 		x = 10,
-		y = screenHeight-620,	
+		y = screenHeight-580,	
 		dockable = false,
 		parent = screen0,
 		caption = "Commands",
 		draggable = false,
 		resizable = false,
 		dragUseGrip = false,
-		clientWidth = 240,
-		clientHeight = 180,
+		clientWidth = 80,
+		clientHeight = 175,
 		backgroundColor = {0,0,0,1},
 		--skinName  = "DarkGlass",
 		children = {commandWindow},
 	}
 	window1 = Chili.Window:New{
 		x = 10,
-		y = screenHeight-400,
+		y = screenHeight-360,
 		dockable = false,
 		parent = screen0,
 		caption = "States",
 		draggable = false,
 		resizable = false,
 		dragUseGrip = false,
-		clientWidth = 240,
-		clientHeight = 120,
+		clientWidth = 80,
+		clientHeight = 70,
 		backgroundColor = {0,0,0,1},
 		--skinName  = "DarkGlass",
 		children = {stateCommandWindow},
