@@ -12,6 +12,8 @@ local armorDefs = {
 		"rk2",
 		
 		"heik",
+		"hekor",
+		"hipso",
 	},
 }
 

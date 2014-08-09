@@ -15,7 +15,7 @@ local weaponDef = {
 		heavyarmor = 230,
 		lightarmor = 380,
 	},
-	areaOfEffect            = 30,
+	areaOfEffect            = 0,
 	
 	--physics
 	
@@ -27,7 +27,7 @@ local weaponDef = {
 	tolerance               = 10000,
 	lineOfSight             = true,
 	turret                  = true,
-	craterMult              = 0.0,
+	craterMult              = 0,
 	--burst                   = 2,
 	--burstrate               = 0.08,
 	--proyectiles             = 2,

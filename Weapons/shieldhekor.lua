@@ -12,7 +12,7 @@ local weaponDef = {
 	texture1				= "shield4",
 	
 	exteriorShield			= true,
-	shieldAlpha				= 0.8,
+	shieldAlpha				= 0.2,
 	shieldBadColor			= [[1 0.1 0.1]],
 	shieldGoodColor			= [[0 0.2 1]],
 	InterceptType			= 511,
