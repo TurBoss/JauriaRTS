@@ -1,36 +1,36 @@
-local unitName = "nk3"
+local unitName = "hipso"
 
 local unitDef = {
-	name = "NK-3",
+	name = "Hipso",
 	Description = "Complex, mobile unit.",
-	objectName = "nk3.dae",
-	script = "nk3.lua",
-	buildPic = "nk3.png",
-	iconType = "nk3",
+	objectName = "hipso.dae",
+	script = "hipso.lua",
+	buildPic = "placeholder.png",
+	iconType = "rk2",
 
 	--cost
 
-	buildCostMetal = 360,
+	buildCostMetal = 430,
 	buildCostEnergy = 0,
-	buildTime = 16,
+	buildTime = 18,
 
 	--Health
 
-	maxDamage = 2250,
-	idleAutoHeal = 5,
+	maxDamage = 1400,
+	idleAutoHeal = 10,
 
 	--Movement
 
-	mass=1500,
-	Acceleration = 1,
-	BrakeRate = 1,
-	FootprintX = 3,
-	FootprintZ = 3,
+	mass=1000,
+	Acceleration = 2,
+	BrakeRate = 1.5,
+	FootprintX = 2,
+	FootprintZ = 2,
 	MaxSlope = 12,
-	MaxVelocity = 3.5,
+	MaxVelocity = 3.8,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
-	TurnRate = 1300,
+	TurnRate = 2600,
 
 	sightDistance = 400,
 
@@ -45,12 +45,10 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "weaponnk3",
+		[1]={name  = "weaponhipso",
 			onlyTargetCategory = [[LAND]],
 		},
-		[2]={name  = "weaponnk3",
-			slaveTo = 1,
-			onlyTargetCategory = [[LAND]],
+		[2]={name  = "shieldhipso",
 		},
 	},
 }

@@ -1,36 +1,36 @@
-local unitName = "heik"
+local unitName = "enk3"
 
 local unitDef = {
-	name = "Heik",
+	name = "NK-3",
 	Description = "Complex, mobile unit.",
-	objectName = "heik.dae",
-	script = "heik.lua",
-	buildPic = "placeholder.png",
-	iconType = "rk2",
+	objectName = "nk3.dae",
+	script = "nk3.lua",
+	buildPic = "nk3.png",
+	iconType = "nk3",
 
 	--cost
 
-	buildCostMetal = 280,
+	buildCostMetal = 320,
 	buildCostEnergy = 0,
-	buildTime = 12,
+	buildTime = 16,
 
 	--Health
 
-	maxDamage = 1200,
-	idleAutoHeal = 10,
+	maxDamage = 2250,
+	idleAutoHeal = 5,
 
 	--Movement
 
-	mass=1000,
-	Acceleration = 2,
-	BrakeRate = 1.5,
-	FootprintX = 2,
-	FootprintZ = 2,
+	mass=1500,
+	Acceleration = 1,
+	BrakeRate = 1,
+	FootprintX = 3,
+	FootprintZ = 3,
 	MaxSlope = 12,
-	MaxVelocity = 3.8,
+	MaxVelocity = 3.5,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
-	TurnRate = 2600,
+	TurnRate = 1300,
 
 	sightDistance = 400,
 
@@ -45,10 +45,12 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "weaponheik",
+		[1]={name  = "weaponnk3",
 			onlyTargetCategory = [[LAND]],
 		},
-		[2]={name  = "shieldheik",
+		[2]={name  = "weaponnk3",
+			slaveTo = 1,
+			onlyTargetCategory = [[LAND]],
 		},
 	},
 }

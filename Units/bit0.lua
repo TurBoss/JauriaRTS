@@ -1,4 +1,4 @@
-local unitName = "it0"
+local unitName = "bit0"
 
 local unitDef = {
 	name = "IT-0",
