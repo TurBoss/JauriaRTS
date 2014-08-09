@@ -5,8 +5,8 @@ local sidedata = {
 		startUnit = "fabricaporreton",
 	},
 	[2] = {
-		name = "Faccion Porreton",
-		startUnit = "fabricaporreton",
+		name = "Faccion Heks",
+		startUnit = "fabricaheks",
 	}
 }
 return sidedata
