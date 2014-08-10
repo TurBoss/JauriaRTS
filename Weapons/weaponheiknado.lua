@@ -11,20 +11,20 @@ local weaponDef = {
 	--damage
 	
 	damage = {
-		default = 360,
-		heavyarmor = 400,
-		lightarmor = 280,
+		default = 80,
+		heavyarmor = 140,
+		lightarmor = 120,
 	},
 	areaOfEffect            = 0,
 	avoidFeatures = false,
 	--physics
 	
-	weaponVelocity          = 800,
+	weaponVelocity          = 1000,
 	reloadtime              = 0.1,
-	range                   = 85,
+	range                   = 100,
 	--sprayAngle              = 45,
 	--weaponaceleration       = 25,
-	tolerance               = 10000,
+	tolerance               = 15000,
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 0,
