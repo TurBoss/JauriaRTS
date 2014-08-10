@@ -9,20 +9,11 @@ local moveDefs =
 	},
 	
 	{
-	name = "Spider1x1",
-	footprintX = 1,
-	maxWaterDepth = 10,
-	crushStrength = 100,
-	maxHeightDif= 50,
-	},
-	
-	{
 	name = "Default3x3",
 	footprintX = 3,
 	maxWaterDepth = 10,
 	maxSlope = 20,
 	crushStrength = 100,
-
 	},
 	
 	{
@@ -31,6 +22,14 @@ local moveDefs =
 	maxWaterDepth = 10,
 	maxSlope = 20,
 	crushStrength = 125,
+	},
+	
+	{
+	name = "Spider1x1",
+	footprintX = 1,
+	maxWaterDepth = 10,
+	crushStrength = 100,
+	maxHeightDif= 50,
 	},
 	
 	{

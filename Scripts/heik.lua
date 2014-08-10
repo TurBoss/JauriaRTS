@@ -1,7 +1,6 @@
 local root = piece "root"
 
 local chasis = piece "chasis"
-local arma = piece "arma"
 local cristal = piece "cristal"
 
 
@@ -61,7 +60,7 @@ end
 ----death animation: fall over & explode
 function script.Killed(recentDamage, maxHealth)
 
-	Explode (chasis, SFX.SHATTER)	
+	Explode (chasis, SFX.SHATTER)
 	Explode (cristal, SFX.FIRE)
 	Explode (arma, SFX.FIRE)
 
