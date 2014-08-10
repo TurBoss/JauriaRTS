@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.71.0 commit date:2014-06-25, commit time:18:36, hash:9337574</authoring_tool>
     </contributor>
-    <created>2014-08-09T20:18:33</created>
-    <modified>2014-08-09T20:18:33</modified>
+    <created>2014-08-10T20:31:35</created>
+    <modified>2014-08-10T20:31:35</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -170,33 +170,33 @@
     <visual_scene id="Scene" name="Scene">
       <node id="root" name="root" type="NODE">
         <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <node id="cristal1" name="cristal1" type="NODE">
+          <matrix sid="transform">1 0 0 5.83703e-4 0 1 0 0.02336 0 0 1 25.61423 0 0 0 1</matrix>
+          <instance_geometry url="#Icosphere_001-mesh"/>
+        </node>
+        <node id="cristal2" name="cristal2" type="NODE">
+          <matrix sid="transform">1 0 0 -0.06781939 0 1 0 -0.1513052 0 0 1 8.854481 0 0 0 1</matrix>
+          <instance_geometry url="#Icosphere-mesh"/>
+        </node>
+        <node id="segador" name="segador" type="NODE">
+          <matrix sid="transform">1 0 0 -3.21122e-6 0 1 0 -0.03406766 0 0 1 22.74808 0 0 0 1</matrix>
+          <instance_geometry url="#Cube-mesh"/>
+          <node id="flare1" name="flare1" type="NODE">
+            <matrix sid="transform">1 0 0 39.05167 0 1 0 0.03406766 0 0 1 0.02596092 0 0 0 1</matrix>
+          </node>
+          <node id="flare2" name="flare2" type="NODE">
+            <matrix sid="transform">1 0 0 3.21122e-6 0 1 0 39.04263 0 0 1 0.02596092 0 0 0 1</matrix>
+          </node>
+          <node id="flare3" name="flare3" type="NODE">
+            <matrix sid="transform">1 0 0 -38.54539 0 1 0 0.03406766 0 0 1 0.02596092 0 0 0 1</matrix>
+          </node>
+          <node id="flare4" name="flare4" type="NODE">
+            <matrix sid="transform">1 0 0 3.21122e-6 0 1 0 -38.66212 0 0 1 0.02596092 0 0 0 1</matrix>
+          </node>
+        </node>
         <node id="chasis" name="chasis" type="NODE">
           <matrix sid="transform">1 0 0 5.82375e-4 0 1 0 0.02335772 0 0 1 9.425897 0 0 0 1</matrix>
           <instance_geometry url="#Torus_005-mesh"/>
-          <node id="cristal1" name="cristal1" type="NODE">
-            <matrix sid="transform">1 0 0 1.32801e-6 0 1 0 2.27615e-6 0 0 1 16.18834 0 0 0 1</matrix>
-            <instance_geometry url="#Icosphere_001-mesh"/>
-          </node>
-          <node id="cristal2" name="cristal2" type="NODE">
-            <matrix sid="transform">1 0 0 -0.06840176 0 1 0 -0.1746629 0 0 1 -0.5714159 0 0 0 1</matrix>
-            <instance_geometry url="#Icosphere-mesh"/>
-          </node>
-          <node id="segador" name="segador" type="NODE">
-            <matrix sid="transform">1 0 0 -5.85587e-4 0 1 0 -0.05742538 0 0 1 13.32218 0 0 0 1</matrix>
-            <instance_geometry url="#Cube-mesh"/>
-            <node id="flare1" name="flare1" type="NODE">
-              <matrix sid="transform">1 0 0 37.03207 0 1 0 0.03406766 0 0 1 0.02596092 0 0 0 1</matrix>
-            </node>
-            <node id="flare2" name="flare2" type="NODE">
-              <matrix sid="transform">1 0 0 3.21122e-6 0 1 0 36.48447 0 0 1 0.02596092 0 0 0 1</matrix>
-            </node>
-            <node id="flare3" name="flare3" type="NODE">
-              <matrix sid="transform">1 0 0 -36.25652 0 1 0 0.03406766 0 0 1 0.02596092 0 0 0 1</matrix>
-            </node>
-            <node id="flare4" name="flare4" type="NODE">
-              <matrix sid="transform">1 0 0 3.21122e-6 0 1 0 -35.83469 0 0 1 0.02596092 0 0 0 1</matrix>
-            </node>
-          </node>
         </node>
       </node>
     </visual_scene>

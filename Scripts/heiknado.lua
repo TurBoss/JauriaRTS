@@ -13,33 +13,36 @@ local flare4 = piece "flare4"
 --pieces used by the weapon:
 
 
-local wheel_speed = math.rad(400)
+local wheel_speed = math.rad(300)
+local sega_speed = math.rad(480)
+
 
 local SIG_AIM = 1
 
 function script.Create()
-	Spin(cristal1, z_axis, -wheel_speed)
-	Spin(segador, z_axis, wheel_speed)
+	Spin(cristal1, z_axis, wheel_speed)
+	Spin(segador, z_axis, sega_speed)
 	Spin(cristal2, z_axis, -wheel_speed)
+	Spin(chasis, z_axis, -wheel_speed)
 end
 
 
 ---AIMING & SHOOTING---
 
 function script.AimFromWeapon1() 
-	return chasis
+	return cristal1
 end
 
 function script.AimFromWeapon2() 
-	return chasis
+	return cristal1
 end
 
 function script.AimFromWeapon3() 
-	return chasis
+	return cristal1
 end
 
 function script.AimFromWeapon4() 
-	return chasis
+	return cristal1
 end
 
 function script.QueryWeapon1() 
@@ -100,7 +103,7 @@ function script.FireWeapon4()
 end
 
 function script.StartMoving(heading)
-	Turn (chasis, z_axis, heading, math.rad(200))
+	--Turn (chasis, z_axis, heading, math.rad(200))
 
 
 end
