@@ -1,22 +1,22 @@
-local unitName = "hipso"
+local unitName = "heiknado"
 
 local unitDef = {
-	name = "hipso",
+	name = "heiknado",
 	Description = "Complex, mobile unit.",
-	objectName = "hipso.dae",
-	script = "hipso.lua",
+	objectName = "heiknado.dae",
+	script = "heiknado.lua",
 	buildPic = "placeholder.png",
 	iconType = "rk2",
 
 	--cost
 
-	buildCostMetal = 430,
+	buildCostMetal = 830,
 	buildCostEnergy = 0,
 	buildTime = 18,
 
 	--Health
 
-	maxDamage = 1400,
+	maxDamage = 1800,
 	idleAutoHeal = 10,
 
 	--Movement
@@ -45,10 +45,19 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "weaponhipso",
+		[1]={name  = "shieldheiknado",
+		},
+		[2]={name  = "weaponheiknado",
 			onlyTargetCategory = [[LAND]],
 		},
-		[2]={name  = "shieldhipso",
+		[3]={name  = "weaponheiknado",
+			onlyTargetCategory = [[LAND]],
+		},
+		[4]={name  = "weaponheiknado",
+			onlyTargetCategory = [[LAND]],
+		},
+		[5]={name  = "weaponheiknado",
+			onlyTargetCategory = [[LAND]],
 		},
 	},
 }
