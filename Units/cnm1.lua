@@ -47,14 +47,13 @@ local unitDef = {
 	weapons = {
 		[1]={name  = "weaponnm1",
 			onlyTargetCategory = [[LAND]],
-			--maxAngleDif = 15,
-			--mainDir = [[0 0 1]],
+			maxAngleDif = 210,
+			mainDir = [[-1 0 1]],
 		},
 		[2]={name  = "weaponnm1",
 			onlyTargetCategory = [[LAND]],
-			slaveTo = 1,
-			--maxAngleDif = 15,
-			--mainDir = [[0 0 1]],
+			maxAngleDif = 210,
+			mainDir = [[1 0 1]],
 		},
 	},
 }
