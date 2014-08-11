@@ -7,7 +7,7 @@ local mineral = piece "mineral"
 
 local rueda1d, rueda2d, rueda1i, rueda2i = piece ("rueda1d", "rueda2d", "rueda1i", "rueda2i")
 
-local wheel_speed = math.rad(180)
+local wheel_speed = math.rad(300)
 
 local smokecloud = SFX.CEG   --the first effect from the list in the unitdef
 

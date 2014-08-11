@@ -11,20 +11,20 @@ local weaponDef = {
 	--damage
 	
 	damage = {
-		default = 20,
+		default = 80,
 		heavyarmor = 100,
-		lightarmor = 150,
+		lightarmor = 120,
 	},
-	areaOfEffect            = 10,
-	
+	areaOfEffect            = 0,
+	avoidFeatures = false,
 	--physics
 	
-	weaponVelocity          = 800,
+	weaponVelocity          = 1000,
 	reloadtime              = 0.1,
 	range                   = 100,
 	--sprayAngle              = 45,
 	--weaponaceleration       = 25,
-	tolerance               = 10000,
+	tolerance               = 15000,
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 0,
@@ -41,7 +41,7 @@ local weaponDef = {
 	--separation              = 2,
 	
 	CegTag						= [[genericshellexplosion-large-sparks-burn]],
-	explosionGenerator			= [[custom:lightning_stormbolt]],
+	--explosionGenerator			= [[custom:lightning_stormbolt]],
 	
 	--sounds
 	
