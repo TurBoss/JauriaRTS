@@ -2,9 +2,9 @@ local root = piece('root');
 
 local chasis = piece('chasis');
 local cabina = piece('cabina');
-local pieza = piece('pieza');
+--local pieza = piece('pieza');
 
-local tubarro1 = piece('tubarro1');
+--local tubarro1 = piece('tubarro1');
 local tubarro2 = piece('tubarro2');
 
 local arma1d = piece('arma1d');
@@ -112,9 +112,9 @@ function script.Killed(recentDamage, maxHealth)
 
 	Explode (chasis, SFX.SHATTER)
 	Explode (cabina, SFX.FIRE)
-	Explode (tubarro1, SFX.FIRE)
+	--Explode (tubarro1, SFX.FIRE)
 	Explode (tubarro2, SFX.FIRE)
-	Explode (pieza, SFX.FIRE)
+	--Explode (pieza, SFX.FIRE)
 	Explode (arma1d, SFX.FIRE)
 	Explode (arma2d, SFX.FIRE)
 	Explode (arma1i, SFX.FIRE)
