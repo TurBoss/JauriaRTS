@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.71.0 commit date:2014-06-25, commit time:18:36, hash:9337574</authoring_tool>
     </contributor>
-    <created>2014-07-24T20:08:55</created>
-    <modified>2014-07-24T20:08:55</modified>
+    <created>2014-08-13T23:04:49</created>
+    <modified>2014-08-13T23:04:49</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -528,6 +528,12 @@
           <node id="rueda1d" name="rueda1d" type="NODE">
             <matrix sid="transform">1 0 0 -22.0886 0 1 0 -25.52844 0 0 1 5.153712 0 0 0 1</matrix>
             <instance_geometry url="#Cylinder_014-mesh"/>
+          </node>
+          <node id="tubo1" name="tubo1" type="NODE">
+            <matrix sid="transform">1 0 0 6.493125 0 1 0 39.29996 0 0 1 8.897216 0 0 0 1</matrix>
+          </node>
+          <node id="tubo2" name="tubo2" type="NODE">
+            <matrix sid="transform">1 0 0 -6.399853 0 1 0 39.29996 0 0 1 8.897216 0 0 0 1</matrix>
           </node>
         </node>
       </node>

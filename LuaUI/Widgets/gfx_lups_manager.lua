@@ -76,7 +76,15 @@ end
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 
-local UnitEffects = {}
+local UnitEffects = {
+
+	[UnitDefNames["ftkt4"].id] = {
+		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=6, length=15, piece="tubo1",}},
+		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=6, length=15, piece="tubo2",}},
+	},
+
+
+}
 local registeredUnits = {}	-- all finished units - prevents partial unbuild then rebuild from being treated as two UnitFinished events
 
 local function AddFX(unitname,fx)

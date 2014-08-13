@@ -29,7 +29,6 @@ local gl = gl
 
 local CONFIG_FILENAME    = LUAUI_DIRNAME .. 'Config/' .. Game.modShortName .. '.lua'
 local WIDGET_DIRNAME     = LUAUI_DIRNAME .. 'Widgets/'
-local SCRIPT_DIR = Script.GetName() .. '/'
 
 local SELECTOR_BASENAME = 'selector.lua'
 
@@ -44,7 +43,6 @@ local glPopAttrib  = gl.PopAttrib
 local glPushAttrib = gl.PushAttrib
 local section = 'widgets.lua'
 
-VFS.Include('LuaRules/utilities.lua', nil, VFS.RAW_FIRST)
 --------------------------------------------------------------------------------
 
 -- install bindings for TweakMode and the Widget Selector
