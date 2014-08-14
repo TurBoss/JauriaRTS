@@ -35,7 +35,8 @@ local unitDef = {
 	sightDistance = 350,
 
 	Category = [[LAND]],
-
+	
+	canCloak = true,
 	CanAttack = true,
 	CanGuard = true,
 	CanMove = true,

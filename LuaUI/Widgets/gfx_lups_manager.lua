@@ -78,6 +78,23 @@ end
 
 local UnitEffects = {
 	
+	[UnitDefNames["overkraft"].id] = {
+		{class='Ribbon',options={width=1, size=12, piece="ribbon1"}},
+		{class='Ribbon',options={width=1, size=12, piece="ribbon2"}},
+		{class='StaticParticles', options=MergeTable(blinkyLightGreen, {piece="light1", delay = 20, size = 1 }) },
+		{class='StaticParticles', options=MergeTable(blinkyLightGreen, {piece="light2", delay = 20, size = 1 }) },
+		{class='StaticParticles', options=MergeTable(blinkyLightGreen, {piece="light3", delay = 20, size = 1 }) },
+		{class='StaticParticles', options=MergeTable(blinkyLightGreen, {piece="light4", delay = 20, size = 1 }) },
+		{class='StaticParticles', options=MergeTable(blinkyLightGreen, {piece="light5", delay = 20, size = 1 }) },
+		
+		{class='StaticParticles', options=MergeTable(blinkyLightRed, {piece="light6", delay = 20, size = 1 }) },
+		{class='StaticParticles', options=MergeTable(blinkyLightRed, {piece="light7", delay = 20, size = 1 }) },
+		{class='StaticParticles', options=MergeTable(blinkyLightRed, {piece="light8", delay = 20, size = 1 }) },
+		{class='StaticParticles', options=MergeTable(blinkyLightRed, {piece="light9", delay = 20, size = 1 }) },
+		{class='StaticParticles', options=MergeTable(blinkyLightRed, {piece="light10", delay = 20, size = 1 }) },
+		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=2, length=15, piece="tubo1",}},
+		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=2, length=15, piece="tubo2",}},
+	},
 	[UnitDefNames["ftkt4"].id] = {
 		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=6, length=15, piece="tubo1",}},
 		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=6, length=15, piece="tubo2",}},
