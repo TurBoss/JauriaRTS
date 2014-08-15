@@ -157,7 +157,6 @@ end
 --]]
 
 local function UnitCloaked(_,unitID,unitDefID,teamID)
-  Spring.Echo("LOL")
   local allyTeamID = Spring.GetUnitAllyTeam(unitID)
 
   local LocalAllyTeamID
