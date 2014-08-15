@@ -16,7 +16,7 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 900,
+	maxDamage = 400,
 	idleAutoHeal = 25,
 
 	--Movement
@@ -43,6 +43,8 @@ local unitDef = {
 	CanStop = true,
 	LeaveTracks = false, 
 	CanCloak = true,
+	MinCloakDistance = 150,
+	InitCloaked = true,
 }
 
 return lowerkeys({ [unitName] = unitDef })
