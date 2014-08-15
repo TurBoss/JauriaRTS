@@ -36,7 +36,6 @@ local unitDef = {
 
 	Category = [[LAND]],
 	
-	canCloak = true,
 	CanAttack = true,
 	CanGuard = true,
 	CanMove = true,

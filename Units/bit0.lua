@@ -10,7 +10,7 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 100,
+	buildCostMetal = 360,
 	buildCostEnergy = 0,
 	buildTime = 6.8,
 
@@ -42,7 +42,7 @@ local unitDef = {
 	CanPatrol = true,
 	CanStop = true,
 	LeaveTracks = false, 
-
+	CanCloak = true,
 }
 
 return lowerkeys({ [unitName] = unitDef })
