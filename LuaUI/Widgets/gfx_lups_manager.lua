@@ -77,6 +77,7 @@ end
 --------------------------------------------------------------------------------
 
 local UnitEffects = {
+
 	
 	[UnitDefNames["overkraft"].id] = {
 		{class='Ribbon',options={width=1, size=12, piece="ribbon1"}},
@@ -109,6 +110,21 @@ local UnitEffects = {
 		{class='ShieldJitter',options={size = 65, strength = 0.005,}},
 	},
 	
+	[UnitDefNames["heiknado"].id] = {
+		{class='Ribbon',options={width=1, size=12, piece="flare1"}},
+		{class='Ribbon',options={width=1, size=12, piece="flare2"}},
+		{class='Ribbon',options={width=1, size=12, piece="flare3"}},
+		{class='Ribbon',options={width=1, size=12, piece="flare4"}},
+		{class='ShieldJitter',options={size = 60, strength = 0.005,}},
+	},
+	
+	[UnitDefNames["hekor"].id] = {
+		{class='ShieldJitter',options={size = 80, strength = 0.005,}},
+	},
+	
+	[UnitDefNames["hipso"].id] = {
+		{class='ShieldJitter',options={size = 160, strength = 0.005,}},
+	},
 }
 local registeredUnits = {}	-- all finished units - prevents partial unbuild then rebuild from being treated as two UnitFinished events
 

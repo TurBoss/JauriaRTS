@@ -371,14 +371,14 @@ function widget:Initialize()
 		resizable = false,
 		dragUseGrip = false,
 		clientWidth = 80,
-		clientHeight = 175,
+		clientHeight = 210,
 		backgroundColor = {0,0,0,1},
 		--skinName  = "DarkGlass",
 		children = {commandWindow},
 	}
 	window1 = Chili.Window:New{
 		x = 10,
-		y = screenHeight-360,
+		y = screenHeight-340,
 		dockable = false,
 		parent = screen0,
 		caption = "States",
