@@ -4,7 +4,6 @@ local modrules = {
 		reclaimMethod = 0,
 		allowEnemies = false,
 	}
-	
 }
 
 return modrules
