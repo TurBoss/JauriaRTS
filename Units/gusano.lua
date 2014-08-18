@@ -44,7 +44,7 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "destruclaser",
+		[1]={name  = "weapongusano",
 			onlyTargetCategory = [[LAND]],
 			--maxAngleDif = 15,
 			--mainDir = [[0 0 1]],
