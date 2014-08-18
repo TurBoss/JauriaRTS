@@ -62,7 +62,7 @@ return {
     },
     groundflash = {
       circlealpha        = 1,
-      circlegrowth       = 0,
+      circlegrowth       = 1,
       flashalpha         = 0.3,
       flashsize          = 60,
       ttl                = 45,
