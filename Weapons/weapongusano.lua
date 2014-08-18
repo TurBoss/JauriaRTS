@@ -4,9 +4,9 @@ local weaponName = "weapongusano"
 local weaponDef = {
 	
 	name                    = "metralletaNM-1",
-	weaponType              = "LaserCannon",
+	weaponType              = "Flame",
 	
-	Accuracy=50,
+	Accuracy=500,
 	movingAccuracy=80,
 	
 	--damage
@@ -22,26 +22,28 @@ local weaponDef = {
 	
 	--physics
 	
-	weaponVelocity          = 800,
-	reloadtime              = 0.3,
-	range                   = 480,
+	weaponVelocity          = 400,
+	reloadtime              = 0.06,
+	range                   = 360,
 --	sprayAngle              = 45,
 	weaponaceleration       = 80,
 	tolerance               = 10000,
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 0,
---	burst                   = 2,
---	burstrate               = 0.08,
+	burst                   = 1,
+	--burstrate               = 0.18,
 	--proyectiles             = 2,
 	
 	--apperance
 	
 	rgbColor                = [[0 1 0]],
-	size                    = 8,
-	stages                  = 8,
-	intensity               = 10,
-	separation              = 0.5,
+	rgbColor2               = [[0 1 0]],
+	size                    = 15,
+	sizeGrowth              = 2,
+	stages                  = 10,
+	intensity               = 8,
+	separation              = 1,
 	explosionScar			= true,
 	
 	--explosionGenerator		= "custom:humo",
