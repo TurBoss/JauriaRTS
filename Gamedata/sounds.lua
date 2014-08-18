@@ -95,6 +95,15 @@ local Sounds = {
 			--maxdist = FLT_MAX, --- no cutoff at all
 		},
 		
+		flame_gfx = {
+			file = "sounds/out1.ogg",
+			gain = 0.5,
+			pitch = 1.0,
+			priority = 0,
+			maxconcurrent = 16, --- some reasonable limits
+			--maxdist = FLT_MAX, --- no cutoff at all
+		},
+		
 		--[[DefaultsForSounds = { -- this are default settings
 			file = "ThisEntryMustBePresent.wav",
 			gain = 1.0,

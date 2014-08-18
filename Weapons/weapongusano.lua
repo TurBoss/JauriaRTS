@@ -50,7 +50,7 @@ local weaponDef = {
 	--explosiongenerator			= [[custom:genericshellexplosion-small]],
 	--sounds
 	
-	soundStart              = "disparo_gfx",
+	soundStart              = "flame_gfx",
 	
 	collideFriendly=true,
 }
