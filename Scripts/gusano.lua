@@ -38,7 +38,7 @@ function script.AimWeapon1( heading )
 	Signal(SIG_AIM)
 	SetSignalMask(SIG_AIM)
 	Spring.Echo(heading)
-	Turn(centro, z_axis, heading+3.5, math.rad(280))
+	Turn(centro, z_axis, heading, math.rad(280))
 	--wait until the weapon is pointed in the right direction
 	WaitForTurn (centro, z_axis)
 	return true
