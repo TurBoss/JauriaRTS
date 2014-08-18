@@ -18,6 +18,7 @@ local unitDef = {
 
 	maxDamage = 400,
 	idleAutoHeal = 25,
+	idleTime     = 3,
 
 	--Movement
 

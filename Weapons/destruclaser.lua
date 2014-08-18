@@ -4,7 +4,7 @@ local weaponName = "destruclaser"
 local weaponDef = {
 
 	name                    = "destruclaser",
-	weaponType              = "BeamLaser",
+	weaponType              = "CannonLaser",
 	
 	--damage
 	
