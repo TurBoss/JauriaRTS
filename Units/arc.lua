@@ -15,7 +15,7 @@ local unitDef = {
 
 	--Health
 
-	maxDamage    = 1800,
+	maxDamage    = 2680,
 	idleAutoHeal = 20,
 	idleTime     = 3,
 	--Movement
@@ -47,8 +47,8 @@ local unitDef = {
 	ShowNanoSpray = true,
 	CanBeAssisted = true,  
 	workerTime = 0.1,
-	repairSpeed = 0.5,
-	reclaimSpeed = 80,
+	repairSpeed = 0.4,
+	reclaimSpeed = 30,
 	buildDistance = 160,
 }
 
