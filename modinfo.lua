@@ -1,9 +1,9 @@
 --http://springrts.com/wiki/Modinfo.lua
 local modinfo = {
 	name = "Jauria RTS",
-	shortname = "JRTS",
-	game = "JRTS",
-	shortgame = "JRTS",
+	shortname = "jauria",
+	game = "jauria",
+	shortgame = "jauria",
 	description = "Jauria RTS Game",
 	url = "http://jauria.mooo.com",
 	version = "$VERSION", --when zipping .sdz for releasing make this a full integer like 1,2,3
