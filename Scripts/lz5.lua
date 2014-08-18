@@ -55,23 +55,18 @@ function script.AimWeapon1( heading, pitch)
 	Signal(SIG_AIM)
 	SetSignalMask(SIG_AIM)
 	
-	Turn(chasis, z_axis, heading, math.rad(80))
-	Turn(rootlanzadera, x_axis, -pitch, math.rad(80))
+	Turn(rootlanzadera, z_axis, heading, math.rad(60))
+	Turn(lanzadera, x_axis, -pitch, math.rad(60))
 	--wait until the weapon is pointed in the right direction
-	WaitForTurn (rootlanzadera, x_axis)
-	WaitForTurn (chasis, z_axis)
+	WaitForTurn (lanzadera, x_axis)
+	WaitForTurn (rootlanzadera, z_axis)
 	return true
 end
 
-function script.AimWeapon2( heading )
-	WaitForTurn (canon, z_axis)
-	WaitForTurn (chasis, z_axis)
-	return true
-end
 
 function script.StartMoving(heading)
-	Turn (chasis, z_axis, heading, math.rad(80))
-	Turn (rootlanzadera, x_axis, 0, math.rad(80))
+	Turn (lanzadera, z_axis, heading, math.rad(60))
+	Turn (rootlanzadera, x_axis, 0, math.rad(60))
 	Spin(rueda1i, x_axis, wheel_speed)
 	Spin(rueda2i, x_axis, wheel_speed)
 	Spin(rueda1d, x_axis, wheel_speed)

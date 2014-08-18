@@ -3,8 +3,12 @@ local bola = piece('bola');
 local ojo1 = piece('ojo1');
 local ojo2 = piece('ojo2');
 
-local pipas_der = piece('pipas_der');
-local pipas_izq = piece('pipas_izq');
+local pipa1d = piece('pipa1d');
+local pipa2d = piece('pipa2d');
+local pipa3d = piece('pipa3d');
+local pipa1i = piece('pipa1i');
+local pipa2i = piece('pipa2i');
+local pipa3i = piece('pipa3i');
 
 local propulsor = piece('propulsor');
 
@@ -12,46 +16,51 @@ local tapas = piece('tapas');
 
 local tentaculos = piece('tentaculos');
 
-local flarelaser1 = piece('flarelaser1');
-local flareflame2 = piece('flareflame2');
-local flaremetralleta3 = piece('flaremetralleta3');
+local flare1d = piece('flare1d');
+local flare2d = piece('flare2d');
+local flare3d = piece('flare3d');
 
-local flarecanon4 = piece('flarecanon4');
-local flareflame5 = piece('flareflame5');
-local flaremetralleta6 = piece('flaremetralleta6');
+local flare1i = piece('flare1i');
+local flare2i = piece('flare2i');
+local flare3i = piece('flare3i');
 
 local root = piece('root');
 
 local wheel_speed = math.rad(180)
 
-local SIG_AIM = 1
+local SIG_AIM_1 = 1
+local SIG_AIM_2 = 2
+local SIG_AIM_3 = 4
+local SIG_AIM_4 = 8
+local SIG_AIM_5 = 16
+local SIG_AIM_6 = 32
 
 function script.Create()
 end
 
 ---AIMING & SHOOTING---
 function script.AimFromWeapon1() 
-	return bola
+	return pipa1d
 end
 
 function script.AimFromWeapon2() 
-	return bola
+	return pipa2d
 end
 
 function script.AimFromWeapon3() 
-	return bola
+	return pipa3d
 end
 
 function script.AimFromWeapon4() 
-	return bola
+	return pipa1i
 end
 
 function script.AimFromWeapon5() 
-	return bola
+	return pipa2i
 end
 
 function script.AimFromWeapon6() 
-	return bola
+	return pipa3i
 end
 
 
@@ -59,38 +68,39 @@ end
 
 function script.QueryWeapon1() 
 
-	return flarelaser1
+	return flare1d
 end
 
 function script.QueryWeapon2() 
 
-	return flareflame2
+	return flare2d
 end
 
 function script.QueryWeapon3() 
 
-	return flaremetralleta3
+	return flare3d
 end
 
 function script.QueryWeapon4() 
 
-	return flarecanon4
+	return flare1i
 end
 
 function script.QueryWeapon5() 
 
-	return flareflame5
+	return flare2i
 end
 
 function script.QueryWeapon6() 
 
-	return flaremetralleta6
+	return flare3i
 end
 
 
 
 
 --called after the weapon has fired
+
 function script.FireWeapon1()
 end
 
@@ -112,37 +122,74 @@ end
 
 
 
-function script.AimWeapon1( heading )
+function script.AimWeapon1( heading, pitch )
 	--make sure the aiming animation is only run once
-	Signal(SIG_AIM)
-	SetSignalMask(SIG_AIM)
-	Turn(bola, z_axis, heading, math.rad(280))
+	Signal(SIG_AIM_1)
+	SetSignalMask(SIG_AIM_1)
+	Turn(bola, z_axis, heading, math.rad(60))
+	
+	--Turn(pipa1d, z_axis, heading, math.rad(80))
+	Turn(pipa1d, x_axis, -pitch, math.rad(80))
+	
 	--wait until the weapon is pointed in the right direction
+	
+	WaitForTurn (bola, z_axis)
+	--WaitForTurn (pipa1d, z_axis)
+	WaitForTurn (pipa1d, x_axis)
+	return true
+end
+
+function script.AimWeapon2( heading, pitch )
+	Signal(SIG_AIM_2)
+	SetSignalMask(SIG_AIM_2)
+	--Turn(pipa2d, z_axis, heading, math.rad(80))
+	Turn(pipa2d, x_axis, -pitch, math.rad(80))
+	--WaitForTurn (pipa2d, z_axis)
+	WaitForTurn (pipa2d, x_axis)
 	WaitForTurn (bola, z_axis)
 	return true
 end
 
-function script.AimWeapon2( heading )
+function script.AimWeapon3( heading, pitch )
+	Signal(SIG_AIM_3)
+	SetSignalMask(SIG_AIM_3)
+	--Turn(pipa3d, z_axis, heading, math.rad(80))
+	Turn(pipa3d, x_axis, -pitch, math.rad(80))
+	--WaitForTurn (pipa3d, z_axis)
+	WaitForTurn (pipa3d, x_axis)
 	WaitForTurn (bola, z_axis)
 	return true
 end
 
-function script.AimWeapon3( heading )
+function script.AimWeapon4( heading, pitch )
+	Signal(SIG_AIM_4)
+	SetSignalMask(SIG_AIM_4)
+	--Turn(pipa1i, z_axis, heading, math.rad(80))
+	Turn(pipa1i, x_axis, -pitch, math.rad(80))
+	--WaitForTurn (pipa1i, z_axis)
+	WaitForTurn (pipa1i, x_axis)
 	WaitForTurn (bola, z_axis)
 	return true
 end
 
-function script.AimWeapon4( heading )
+function script.AimWeapon5( heading, pitch )
+	Signal(SIG_AIM_5)
+	SetSignalMask(SIG_AIM_5)
+	--Turn(pipa2i, z_axis, heading, math.rad(80))
+	Turn(pipa2i, x_axis, -pitch, math.rad(80))
+	--WaitForTurn (pipa2i, z_axis)
+	WaitForTurn (pipa2i, x_axis)
 	WaitForTurn (bola, z_axis)
 	return true
 end
 
-function script.AimWeapon5( heading )
-	WaitForTurn (bola, z_axis)
-	return true
-end
-
-function script.AimWeapon6( heading )
+function script.AimWeapon6( heading, pitch )
+	Signal(SIG_AIM_6)
+	SetSignalMask(SIG_AIM_6)
+	--Turn(pipa3i, z_axis, heading, math.rad(80))
+	Turn(pipa3i, x_axis, -pitch, math.rad(80))
+	--WaitForTurn (pipa3i, z_axis)
+	WaitForTurn (pipa3i, x_axis)
 	WaitForTurn (bola, z_axis)
 	return true
 end
@@ -161,8 +208,6 @@ end
 function script.Killed(recentDamage, maxHealth)
 
 	Explode (bola, SFX.SHATTER)
-	Explode (pipas_der, SFX.FIRE)
-	Explode (pipas_izq, SFX.FIRE)
 	Explode (ojo1, SFX.FIRE)
 	Explode (ojo2, SFX.FIRE)
 	Explode (propulsor, SFX.FIRE)

@@ -4,14 +4,17 @@ local weaponName = "destruclaser"
 local weaponDef = {
 
 	name                    = "destruclaser",
-	weaponType              = "CannonLaser",
+	weaponType              = "LaserCannon",
 	
 	--damage
 	
+	Accuracy=50,
+	movingAccuracy=80,
+	
 	damage = {
-		default = 10,
-		heavyarmor = 12,
-		lightarmor = 10,
+		default = 20,
+		heavyarmor = 23,
+		lightarmor = 16,
 	},
 	areaOfEffect            = 0,
 	
@@ -32,7 +35,7 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor                = [[1 0 1]],
+	rgbColor                = [[0 1 0.1]],
 	size                    = 4,
 	stages                  = 20,
 	separation              = 1,

@@ -49,6 +49,8 @@ local unitDef = {
 	weapons = {
 		[1]={name  = "weaponlz5",
 			onlyTargetCategory = [[LAND]],
+			maxAngleDif = 210,
+			mainDir = [[-1 0 1]],
 		},
 	},
 }

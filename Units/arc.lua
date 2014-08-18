@@ -47,8 +47,8 @@ local unitDef = {
 	ShowNanoSpray = true,
 	CanBeAssisted = true,  
 	workerTime = 0.1,
-	repairSpeed = 0.1,
-	reclaimSpeed = 150,
+	repairSpeed = 0.5,
+	reclaimSpeed = 80,
 	buildDistance = 160,
 }
 

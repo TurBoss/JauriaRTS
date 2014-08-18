@@ -6,7 +6,7 @@ local flare = piece "flare"
 
 
 function script.Create()
-	
+	Spin(bola, z_axis, math.rad(120))
 end
 
 ---AIMING & SHOOTING---
