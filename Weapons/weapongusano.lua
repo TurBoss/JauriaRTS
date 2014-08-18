@@ -14,9 +14,9 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 200,
-		heavyarmor = 340,
-		lightarmor = 220,
+		default = 20,
+		heavyarmor = 34,
+		lightarmor = 22,
 	},
 	areaOfEffect            = 40,
 	
@@ -45,7 +45,7 @@ local weaponDef = {
 	intensity               = 8,
 	separation              = 1,
 	explosionScar			= true,
-	
+	texture1                = "flamegreen",
 	--explosionGenerator		= "custom:humo",
 	--explosiongenerator			= [[custom:genericshellexplosion-small]],
 	--sounds
