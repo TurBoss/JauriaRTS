@@ -29,6 +29,9 @@ local SIG_AIM2 = 4
 local active_cano = 1		--the barrel that the next shot will be fired from
 local number_of_cano = 2		--how many barrel there are in total
 
+
+local smoke = SFX.CEG
+
 Animations['caminar'] ={
 	{
 		['time'] = 0,
@@ -437,6 +440,14 @@ function script.StopMoving()
 	StartThread(caminareset)
 end
 
+--called after the weapon has fired
+function script.FireWeapon1()
+	EmitSfx(flare_der, smoke)
+end
+
+function script.FireWeapon2()
+	EmitSfx(flare_izq, smoke)
+end
 
 ---AIMING & SHOOTING---
 function script.AimFromWeapon1() 
@@ -454,14 +465,6 @@ end
 function script.QueryWeapon2() 
 	return flare_izq
 end
-
---called after the weapon has fired
-function script.FireWeapon1()
-end
-
-function script.FireWeapon2()
-end
-
 
 function script.AimWeapon1( heading, pitch )
 	--make sure the aiming animation is only run once

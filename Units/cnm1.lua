@@ -44,6 +44,11 @@ local unitDef = {
 	CanStop = true,
 	LeaveTracks = false, 
 
+	sfxtypes = {
+		explosiongenerators = {
+			"custom:smoke1",
+		},
+	},
 
 	weapons = {
 		[1]={name  = "weaponnm1",

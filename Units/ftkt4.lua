@@ -44,6 +44,11 @@ local unitDef = {
 	CanStop = true,
 	LeaveTracks = false, 
 	
+	sfxtypes = {
+		explosiongenerators = {
+			"custom:smoke2",
+		},
+	},
 	weapons = {
 		[1]={name  = "weapontkt4",
 			onlyTargetCategory = [[LAND]],
