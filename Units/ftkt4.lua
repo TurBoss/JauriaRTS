@@ -46,7 +46,7 @@ local unitDef = {
 	
 	sfxtypes = {
 		explosiongenerators = {
-			"custom:smoke2",
+			"custom:smoke3",
 		},
 	},
 	weapons = {
