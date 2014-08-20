@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.71.0 commit date:2014-06-25, commit time:18:36, hash:9337574</authoring_tool>
     </contributor>
-    <created>2014-07-24T15:51:39</created>
-    <modified>2014-07-24T15:51:39</modified>
+    <created>2014-08-20T15:04:37</created>
+    <modified>2014-08-20T15:04:37</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -1568,161 +1568,161 @@
       </sampler>
       <channel source="#patas_der_location_Z-sampler" target="patas_der/location.Z"/>
     </animation>
-    <animation id="pie_izqzq_location_X">
-      <source id="pie_izqzq_location_X-input">
-        <float_array id="pie_izqzq_location_X-input-array" count="4">0 0.4166666 0.8333333 1.25</float_array>
+    <animation id="pie_izq_location_X">
+      <source id="pie_izq_location_X-input">
+        <float_array id="pie_izq_location_X-input-array" count="4">0 0.4166666 0.8333333 1.25</float_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_X-input-array" count="4" stride="1">
+          <accessor source="#pie_izq_location_X-input-array" count="4" stride="1">
             <param name="TIME" type="float"/>
           </accessor>
         </technique_common>
       </source>
-      <source id="pie_izqzq_location_X-output">
-        <float_array id="pie_izqzq_location_X-output-array" count="4">-7.575974 -7.575974 -7.575974 -7.575974</float_array>
+      <source id="pie_izq_location_X-output">
+        <float_array id="pie_izq_location_X-output-array" count="4">-7.575974 -7.575974 -7.575974 -7.575974</float_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_X-output-array" count="4" stride="1">
+          <accessor source="#pie_izq_location_X-output-array" count="4" stride="1">
             <param name="X" type="float"/>
           </accessor>
         </technique_common>
       </source>
-      <source id="pie_izqzq_location_X-interpolation">
-        <Name_array id="pie_izqzq_location_X-interpolation-array" count="4">BEZIER BEZIER BEZIER BEZIER</Name_array>
+      <source id="pie_izq_location_X-interpolation">
+        <Name_array id="pie_izq_location_X-interpolation-array" count="4">BEZIER BEZIER BEZIER BEZIER</Name_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_X-interpolation-array" count="4" stride="1">
+          <accessor source="#pie_izq_location_X-interpolation-array" count="4" stride="1">
             <param name="INTERPOLATION" type="name"/>
           </accessor>
         </technique_common>
       </source>
-      <source id="pie_izqzq_location_X-intangent">
-        <float_array id="pie_izqzq_location_X-intangent-array" count="8">-0.1626715 -7.575974 0.2539952 -7.575974 0.6706619 -7.575974 1.087329 -7.575974</float_array>
+      <source id="pie_izq_location_X-intangent">
+        <float_array id="pie_izq_location_X-intangent-array" count="8">-0.1626715 -7.575974 0.2539952 -7.575974 0.6706619 -7.575974 1.087329 -7.575974</float_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_X-intangent-array" count="4" stride="2">
+          <accessor source="#pie_izq_location_X-intangent-array" count="4" stride="2">
             <param name="X" type="float"/>
             <param name="Y" type="float"/>
           </accessor>
         </technique_common>
       </source>
-      <source id="pie_izqzq_location_X-outtangent">
-        <float_array id="pie_izqzq_location_X-outtangent-array" count="8">0.1626715 -7.575974 0.5793381 -7.575974 0.9960048 -7.575974 1.412671 -7.575974</float_array>
+      <source id="pie_izq_location_X-outtangent">
+        <float_array id="pie_izq_location_X-outtangent-array" count="8">0.1626715 -7.575974 0.5793381 -7.575974 0.9960048 -7.575974 1.412671 -7.575974</float_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_X-outtangent-array" count="4" stride="2">
+          <accessor source="#pie_izq_location_X-outtangent-array" count="4" stride="2">
             <param name="X" type="float"/>
             <param name="Y" type="float"/>
           </accessor>
         </technique_common>
       </source>
-      <sampler id="pie_izqzq_location_X-sampler">
-        <input semantic="INPUT" source="#pie_izqzq_location_X-input"/>
-        <input semantic="OUTPUT" source="#pie_izqzq_location_X-output"/>
-        <input semantic="INTERPOLATION" source="#pie_izqzq_location_X-interpolation"/>
-        <input semantic="IN_TANGENT" source="#pie_izqzq_location_X-intangent"/>
-        <input semantic="OUT_TANGENT" source="#pie_izqzq_location_X-outtangent"/>
+      <sampler id="pie_izq_location_X-sampler">
+        <input semantic="INPUT" source="#pie_izq_location_X-input"/>
+        <input semantic="OUTPUT" source="#pie_izq_location_X-output"/>
+        <input semantic="INTERPOLATION" source="#pie_izq_location_X-interpolation"/>
+        <input semantic="IN_TANGENT" source="#pie_izq_location_X-intangent"/>
+        <input semantic="OUT_TANGENT" source="#pie_izq_location_X-outtangent"/>
       </sampler>
-      <channel source="#pie_izqzq_location_X-sampler" target="pie_izqzq/location.X"/>
+      <channel source="#pie_izq_location_X-sampler" target="pie_izq/location.X"/>
     </animation>
-    <animation id="pie_izqzq_location_Y">
-      <source id="pie_izqzq_location_Y-input">
-        <float_array id="pie_izqzq_location_Y-input-array" count="4">0 0.4166666 0.8333333 1.25</float_array>
+    <animation id="pie_izq_location_Y">
+      <source id="pie_izq_location_Y-input">
+        <float_array id="pie_izq_location_Y-input-array" count="4">0 0.4166666 0.8333333 1.25</float_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_Y-input-array" count="4" stride="1">
+          <accessor source="#pie_izq_location_Y-input-array" count="4" stride="1">
             <param name="TIME" type="float"/>
           </accessor>
         </technique_common>
       </source>
-      <source id="pie_izqzq_location_Y-output">
-        <float_array id="pie_izqzq_location_Y-output-array" count="4">0.02098083 0.02098083 0.02098083 0.02098083</float_array>
+      <source id="pie_izq_location_Y-output">
+        <float_array id="pie_izq_location_Y-output-array" count="4">0.02098083 0.02098083 0.02098083 0.02098083</float_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_Y-output-array" count="4" stride="1">
+          <accessor source="#pie_izq_location_Y-output-array" count="4" stride="1">
             <param name="Y" type="float"/>
           </accessor>
         </technique_common>
       </source>
-      <source id="pie_izqzq_location_Y-interpolation">
-        <Name_array id="pie_izqzq_location_Y-interpolation-array" count="4">BEZIER BEZIER BEZIER BEZIER</Name_array>
+      <source id="pie_izq_location_Y-interpolation">
+        <Name_array id="pie_izq_location_Y-interpolation-array" count="4">BEZIER BEZIER BEZIER BEZIER</Name_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_Y-interpolation-array" count="4" stride="1">
+          <accessor source="#pie_izq_location_Y-interpolation-array" count="4" stride="1">
             <param name="INTERPOLATION" type="name"/>
           </accessor>
         </technique_common>
       </source>
-      <source id="pie_izqzq_location_Y-intangent">
-        <float_array id="pie_izqzq_location_Y-intangent-array" count="8">-0.1626715 0.02098083 0.2539952 0.02098083 0.6706619 0.02098083 1.087329 0.02098083</float_array>
+      <source id="pie_izq_location_Y-intangent">
+        <float_array id="pie_izq_location_Y-intangent-array" count="8">-0.1626715 0.02098083 0.2539952 0.02098083 0.6706619 0.02098083 1.087329 0.02098083</float_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_Y-intangent-array" count="4" stride="2">
+          <accessor source="#pie_izq_location_Y-intangent-array" count="4" stride="2">
             <param name="X" type="float"/>
             <param name="Y" type="float"/>
           </accessor>
         </technique_common>
       </source>
-      <source id="pie_izqzq_location_Y-outtangent">
-        <float_array id="pie_izqzq_location_Y-outtangent-array" count="8">0.1626715 0.02098083 0.5793381 0.02098083 0.9960048 0.02098083 1.412671 0.02098083</float_array>
+      <source id="pie_izq_location_Y-outtangent">
+        <float_array id="pie_izq_location_Y-outtangent-array" count="8">0.1626715 0.02098083 0.5793381 0.02098083 0.9960048 0.02098083 1.412671 0.02098083</float_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_Y-outtangent-array" count="4" stride="2">
+          <accessor source="#pie_izq_location_Y-outtangent-array" count="4" stride="2">
             <param name="X" type="float"/>
             <param name="Y" type="float"/>
           </accessor>
         </technique_common>
       </source>
-      <sampler id="pie_izqzq_location_Y-sampler">
-        <input semantic="INPUT" source="#pie_izqzq_location_Y-input"/>
-        <input semantic="OUTPUT" source="#pie_izqzq_location_Y-output"/>
-        <input semantic="INTERPOLATION" source="#pie_izqzq_location_Y-interpolation"/>
-        <input semantic="IN_TANGENT" source="#pie_izqzq_location_Y-intangent"/>
-        <input semantic="OUT_TANGENT" source="#pie_izqzq_location_Y-outtangent"/>
+      <sampler id="pie_izq_location_Y-sampler">
+        <input semantic="INPUT" source="#pie_izq_location_Y-input"/>
+        <input semantic="OUTPUT" source="#pie_izq_location_Y-output"/>
+        <input semantic="INTERPOLATION" source="#pie_izq_location_Y-interpolation"/>
+        <input semantic="IN_TANGENT" source="#pie_izq_location_Y-intangent"/>
+        <input semantic="OUT_TANGENT" source="#pie_izq_location_Y-outtangent"/>
       </sampler>
-      <channel source="#pie_izqzq_location_Y-sampler" target="pie_izqzq/location.Y"/>
+      <channel source="#pie_izq_location_Y-sampler" target="pie_izq/location.Y"/>
     </animation>
-    <animation id="pie_izqzq_location_Z">
-      <source id="pie_izqzq_location_Z-input">
-        <float_array id="pie_izqzq_location_Z-input-array" count="4">0 0.4166666 0.8333333 1.25</float_array>
+    <animation id="pie_izq_location_Z">
+      <source id="pie_izq_location_Z-input">
+        <float_array id="pie_izq_location_Z-input-array" count="4">0 0.4166666 0.8333333 1.25</float_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_Z-input-array" count="4" stride="1">
+          <accessor source="#pie_izq_location_Z-input-array" count="4" stride="1">
             <param name="TIME" type="float"/>
           </accessor>
         </technique_common>
       </source>
-      <source id="pie_izqzq_location_Z-output">
-        <float_array id="pie_izqzq_location_Z-output-array" count="4">1.421875 1.421875 1.421875 1.421875</float_array>
+      <source id="pie_izq_location_Z-output">
+        <float_array id="pie_izq_location_Z-output-array" count="4">1.421875 1.421875 1.421875 1.421875</float_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_Z-output-array" count="4" stride="1">
+          <accessor source="#pie_izq_location_Z-output-array" count="4" stride="1">
             <param name="Z" type="float"/>
           </accessor>
         </technique_common>
       </source>
-      <source id="pie_izqzq_location_Z-interpolation">
-        <Name_array id="pie_izqzq_location_Z-interpolation-array" count="4">BEZIER BEZIER BEZIER BEZIER</Name_array>
+      <source id="pie_izq_location_Z-interpolation">
+        <Name_array id="pie_izq_location_Z-interpolation-array" count="4">BEZIER BEZIER BEZIER BEZIER</Name_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_Z-interpolation-array" count="4" stride="1">
+          <accessor source="#pie_izq_location_Z-interpolation-array" count="4" stride="1">
             <param name="INTERPOLATION" type="name"/>
           </accessor>
         </technique_common>
       </source>
-      <source id="pie_izqzq_location_Z-intangent">
-        <float_array id="pie_izqzq_location_Z-intangent-array" count="8">-0.1626715 1.421875 0.2539952 1.421875 0.6706619 1.421875 1.087329 1.421875</float_array>
+      <source id="pie_izq_location_Z-intangent">
+        <float_array id="pie_izq_location_Z-intangent-array" count="8">-0.1626715 1.421875 0.2539952 1.421875 0.6706619 1.421875 1.087329 1.421875</float_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_Z-intangent-array" count="4" stride="2">
+          <accessor source="#pie_izq_location_Z-intangent-array" count="4" stride="2">
             <param name="X" type="float"/>
             <param name="Y" type="float"/>
           </accessor>
         </technique_common>
       </source>
-      <source id="pie_izqzq_location_Z-outtangent">
-        <float_array id="pie_izqzq_location_Z-outtangent-array" count="8">0.1626715 1.421875 0.5793381 1.421875 0.9960048 1.421875 1.412671 1.421875</float_array>
+      <source id="pie_izq_location_Z-outtangent">
+        <float_array id="pie_izq_location_Z-outtangent-array" count="8">0.1626715 1.421875 0.5793381 1.421875 0.9960048 1.421875 1.412671 1.421875</float_array>
         <technique_common>
-          <accessor source="#pie_izqzq_location_Z-outtangent-array" count="4" stride="2">
+          <accessor source="#pie_izq_location_Z-outtangent-array" count="4" stride="2">
             <param name="X" type="float"/>
             <param name="Y" type="float"/>
           </accessor>
         </technique_common>
       </source>
-      <sampler id="pie_izqzq_location_Z-sampler">
-        <input semantic="INPUT" source="#pie_izqzq_location_Z-input"/>
-        <input semantic="OUTPUT" source="#pie_izqzq_location_Z-output"/>
-        <input semantic="INTERPOLATION" source="#pie_izqzq_location_Z-interpolation"/>
-        <input semantic="IN_TANGENT" source="#pie_izqzq_location_Z-intangent"/>
-        <input semantic="OUT_TANGENT" source="#pie_izqzq_location_Z-outtangent"/>
+      <sampler id="pie_izq_location_Z-sampler">
+        <input semantic="INPUT" source="#pie_izq_location_Z-input"/>
+        <input semantic="OUTPUT" source="#pie_izq_location_Z-output"/>
+        <input semantic="INTERPOLATION" source="#pie_izq_location_Z-interpolation"/>
+        <input semantic="IN_TANGENT" source="#pie_izq_location_Z-intangent"/>
+        <input semantic="OUT_TANGENT" source="#pie_izq_location_Z-outtangent"/>
       </sampler>
-      <channel source="#pie_izqzq_location_Z-sampler" target="pie_izqzq/location.Z"/>
+      <channel source="#pie_izq_location_Z-sampler" target="pie_izq/location.Z"/>
     </animation>
     <animation id="tobillo_izq_location_X">
       <source id="tobillo_izq_location_X-input">
@@ -5546,7 +5546,7 @@
                 <rotate sid="rotationX">1 0 0 0</rotate>
                 <scale sid="scale">1 1 1</scale>
                 <instance_geometry url="#Cylinder_001-mesh"/>
-                <node id="pie_izqzq" name="pie_izqzq" type="NODE">
+                <node id="pie_izq" name="pie_izq" type="NODE">
                   <translate sid="location">-0.03026104 -1.463917 -2.154861</translate>
                   <rotate sid="rotationZ">0 0 1 -1.27387e-6</rotate>
                   <rotate sid="rotationY">0 1 0 -5.29523e-6</rotate>

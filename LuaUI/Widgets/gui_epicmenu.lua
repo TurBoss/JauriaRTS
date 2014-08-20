@@ -9,7 +9,7 @@ function widget:GetInfo()
     handler   = true,
     experimental = false,	
     enabled   = true,
-	alwaysStart = true,
+	alwaysStart = false,
   }
 end
 

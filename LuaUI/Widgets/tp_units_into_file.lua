@@ -6,7 +6,7 @@ function widget:GetInfo()
 		date      = "a horse up is a horse indeed",
 		license   = "yes",
 		layer     = 0,
-		enabled   = false
+		enabled   = false,
 	}
 end
 

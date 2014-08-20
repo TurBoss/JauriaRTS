@@ -21,6 +21,8 @@ local wheel_speed = math.rad(180)
 
 local SIG_AIM = 1
 
+local smoke = SFX.CEG
+
 function script.Create()
 	
 end
@@ -52,6 +54,7 @@ end
 
 --called after the weapon has fired
 function script.FireWeapon1()
+	EmitSfx(flare, smoke)
 	
 end
 

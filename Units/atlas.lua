@@ -42,7 +42,13 @@ local unitDef = {
 	CanMove = true,
 	CanPatrol = true,
 	CanStop = true,
-	LeaveTracks = false, 
+	LeaveTracks = false,
+
+	sfxtypes = {
+		explosiongenerators = {
+			"custom:smoke3",
+		},
+	},
 
 
 	weapons = {

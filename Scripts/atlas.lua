@@ -31,6 +31,8 @@ local SIG_WALK = 1	--signal for the walk animation thread
 local SIG_TURN = 2
 local SIG_AIM = 4
 
+local smoke = SFX.CEG
+
 Animations['moveAnimation'] = {
 	{
 		['time'] = 0,
@@ -259,7 +261,7 @@ end
 
 ---AIMING & SHOOTING---
 function script.AimFromWeapon1() 
-	return torso
+	return arma1d
 end
 
 function script.AimFromWeapon2() 
@@ -278,6 +280,7 @@ function script.FireWeapon1()
 end
 
 function script.FireWeapon2()
+	EmitSfx(flare2, smoke)
 end
 
 
