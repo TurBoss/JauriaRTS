@@ -18,7 +18,7 @@ local canon = piece('canon');
 
 local root = piece('root');
 
-local wheel_speed = math.rad(180)
+local wheel_speed = math.rad(280)
 
 local SIG_AIM = 1
 

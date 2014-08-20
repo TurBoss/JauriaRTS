@@ -17,7 +17,7 @@ local rueda1i = piece('rueda1i');
 local rueda2i = piece('rueda2i');
 
 
-local wheel_speed = math.rad(180)
+local wheel_speed = math.rad(280);
 
 local SIG_AIM = 1
 
