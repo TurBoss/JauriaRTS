@@ -13,19 +13,19 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 230,
-		heavyarmor = 360,
-		lightarmor = 220,
+		default = 520,
+		heavyarmor = 560,
+		lightarmor = 480,
 	},
-	--areaOfEffect            = 30,
+	areaOfEffect            = 160,
 	
 	--physics
-	myGravity               = 0.2,
-	weaponVelocity          = 350,
-	reloadtime              = 1,
-	range                   = 520,
+	myGravity               = 1,
+	weaponVelocity          = 620,
+	reloadtime              = 3,
+	range                   = 620,
 	--sprayAngle              = 45,
-	weaponaceleration       = 120,
+	weaponaceleration       = 620,
 	tolerance               = 8000,
 	lineOfSight             = true,
 	turret                  = true,
@@ -37,11 +37,11 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor                = [[0.5 0 0]],
-	size                    = 4,
-	stages                  = 5,
-	intensity               = 1,
-	separation              = 0,
+	rgbColor                = [[0 0.1 1]],
+	size                    = 12,
+	stages                  = 6,
+	intensity               = 0.2,
+	separation              = 1.2,
 	
 	--sounds
 	
