@@ -45,6 +45,10 @@ function script.AimFromWeapon4()
 	return cristal1
 end
 
+function script.AimFromWeapon5() 
+	return cristal1
+end
+
 function script.QueryWeapon1() 
 	return root
 end
