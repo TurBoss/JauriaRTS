@@ -110,6 +110,10 @@ local UnitEffects = {
 		{class='ShieldJitter',options={size = 65, strength = 0.005,}},
 	},
 	
+	[UnitDefNames["heibok"].id] = {
+		{class='ShieldJitter',options={size = 65, strength = 0.005,}},
+	},
+	
 	[UnitDefNames["heiknado"].id] = {
 		{class='Ribbon',options={width=1, size=12, piece="flare1"}},
 		{class='Ribbon',options={width=1, size=12, piece="flare2"}},

@@ -1,37 +1,37 @@
-local unitName = "heiknado"
+local unitName = "heibok"
 
 local unitDef = {
-	name = "heiknado",
+	name = "Heibok",
 	Description = "Complex, mobile unit.",
-	objectName = "heiknado.dae",
-	script = "heiknado.lua",
+	objectName = "heibok.dae",
+	script = "heibok.lua",
 	buildPic = "placeholder.png",
 	iconType = "rk2",
 
 	--cost
 
-	buildCostMetal = 1380,
+	buildCostMetal = 280,
 	buildCostEnergy = 0,
-	buildTime = 32,
+	buildTime = 12,
 
 	--Health
 
-	maxDamage = 3200,
+	maxDamage = 1280,
 	idleAutoHeal = 10,
 	idleTime     = 3,
 
 	--Movement
 
-	mass=3800,
+	mass=1000,
 	Acceleration = 2,
 	BrakeRate = 1.5,
 	FootprintX = 2,
 	FootprintZ = 2,
 	MaxSlope = 12,
-	MaxVelocity = 3.8,
+	MaxVelocity = 4,
 	MaxWaterDepth = 20,
-	MovementClass = "Default3x3",
-	TurnRate = 2800,
+	MovementClass = "Default2x2",
+	TurnRate = 2600,
 
 	sightDistance = 400,
 
@@ -46,19 +46,12 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "shieldheiknado",
-		},
-		[2]={name  = "weaponheiknado2",
+		[1]={name  = "weaponheibok",
 			onlyTargetCategory = [[LAND]],
+			maxAngleDif = 210,
+			mainDir = [[0 0 1]],
 		},
-		[3]={name  = "weaponheiknado2",
-			onlyTargetCategory = [[LAND]],
-		},
-		[4]={name  = "weaponheiknado2",
-			onlyTargetCategory = [[LAND]],
-		},
-		[5]={name  = "weaponheiknado2",
-			onlyTargetCategory = [[LAND]],
+		[2]={name  = "shieldheibok",
 		},
 	},
 }
