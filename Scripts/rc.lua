@@ -9,13 +9,13 @@ local rueda1d, rueda2d, rueda1i, rueda2i = piece ("rueda1d", "rueda2d", "rueda1i
 
 local wheel_speed = math.rad(300)
 
-local smokecloud = SFX.CEG   --the first effect from the list in the unitdef
+--local smokecloud = SFX.CEG   --the first effect from the list in the unitdef
 
 local SIG_RC = 1
 
 function script.Create()
 	Hide(mineral)
-	EmitSfx(boca, smokecloud)   --emit the first effect
+	--EmitSfx(boca, smokecloud)   --emit the first effect
 end
 
 function script.Killed()
@@ -44,7 +44,7 @@ function script.StartBuilding(heading, pitch)
 end
 
 function script.QueryNanoPiece()
-     return flare
+	return flare
 end
 
 function script.StartMoving()
