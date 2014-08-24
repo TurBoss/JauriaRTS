@@ -4,7 +4,7 @@ local weaponName = "weaponhaek"
 local weaponDef = {
 	
 	name                    = "Metralletatorre",
-	weaponType              = [[LightningCannon]],
+	weaponType              = [[Cannon]],
 	
 	Accuracy=50,
 	

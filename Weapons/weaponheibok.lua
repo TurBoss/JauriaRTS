@@ -6,33 +6,34 @@ local weaponDef = {
 	name                    = "misil RK-2",
 	weaponType              = "Cannon",
 	
-	Accuracy=30,
-	movingAccuracy=50,
+	Accuracy=1200,
+	movingAccuracy=1200,
 	--damage
 	
 	avoidFeature = false,
 	
 	damage = {
-		default = 520,
-		heavyarmor = 560,
-		lightarmor = 480,
+		default = 300,
+		heavyarmor = 50,
+		lightarmor = 250,
 	},
-	areaOfEffect            = 160,
+	areaOfEffect            = 30,
 	
 	--physics
 	myGravity               = 1,
-	weaponVelocity          = 620,
-	reloadtime              = 3,
-	range                   = 620,
-	--sprayAngle              = 45,
+	weaponVelocity          = 850,
+	startVelocity           = 550,
+	reloadtime              = 0.5,
+	range                   = 800,
+	sprayAngle              = 180,
 	weaponaceleration       = 620,
 	tolerance               = 8000,
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 0.0,
 	highTrajectory          = 0,
-	--burst                   = 2,
-	--burstrate               = 1.5,
+	--burst                   = 5,
+	--burstrate               = 0.5,
 	--proyectiles             = 2,
 	
 	--apperance

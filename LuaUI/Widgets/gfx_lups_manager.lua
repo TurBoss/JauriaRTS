@@ -106,13 +106,13 @@ local UnitEffects = {
 		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=6, length=15, piece="tubo1",}},
 		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=6, length=15, piece="tubo2",}},
 	},
-	[UnitDefNames["heik"].id] = {
+	[UnitDefNames["haek"].id] = {
 		{class='ShieldJitter',options={size = 65, strength = 0.005,}},
 	},
 	
-	[UnitDefNames["heibok"].id] = {
-		{class='ShieldJitter',options={size = 65, strength = 0.005,}},
-	},
+	--[UnitDefNames["heibok"].id] = {
+		--{class='ShieldJitter',options={size = 65, strength = 0.005,}},
+	--},
 	
 	[UnitDefNames["heiknado"].id] = {
 		{class='Ribbon',options={width=1, size=12, piece="flare1"}},
@@ -122,8 +122,8 @@ local UnitEffects = {
 		{class='ShieldJitter',options={size = 60, strength = 0.005,}},
 	},
 	
-	[UnitDefNames["hekor"].id] = {
-		{class='ShieldJitter',options={size = 80, strength = 0.005,}},
+	[UnitDefNames["haerik"].id] = {
+		{class='ShieldJitter',options={size = 65, strength = 0.005,}},
 	},
 	
 	[UnitDefNames["hipso"].id] = {

@@ -10,30 +10,30 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 1380,
+	buildCostMetal = 840,
 	buildCostEnergy = 0,
-	buildTime = 12,
+	buildTime = 28,
 
 	--Health
 
-	maxDamage = 3200,
-	idleAutoHeal = 10,
+	maxDamage = 3600,
+	idleAutoHeal = 28,
 	idleTime     = 3,
 
 	--Movement
 
-	mass=1000,
+	mass=1300,
 	Acceleration = 2,
 	BrakeRate = 1.5,
 	FootprintX = 2,
 	FootprintZ = 2,
 	MaxSlope = 12,
-	MaxVelocity = 4,
+	MaxVelocity = 3.4,
 	MaxWaterDepth = 20,
 	MovementClass = "Default2x2",
 	TurnRate = 2600,
 
-	sightDistance = 400,
+	sightDistance = 480,
 
 	Category = [[LAND]],
 

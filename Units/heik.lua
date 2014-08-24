@@ -10,30 +10,30 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 280,
+	buildCostMetal = 75,
 	buildCostEnergy = 0,
-	buildTime = 12,
+	buildTime = 5.5,
 
 	--Health
 
-	maxDamage = 1280,
-	idleAutoHeal = 10,
+	maxDamage = 860,
+	idleAutoHeal = 16,
 	idleTime     = 3,
 
 	--Movement
 
-	mass=1000,
+	mass=600,
 	Acceleration = 2,
 	BrakeRate = 1.5,
-	FootprintX = 2,
-	FootprintZ = 2,
+	FootprintX = 1.5,
+	FootprintZ = 1.5,
 	MaxSlope = 12,
-	MaxVelocity = 4,
+	MaxVelocity = 4.9,
 	MaxWaterDepth = 20,
 	MovementClass = "Default2x2",
-	TurnRate = 2600,
+	TurnRate = 3200,
 
-	sightDistance = 400,
+	sightDistance = 340,
 
 	Category = [[LAND]],
 
@@ -49,8 +49,8 @@ local unitDef = {
 		[1]={name  = "weaponheik",
 			onlyTargetCategory = [[LAND]],
 		},
-		[2]={name  = "shieldheik",
-		},
+		--[2]={name  = "shieldheik",
+		--},
 	},
 }
 

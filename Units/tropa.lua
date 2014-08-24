@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Simple, mobile unit",
 	objectName = "tropa.dae",
 	script = "tropa.lua",
-	buildPic = "nm1.png",
+	buildPic = "placeholder.png",
 	iconType = "nm1",
 
 	--cost

@@ -10,13 +10,13 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 460,
+	buildCostMetal = 1250,
 	buildCostEnergy = 0,
-	buildTime = 12,
+	buildTime = 35,
 
 	--Health
 
-	maxDamage = 1680,
+	maxDamage = 3200,
 	idleAutoHeal = 10,
 	idleTime     = 3,
 
@@ -33,7 +33,7 @@ local unitDef = {
 	MovementClass = "Default2x2",
 	TurnRate = 1100,
 
-	sightDistance = 400,
+	sightDistance = 640,
 
 	Category = [[LAND]],
 
@@ -56,8 +56,8 @@ local unitDef = {
 			maxAngleDif = 210,
 			mainDir = [[0 0 1]],
 		},
-		[2]={name  = "shieldheibok",
-		},
+		--[2]={name  = "shieldheibok",
+		--},
 	},
 }
 

@@ -16,7 +16,7 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 2800,
+	maxDamage = 4200,
 	idleAutoHeal = 10,
 	idleTime     = 3,
 
@@ -25,8 +25,8 @@ local unitDef = {
 	mass=800,
 	Acceleration = 1.5,
 	BrakeRate = 0.5,
-	FootprintX = 2,
-	FootprintZ = 2,
+	FootprintX = 3,
+	FootprintZ = 3,
 	MaxSlope = 12,
 	MaxVelocity = 3.6,
 	MaxWaterDepth = 20,
@@ -55,8 +55,8 @@ local unitDef = {
 		[3]={name  = "weaponheik",
 			onlyTargetCategory = [[LAND]],
 		},
-		[4]={name  = "shieldhekor",
-		},
+		--[4]={name  = "shieldhekor",
+		--},
 	},
 }
 

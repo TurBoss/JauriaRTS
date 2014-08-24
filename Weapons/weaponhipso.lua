@@ -8,12 +8,16 @@ local weaponDef = {
 	
 	Accuracy=100,
 	movingAccuracy=200,
+	
+		paralyzer = true,
+	paralyzeTime = 1.5,
+	
 	--damage
 	
 	damage = {
-		default = 200,
-		heavyarmor = 230,
-		lightarmor = 380,
+		default = 800,
+		heavyarmor = 0,
+		lightarmor = 0,
 	},
 	areaOfEffect            = 0,
 	
@@ -21,7 +25,7 @@ local weaponDef = {
 	
 	weaponVelocity          = 800,
 	reloadtime              = 0.5,
-	range                   = 450,
+	range                   = 320,
 	--sprayAngle              = 45,
 	--weaponaceleration       = 25,
 	tolerance               = 10000,
