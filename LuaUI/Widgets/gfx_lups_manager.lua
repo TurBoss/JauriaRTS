@@ -127,7 +127,7 @@ local UnitEffects = {
 	},
 	
 	[UnitDefNames["hipso"].id] = {
-		{class='ShieldJitter',options={size = 160, strength = 0.005,}},
+		{class='ShieldJitter',options={size = 130, strength = 0.005,}},
 	},
 }
 local registeredUnits = {}	-- all finished units - prevents partial unbuild then rebuild from being treated as two UnitFinished events

@@ -1,9 +1,9 @@
 
-local weaponName = "shieldhipso"
+local weaponName = "shieldhaerik"
 
 local weaponDef = {
 	
-	name					= "shieldhipso",
+	name					= "shieldhaerik",
 	weaponType				= "Shield",
 	
 	damage = {
@@ -17,14 +17,14 @@ local weaponDef = {
 	shieldGoodColor			= [[0 0.2 1]],
 	InterceptType			= 511,
 	shieldInterceptType		= 511,
-	shieldPower				= 3200,
-	shieldPowerRegen		= 56,
+	shieldPower				= 820,
+	shieldPowerRegen		= 36,
 	shieldPowerRegenEnergy	= 0,
-	shieldRadius			= 130,
+	shieldRadius			= 54,
 	shieldRepulser			= false,
 	--shieldforce				= 10000,
 	--shieldmaxspeed			= 10000,
-	shieldStartingPower		= 3200,
+	shieldStartingPower		= 820,
 	smartShield				= true,
 	visibleShield			= true,
 	visibleShieldHitFrames	= 4,

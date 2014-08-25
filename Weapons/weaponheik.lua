@@ -14,9 +14,9 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 50,
-		heavyarmor = 45,
-		lightarmor = 88,
+		default = 30,
+		heavyarmor = 14,
+		lightarmor = 22,
 	},
 --	areaOfEffect            = 10,
 	
@@ -24,7 +24,7 @@ local weaponDef = {
 	
 	weaponVelocity          = 800,
 	reloadtime              = 0.2,
-	range                   = 340,
+	range                   = 220,
 --	sprayAngle              = 45,
 	weaponaceleration       = 450,
 	tolerance               = 10000,
@@ -37,7 +37,7 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor                = [[0 0 1]],
+	rgbColor                = [[0 0.1 1]],
 	size                    = 1,
 	stages                  = 4,
 	intensity               = 1.5,

@@ -538,7 +538,7 @@ end
 
 function script.StartMoving(heading)
 	StartThread (caminapalante)
-	Turn(torso, z_axis, heading, math.rad(225))
+	--Turn(torso, z_axis, heading, math.rad(225))
 end
 
 function script.StopMoving()
@@ -553,7 +553,7 @@ end
 
 ---AIMING & SHOOTING---
 function script.AimFromWeapon1() 
-	return torso
+	return flare
 end
 
 
@@ -566,9 +566,9 @@ function script.AimWeapon1( heading, pitch )
 	--make sure the aiming animation is only run once
 	Signal(SIG_AIM)
 	SetSignalMask(SIG_AIM)
-	Turn(torso, z_axis, heading, math.rad(350))
+	--Turn(torso, z_axis, heading, math.rad(350))
 	--wait until the weapon is pointed in the right direction
-	WaitForTurn (torso, z_axis)
+	--WaitForTurn (torso, z_axis)
 	return true
 end
 

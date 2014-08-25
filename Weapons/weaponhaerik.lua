@@ -4,7 +4,7 @@ local weaponName = "weaponhaerik"
 local weaponDef = {
 	
 	name                    = "metralletaNM-1",
-	weaponType              = "LaserCannon",
+	weaponType              = "Cannon",
 	
 	Accuracy=50,
 	movingAccuracy=80,
@@ -14,19 +14,19 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 200,
-		heavyarmor = 5,
-		lightarmor = 120,
+		default = 150,
+		heavyarmor = 85,
+		lightarmor = 140,
 	},
-	areaOfEffect            = 40,
+	areaOfEffect            = 0,
 	
 	--physics
 	
-	weaponVelocity          = 800,
-	reloadtime              = 0.3,
+	weaponVelocity          = 500,
+	reloadtime              = 0.6,
 	range                   = 480,
 --	sprayAngle              = 45,
-	weaponaceleration       = 80,
+	weaponaceleration       = 250,
 	tolerance               = 10000,
 	lineOfSight             = true,
 	turret                  = true,
@@ -37,11 +37,11 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor2                = [[0 0.1 1]],
-	size                    = 5,
-	stages                  = 8,
-	intensity               = 10,
-	separation              = 1.6,
+	rgbColor                = [[0 0.1 1]],
+	size                    = 8,
+	stages                  = 4,
+	intensity               = 1.5,
+	separation              = 0.5,
 	explosionScar			= true,
 	
 	--explosionGenerator		= "custom:humo",

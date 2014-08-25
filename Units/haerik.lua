@@ -16,7 +16,7 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 2100,
+	maxDamage = 1250,
 	idleAutoHeal = 20,
 	idleTime     = 3,
 
@@ -47,11 +47,11 @@ local unitDef = {
 
 	weapons = {
 		[1]={name  = "weaponhaerik",
-			maxAngleDif = 90,
-			mainDir = [[0 0 1]],
+			--maxAngleDif = 210,
+			--mainDir = [[0 0 1]],
 			onlyTargetCategory = [[LAND]],
 		},
-		[2]={name  = "shieldhaek",
+		[2]={name  = "shieldhaerik",
 		},
 	},
 }
