@@ -49,7 +49,7 @@ local unitDef = {
 	workerTime = 0.1,
 	repairSpeed = 0,
 	reclaimSpeed = 30,
-	buildDistance = 30,
+	buildDistance = 100,
 }
 
 return lowerkeys({ [unitName] = unitDef })
