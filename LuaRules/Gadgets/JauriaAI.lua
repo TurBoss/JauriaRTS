@@ -47,7 +47,7 @@ end
 
 function gadget:GameFrame(frame)
 	if (frame % 30 ==0) then
-		AIDebugMessage("all","testMSG EVERY 30 Frames".. frame)
+		AIDebugMessage("all","test MSG EVERY 30 Frames ".. frame)
 	end
 end
 
