@@ -52,13 +52,13 @@ local unitDef = {
 	workerTime = 1,
 	
 	buildoptions = {
-		"Heiker",
+		"heiker",
 		"heik",
 		"haerik",
 		"hipso",
 		"hekor",
-		"Haek",
-		"Heibok",
+		"haek",
+		"heibok",
 	},
 }
 
