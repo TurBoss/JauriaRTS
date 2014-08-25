@@ -9,13 +9,13 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 320,
+	buildCostMetal = 280,
 	buildCostEnergy = 0,
-	buildTime = 10,
+	buildTime = 8,
 
 	--Health
 
-	maxDamage    = 3200,
+	maxDamage    = 2600,
 	idleAutoHeal = 20,
 	idleTime     = 3,
 	--Movement
@@ -25,7 +25,7 @@ local unitDef = {
 	BrakeRate = 1.5,
 	FootprintX = 2,
 	FootprintZ = 2,
-	MaxVelocity = 3.6,
+	MaxVelocity = 4.2,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
 	TurnRate = 2400,
@@ -49,7 +49,7 @@ local unitDef = {
 	workerTime = 0.1,
 	repairSpeed = 0,
 	reclaimSpeed = 30,
-	buildDistance = 160,
+	buildDistance = 130,
 }
 
 return lowerkeys({ [unitName] = unitDef })
