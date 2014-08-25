@@ -62,7 +62,7 @@ function gadget:GameStart()
             local home_x,home_y,home_z = Spring.GetTeamStartPosition(t)
         end
     end
-	Spring.GiveOrderToUnit(1000,-1,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+	--Spring.GiveOrderToUnit(1000,-1,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
 end
 
 function gadget:Initialize()
