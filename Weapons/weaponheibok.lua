@@ -6,18 +6,18 @@ local weaponDef = {
 	name                    = "misil RK-2",
 	weaponType              = "Cannon",
 	
-	Accuracy=1200,
-	movingAccuracy=1200,
+	Accuracy=800,
+	movingAccuracy=800,
 	--damage
 	
 	avoidFeature = false,
 	
 	damage = {
 		default = 300,
-		heavyarmor = 50,
-		lightarmor = 250,
+		heavyarmor = 150,
+		lightarmor = 350,
 	},
-	areaOfEffect            = 30,
+	areaOfEffect            = 60,
 	
 	--physics
 	myGravity               = 1,
