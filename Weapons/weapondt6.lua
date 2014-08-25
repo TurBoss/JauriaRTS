@@ -4,7 +4,7 @@ local weaponName = "weapondt6"
 local weaponDef = {
 	
 	name                    = "metralletaNM-1",
-	weaponType              = "LaserCannon",
+	weaponType              = "DGun",
 	
 	Accuracy=50,
 	movingAccuracy=80,
@@ -22,7 +22,7 @@ local weaponDef = {
 	
 	--physics
 	
-	weaponVelocity          = 800,
+	weaponVelocity          = 600,
 	reloadtime              = 0.3,
 	range                   = 480,
 --	sprayAngle              = 45,
@@ -38,10 +38,10 @@ local weaponDef = {
 	--apperance
 	
 	rgbColor2                = [[1 0 0.1]],
-	size                    = 5,
-	stages                  = 8,
-	intensity               = 10,
-	separation              = 1.6,
+	size                    = 10,
+	stages                  = 4,
+	intensity               = 0.5,
+	separation              = 0.5,
 	explosionScar			= true,
 	
 	--explosionGenerator		= "custom:humo",

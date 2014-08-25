@@ -16,7 +16,7 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 4200,
+	maxDamage = 4800,
 	idleAutoHeal = 10,
 	idleTime     = 3,
 
@@ -31,7 +31,7 @@ local unitDef = {
 	MaxVelocity = 3.6,
 	MaxWaterDepth = 20,
 	MovementClass = "Default2x2",
-	TurnRate = 2500,
+	TurnRate = 2800,
 
 	sightDistance = 460,
 
@@ -46,14 +46,18 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "weaponheik",
+		[1]={name  = "weaponhekor",
 			onlyTargetCategory = [[LAND]],
 		},
-		[2]={name  = "weaponheik",
+		[2]={name  = "weaponhekor",
 			onlyTargetCategory = [[LAND]],
+			maxAngleDif = 260,
+			mainDir = [[-1 0 1]],
 		},
-		[3]={name  = "weaponheik",
+		[3]={name  = "weaponhekor",
 			onlyTargetCategory = [[LAND]],
+			maxAngleDif = 260,
+			mainDir = [[1 0 1]],
 		},
 		--[4]={name  = "shieldhekor",
 		--},

@@ -4,23 +4,23 @@ local weaponName = "weaponhaek"
 local weaponDef = {
 	
 	name                    = "Metralletatorre",
-	weaponType              = [[Cannon]],
+	weaponType              = [[EmgCannon]],
 	
 	Accuracy=50,
 	
 	--damage
 	
 	damage = {
-		default = 400,
-		heavyarmor = 220,
-		lightarmor = 540,
+		default = 1100,
+		heavyarmor = 820,
+		lightarmor = 640,
 	},
-	areaOfEffect            = 30,
+	areaOfEffect            = 140,
 	
 	--physics
 	
-	weaponVelocity          = 800,
-	reloadtime              = 0.5,
+	weaponVelocity          = 380,
+	reloadtime              = 3.2,
 	range                   = 450,
 	sprayAngle              = 45,
 	tolerance               = 8000,
@@ -31,9 +31,10 @@ local weaponDef = {
 	--apperance
 	
 	rgbColor                = [[0 0.1 1]],
-	size                    = 8,
-	stages                  = 8,
-	separation              = 1.5,
+	size                    = 13,
+	stages                  = 12,
+	separation              = 0,
+	intensity               = 10,
 }
 
 return lowerkeys({[weaponName] = weaponDef})

@@ -14,23 +14,23 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 32,
-		heavyarmor = 30,
-		lightarmor = 36,
+		default = 88,
+		heavyarmor = 42,
+		lightarmor = 92,
 	},
 --	areaOfEffect            = 10,
 	
 	--physics
 	
-	weaponVelocity          = 600,
+	weaponVelocity          = 1200,
 	reloadtime              = 0.3,
-	range                   = 380,
+	range                   = 410,
 --	sprayAngle              = 45,
-	weaponaceleration       = 250,
+	weaponaceleration       = 850,
 	tolerance               = 10000,
 	lineOfSight             = true,
 	turret                  = true,
-	craterMult              = 100,
+--	craterMult              = 100,
 --	burst                   = 2,
 --	burstrate               = 0.08,
 	--proyectiles             = 2,

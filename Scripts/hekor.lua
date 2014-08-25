@@ -55,7 +55,7 @@ function script.AimWeapon1( heading, pitch )
 
 	SetSignalMask(SIG_AIM1)
 	
-	Turn(arma1, z_axis, heading, math.rad(200))
+	Turn(arma1, z_axis, heading, math.rad(250))
 	
 	WaitForTurn (arma1, z_axis)
 
@@ -69,7 +69,7 @@ function script.AimWeapon2( heading, pitch )
 
 	SetSignalMask(SIG_AIM2)
 	
-	Turn(arma2, z_axis, heading, math.rad(200))
+	Turn(arma2, z_axis, heading, math.rad(250))
 	
 	WaitForTurn (arma2, z_axis)
 
@@ -83,7 +83,7 @@ function script.AimWeapon3( heading, pitch )
 
 	SetSignalMask(SIG_AIM3)
 	
-	Turn(arma3, z_axis, heading, math.rad(200))
+	Turn(arma3, z_axis, heading, math.rad(250))
 	
 	WaitForTurn (arma3, z_axis)
 
@@ -105,20 +105,9 @@ function script.FireWeapon3()
 end
 
 function script.StartMoving(heading)
-	Turn (arma1, z_axis, heading, math.rad(150))
-
-
-end
-
-function script.StartMoving(heading)
-	Turn (arma2, z_axis, heading, math.rad(150))
-
-
-end
-
-function script.StartMoving(heading)
-	Turn (arma3, z_axis, heading, math.rad(150))
-
+	Turn (arma1, z_axis, heading, math.rad(250))
+	Turn (arma2, z_axis, heading, math.rad(250))
+	Turn (arma3, z_axis, heading, math.rad(250))
 
 end
 
