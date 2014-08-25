@@ -65,9 +65,12 @@ end
 function script.StartBuilding(heading, pitch)
 	Signal(SIG_RC)
 	SetSignalMask(SIG_RC)
-	Turn (taladro, z_axis, heading, math.rad(100))
-	WaitForTurn(taladro, z_axis)
+    Spin(taladro, y_axis, math.rad(200))
 	SetUnitValue(COB.INBUILDSTANCE, 1)
+end
+
+function script.StopBuilding()
+    StopSpin (taladro,y_axis)
 end
 
 function script.QueryNanoPiece()
