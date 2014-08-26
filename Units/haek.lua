@@ -1,4 +1,4 @@
-local unitName = "haek"
+local unitName = "fhaek"
 
 local unitDef = {
 	name = "Haek",
