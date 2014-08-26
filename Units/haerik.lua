@@ -1,4 +1,4 @@
-local unitName = "haerik"
+local unitName = "chaerik"
 
 local unitDef = {
 	name = "haerik",
@@ -10,9 +10,9 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 420,
+	buildCostMetal = 480,
 	buildCostEnergy = 0,
-	buildTime = 18,
+	buildTime = 22,
 
 	--Health
 
