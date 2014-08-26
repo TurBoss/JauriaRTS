@@ -2,7 +2,7 @@ local unitName = "arc"
 
 local unitDef = {
 	name = "RC",
-	Description = "Simple, recolector",
+	Description = "Recolector",
 	objectName = "rc.dae",
 	script = "rc.lua",
 	buildPic = "rc.png",

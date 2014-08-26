@@ -2,7 +2,7 @@ local unitName = "cnm1"
 
 local unitDef = {
 	name = "NM-1",
-	Description = "Simple, mobile unit",
+	Description = "Light Infantry",
 	objectName = "nm1.dae",
 	script = "nm1.lua",
 	buildPic = "nm1.png",

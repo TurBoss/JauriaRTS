@@ -2,7 +2,7 @@ local unitName = "destructor"
 
 local unitDef = {
 	name = "destructor",
-	Description = "Simple, mobile unit",
+	Description = "Jungle",
 	objectName = "destructor.dae",
 	script = "destructor.lua",
 	buildPic = "placeholder.png",

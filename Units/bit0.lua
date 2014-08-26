@@ -2,7 +2,7 @@ local unitName = "bit0"
 
 local unitDef = {
 	name = "IT-0",
-	Description = "Simple, mobile unit",
+	Description = "Spy Unit",
 	objectName = "it0.dae",
 	script = "it0.lua",
 	buildPic = "it0.png",

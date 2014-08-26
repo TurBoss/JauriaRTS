@@ -3,7 +3,7 @@ local unitName = "ftkt4"
 local unitDef = {
 
 	name = "TKT-4",
-	Description = "heavy tank",
+	Description = "heavy Tank",
 	objectName = "tkt4.dae",
 	script = "tkt4.lua",
 	buildPic = "tkt4.png",
