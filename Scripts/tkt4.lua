@@ -15,6 +15,8 @@ local rueda4i = piece "rueda4i"
 --pieces used by the weapon:
 
 local canon = piece "canon"
+local basearma = piece "basearma"
+local arma = piece "arma"
 local flare = piece "flare"
 
 local wheel_speed = math.rad(180)
@@ -44,8 +46,10 @@ function script.AimWeapon1( heading, pitch )
 	SetSignalMask(SIG_AIM)
 	
 	Turn(canon, z_axis, heading, math.rad(80))
+	Turn(basearma, x_axis, -pitch, math.rad(80))
 	
 	--wait until the weapon is pointed in the right direction
+	WaitForTurn (basearma, x_axis)
 	WaitForTurn (canon, z_axis)
 
 	
@@ -56,6 +60,9 @@ end
 function script.FireWeapon1()
 	EmitSfx(flare, smoke)
 	
+	Move(arma, y_axis, 4)
+	Sleep(150)
+	Move(arma, y_axis, 0, 20)
 end
 
 function script.StartMoving(heading)
