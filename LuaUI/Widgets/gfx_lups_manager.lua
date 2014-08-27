@@ -106,7 +106,7 @@ local UnitEffects = {
 		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=6, length=15, piece="tubo1",}},
 		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=6, length=15, piece="tubo2",}},
 	},
-	[UnitDefNames["haek"].id] = {
+	[UnitDefNames["fhaek"].id] = {
 		{class='ShieldJitter',options={size = 65, strength = 0.005,}},
 	},
 	
@@ -122,11 +122,11 @@ local UnitEffects = {
 		{class='ShieldJitter',options={size = 60, strength = 0.005,}},
 	},
 	
-	[UnitDefNames["haerik"].id] = {
+	[UnitDefNames["chaerik"].id] = {
 		{class='ShieldJitter',options={size = 65, strength = 0.005,}},
 	},
 	
-	[UnitDefNames["hipso"].id] = {
+	[UnitDefNames["dhipso"].id] = {
 		{class='ShieldJitter',options={size = 130, strength = 0.005,}},
 	},
 }
