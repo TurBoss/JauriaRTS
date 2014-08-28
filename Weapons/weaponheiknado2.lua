@@ -19,7 +19,7 @@ local weaponDef = {
 		lightarmor = 240,
 	},
 	
-	reloadtime = 0.5,
+	reloadtime = 0,
 	range = 100,
 	
 	soundStart              = "melee_gfx",

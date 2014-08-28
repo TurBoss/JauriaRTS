@@ -21,8 +21,8 @@ local unitDef = {
 
 	--Movement
 	
-	FootprintX = 8,
-	FootprintZ = 8,
+	FootprintX = 7,
+	FootprintZ = 7,
 	
 	maxSlope = 20,
 
