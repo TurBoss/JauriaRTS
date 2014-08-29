@@ -14,7 +14,7 @@ local flare4 = piece "flare4"
 
 
 local wheel_speed = math.rad(300)
-local sega_speed = math.rad(480)
+local sega_speed = math.rad(360)
 
 
 local SIG_AIM = 1
@@ -45,27 +45,21 @@ function script.AimFromWeapon4()
 	return cristal1
 end
 
-function script.AimFromWeapon5() 
-	return cristal1
-end
+
 
 function script.QueryWeapon1() 
-	return root
-end
-
-function script.QueryWeapon2() 
 	return flare1
 end
 
-function script.QueryWeapon3() 
+function script.QueryWeapon2() 
 	return flare2
 end
 
-function script.QueryWeapon4() 
+function script.QueryWeapon3() 
 	return flare3
 end
 
-function script.QueryWeapon5() 
+function script.QueryWeapon4() 
 	return flare4
 end
 

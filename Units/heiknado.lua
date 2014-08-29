@@ -12,12 +12,12 @@ local unitDef = {
 
 	buildCostMetal = 1380,
 	buildCostEnergy = 0,
-	buildTime = 32,
+	buildTime = 52,
 
 	--Health
 
-	maxDamage = 3200,
-	idleAutoHeal = 10,
+	maxDamage = 7800,
+	idleAutoHeal = 46,
 	idleTime     = 3,
 
 	--Movement
@@ -25,10 +25,10 @@ local unitDef = {
 	mass=3800,
 	Acceleration = 2,
 	BrakeRate = 1.5,
-	FootprintX = 2,
-	FootprintZ = 2,
+	FootprintX = 2.5,
+	FootprintZ = 2.5,
 	MaxSlope = 12,
-	MaxVelocity = 3.8,
+	MaxVelocity = 4.2,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
 	TurnRate = 2800,
@@ -46,18 +46,16 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "shieldheiknado",
-		},
-		[2]={name  = "weaponheiknado2",
+		[1]={name  = "weaponheiknado",
 			onlyTargetCategory = [[LAND]],
 		},
-		[3]={name  = "weaponheiknado2",
+		[2]={name  = "weaponheiknado",
 			onlyTargetCategory = [[LAND]],
 		},
-		[4]={name  = "weaponheiknado2",
+		[3]={name  = "weaponheiknado",
 			onlyTargetCategory = [[LAND]],
 		},
-		[5]={name  = "weaponheiknado2",
+		[4]={name  = "weaponheiknado",
 			onlyTargetCategory = [[LAND]],
 		},
 	},

@@ -4,23 +4,23 @@ local weaponName = "weaponheiknado"
 local weaponDef = {
 	
 	name                    = "Lightningcannon",
-	weaponType              = "LightningCannon",
+	weaponType              = "Cannon",
 	
-	Accuracy=100,
-	movingAccuracy=200,
+	Accuracy=10,
+	movingAccuracy=10,
 	--damage
 	
 	damage = {
 		default = 80,
-		heavyarmor = 100,
-		lightarmor = 120,
+		heavyarmor = 80,
+		lightarmor = 95,
 	},
-	areaOfEffect            = 0,
+	areaOfEffect            = 15,
 	avoidFeatures = false,
 	--physics
 	
 	weaponVelocity          = 1000,
-	reloadtime              = 0.1,
+	reloadtime              = 0.2,
 	range                   = 100,
 	--sprayAngle              = 45,
 	--weaponaceleration       = 25,
@@ -39,6 +39,8 @@ local weaponDef = {
 	--stages                  = 1,
 	intensity               = 1,
 	--separation              = 2,
+	
+	soundStart              = "melee_gfx",
 	
 	CegTag						= [[genericshellexplosion-large-sparks-burn]],
 	--explosionGenerator			= [[custom:lightning_stormbolt]],

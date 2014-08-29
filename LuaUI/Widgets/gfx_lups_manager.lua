@@ -99,8 +99,8 @@ local UnitEffects = {
 		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=2, length=15, piece="tubo2",}},
 	},
 	[UnitDefNames["ftkt4"].id] = {
-		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=6, length=15, piece="tubo1",}},
-		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=6, length=15, piece="tubo2",}},
+		{class='Ribbon',options={color={1,1.1,1,1}, width=6, size=8,texture1 = ":c:bitmaps/GPL/Lups/flametrail.png", piece="tubo1",}},
+		{class='Ribbon',options={color={1,1.1,1,1}, width=6, size=8,texture1 = ":c:bitmaps/GPL/Lups/flametrail.png", piece="tubo2",}},
 	},
 	[UnitDefNames["enk3"].id] = {
 		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=6, length=15, piece="tubo1",}},
@@ -119,7 +119,7 @@ local UnitEffects = {
 		{class='Ribbon',options={width=1, size=12, piece="flare2"}},
 		{class='Ribbon',options={width=1, size=12, piece="flare3"}},
 		{class='Ribbon',options={width=1, size=12, piece="flare4"}},
-		{class='ShieldJitter',options={size = 60, strength = 0.005,}},
+		--{class='ShieldJitter',options={size = 60, strength = 0.005,}},
 	},
 	
 	[UnitDefNames["chaerik"].id] = {

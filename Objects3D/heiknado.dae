@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.71.0 commit date:2014-06-25, commit time:18:36, hash:9337574</authoring_tool>
     </contributor>
-    <created>2014-08-10T20:31:35</created>
-    <modified>2014-08-10T20:31:35</modified>
+    <created>2014-08-28T21:50:06</created>
+    <modified>2014-08-28T21:50:06</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -182,16 +182,16 @@
           <matrix sid="transform">1 0 0 -3.21122e-6 0 1 0 -0.03406766 0 0 1 22.74808 0 0 0 1</matrix>
           <instance_geometry url="#Cube-mesh"/>
           <node id="flare1" name="flare1" type="NODE">
-            <matrix sid="transform">1 0 0 39.05167 0 1 0 0.03406766 0 0 1 0.02596092 0 0 0 1</matrix>
+            <matrix sid="transform">1 0 0 44.30262 0 1 0 0.03406766 0 0 1 0.02596092 0 0 0 1</matrix>
           </node>
           <node id="flare2" name="flare2" type="NODE">
-            <matrix sid="transform">1 0 0 3.21122e-6 0 1 0 39.04263 0 0 1 0.02596092 0 0 0 1</matrix>
+            <matrix sid="transform">1 0 0 3.21122e-6 0 1 0 44.05123 0 0 1 0.02596092 0 0 0 1</matrix>
           </node>
           <node id="flare3" name="flare3" type="NODE">
-            <matrix sid="transform">1 0 0 -38.54539 0 1 0 0.03406766 0 0 1 0.02596092 0 0 0 1</matrix>
+            <matrix sid="transform">1 0 0 -44.0387 0 1 0 0.03406766 0 0 1 0.02596092 0 0 0 1</matrix>
           </node>
           <node id="flare4" name="flare4" type="NODE">
-            <matrix sid="transform">1 0 0 3.21122e-6 0 1 0 -38.66212 0 0 1 0.02596092 0 0 0 1</matrix>
+            <matrix sid="transform">1 0 0 3.21122e-6 0 1 0 -44.31699 0 0 1 0.02596092 0 0 0 1</matrix>
           </node>
         </node>
         <node id="chasis" name="chasis" type="NODE">

@@ -14,9 +14,9 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 48,
-		heavyarmor = 28,
-		lightarmor = 36,
+		default = 38,
+		heavyarmor = 24,
+		lightarmor = 32,
 	},
 --	areaOfEffect            = 10,
 	
