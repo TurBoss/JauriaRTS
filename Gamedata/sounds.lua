@@ -95,6 +95,15 @@ local Sounds = {
 			--maxdist = FLT_MAX, --- no cutoff at all
 		},
 		
+		shoot2_gfx = {
+			file = "sounds/shoot.ogg",
+			gain = 1.0,
+			pitch = 1.0,
+			priority = 0,
+			maxconcurrent = 16, --- some reasonable limits
+			--maxdist = FLT_MAX, --- no cutoff at all
+		},
+		
 		melee_gfx = {
 			file = "sounds/armor1.ogg",
 			gain = 1.0,
