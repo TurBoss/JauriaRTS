@@ -1,11 +1,11 @@
-local unitName = "torreta"
+local unitName = "torreta2"
 
 local unitDef = {
 	name				= "Torreta Jauria",
 	Description			= "Torre defensora",
-	objectName			= "torreta.dae",
-	script			= "torreta.lua",
-	buildPic			= "torreta.png",
+	objectName			= "torreta2.dae",
+	script			= "torreta2.lua",
+	buildPic			= "torreta2.png",
 
 	--cost
 
@@ -15,8 +15,8 @@ local unitDef = {
 	
 	--Health
 
-	maxDamage = 18000,
-	idleAutoHeal = 48,
+	maxDamage = 23000,
+	idleAutoHeal = 60,
 	idleTime     = 3,
 
 	--Movement
@@ -39,6 +39,12 @@ local unitDef = {
 
 	weapons = {
 	[1]={name  = "weapontorreta",
+		onlyTargetCategory = [[LAND AIR]],
+		},
+	[2]={name  = "weapontorreta",
+		onlyTargetCategory = [[LAND AIR]],
+		},
+	[3]={name  = "weapontorreta",
 		onlyTargetCategory = [[LAND AIR]],
 		},
 	},

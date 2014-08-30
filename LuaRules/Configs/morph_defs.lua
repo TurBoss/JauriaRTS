@@ -26,10 +26,10 @@ local devolution = (-1 > 0)
 
 local morphDefs = {
         torreta = {
-                into = 'cnm1',
-                time = 10,
+                into = 'torreta2',
+                time = 5,
                 --xp = .015
-                metal = 1000
+                metal = 10
                 --tech = 2
         },
 }

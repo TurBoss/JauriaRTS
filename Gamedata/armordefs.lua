@@ -2,7 +2,6 @@ local armorDefs = {
 	heavyarmor = {
 		"tkt3",
 		"nk2",
-		"torreta",
 		"st6",
 		--------------
 		"heiknado",
@@ -33,6 +32,7 @@ local armorDefs = {
 	},
 	torrearmor = {
 		"torreta",
+		"torreta2",
 	},
 }
 

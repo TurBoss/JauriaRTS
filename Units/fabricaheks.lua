@@ -58,7 +58,7 @@ local unitDef = {
 		"dhipso",
 		"ehekor",
 		"fhaek",
-		"gheibok",
+		"gheiknado",
 	},
 }
 
