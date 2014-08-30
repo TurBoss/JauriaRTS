@@ -4,7 +4,7 @@ local unitDef = {
 	name = "Adept",
 	Description = "Recolector",
 	objectName = "adept.dae",
-	--script = "rc.lua",
+	script = "adept.lua",
 	buildPic = "rc.png",
 
 	--cost
@@ -34,12 +34,20 @@ local unitDef = {
 
 	Category = [[LAND]],
 
-	CanAttack = false,
+	CanAttack = true,
 	CanGuard = true,
 	CanMove = true,
 	CanPatrol = true,
 	CanStop = true,
 	LeaveTracks = false, 
+	
+		weapons = {
+		[1]={name  = "weaponadept",
+			onlyTargetCategory = [[LAND]],
+			--maxAngleDif = 210,
+			--mainDir = [[-1 0 1]],
+		},
+	},
 
 	--building
 
