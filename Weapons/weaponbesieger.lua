@@ -4,7 +4,7 @@ local weaponName = "weaponbesieger"
 local weaponDef = {
 	
 	name                    = "Golpe Ariete",
-	weaponType              = "Cannon",
+	weaponType              = "Melee",
 	
 	Accuracy=20,
 	movingAccuracy=40,
@@ -15,9 +15,9 @@ local weaponDef = {
 	
 	damage = {
 		default = 22,
-		heavyarmor = 7,
-		lightarmor = 25,
-		torrearmor = 800,
+		heavyarmor = 800,
+		lightarmor = 600,
+		torrearmor = 2000,
 	},
 	areaOfEffect            = 30,
 	
@@ -25,7 +25,7 @@ local weaponDef = {
 	
 	weaponVelocity          = 350,
 	reloadtime              = 4,
-	range                   = 130,
+	range                   = 100,
 --	sprayAngle              = 45,
 	weaponaceleration       = 100,
 	tolerance               = 10000,

@@ -27,7 +27,7 @@ local armorDefs = {
 		"heiker",
 		--------------
 		"raider",
-		"disruptor",
+		"marauder",
 		"putris",
 	},
 	torrearmor = {
