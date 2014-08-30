@@ -4,27 +4,27 @@ local unitDef = {
 	name = "Putris",
 	Description = "Misile Launcher.",
 	objectName = "putris.dae",
-	--script = "lz5.lua",
+	script = "putris.lua",
 	buildPic = "lz5.png",
 	iconType = "lz5",
 
 	--cost
 
-	buildCostMetal = 1200,
+	buildCostMetal = 480,
 	buildCostEnergy = 0,
-	buildTime = 45,
+	buildTime = 24,
 
 	--Health
 
-	maxDamage = 4600,
-	idleAutoHeal = 35,
-	idleTime     = 2,
+	maxDamage = 2600,
+	idleAutoHeal = 24,
+	idleTime     = 3,
 
 	--Movement
 
 	mass=3200,
-	Acceleration = 0.2,
-	BrakeRate = 0.2,
+	Acceleration = 1,
+	BrakeRate = 1,
 	FootprintX = 3,
 	FootprintZ = 3,
 	MaxSlope = 12,
@@ -47,7 +47,7 @@ local unitDef = {
 
 	explodeAs = "weaponlz5",
 	weapons = {
-		[1]={name  = "weaponlz5",
+		[1]={name  = "weaponputris",
 			onlyTargetCategory = [[LAND]],
 			maxAngleDif = 210,
 			mainDir = [[-1 0 1]],

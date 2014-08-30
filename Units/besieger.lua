@@ -5,7 +5,7 @@ local unitDef = {
 	name = "Besieger",
 	Description = "heavy Tank",
 	objectName = "besieger.dae",
-	--script = "tkt4.lua",
+	script = "besieger.lua",
 	buildPic = "tkt4.png",
 	iconType = "tkt4",
 
@@ -50,7 +50,7 @@ local unitDef = {
 		},
 	},
 	weapons = {
-		[1]={name  = "weapontkt4",
+		[1]={name  = "weaponbesieger",
 			onlyTargetCategory = [[LAND]],
 		},
 	},

@@ -9,6 +9,12 @@ local armorDefs = {
 		"haerik",
 		"hipso",
 		"heibok",
+		--------------
+		"juggernaut",
+		"archaon",
+		"besieger",
+		"chosen",
+		"adept",
 	},
 	lightarmor = {
 		"nm1",
@@ -19,7 +25,14 @@ local armorDefs = {
 		"heik",
 		"hekor",
 		"haek",
-		"heiker"
+		"heiker",
+		--------------
+		"raider",
+		"disruptor",
+		"putris",
+	},
+	torrearmor = {
+		"torreta",
 	},
 }
 

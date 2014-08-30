@@ -17,6 +17,7 @@ local weaponDef = {
 		default = 240,
 		heavyarmor = 160,
 		lightarmor = 240,
+		torrearmor = 1,
 	},
 	
 	reloadtime = 0,
