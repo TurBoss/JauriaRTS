@@ -99,8 +99,8 @@ local UnitEffects = {
 		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=2, length=15, piece="tubo2",}},
 	},
 	[UnitDefNames["ftkt4"].id] = {
-		{class='Ribbon',options={color={1,1.1,1,1}, width=6, size=8,texture1 = ":c:bitmaps/GPL/Lups/flametrail.png", piece="tubo1",}},
-		{class='Ribbon',options={color={1,1.1,1,1}, width=6, size=8,texture1 = ":c:bitmaps/GPL/Lups/flametrail.png", piece="tubo2",}},
+		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=8, length=18, piece="tubo1",}},
+		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=8, length=18, piece="tubo2",}},
 	},
 	[UnitDefNames["enk3"].id] = {
 		{class='AirJet',options={color={0.3,0.1,0}, emitVector={0.0,-1.0,0.0}, width=6, length=15, piece="tubo1",}},

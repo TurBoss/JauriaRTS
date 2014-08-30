@@ -505,9 +505,15 @@ function script.FireWeapon2()
 end
 
 function script.FireWeapon3()
+	Move(canond, y_axis, 4)
+	Sleep(100)
+	Move(canond, y_axis, 0, 20)
 end
 
 function script.FireWeapon4()
+	Move(canoni, y_axis, 4)
+	Sleep(100)
+	Move(canoni, y_axis, 0, 20)
 end
 
 function script.AimWeapon1( heading, pitch )
