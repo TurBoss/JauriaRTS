@@ -1,10 +1,10 @@
 
-local weaponName = "weaponadept"
+local weaponName = "weaponmarauder"
 
 local weaponDef = {
 	
-	name                    = "Adept Gun",
-	weaponType              = "Cannon",
+	name                    = "Hacha del Caos",
+	weaponType              = "Melee",
 	
 	Accuracy=20,
 	movingAccuracy=40,
@@ -14,20 +14,20 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 16,
-		heavyarmor = 8,
-		lightarmor = 18,
+		default = 22,
+		heavyarmor = 7,
+		lightarmor = 25,
 		torrearmor = 1,
 	},
---	areaOfEffect            = 10,
+	areaOfEffect            = 30,
 	
 	--physics
 	
-	weaponVelocity          = 600,
-	reloadtime              = 0.2,
-	range                   = 255,
+	weaponVelocity          = 350,
+	reloadtime              = 1.4,
+	range                   = 100,
 --	sprayAngle              = 45,
-	weaponaceleration       = 300,
+	weaponaceleration       = 100,
 	tolerance               = 10000,
 	lineOfSight             = true,
 	turret                  = true,
@@ -40,13 +40,13 @@ local weaponDef = {
 	
 	rgbColor                = [[1 0.2 0.08]],
 	size                    = 3.3,
-	stages                  = 30,
+	stages                  = 0,
 	intensity               = 3.6,
-	separation              = 0.8,
+	separation              = 0,
 	
 	--sounds
 	
-	soundStart              = "metralleta_gfx",
+	--soundStart              = "metralleta_gfx",
 	
 	collideFriendly=true,
 }
