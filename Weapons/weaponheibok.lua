@@ -1,54 +1,52 @@
-
+--http://springrts.com/wiki/Weapon_Variables#Cannon_.28Plasma.29_Visuals
 local weaponName = "weaponheibok"
 
 local weaponDef = {
-	
-	name                    = "misil RK-2",
-	weaponType              = "Cannon",
-	
-	Accuracy=400,
-	movingAccuracy=400,
-	--damage
-	
-	avoidFeature = false,
+	name = [[Laser]],
+	areaOfEffect = 30,
+	beamDecay = 0.8,
+	beamlaser = 0.8,
+	beamTime = 0.1,
+	beamttl = 18,
+	coreThickness = 0,
+	craterBoost = 0,
+	craterMult = 0,
 	
 	damage = {
-		default = 450,
-		heavyarmor = 520,
-		lightarmor = 480,
-		torrearmor = 580,
+		default = 2500,
+		heavyarmor = 3600,
+		lightarmor = 1400,
+		torrearmor = 2800,
 	},
-	areaOfEffect            = 60,
 	
-	--physics
-	myGravity               = 1,
-	weaponVelocity          = 850,
-	startVelocity           = 550,
-	reloadtime              = 0.5,
-	range                   = 550,
-	sprayAngle              = 180,
-	weaponaceleration       = 620,
-	tolerance               = 8000,
-	lineOfSight             = true,
-	turret                  = true,
-	craterMult              = 0.0,
-	highTrajectory          = 0,
-	--burst                   = 5,
-	--burstrate               = 0.5,
-	--proyectiles             = 2,
-	
-	--apperance
-	
-	rgbColor                = [[0 0.1 1]],
-	size                    = 12,
-	stages                  = 6,
-	intensity               = 0.2,
-	separation              = 1.2,
-	
-	--sounds
-	
-	soundStart              = "disparo_gfx",
-	
-	collideFriendly=true,
+	--explosionGenerator = [[custom:flashslow]],
+	fireStarter = 25,
+	impactOnly = true,
+	impulseBoost = 0,
+	impulseFactor = 0.4,
+	interceptedByShieldType = 1,
+	largeBeamLaser = true,
+	laserFlareSize = 12,
+	lineOfSight = true,
+	minIntensity = 1,
+	noSelfDamage = true,
+	range = 830,
+	reloadtime = 6.5,
+	renderType = 0,
+	rgbColor = [[0 0.1 1]],
+	--soundStart = [[weapon/laser/pulse_laser2]],
+	--soundStartVolume = 0.9,
+	--soundTrigger = true,
+	sweepfire = false,
+	--texture1 = [[largelaser]],
+	--texture2 = [[flare]],
+	--texture3 = [[flare]],
+	--texture4 = [[smallflare]],
+	thickness = 8,
+	tolerance = 18000,
+	turret = true,
+	weaponType = [[BeamLaser]],
+	weaponVelocity = 800,
 }
+
 return lowerkeys({[weaponName] = weaponDef})
