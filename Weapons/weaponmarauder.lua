@@ -7,7 +7,7 @@ local weaponDef = {
 	weaponType              = "Melee",
 	
 	Accuracy=20,
-	movingAccuracy=40,
+	movingAccuracy=20,
 	
 	--damage
 	
@@ -19,13 +19,13 @@ local weaponDef = {
 		lightarmor = 130,
 		torrearmor = 240,
 	},
-	areaOfEffect            = 30,
+	--areaOfEffect            = 30,
 	
 	--physics
 	
 	weaponVelocity          = 350,
 	reloadtime              = 1.4,
-	range                   = 100,
+	range                   = 115,
 --	sprayAngle              = 45,
 	weaponaceleration       = 100,
 	tolerance               = 10000,
