@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.71.0 commit date:2014-06-25, commit time:18:36, hash:9337574</authoring_tool>
     </contributor>
-    <created>2014-08-31T23:40:43</created>
-    <modified>2014-08-31T23:40:43</modified>
+    <created>2014-08-31T23:50:37</created>
+    <modified>2014-08-31T23:50:37</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -386,7 +386,7 @@
             <matrix sid="transform">1 0 0 -34.28685 0 1 0 -21.2991 0 0 1 -5.654747 0 0 0 1</matrix>
             <instance_geometry url="#Cylinder_019-mesh"/>
             <node id="flare2" name="flare2" type="NODE">
-              <matrix sid="transform">1 0 0 -2.491367 0 1 0 -11.45337 0 0 1 -1.5103 0 0 0 1</matrix>
+              <matrix sid="transform">1 0 0 -2.491367 0 1 0 -11.45337 0 0 1 -1.510303 0 0 0 1</matrix>
             </node>
           </node>
           <node id="piernas" name="piernas" type="NODE">
