@@ -1,8 +1,8 @@
-local unitName = "desolator"
+local unitName = "fdesolator"
 
 local unitDef = {
 	name = "Desolator",
-	Description = "Heavy Infantry",
+	Description = "Armored vehicle antiswarm",
 	objectName = "desolator.dae",
 	script = "desolator.lua",
 	buildPic = "desolator.png",
