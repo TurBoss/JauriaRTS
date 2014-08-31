@@ -1,8 +1,9 @@
-local root = piece "root"
-local flare = piece "flare"
-local cabina = piece "cabina"
-local nano = piece "nano"
-local pistola = piece "pistola"
+local root = piece ("root");
+local flare = piece ("flare");
+local flare_nano = piece("flare_nano");
+local cabina = piece ("cabina");
+local nano = piece ("nano");
+local pistola = piece ("pistola");
 
 
 --local smokecloud = SFX.CEG   --the first effect from the list in the unitdef
