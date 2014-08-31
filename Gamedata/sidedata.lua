@@ -7,10 +7,10 @@ local sidedata = {
 	[2] = {
 		name = "Faction Heks",
 		startUnit = "fabricaheks",
-	}
-		[3] = {
+	},
+	[3] = {
 		name = "Faction Caos",
 		startUnit = "fabricacaos",
-	}
+	},
 }
 return sidedata

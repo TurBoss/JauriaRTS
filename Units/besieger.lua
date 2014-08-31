@@ -1,12 +1,12 @@
-local unitName = "besieger"
+local unitName = "ebesieger"
 
 local unitDef = {
 
 	name = "Besieger",
-	Description = "heavy Tank",
+	Description = "Siege armored melee assaulter",
 	objectName = "besieger.dae",
 	script = "besieger.lua",
-	buildPic = "tkt4.png",
+	buildPic = "besieger.png",
 	iconType = "tkt4",
 
 	--cost

@@ -1,11 +1,11 @@
-local unitName = "adept"
+local unitName = "aadept"
 
 local unitDef = {
 	name = "Adept",
-	Description = "Recolector",
+	Description = "Armored assault operator",
 	objectName = "adept.dae",
 	script = "adept.lua",
-	buildPic = "rc.png",
+	buildPic = "adept.png",
 
 	--cost
 

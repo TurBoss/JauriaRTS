@@ -52,14 +52,14 @@ local unitDef = {
 	workerTime = 1,
 	
 	buildoptions = {
-		"adept",
-		"raider",
-		"marauder",
-		"putris",
-		"besieger",
-		"desolator",
-		"juggernaut",
-		"archaon",
+		"aadept",
+		"braider",
+		"cmarauder",
+		"dputris",
+		"ebesieger",
+		"fdesolator",
+		"gjuggernaut",
+		"harchaon",
 	},
 }
 

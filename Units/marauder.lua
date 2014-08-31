@@ -1,11 +1,11 @@
-local unitName = "marauder"
+local unitName = "cmarauder"
 
 local unitDef = {
 	name = "Marauder",
-	Description = "Light Infantry",
+	Description = "Melee armored fighter",
 	objectName = "marauder.dae",
 	script = "marauder.lua",
-	buildPic = "nm1.png",
+	buildPic = "marauder.png",
 	iconType = "nm1",
 
 	--cost

@@ -1,11 +1,11 @@
-local unitName = "archaon"
+local unitName = "harchaon"
 
 local unitDef = {
 	name = "Archaon",
-	Description = "Heavy Armored Mech",
+	Description = "Ultimate heavy tank",
 	objectName = "archaon.dae",
 	--script = "dt6.lua",
-	buildPic = "dt6.png",
+	buildPic = "archaon.png",
 	iconType = "dt6",
 
 	--cost
@@ -64,6 +64,24 @@ local unitDef = {
 			--mainDir = [[0 0 1]],
 		},
 		[4]={name  = "weapondt62",
+			onlyTargetCategory = [[LAND]],
+			slaveTo = 1,
+			--maxAngleDif = 15,
+			--mainDir = [[0 0 1]],
+		},
+		[5]={name  = "weapondt62",
+			onlyTargetCategory = [[LAND]],
+			slaveTo = 1,
+			--maxAngleDif = 15,
+			--mainDir = [[0 0 1]],
+		},
+		[6]={name  = "weapondt62",
+			onlyTargetCategory = [[LAND]],
+			slaveTo = 1,
+			--maxAngleDif = 15,
+			--mainDir = [[0 0 1]],
+		},
+		[0]={name  = "weapondt62",
 			onlyTargetCategory = [[LAND]],
 			slaveTo = 1,
 			--maxAngleDif = 15,

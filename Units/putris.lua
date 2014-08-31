@@ -1,11 +1,11 @@
-local unitName = "putris"
+local unitName = "dputris"
 
 local unitDef = {
 	name = "Putris",
-	Description = "Misile Launcher.",
+	Description = "Long range slow catapult",
 	objectName = "putris.dae",
 	script = "putris.lua",
-	buildPic = "lz5.png",
+	buildPic = "putris.png",
 	iconType = "lz5",
 
 	--cost

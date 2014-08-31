@@ -1,8 +1,8 @@
-local unitName = "juggernaut"
+local unitName = "gjuggernaut"
 
 local unitDef = {
 	name = "Juggernaut",
-	Description = "Light Tank",
+	Description = "All-terrain heavy fighter",
 	objectName = "juggernaut.dae",
 	script = "juggernaut.lua",
 	buildPic = "juggernaut.png",
