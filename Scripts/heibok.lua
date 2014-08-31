@@ -1,8 +1,16 @@
-local base = piece('base');
+local chasis = piece('chasis');
+
+local centro = piece('centro');
 
 local flare = piece('flare');
 
-local canon = piece('canon');
+local cabeza = piece('cabeza');
+
+local arma = piece('arma');
+
+local haekhipso = piece('haekhipso');
+
+local cristal = piece('cristal');
 
 local root = piece('root');
 
@@ -13,9 +21,13 @@ local smoke = SFX.CEG
 function script.Create()
 end
 
+function script.Create()
+	Spin(cristal, y_axis, math.rad(120))
+end
+
 ---AIMING & SHOOTING---
 function script.AimFromWeapon1() 
-	return canon
+	return flare
 end
 
 function script.QueryWeapon1() 
@@ -24,21 +36,23 @@ end
 
 --called after the weapon has fired
 function script.FireWeapon1()
-	EmitSfx(flare, smoke)
+	--EmitSfx(flare, smoke)
 end
 
-function script.AimWeapon1( heading )
+function script.AimWeapon1( heading, pitch)
 	--make sure the aiming animation is only run once
 	Signal(SIG_AIM)
 	SetSignalMask(SIG_AIM)
-	Turn(canon, z_axis, heading, math.rad(280))
+	Turn(cabeza, z_axis, heading, math.rad(80))
+	Turn(centro, x_axis, -pitch, math.rad(80))
 	--wait until the weapon is pointed in the right direction
-	WaitForTurn (canon, z_axis)
+	WaitForTurn (cabeza, z_axis)
+	WaitForTurn (centro, x_axis)
 	return true
 end
 
 function script.StartMoving(heading)
-	Turn (canon, z_axis, heading, math.rad(80))
+	Turn (cabeza, z_axis, heading, math.rad(80))
 end
 
 function script.StopMoving()
