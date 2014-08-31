@@ -3,7 +3,7 @@ local unitName = "torretapro"
 local unitDef = {
 	name				= "Torreta Jauria",
 	Description			= "Torre defensora",
-	objectName			= "torreta2.dae",
+	objectName			= "torretapro.dae",
 	script			= "torretapro.lua",
 	buildPic			= "torreta.png",
 

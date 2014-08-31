@@ -596,14 +596,16 @@ local function FinishMorph(unitID, morphData)
     if zsize/4 ~= floor(zsize/4) then
       z = z+8
     end
-    newUnit = SpCreateUnit(defName, x, y, z, face, unitTeam, isBeingBuilt)
+    --Spring.Echo(unitID)
+    newUnit = SpCreateUnit(defName, x, y, z, face, unitTeam, isBeingBuilt, true, unitID+12)
   if not newUnit then
     StopMorph(unitID, morphData)
     return
   end
     SpSetUnitPosition(newUnit, x, y, z)
   else
-    newUnit = SpCreateUnit(defName, px, py, pz, HeadingToFacing(h), unitTeam, isBeingBuilt)
+    --Spring.Echo(unitID .. "-2")
+    newUnit = SpCreateUnit(defName, px, py, pz, HeadingToFacing(h), unitTeam, isBeingBuilt, true, unitID+12)
   if not newUnit then
     StopMorph(unitID, morphData)
     return

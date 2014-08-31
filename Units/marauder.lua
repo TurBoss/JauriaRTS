@@ -31,7 +31,7 @@ local unitDef = {
 	MaxVelocity = 5,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
-	TurnRate = 3400,
+	TurnRate = 3600,
 
 	sightDistance = 430,
 

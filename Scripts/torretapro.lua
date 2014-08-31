@@ -14,7 +14,7 @@ function script.Create()
 	Spin(bola1, z_axis, math.rad(120))
 	Spin(bola2, z_axis, math.rad(120))
 	Spin(bola3, z_axis, math.rad(120))
-	Spin(cabeza, z_axis, math.rad(-120))
+	Spin(cabeza, z_axis, math.rad(-20))
 end
 
 ---AIMING & SHOOTING---
