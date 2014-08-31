@@ -6,8 +6,8 @@ local weaponDef = {
 	name                    = "Gatling Desolator",
 	weaponType              = "Cannon",
 	
-	Accuracy=1600,
-	movingAccuracy=2500,
+	Accuracy=580,
+	movingAccuracy=1160,
 	
 	--damage
 	
