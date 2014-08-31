@@ -17,7 +17,7 @@ local unitDef = {
 	--Health
 
 	maxDamage = 13500,
-	idleAutoHeal = 36,
+	idleAutoHeal = 38,
 	idleTime     = 3,
 
 	--Movement

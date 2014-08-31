@@ -2,38 +2,38 @@ local unitName = "juggernaut"
 
 local unitDef = {
 	name = "Juggernaut",
-	Description = "Heavy Infantry",
+	Description = "Light Tank",
 	objectName = "juggernaut.dae",
 	script = "juggernaut.lua",
-	buildPic = "rk2.png",
-	iconType = "rk2",
+	buildPic = "juggernaut.png",
+	iconType = "nk3",
 
 	--cost
 
-	buildCostMetal = 260,
+	buildCostMetal = 1430,
 	buildCostEnergy = 0,
-	buildTime = 9,
+	buildTime = 52,
 
 	--Health
 
-	maxDamage = 2500,
-	idleAutoHeal = 10,
-	idleTime     = 4,
+	maxDamage = 7200,
+	idleAutoHeal = 68,
+	idleTime     = 3,
 
 	--Movement
 
-	mass = 880,
+	mass=1500,
 	Acceleration = 1,
-	BrakeRate = 2,
-	FootprintX = 2,
-	FootprintZ = 2,
+	BrakeRate = 1,
+	FootprintX = 4,
+	FootprintZ = 4,
 	MaxSlope = 12,
-	MaxVelocity = 4.2,
+	MaxVelocity = 3.5,
 	MaxWaterDepth = 20,
-	MovementClass = "Default2x2",
-	TurnRate = 2300,
+	MovementClass = "Default4x4",
+	TurnRate = 1300,
 
-	sightDistance = 380,
+	sightDistance = 420,
 
 	Category = [[LAND]],
 
@@ -44,21 +44,14 @@ local unitDef = {
 	CanStop = true,
 	LeaveTracks = false, 
 
-	sfxtypes = {
-		explosiongenerators = {
-			"custom:smoke2",
-		},
-	},
-
 
 	weapons = {
-		[1]={name  = "weaponjuggernaut",
-			onlyTargetCategory = [[LAND AIR]],
+		[1]={name  = "weaponjuggernaut1",
+			onlyTargetCategory = [[LAND]],
 		},
-		[2]={name  = "weaponjuggernaut",
-			onlyTargetCategory = [[LAND AIR]],
+		[2]={name  = "weaponjuggernaut2",
+			onlyTargetCategory = [[LAND]],
 		},
-	
 	},
 }
 

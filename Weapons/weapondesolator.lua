@@ -1,13 +1,13 @@
 
-local weaponName = "weaponjuggernaut"
+local weaponName = "weapondesolator"
 
 local weaponDef = {
 	
-	name                    = "Gatling Juggernaut",
+	name                    = "Gatling Desolator",
 	weaponType              = "Cannon",
 	
-	Accuracy=2200,
-	movingAccuracy=5000,
+	Accuracy=1600,
+	movingAccuracy=2500,
 	
 	--damage
 	
@@ -16,7 +16,7 @@ local weaponDef = {
 	damage = {
 		default = 35,
 		heavyarmor = 10,
-		lightarmor = 40,
+		lightarmor = 45,
 		torrearmor = 10,
 	},
 --	areaOfEffect            = 10,
@@ -25,15 +25,15 @@ local weaponDef = {
 	
 	weaponVelocity          = 300,
 	reloadtime              = 0.1,
-	range                   = 320,
+	range                   = 480,
 	--sprayAngle              = 45,
 	weaponaceleration       = 60,
 	tolerance               = 300,
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 0,
-	burst                   = 2,
-	burstrate               = 0.05,
+	--burst                   = 2,
+	--burstrate               = 0.05,
 	--proyectiles             = 2,
 	
 	--apperance
