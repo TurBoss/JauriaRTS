@@ -1,11 +1,11 @@
-local unitName = "torreta2"
+local unitName = "torretapro"
 
 local unitDef = {
 	name				= "Torreta Jauria",
 	Description			= "Torre defensora",
 	objectName			= "torreta2.dae",
-	script			= "torreta2.lua",
-	buildPic			= "torreta2.png",
+	script			= "torretapro.lua",
+	buildPic			= "torreta.png",
 
 	--cost
 
