@@ -1,4 +1,4 @@
-local unitName = "gheibok"
+local unitName = "hheibok"
 
 local unitDef = {
 	name = "Heibok",
@@ -10,14 +10,14 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 1250,
+	buildCostMetal = 2620,
 	buildCostEnergy = 0,
-	buildTime = 45,
+	buildTime = 75,
 
 	--Health
 
-	maxDamage = 2900,
-	idleAutoHeal = 10,
+	maxDamage = 11500,
+	idleAutoHeal = 35,
 	idleTime     = 3,
 
 	--Movement
@@ -31,7 +31,7 @@ local unitDef = {
 	MaxVelocity = 2.2,
 	MaxWaterDepth = 20,
 	MovementClass = "Default4x4",
-	TurnRate = 750,
+	TurnRate = 800,
 
 	sightDistance = 540,
 

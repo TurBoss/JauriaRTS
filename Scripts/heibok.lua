@@ -60,6 +60,8 @@ end
 
 ----death animation
 function script.Killed(recentDamage, maxHealth)
-	Explode (base, SFX.SHATTER)
-	Explode (canon, SFX.FIRE)
+	Explode (chasis, SFX.SHATTER)
+	Explode (cabeza, SFX.SHATTER)
+	Explode (cristal, SFX.FIRE)
+	Explode (arma, SFX.FIRE)
 end

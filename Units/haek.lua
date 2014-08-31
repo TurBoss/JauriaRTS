@@ -47,7 +47,7 @@ local unitDef = {
 
 	weapons = {
 		[1]={name  = "weaponhaek",
-			maxAngleDif = 90,
+			maxAngleDif = 230,
 			mainDir = [[0 0 1]],
 			onlyTargetCategory = [[LAND]],
 		},
