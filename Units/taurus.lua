@@ -51,10 +51,7 @@ local unitDef = {
 	},
 	
 	weapons = {
-		[1]={name  = "weapontkt4",
-			onlyTargetCategory = [[LAND]],
-		},
-		[2]={name  = "weapontkt4",
+		[1]={name  = "weapontaurus",
 			onlyTargetCategory = [[LAND]],
 		},
 	},
