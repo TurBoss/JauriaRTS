@@ -10,6 +10,8 @@ local pistola = piece ("pistola");
 
 local SIG_RC = 1
 
+local smoke = SFX.CEG
+
 function script.Create()
 end
 
