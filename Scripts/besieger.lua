@@ -14,6 +14,8 @@ local flare = piece "flare"
 
 local base = piece "base"
 
+local basepalo = piece "basepalo"
+
 
 
 
@@ -45,9 +47,11 @@ function script.AimWeapon1( heading, pitch )
 	SetSignalMask(SIG_AIM1)
 	
 	Turn(base, z_axis, heading, math.rad(80))
+	Turn(basepalo, x_axis, -pitch, math.rad(80))
 	
 	--wait until the weapon is pointed in the right direction
 	WaitForTurn (base, x_axis)
+	WaitForTurn (basepalo, x_axis)
 	
 	return true
 end

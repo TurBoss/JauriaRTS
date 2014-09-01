@@ -3,29 +3,29 @@ local weaponName = "weaponbesieger"
 
 local weaponDef = {
 	
-	name                    = "Golpe Ariete",
+	name                    = "Hacha del Caos",
 	weaponType              = "Melee",
 	
 	Accuracy=20,
-	movingAccuracy=40,
+	movingAccuracy=20,
 	
 	--damage
 	
 	avoidFeature = false,
 	
 	damage = {
-		default = 22,
-		heavyarmor = 800,
-		lightarmor = 600,
-		torrearmor = 2000,
+		default = 800,
+		heavyarmor = 550,
+		lightarmor = 780,
+		torrearmor = 2200,
 	},
-	areaOfEffect            = 30,
+	areaOfEffect            = 60,
 	
 	--physics
 	
 	weaponVelocity          = 350,
 	reloadtime              = 4,
-	range                   = 100,
+	range                   = 115,
 --	sprayAngle              = 45,
 	weaponaceleration       = 100,
 	tolerance               = 10000,
@@ -46,7 +46,7 @@ local weaponDef = {
 	
 	--sounds
 	
-	soundStart              = "metralleta_gfx",
+	--soundStart              = "metralleta_gfx",
 	
 	collideFriendly=true,
 }

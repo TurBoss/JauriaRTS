@@ -6,8 +6,8 @@ local weaponDef = {
 	name                    = "Gatling Desolator",
 	weaponType              = "Cannon",
 	
-	Accuracy=580,
-	movingAccuracy=1160,
+	Accuracy=280,
+	movingAccuracy=320,
 	
 	--damage
 	
@@ -19,16 +19,16 @@ local weaponDef = {
 		lightarmor = 63,
 		torrearmor = 11,
 	},
---	areaOfEffect            = 10,
+	areaOfEffect            = 30,
 	
 	--physics
 	
-	weaponVelocity          = 300,
+	weaponVelocity          = 600,
 	reloadtime              = 0.1,
 	range                   = 480,
 	--sprayAngle              = 45,
-	weaponaceleration       = 60,
-	tolerance               = 300,
+	weaponaceleration       = 100,
+	tolerance               = 8000,
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 0,
