@@ -21,8 +21,8 @@ local weaponDef = {
 	areaOfEffect            = 240,
 	
 	--physics
-	myGravity               = 0.75,
-	weaponVelocity          = 760,
+	myGravity               = 4.3,
+	weaponVelocity          = 1560,
 	startVelocity           = 500,
 	reloadtime              = 12,
 	range                   = 680,

@@ -1,4 +1,4 @@
-local unitName = "dputris"
+local unitName = "eputris"
 
 local unitDef = {
 	name = "Putris",
@@ -10,7 +10,7 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 480,
+	buildCostMetal = 460,
 	buildCostEnergy = 0,
 	buildTime = 24,
 

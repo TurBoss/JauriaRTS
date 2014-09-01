@@ -1,4 +1,4 @@
-local unitName = "ebesieger"
+local unitName = "dbesieger"
 
 local unitDef = {
 
@@ -11,13 +11,13 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 520,
+	buildCostMetal = 430,
 	buildCostEnergy = 0,
 	buildTime = 34,
 
 	--Health
 
-	maxDamage = 8200,
+	maxDamage = 7600,
 	idleAutoHeal = 20,
 	idleTime     = 3,
 
