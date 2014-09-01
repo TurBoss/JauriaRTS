@@ -6,8 +6,8 @@ local weaponDef = {
 	name                    = "Mortero Putrido",
 	weaponType              = "Cannon",
 	
-	Accuracy=80,
-	movingAccuracy=160,
+	Accuracy=20,
+	movingAccuracy=60,
 	--damage
 	
 	avoidFeature = false,
@@ -25,7 +25,7 @@ local weaponDef = {
 	weaponVelocity          = 1560,
 	startVelocity           = 500,
 	reloadtime              = 12,
-	range                   = 680,
+	range                   = 630,
 	sprayAngle              = 180,
 	weaponaceleration       = 600,
 	tolerance               = 8000,
