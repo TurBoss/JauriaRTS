@@ -4,7 +4,7 @@ local weaponName = "weaponmarauder"
 local weaponDef = {
 	
 	name                    = "Hacha del Caos",
-	weaponType              = "Melee",
+	weaponType              = "Cannon",
 	
 	Accuracy=20,
 	movingAccuracy=20,
