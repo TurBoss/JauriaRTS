@@ -56,6 +56,11 @@ local unitDef = {
 			--maxAngleDif = 210,
 			--mainDir = [[-1 0 1]],
 		},
+		[2]={name  = "weaponmarauder",
+			onlyTargetCategory = [[LAND]],
+			--maxAngleDif = 210,
+			--mainDir = [[-1 0 1]],
+		},
 	},
 }
 

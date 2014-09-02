@@ -19,13 +19,13 @@ local weaponDef = {
 		lightarmor = 410,
 		torrearmor = 430,
 	},
-	--areaOfEffect            = 30,
+	areaOfEffect            = 30,
 	
 	--physics
 	
 	weaponVelocity          = 350,
-	reloadtime              = 0.7,
-	range                   = 100,
+	reloadtime              = 1,
+	range                   = 200,
 --	sprayAngle              = 45,
 	weaponaceleration       = 100,
 	tolerance               = 10000,
@@ -38,11 +38,11 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor                = [[1 0.2 0.08]],
-	size                    = 3.3,
-	stages                  = 0,
-	intensity               = 3.6,
-	separation              = 0,
+	rgbColor                = [[1 0.5 0.3]],
+	size                    = 3,
+	stages                  = 12,
+	intensity               = 5,
+	separation              = 3,
 	
 	--sounds
 	
