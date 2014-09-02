@@ -1,53 +1,68 @@
+local weaponName="weapondesolator"
 
-local weaponName = "weapondesolator"
+local weaponDef={
+	name="weapontkt4",
+	weaponType=[[MissileLauncher]],
 
-local weaponDef = {
+	Accuracy=500,
+	movingAccuracy=800,
 	
-	name                    = "Gatling Desolator",
-	weaponType              = "Cannon",
+	InterceptedByShieldType= 4,
 	
-	Accuracy=280,
-	movingAccuracy=320,
-	
-	--damage
-	
-	avoidFeature = false,
-	
-	damage = {
-		default = 35,
-		heavyarmor = 12,
-		lightarmor = 63,
-		torrearmor = 11,
-	},
-	areaOfEffect            = 30,
-	
-	--physics
-	
-	weaponVelocity          = 600,
-	reloadtime              = 0.1,
-	range                   = 480,
-	--sprayAngle              = 45,
-	weaponaceleration       = 100,
-	tolerance               = 8000,
-	lineOfSight             = true,
-	turret                  = true,
-	craterMult              = 0,
-	--burst                   = 2,
-	--burstrate               = 0.05,
-	--proyectiles             = 2,
-	
-	--apperance
-	
-	rgbColor                = [[0.05 0.05 0.5]],
-	size                    = 2,
-	stages                  = 1,
-	intensity               = 4,
-	separation              = 0.1,
-	
-	--sounds
-	
-	soundStart              = "metralleta_gfx",
-	
+	--Physic/flight path
+	range=320,
+	reloadtime=3,
+	weaponVelocity=550,
+	startVelocity=380,
+	weaponAcceleration=200,
+	flightTime=8,
+	BurnBlow=0,
+	FixedLauncher=false,
+	trajectoryHeight=0.4,
+	dance=0,
+	wobble=0,
+	tolerance=16000,
+	tracks=false,
+	Turnrate=16000,
 	collideFriendly=true,
+
+	----APPEARANCE
+	
+	model="cohete1.dae",
+	smokeTrail=true,
+	--explosionGenerator="custom:explosion1",
+	CegTag="light1",
+
+	----TARGETING
+	
+	turret=true,
+	CylinderTargeting=true,
+	avoidFeature=false,
+	avoidFriendly=false,
+	
+
+	--commandfire=true,
+
+	----DAMAGE
+	
+	damage={
+		default=350,
+		heavyarmor = 400,
+		lightarmor = 340,
+		torrearmor = 380,
+	},
+	areaOfEffect=30,
+	craterMult=0,
+	
+	--?FIXME***
+	
+	lineOfSight=true,
+
+
+	--sound
+	
+	soundHit="boom_gfx",
+	soundStart = "shoot_gfx",
 }
-return lowerkeys({[weaponName] = weaponDef})
+
+return lowerkeys ({[weaponName]=weaponDef})
