@@ -4,15 +4,15 @@ local unitDef = {
 	name = "Desolator",
 	Description = "Armored vehicle antiswarm",
 	objectName = "desolator.dae",
-	script = "desolator.lua",
+	--script = "desolator.lua",
 	buildPic = "desolator.png",
 	iconType = "rk2",
 
 	--cost
 
-	buildCostMetal = 560,
+	buildCostMetal = 740,
 	buildCostEnergy = 0,
-	buildTime = 23,
+	buildTime = 34,
 
 	--Health
 

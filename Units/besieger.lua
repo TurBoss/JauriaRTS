@@ -11,9 +11,9 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 430,
+	buildCostMetal = 410,
 	buildCostEnergy = 0,
-	buildTime = 34,
+	buildTime = 18,
 
 	--Health
 

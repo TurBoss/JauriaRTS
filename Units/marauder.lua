@@ -2,7 +2,7 @@ local unitName = "cmarauder"
 
 local unitDef = {
 	name = "Marauder",
-	Description = "Melee armored fighter",
+	Description = "High movility fighter",
 	objectName = "marauder.dae",
 	script = "marauder.lua",
 	buildPic = "marauder.png",
@@ -25,12 +25,12 @@ local unitDef = {
 	mass=800,
 	Acceleration = 5,
 	BrakeRate = 5,
-	FootprintX = 3,
-	FootprintZ = 3,
+	FootprintX = 2,
+	FootprintZ = 2,
 	MaxSlope = 12,
 	MaxVelocity = 5.2,
 	MaxWaterDepth = 20,
-	MovementClass = "Default3x3",
+	MovementClass = "Default2x2",
 	TurnRate = 3800,
 
 	sightDistance = 430,

@@ -3,50 +3,50 @@ local weaponName = "weaponmarauder"
 
 local weaponDef = {
 	
-	name                    = "Hacha del Caos",
+	name                    = "weaponmarauder",
 	weaponType              = "Cannon",
 	
-	Accuracy=20,
-	movingAccuracy=20,
-	
+	Accuracy=30,
+	movingAccuracy=50,
 	--damage
 	
 	avoidFeature = false,
 	
 	damage = {
-		default = 460,
-		heavyarmor = 580,
-		lightarmor = 410,
-		torrearmor = 430,
+		default = 90,
+		heavyarmor = 120,
+		lightarmor = 40,
+		torrearmor = 110,
 	},
-	areaOfEffect            = 30,
+	--areaOfEffect            = 30,
 	
 	--physics
 	
-	weaponVelocity          = 350,
+	weaponVelocity          = 550,
 	reloadtime              = 1,
-	range                   = 200,
---	sprayAngle              = 45,
-	weaponaceleration       = 100,
-	tolerance               = 10000,
+	range                   = 320,
+	--sprayAngle              = 45,
+	weaponaceleration       = 215,
+	tolerance               = 8000,
 	lineOfSight             = true,
 	turret                  = true,
-	craterMult              = 0,
---	burst                   = 2,
---	burstrate               = 0.08,
+	craterMult              = 0.0,
+	highTrajectory          = 0.5,
+	--burst                   = 2,
+	--burstrate               = 1.5,
 	--proyectiles             = 2,
 	
 	--apperance
 	
-	rgbColor                = [[1 0.5 0.3]],
-	size                    = 3,
-	stages                  = 12,
-	intensity               = 5,
-	separation              = 3,
+	rgbColor                = [[0.5 0 0]],
+	size                    = 4.5,
+	stages                  = 5,
+	intensity               = 3,
+	separation              = 0,
 	
 	--sounds
 	
-	--soundStart              = "metralleta_gfx",
+	soundStart              = "disparo_gfx",
 	
 	collideFriendly=true,
 }

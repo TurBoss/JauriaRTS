@@ -2,7 +2,7 @@ local unitName = "braider"
 
 local unitDef = {
 	name = "Raider",
-	Description = "High movility raiding vehicle",
+	Description = "Fast raiding vehicle",
 	objectName = "raider.dae",
 	script = "raider.lua",
 	buildPic = "raider.png",
@@ -12,7 +12,7 @@ local unitDef = {
 
 	buildCostMetal = 152,
 	buildCostEnergy = 0,
-	buildTime = 8.4,
+	buildTime = 7.4,
 
 	--Health
 
