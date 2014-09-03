@@ -101,6 +101,8 @@ Animations['moveAnimation'] = {
 }
 
 local SIG_WALK = 1
+local SIG_AIM1 = 2
+local SIG_AIM2 = 4
 
 function constructSkeleton(unit, piece, offset)
     if (offset == nil) then
@@ -209,8 +211,8 @@ end
 
 function script.AimWeapon1( heading, pitch )
 	--make sure the aiming animation is only run once
-	Signal(SIG_AIM)
-	SetSignalMask(SIG_AIM)
+	Signal(SIG_AIM1)
+	SetSignalMask(SIG_AIM1)
 	Turn(base, z_axis, heading, math.rad(350))
 	--wait until the weapon is pointed in the right direction
 	WaitForTurn (base, z_axis)

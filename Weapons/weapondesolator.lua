@@ -10,11 +10,11 @@ local weaponDef={
 	InterceptedByShieldType= 4,
 	
 	--Physic/flight path
-	range=320,
-	reloadtime=3,
-	weaponVelocity=550,
-	startVelocity=380,
-	weaponAcceleration=200,
+	range=455,
+	reloadtime=1.3,
+	weaponVelocity=650,
+	startVelocity=580,
+	weaponAcceleration=400,
 	flightTime=8,
 	BurnBlow=0,
 	FixedLauncher=false,
@@ -25,6 +25,9 @@ local weaponDef={
 	tracks=false,
 	Turnrate=16000,
 	collideFriendly=true,
+	
+	--burst =       3,
+	--burstrate = 0.4,
 
 	----APPEARANCE
 	
@@ -46,12 +49,12 @@ local weaponDef={
 	----DAMAGE
 	
 	damage={
-		default=350,
-		heavyarmor = 400,
-		lightarmor = 340,
-		torrearmor = 380,
+		default=220,
+		heavyarmor = 180,
+		lightarmor = 215,
+		torrearmor = 200,
 	},
-	areaOfEffect=30,
+	--areaOfEffect=30,
 	craterMult=0,
 	
 	--?FIXME***

@@ -3,54 +3,50 @@ local weaponName = "weaponjuggernaut2"
 
 local weaponDef = {
 	
-	name                    = "Lanzallamas",
-	weaponType              = "Flame",
+	name                    = "Lightningcannon",
+	weaponType              = "LightningCannon",
 	
-	Accuracy=1000,
-	movingAccuracy=700,
-	
+	Accuracy=100,
+	movingAccuracy=200,
 	--damage
 	
-	avoidFeature = false,
-	
 	damage = {
-		default = 7,
-		heavyarmor = 1,
-		lightarmor = 12,
-		torrearmor = 3.2,
+		default = 180,
+		heavyarmor = 130,
+		lightarmor = 310,
+		torrearmor = 175,
 	},
-	areaOfEffect            = 360,
+	areaOfEffect            = 30,
 	
 	--physics
 	
-	weaponVelocity          = 600,
-	reloadtime              = 0.05,
-	range                   = 320,
---	sprayAngle              = 45,
-	weaponaceleration       = 70,
+	weaponVelocity          = 800,
+	reloadtime              = 0.5,
+	range                   = 440,
+	--sprayAngle              = 45,
+	--weaponaceleration       = 25,
 	tolerance               = 10000,
 	lineOfSight             = true,
 	turret                  = true,
-	craterMult              = 0,
---	burst                   = 2,
---	burstrate               = 0.08,
+	craterMult              = 0.0,
+	--burst                   = 2,
+	--burstrate               = 0.08,
 	--proyectiles             = 2,
 	
 	--apperance
 	
-	rgbColor2                = [[0.8 0.2 0.15]],
-	size                    = 10,
-	stages                  = 4,
-	intensity               = 0.2,
-	separation              = 4,
-	explosionScar			= true,
-	sizeGrowth              = 10,
+	rgbColor				= [[1 1 0]],
+	--size                    = 0.1,
+	--stages                  = 1,
+	intensity               = 1,
+	--separation              = 2,
 	
-	--explosionGenerator		= "custom:humo",
-	--explosiongenerator			= [[custom:genericshellexplosion-small]],
+	CegTag						= [[genericshellexplosion-large-sparks-burn]],
+	explosionGenerator			= [[custom:lightning_stormbolt]],
+	
 	--sounds
 	
-	soundStart              = "disparo_gfx",
+	--soundStart              = "disparo_gfx",
 	
 	collideFriendly=true,
 }

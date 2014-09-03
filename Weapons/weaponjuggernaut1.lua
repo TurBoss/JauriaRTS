@@ -6,28 +6,28 @@ local weaponDef = {
 	name                    = "Lanzamisiles",
 	weaponType              = "Cannon",
 	
-	Accuracy=50,
-	movingAccuracy=80,
+	Accuracy=20,
+	movingAccuracy=60,
 	
 	--damage
 	
 	avoidFeature = false,
 	
 	damage = {
-		default = 1020,
-		heavyarmor = 530,
-		lightarmor = 320,
-		torrearmor = 500,
+		default = 200,
+		heavyarmor = 230,
+		lightarmor = 80,
+		torrearmor = 180,
 	},
-	--areaOfEffect            = 10,
+	areaOfEffect            = 80,
 	
 	--physics
 	
-	weaponVelocity          = 800,
+	weaponVelocity          = 850,
 	reloadtime              = 1,
 	range                   = 365,
 --	sprayAngle              = 45,
-	weaponaceleration       = 300,
+	weaponaceleration       = 600,
 	tolerance               = 10000,
 	lineOfSight             = true,
 	turret                  = true,
