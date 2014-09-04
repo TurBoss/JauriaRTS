@@ -4,9 +4,9 @@ local unitDef = {
 	name = "Militia",
 	Description = "Light Infantry",
 	objectName = "militia.dae",
-	script = "milita.lua",
+	script = "militia.lua",
 	buildPic = "placeholder.png",
-	iconType = "milita",
+	iconType = "militia",
 
 	--cost
 

@@ -2,7 +2,6 @@ local unitName = "drone"
 
 local unitDef = {
 	name = "Drone",
-	name = "rone",
 	Description = "Light Tank",
 	objectName = "drone.dae",
 	script = "drone.lua",
