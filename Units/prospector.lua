@@ -5,27 +5,27 @@ local unitDef = {
 	Description = "Simple, recolector",
 	objectName = "prospector.dae",
 	script = "prospector.lua",
-	buildPic = "prospector.png",
+	buildPic = "placeholder.png",
 
 	--cost
 
-	buildCostMetal = 320,
+	buildCostMetal = 200,
 	buildCostEnergy = 0,
-	buildTime = 10,
+	buildTime = 10.5,
 
 	--Health
 
-	maxDamage    = 3200,
+	maxDamage    = 3360,
 	idleAutoHeal = 20,
 	idleTime     = 3,
 	--Movement
 
 	mass=1800,
-	Acceleration =0.8,
-	BrakeRate = 0.5,
+	Acceleration =1.2,
+	BrakeRate = 1.2,
 	FootprintX = 3,
 	FootprintZ = 3,
-	MaxVelocity = 3.2,
+	MaxVelocity = 3.6,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
 	TurnRate = 1000,

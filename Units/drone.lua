@@ -1,38 +1,40 @@
 local unitName = "drone"
 
 local unitDef = {
-	name = "drone",
-	Description = "Simple, mobile unit",
+	name = "Drone",
+	name = "rone",
+	Description = "Light Tank",
 	objectName = "drone.dae",
 	script = "drone.lua",
 	buildPic = "placeholder.png",
+	iconType = "drone",
 
 	--cost
 
-	buildCostMetal = 100,
+	buildCostMetal = 370,
 	buildCostEnergy = 0,
-	buildTime = 5,
+	buildTime = 15.2,
 
 	--Health
 
-	maxDamage = 6500,
-	idleAutoHeal = 0,
+	maxDamage = 2180,
+	idleAutoHeal = 20,
 	idleTime     = 3,
 
 	--Movement
 
-	mass=650,
+	mass=1500,
 	Acceleration = 1,
-	BrakeRate = 3,
-	FootprintX = 2,
-	FootprintZ = 2,
+	BrakeRate = 1,
+	FootprintX = 3,
+	FootprintZ = 3,
 	MaxSlope = 12,
-	MaxVelocity = 4.8,
+	MaxVelocity = 4,
 	MaxWaterDepth = 20,
-	MovementClass = "Default2x2",
-	TurnRate = 3200,
+	MovementClass = "Default3x3",
+	TurnRate = 1300,
 
-	sightDistance = 360,
+	sightDistance = 420,
 
 	Category = [[LAND]],
 
@@ -43,6 +45,16 @@ local unitDef = {
 	CanStop = true,
 	LeaveTracks = false, 
 
+
+	weapons = {
+		[1]={name  = "weapondrone",
+			onlyTargetCategory = [[LAND]],
+		},
+		[2]={name  = "weapondrone",
+			slaveTo = 1,
+			onlyTargetCategory = [[LAND]],
+		},
+	},
 }
 
 return lowerkeys({ [unitName] = unitDef })

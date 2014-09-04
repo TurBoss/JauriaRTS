@@ -1,37 +1,37 @@
-local unitName = "drk2"
+local unitName = "berserker"
 
 local unitDef = {
-	name = "RK-2",
+	name = "Berserker",
 	Description = "Heavy Infantry",
-	objectName = "rk2.dae",
-	script = "rk2.lua",
-	buildPic = "rk2.png",
-	iconType = "rk2",
+	objectName = "berserker.dae",
+	script = "berserker.lua",
+	buildPic = "placeholder.png",
+	iconType = "berserker",
 
 	--cost
 
-	buildCostMetal = 145,
+	buildCostMetal = 135,
 	buildCostEnergy = 0,
-	buildTime = 7.4,
+	buildTime = 7.2,
 
 	--Health
 
-	maxDamage = 1420,
-	idleAutoHeal = 20,
+	maxDamage = 1210,
+	idleAutoHeal = 23,
 	idleTime     = 3,
 
 	--Movement
 
 	mass=880,
-	Acceleration = 1,
-	BrakeRate = 2,
+	Acceleration = 1.2,
+	BrakeRate = 2.2,
 	FootprintX = 2,
 	FootprintZ = 2,
 	MaxSlope = 12,
-	MaxVelocity = 4.3,
+	MaxVelocity = 3.8,
 	MaxWaterDepth = 20,
 	MovementClass = "Default2x2",
-	TurnRate = 2300,
+	TurnRate = 2620,
 
 	sightDistance = 380,
 
@@ -52,7 +52,7 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "weaponrk2",
+		[1]={name  = "weaponberserker",
 			onlyTargetCategory = [[LAND AIR]],
 		},
 	},

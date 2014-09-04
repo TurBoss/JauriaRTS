@@ -1,9 +1,9 @@
 
-local weaponName = "weaponrk2"
+local weaponName = "weaponberserker"
 
 local weaponDef = {
 	
-	name                    = "misil RK-2",
+	name                    = "misil Berserker",
 	weaponType              = "Cannon",
 	
 	Accuracy=30,
@@ -13,10 +13,10 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 180,
-		heavyarmor = 240,
-		lightarmor = 80,
-		torrearmor = 220,
+		default = 175,
+		heavyarmor = 210,
+		lightarmor = 73,
+		torrearmor = 195,
 	},
 	--areaOfEffect            = 30,
 	
@@ -24,9 +24,9 @@ local weaponDef = {
 	
 	weaponVelocity          = 550,
 	reloadtime              = 1,
-	range                   = 310,
+	range                   = 320,
 	--sprayAngle              = 45,
-	weaponaceleration       = 220,
+	weaponaceleration       = 120,
 	tolerance               = 8000,
 	lineOfSight             = true,
 	turret                  = true,

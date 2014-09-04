@@ -1,52 +1,48 @@
-local unitName = "valkyria"
+local unitName = "militia"
 
 local unitDef = {
-	name = "Valkyria",
-	Description = "Simple, mobile unit",
-	objectName = "valkyria.dae",
-	script = "valkyria.lua",
+	name = "Militia",
+	Description = "Light Infantry",
+	objectName = "militia.dae",
+	script = "milita.lua",
 	buildPic = "placeholder.png",
-	iconType = "nm1",
+	iconType = "milita",
 
 	--cost
 
-	buildCostMetal = 660,
+	buildCostMetal = 115,
 	buildCostEnergy = 0,
-	buildTime = 38,
+	buildTime = 6.8,
 
 	--Health
 
-	maxDamage = 5400,
-	idleAutoHeal = 52,
+	maxDamage = 1130,
+	idleAutoHeal = 21,
 	idleTime     = 3,
 
 	--Movement
 
 	mass=800,
-	Acceleration = 1.2,
-	BrakeRate = 5,
+	Acceleration = 1.5,
+	BrakeRate = 2.5,
 	FootprintX = 2,
 	FootprintZ = 2,
 	MaxSlope = 12,
-	MaxVelocity = 4.5,
+	MaxVelocity = 4,
 	MaxWaterDepth = 20,
 	MovementClass = "Default2x2",
-	TurnRate = 2580,
+	TurnRate = 2700,
 
-	sightDistance = 370,
+	sightDistance = 360,
 
 	Category = [[LAND]],
 	
-	CanCloak = true,
 	CanAttack = true,
 	CanGuard = true,
 	CanMove = true,
 	CanPatrol = true,
 	CanStop = true,
-	LeaveTracks = false,
-	CanCloak = true,
-	MinCloakDistance = 250,
-	InitCloaked = true, 
+	LeaveTracks = false, 
 
 	sfxtypes = {
 		explosiongenerators = {
@@ -55,10 +51,10 @@ local unitDef = {
 	},
 
 	weapons = {
-		[1]={name  = "weaponintruder",
-			--maxAngleDif = 210,
-			--mainDir = [[-1 1 1]],
+		[1]={name  = "weaponmilitia",
 			onlyTargetCategory = [[LAND]],
+			maxAngleDif = 210,
+			mainDir = [[-1 0 1]],
 		},
 	},
 }

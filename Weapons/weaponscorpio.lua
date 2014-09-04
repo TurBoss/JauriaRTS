@@ -1,7 +1,7 @@
-local weaponName="weapontaurus"
+local weaponName="weaponscorpio"
 
 local weaponDef={
-	name="weapontaurus",
+	name="weaponscorpio",
 	weaponType=[[MissileLauncher]],
 
 	Accuracy=500,
@@ -10,11 +10,11 @@ local weaponDef={
 	InterceptedByShieldType= 4,
 	
 	--Physic/flight path
-	range=445,
-	reloadtime=1.5,
-	weaponVelocity=1100,
-	startVelocity=600,
-	weaponAcceleration=480,
+	range=390,
+	reloadtime=4.2,
+	weaponVelocity=800,
+	startVelocity=800,
+	weaponAcceleration=800,
 	flightTime=6,
 	BurnBlow=0,
 	FixedLauncher=false,
@@ -28,7 +28,7 @@ local weaponDef={
 
 	----APPEARANCE
 	
-	model="cobete.dae",
+	model="disco.dae",
 	smokeTrail=true,
 	--explosionGenerator="custom:explosion1",
 	CegTag="light1",
@@ -46,12 +46,12 @@ local weaponDef={
 	----DAMAGE
 	
 	damage={
-		default=740,
-		heavyarmor = 550,
-		lightarmor = 320,
-		torrearmor = 860,
+		default=680,
+		heavyarmor = 480,
+		lightarmor = 730,
+		torrearmor = 650,
 	},
-	areaOfEffect=100,
+	areaOfEffect=145,
 	craterMult=0,
 	
 	--?FIXME***

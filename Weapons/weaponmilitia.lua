@@ -1,5 +1,5 @@
 --http://springrts.com/wiki/Weapon_Variables#Cannon_.28Plasma.29_Visuals
-local weaponName = "weapontropa"
+local weaponName = "weaponmilitia"
 
 local weaponDef = {
 	name = [[Laser]],
@@ -13,7 +13,10 @@ local weaponDef = {
 	craterMult = 0,
 	
 	damage = {
-		default = 225,
+		default = 150,
+		heavyarmor = 35,
+		lightarmor = 140,
+		torrearmor = 120,
 	},
 	
 	--explosionGenerator = [[custom:flashslow]],
@@ -27,8 +30,8 @@ local weaponDef = {
 	lineOfSight = true,
 	minIntensity = 1,
 	noSelfDamage = true,
-	range = 400,
-	reloadtime = 1.5,
+	range = 290,
+	reloadtime = 0.5,
 	renderType = 0,
 	rgbColor = [[0.5 0.5 1]],
 	--soundStart = [[weapon/laser/pulse_laser2]],
