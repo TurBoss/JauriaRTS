@@ -60,6 +60,7 @@ end
 
 
 function script.StartMoving(heading)
+	Turn(portal, z_axis, heading, math.rad(80))
 	
 	Spin(ruedas, x_axis, math.rad(180))
 
