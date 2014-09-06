@@ -1,20 +1,14 @@
 local root = piece "root"
 
-local caseta = piece "caseta"
+local base = piece "base"
 
-local rueda1 = piece "rueda1"
+local ruedas = piece "ruedas"
 
-local rueda2 = piece "rueda2"
-
---pieces used by the weapon:
-
-local ariete = piece "ariete"
+local portal = piece "portal"
 
 local flare = piece "flare"
 
-local base = piece "base"
-
-local basepalo = piece "basepalo"
+local tubos = piece "tubos"
 
 
 
@@ -31,11 +25,11 @@ end
 
 ---AIMING & SHOOTING---
 function script.AimFromWeapon1() 
-	return base
+	return portal
 end
 
 function script.QueryWeapon1() 
-	return ariete
+	return flare
 end
 
 
@@ -46,12 +40,12 @@ function script.AimWeapon1( heading, pitch )
 	Signal(SIG_AIM1)
 	SetSignalMask(SIG_AIM1)
 	
-	Turn(base, z_axis, heading, math.rad(80))
-	Turn(basepalo, x_axis, -pitch, math.rad(80))
+	Turn(portal, z_axis, heading, math.rad(80))
+	--Turn(basepalo, x_axis, -pitch, math.rad(80))
 	
 	--wait until the weapon is pointed in the right direction
-	WaitForTurn (base, x_axis)
-	WaitForTurn (basepalo, x_axis)
+	WaitForTurn (portal, z_axis)
+	--WaitForTurn (base, x_axis)
 	
 	return true
 end
@@ -59,30 +53,28 @@ end
 
 --called after the weapon has fired
 function script.FireWeapon1()
-	Move (ariete, y_axis, -60, 200)
-	Sleep (450)
-	Move (ariete, y_axis, 0, 80)
+	--Move (ariete, y_axis, -60, 200)
+	--Sleep (450)
+	--Move (ariete, y_axis, 0, 80)
 end
 
 
 function script.StartMoving(heading)
 	
-	Spin(rueda1, x_axis, math.rad(180))
-	Spin(rueda2, x_axis, math.rad(180))
+	Spin(ruedas, x_axis, math.rad(180))
 
 end
 
 function script.StopMoving()
-	StopSpin (rueda1,x_axis)
-	StopSpin (rueda2,x_axis)
+	StopSpin (ruedas,x_axis)
 
 end
 
 ----death animation: fall over & explode
 function script.Killed(recentDamage, maxHealth)
 
-	Explode (caseta, SFX.SHATTER)	
-
+	Explode (base, SFX.SHATTER)	
+	Explode (portal, SFX.FIRE)	
 
 
 end

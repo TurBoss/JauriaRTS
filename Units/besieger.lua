@@ -5,7 +5,7 @@ local unitDef = {
 	name = "Besieger",
 	Description = "Siege armored melee assaulter",
 	objectName = "besieger.dae",
-	--script = "besieger.lua",
+	script = "besieger.lua",
 	buildPic = "besieger.png",
 	iconType = "tkt4",
 
