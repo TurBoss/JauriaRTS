@@ -42,7 +42,12 @@ local unitDef = {
 	LeaveTracks = false, 
 
 	--building
-
+	sounds = {
+		ok = 'comanderbot.ogg',--{"",""},
+		select = {
+			{ file = 'comanderbot.ogg', volume = 12.0 },
+		},
+	},
 	Builder = true,
 	ShowNanoSpray = true,
 	CanBeAssisted = true,  
