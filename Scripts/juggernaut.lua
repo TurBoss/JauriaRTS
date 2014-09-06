@@ -1,6 +1,5 @@
 local base = piece('base');
 local caderas = piece('caderas');
-local Empty = piece('Empty');
 local flare1 = piece('flare1');
 local flare2 = piece('flare2');
 local hombreras = piece('hombreras');
