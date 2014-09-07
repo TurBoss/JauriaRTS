@@ -38,13 +38,13 @@ local unitDef = {
 	MetalMake = 0,
 
 	weapons = {
-	[1]={name  = "weapontorreta",
+	[1]={name  = "weapontorretapro",
 		onlyTargetCategory = [[LAND AIR]],
 		},
-	[2]={name  = "weapontorreta",
+	[2]={name  = "weapontorretapro",
 		onlyTargetCategory = [[LAND AIR]],
 		},
-	[3]={name  = "weapontorreta",
+	[3]={name  = "weapontorretapro",
 		onlyTargetCategory = [[LAND AIR]],
 		},
 	},
