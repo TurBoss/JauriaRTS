@@ -33,7 +33,7 @@ local unitDef = {
 	MetalStorage = 0,
 	EnergyMake = 0, 
 	MakesMetal = 0, 
-	MetalMake = 5,
+	MetalMake = 0,
 	
 	--Pathfinding and related
 	
@@ -48,7 +48,7 @@ local unitDef = {
 	canMove = true,
 	Reclaimable = false,
 	ShowNanoSpray = true,
-	CanBeAssisted = false,
+	CanBeAssisted = true,
 	workerTime = 1,
 	
 	buildoptions = {

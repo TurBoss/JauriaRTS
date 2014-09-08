@@ -10,9 +10,9 @@ local weaponDef={
 	InterceptedByShieldType= 4,
 	
 	--Physic/flight path
-	range=455,
-	reloadtime=1.3,
-	weaponVelocity=650,
+	range=400,
+	reloadtime=1.05,
+	weaponVelocity=550,
 	startVelocity=580,
 	weaponAcceleration=400,
 	flightTime=8,
@@ -32,7 +32,7 @@ local weaponDef={
 	----APPEARANCE
 	
 	model="cohete1.dae",
-	smokeTrail=true,
+	smokeTrail=false,
 	--explosionGenerator="custom:explosion1",
 	CegTag="light1",
 
@@ -50,9 +50,9 @@ local weaponDef={
 	
 	damage={
 		default=220,
-		heavyarmor = 180,
-		lightarmor = 215,
-		torrearmor = 200,
+		heavyarmor = 150,
+		lightarmor = 220,
+		torrearmor = 170,
 	},
 	--areaOfEffect=30,
 	craterMult=0,

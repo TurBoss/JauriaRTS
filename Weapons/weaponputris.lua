@@ -21,15 +21,15 @@ local weaponDef = {
 	areaOfEffect            = 240,
 	
 	--physics
-	myGravity               = 4.3,
-	weaponVelocity          = 1340,
-	startVelocity           = 500,
+	myGravity               = 1.2,
+	weaponVelocity          = 865,
+	startVelocity           = 250,
 	reloadtime              = 12,
-	range                   = 630,
+	range                   = 3200,
 	sprayAngle              = 180,
-	weaponaceleration       = 600,
+	weaponaceleration       = 415,
 	tolerance               = 8000,
-	lineOfSight             = true,
+	lineOfSight             = false,
 	turret                  = true,
 	craterMult              = 0.0,
 	highTrajectory          = 0,
@@ -44,6 +44,14 @@ local weaponDef = {
 	stages                  = 3,
 	intensity               = 0.5,
 	separation              = 0.3,
+	
+	
+	----TARGETING
+	
+	turret=true,
+	CylinderTargeting=true,
+	avoidFeature=false,
+	avoidFriendly=true,
 	
 	--sounds
 	

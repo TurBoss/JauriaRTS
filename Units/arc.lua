@@ -9,9 +9,9 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 195,
+	buildCostMetal = 200,
 	buildCostEnergy = 0,
-	buildTime = 10,
+	buildTime = 20,
 
 	--Health
 
@@ -50,7 +50,7 @@ local unitDef = {
 	},
 	Builder = true,
 	ShowNanoSpray = true,
-	CanBeAssisted = true,  
+	CanBeAssisted = true, 
 	workerTime = 0.1,
 	repairSpeed = 0,
 	reclaimSpeed = 30,
