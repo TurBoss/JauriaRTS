@@ -22,7 +22,7 @@ local weaponDef = {
 	
 	--physics
 	myGravity               = 4.3,
-	weaponVelocity          = 1560,
+	weaponVelocity          = 1340,
 	startVelocity           = 500,
 	reloadtime              = 12,
 	range                   = 630,
@@ -32,7 +32,7 @@ local weaponDef = {
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 0.0,
-	highTrajectory          = 1,
+	highTrajectory          = 0,
 	--burst                   = 5,
 	--burstrate               = 0.5,
 	--proyectiles             = 2,

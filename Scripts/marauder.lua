@@ -2,11 +2,7 @@ local root = piece "root"
 
 local base = piece "base"
 
-local cara = piece "cara"
-
-local homnre = piece "hombre"
-
-local hombros = piece "hombros"
+local capa = piece "capa"
 
 --pieces used by the weapon:
 
@@ -148,9 +144,7 @@ end
 function script.Killed(recentDamage, maxHealth)
 
 	Explode (base, SFX.SHATTER)
-	Explode (cara, SFX.FIRE)
+	Explode (capa, SFX.FIRE)
 	Explode (canon, SFX.FIRE)
-	Explode (hombros, SFX.FIRE)
-
 end
 
