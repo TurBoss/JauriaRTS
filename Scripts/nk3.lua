@@ -67,7 +67,7 @@ function script.AimWeapon2( heading )
 end
 
 function script.StartMoving(heading)
-	Turn (canon, z_axis, heading, math.rad(80))
+	Turn (canon, z_axis, heading, math.rad(280))
 	Spin(rueda1i, x_axis, wheel_speed)
 	Spin(rueda2i, x_axis, wheel_speed)
 	Spin(rueda3i, x_axis, wheel_speed)

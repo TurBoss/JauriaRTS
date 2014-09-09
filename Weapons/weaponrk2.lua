@@ -14,19 +14,19 @@ local weaponDef = {
 	
 	damage = {
 		default = 170,
-		heavyarmor = 280,
+		heavyarmor = 340,
 		lightarmor = 65,
-		torrearmor = 210,
+		torrearmor = 180,
 	},
 	--areaOfEffect            = 30,
 	
 	--physics
 	
-	weaponVelocity          = 550,
+	weaponVelocity          = 650,
 	reloadtime              = 1,
 	range                   = 310,
 	--sprayAngle              = 45,
-	weaponaceleration       = 220,
+	weaponaceleration       = 520,
 	tolerance               = 8000,
 	lineOfSight             = true,
 	turret                  = true,
