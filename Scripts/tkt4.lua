@@ -45,8 +45,8 @@ function script.AimWeapon1( heading, pitch )
 	Signal(SIG_AIM)
 	SetSignalMask(SIG_AIM)
 	
-	Turn(canon, z_axis, heading, math.rad(80))
-	Turn(basearma, x_axis, -pitch, math.rad(80))
+	Turn(canon, z_axis, heading, math.rad(220))
+	Turn(basearma, x_axis, -pitch, math.rad(220))
 	
 	--wait until the weapon is pointed in the right direction
 	WaitForTurn (basearma, x_axis)
@@ -66,7 +66,7 @@ function script.FireWeapon1()
 end
 
 function script.StartMoving(heading)
-	Turn (canon, z_axis, heading, math.rad(80))
+	Turn (canon, z_axis, heading, math.rad(220))
 	Spin(rueda1i, x_axis, wheel_speed)
 	Spin(rueda2i, x_axis, wheel_speed)
 	Spin(rueda3i, x_axis, wheel_speed)
