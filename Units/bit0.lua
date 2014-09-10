@@ -22,9 +22,9 @@ local unitDef = {
 
 	--Movement
 
-	mass=380,
-	Acceleration = 0.5,
-	BrakeRate = 0.5,
+	mass=580,
+	Acceleration = 1.5,
+	BrakeRate = 1.5,
 	FootprintX = 1,
 	FootprintZ = 1,
 	--MaxSlope = 12,
