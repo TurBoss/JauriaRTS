@@ -1,10 +1,10 @@
-local unitName = "escorpion"
+local unitName = "cuellito"
 
 local unitDef = {
-	name = "escorpion",
-	Description = "Jungle",
-	objectName = "escorpion.dae",
-	script = "escorpion.lua",
+	name = "cuellito",
+	Description = "Simple, mobile unit",
+	objectName = "cuellito.dae",
+	script = "cuellito.lua",
 	buildPic = "placeholder.png",
 
 	--cost
@@ -15,10 +15,9 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 8200,
+	maxDamage = 9200,
 	idleAutoHeal = 26,
 	idleTime     = 3,
-
 	--Movement
 
 	mass=4000,
@@ -27,12 +26,12 @@ local unitDef = {
 	FootprintX = 3,
 	FootprintZ = 3,
 	MaxSlope = 12,
-	MaxVelocity = 1,
+	MaxVelocity = 0,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
 	TurnRate = 1000,
 
-	sightDistance = 360,
+	sightDistance = 380,
 
 	Category = [[LAND]],
 
@@ -45,16 +44,10 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "destruclaser",
+		[1]={name  = "weaponcuellito",
 			onlyTargetCategory = [[LAND]],
-			--maxAngleDif = 90,
-			--mainDir = [[-1 0 1]],
-		},
-		[2]={name  = "destruclaser",
-			onlyTargetCategory = [[LAND]],
-			slaveto = 1,
-			--maxAngleDif = 90,
-			--mainDir = [[-1 0 1]],
+			--maxAngleDif = 15,
+			--mainDir = [[0 0 1]],
 		},
 	},
 }

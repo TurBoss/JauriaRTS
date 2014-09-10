@@ -23,49 +23,45 @@ function script.Create()
 end
 
 function script.StartMoving(heading)
-	StartThread (caminapalante)
-	Turn(root, z_axis, heading, math.rad(225))
 end
 
 function script.StopMoving()
 	--Spring.Echo ("stopped walking!")
-	Signal(SIG_WALK)
-	StartThread(caminareset)
 end
 
 --called after the weapon has fired
 function script.FireWeapon1()
-	EmitSfx(flare_der, smoke)
+	EmitSfx(flare1, smoke)
 end
 
 function script.FireWeapon2()
-	EmitSfx(flare_izq, smoke)
+	EmitSfx(flare2, smoke)
 end
 
 ---AIMING & SHOOTING---
 function script.AimFromWeapon1() 
-	return torre_der
+	return canon
 end
 
 function script.AimFromWeapon2() 
-	return torre_izq
+	return canon
 end
 
 function script.QueryWeapon1() 
-	return flare_der
+	return flare1
 end
 
 function script.QueryWeapon2() 
-	return flare_izq
+	return flare2
 end
 
 function script.AimWeapon1( heading, pitch )
 	--make sure the aiming animation is only run once
 	Signal(SIG_AIM)
 	SetSignalMask(SIG_AIM)
-	Turn(torre_der, z_axis, heading, math.rad(350))
+	Turn(cuerpo, z_axis, heading, math.rad(350))
 	--wait until the weapon is pointed in the right direction
-	WaitForTurn (torre_der, z_axis)
+	WaitForTurn (cuerpo, z_axis)
 	return true
 end
 
@@ -73,9 +69,9 @@ function script.AimWeapon2( heading, pitch )
 	--make sure the aiming animation is only run once
 	Signal(SIG_AIM2)
 	SetSignalMask(SIG_AIM2)
-	Turn(torre_izq, z_axis, heading, math.rad(350))
+	Turn(cuerpo, z_axis, heading, math.rad(350))
 	--wait until the weapon is pointed in the right direction
-	WaitForTurn (torre_izq, z_axis)
+	WaitForTurn (cuerpo, z_axis)
 	return true
 end
 
