@@ -1,5 +1,9 @@
 local armorDefs = {
 	heavyarmor = {
+		"fabricaporreton",
+		"fabricacaos",
+		"fabricaheks",
+		--------------
 		"tkt3",
 		"nk2",
 		"st6",
@@ -32,7 +36,8 @@ local armorDefs = {
 	},
 	torrearmor = {
 		"torreta",
-		"torreta2",
+		"torretapro",
+		"torrun",
 	},
 }
 

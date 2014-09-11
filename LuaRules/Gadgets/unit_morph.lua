@@ -597,7 +597,7 @@ local function FinishMorph(unitID, morphData)
       z = z+8
     end
     --Spring.Echo(unitID)
-    newUnit = SpCreateUnit(defName, x, y, z, face, unitTeam, isBeingBuilt, true, unitID+12)
+    newUnit = SpCreateUnit(defName, x, y, z, face, unitTeam, isBeingBuilt, true, unitID+16)
   if not newUnit then
     StopMorph(unitID, morphData)
     return
@@ -605,7 +605,7 @@ local function FinishMorph(unitID, morphData)
     SpSetUnitPosition(newUnit, x, y, z)
   else
     --Spring.Echo(unitID .. "-2")
-    newUnit = SpCreateUnit(defName, px, py, pz, HeadingToFacing(h), unitTeam, isBeingBuilt, true, unitID+12)
+    newUnit = SpCreateUnit(defName, px, py, pz, HeadingToFacing(h), unitTeam, isBeingBuilt, true, unitID+16)
   if not newUnit then
     StopMorph(unitID, morphData)
     return
