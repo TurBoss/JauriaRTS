@@ -6,14 +6,14 @@ local weaponDef = {
 	name                    = "Lightningcannon",
 	weaponType              = "LightningCannon",
 	
-	Accuracy=100,
-	movingAccuracy=200,
+	Accuracy=800,
+	movingAccuracy=120,
 	--damage
 	
 	damage = {
 		default = 180,
 		heavyarmor = 25,
-		lightarmor = 160,
+		lightarmor = 158,
 		torrearmor = 85,
 	},
 	areaOfEffect            = 30,

@@ -4,8 +4,8 @@ local weaponDef={
 	name="weapontkt4",
 	weaponType=[[MissileLauncher]],
 
-	Accuracy=500,
-	movingAccuracy=800,
+	Accuracy=420,
+	movingAccuracy=700,
 	
 	InterceptedByShieldType= 4,
 	
@@ -47,11 +47,11 @@ local weaponDef={
 	
 	damage={
 		default=1520,
-		heavyarmor = 960,
-		lightarmor = 750,
+		heavyarmor = 952,
+		lightarmor = 710,
 		torrearmor = 1350,
 	},
-	areaOfEffect=115,
+	areaOfEffect=110,
 	craterMult=0,
 	
 	--?FIXME***

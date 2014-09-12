@@ -14,8 +14,8 @@ local weaponDef = {
 	
 	damage = {
 		default = 85,
-		heavyarmor = 120,
-		lightarmor = 35,
+		heavyarmor = 172,
+		lightarmor = 41,
 		torrearmor = 110,
 	},
 	--areaOfEffect            = 30,
@@ -23,8 +23,8 @@ local weaponDef = {
 	--physics
 	
 	weaponVelocity          = 550,
-	reloadtime              = 0.8,
-	range                   = 320,
+	reloadtime              = 0.9,
+	range                   = 245,
 	--sprayAngle              = 45,
 	weaponaceleration       = 215,
 	tolerance               = 8000,

@@ -4,15 +4,15 @@ local weaponDef={
 	name="weapontkt4",
 	weaponType=[[MissileLauncher]],
 
-	Accuracy=500,
-	movingAccuracy=800,
+	Accuracy=80,
+	movingAccuracy=120,
 	
 	InterceptedByShieldType= 4,
 	
 	--Physic/flight path
 	range=400,
 	reloadtime=1.05,
-	weaponVelocity=550,
+	weaponVelocity=620,
 	startVelocity=580,
 	weaponAcceleration=400,
 	flightTime=8,
@@ -49,10 +49,10 @@ local weaponDef={
 	----DAMAGE
 	
 	damage={
-		default=230,
-		heavyarmor = 160,
-		lightarmor = 280,
-		torrearmor = 170,
+		default=220,
+		heavyarmor = 125,
+		lightarmor = 265,
+		torrearmor = 160,
 	},
 	--areaOfEffect=30,
 	craterMult=0,

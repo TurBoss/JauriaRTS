@@ -45,12 +45,12 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "destruclaser",
+		[1]={name  = "weaponescorpion",
 			onlyTargetCategory = [[LAND]],
 			--maxAngleDif = 90,
 			--mainDir = [[-1 0 1]],
 		},
-		[2]={name  = "destruclaser",
+		[2]={name  = "weaponescorpion",
 			onlyTargetCategory = [[LAND]],
 			slaveto = 1,
 			--maxAngleDif = 90,

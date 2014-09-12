@@ -16,8 +16,8 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 1940,
-	idleAutoHeal = 22,
+	maxDamage = 1680,
+	idleAutoHeal = 14,
 	idleTime     = 3,
 
 	--Movement
@@ -28,12 +28,12 @@ local unitDef = {
 	FootprintX = 2,
 	FootprintZ = 2,
 	MaxSlope = 12,
-	MaxVelocity = 5.2,
+	MaxVelocity = 3.9,
 	MaxWaterDepth = 20,
 	MovementClass = "Default2x2",
-	TurnRate = 3800,
+	TurnRate = 2800,
 
-	sightDistance = 430,
+	sightDistance = 360,
 
 	Category = [[LAND]],
 	
