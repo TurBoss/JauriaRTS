@@ -1,4 +1,4 @@
-local unitName = "overkraft"
+local unitName = "doverkraft"
 
 local unitDef = {
 	name = "Overkraft",

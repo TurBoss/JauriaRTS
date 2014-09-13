@@ -1,4 +1,4 @@
-local unitName = "scorpio"
+local unitName = "fscorpio"
 
 local unitDef = {
 	name = "Scorpio",
