@@ -12,5 +12,9 @@ local sidedata = {
 		name = "Faction Caos",
 		startUnit = "fabricacaos",
 	},
+	[4] = {
+		name = "Faction Europe",
+		startUnit = "fabricaeurope",
+	},
 }
 return sidedata
