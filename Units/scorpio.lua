@@ -45,7 +45,7 @@ local unitDef = {
 	LeaveTracks = false, 
 
 
-	explodeAs = "weaponlz5",
+	--explodeAs = "weaponlz5",
 	weapons = {
 		[1]={name  = "weaponscorpio",
 			onlyTargetCategory = [[LAND]],
