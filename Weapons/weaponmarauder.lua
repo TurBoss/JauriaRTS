@@ -38,10 +38,10 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor                = [[0.5 0 0]],
-	size                    = 4.5,
-	stages                  = 5,
-	intensity               = 3,
+	rgbColor                = [[1 0.25 0.1]],
+	size                    = 3,
+	stages                  = 6,
+	intensity               = 10,
 	separation              = 0,
 	
 	--sounds

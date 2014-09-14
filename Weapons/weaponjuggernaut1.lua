@@ -38,7 +38,7 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor2                = [[1 0 0.1]],
+	rgbColor                = [[1 0.25 0.1]],
 	size                    = 10,
 	stages                  = 4,
 	intensity               = 0.5,

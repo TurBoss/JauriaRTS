@@ -79,7 +79,7 @@ end
 local UnitEffects = {
 
 	
-	[UnitDefNames["overkraft"].id] = {
+	[UnitDefNames["doverkraft"].id] = {
 		{class='Ribbon',options={width=1, size=12, piece="ribbon1"}},
 		{class='Ribbon',options={width=1, size=12, piece="ribbon2"}},
 		
