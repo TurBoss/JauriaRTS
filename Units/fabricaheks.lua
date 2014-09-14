@@ -48,7 +48,7 @@ local unitDef = {
 	canMove = true,
 	Reclaimable = false,
 	ShowNanoSpray = true,
-	CanBeAssisted = false,
+	CanBeAssisted = true,
 	workerTime = 1,
 	
 	buildoptions = {
