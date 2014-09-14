@@ -9,10 +9,9 @@ local armorDefs = {
 		"hdt6",
 		"glz5",
 		--------------
-		"heiknado",
-		"haerik",
-		"hipso",
-		"heibok",
+		"gheiknado",
+		"chaerik",
+		"dhipso",
 		--------------
 		"gjuggernaut",
 		"harchaon",
@@ -26,10 +25,11 @@ local armorDefs = {
 		"arc",
 		"drk2",
 		--------------
-		"heik",
-		"hekor",
-		"haek",
-		"heiker",
+		"bheik",
+		"ehekor",
+		"fhaek",
+		"aheiker",
+		"hheibok",
 		--------------
 		"braider",
 		"cmarauder",

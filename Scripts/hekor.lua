@@ -23,15 +23,15 @@ end
 
 ---AIMING & SHOOTING---
 function script.AimFromWeapon1() 
-	return arma1
+	return chasis
 end
 
 function script.AimFromWeapon2() 
-	return arma2
+	return chasis
 end
 
 function script.AimFromWeapon3() 
-	return arma3
+	return chasis
 end
 
 function script.QueryWeapon1() 
@@ -55,7 +55,7 @@ function script.AimWeapon1( heading, pitch )
 
 	SetSignalMask(SIG_AIM1)
 	
-	Turn(arma1, z_axis, heading, math.rad(250))
+	Turn(arma1, z_axis, heading, math.rad(320))
 	
 	WaitForTurn (arma1, z_axis)
 
@@ -69,7 +69,7 @@ function script.AimWeapon2( heading, pitch )
 
 	SetSignalMask(SIG_AIM2)
 	
-	Turn(arma2, z_axis, heading, math.rad(250))
+	Turn(arma2, z_axis, heading, math.rad(320))
 	
 	WaitForTurn (arma2, z_axis)
 
@@ -83,7 +83,7 @@ function script.AimWeapon3( heading, pitch )
 
 	SetSignalMask(SIG_AIM3)
 	
-	Turn(arma3, z_axis, heading, math.rad(250))
+	Turn(arma3, z_axis, heading, math.rad(320))
 	
 	WaitForTurn (arma3, z_axis)
 
