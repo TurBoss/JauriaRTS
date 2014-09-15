@@ -6,7 +6,7 @@ local weaponDef = {
 	name                    = "metralletaNM-1",
 	weaponType              = "Flame",
 	
-	Accuracy=500,
+	Accuracy=50,
 	movingAccuracy=80,
 	
 	--damage
@@ -14,17 +14,17 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 22,
-		heavyarmor = 22,
-		lightarmor = 8,
-		torrearmor = 1,
+		default = 0,
+		heavyarmor = 32,
+		lightarmor = 42,
+		torrearmor = 0,
 	},
 	areaOfEffect            = 40,
 	
 	--physics
 	
-	weaponVelocity          = 400,
-	reloadtime              = 0.1,
+	weaponVelocity          = 560,
+	reloadtime              = 0.08,
 	range                   = 360,
 --	sprayAngle              = 45,
 	weaponaceleration       = 80,

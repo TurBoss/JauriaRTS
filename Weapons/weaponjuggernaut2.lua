@@ -4,19 +4,19 @@ local weaponName = "weaponjuggernaut2"
 local weaponDef = {
 	
 	name                    = "Lightningcannon",
-	weaponType              = "LightningCannon",
+	weaponType              = "Cannon",
 	
 	Accuracy=800,
-	movingAccuracy=120,
+	movingAccuracy=1200,
 	--damage
 	
 	damage = {
-		default = 180,
-		heavyarmor = 25,
-		lightarmor = 158,
-		torrearmor = 85,
+		default = 220,
+		heavyarmor = 45,
+		lightarmor = 250,
+		torrearmor = 95,
 	},
-	areaOfEffect            = 30,
+	areaOfEffect            = 85,
 	
 	--physics
 	
@@ -35,11 +35,11 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor				= [[0.5 0.1 0.1]],
-	--size                    = 0.1,
-	--stages                  = 1,
-	intensity               = 1,
-	--separation              = 2,
+	rgbColor				= [[0.8 0.42 0.1]],
+	size                    = 12,
+	stages                  = 1,
+	intensity               = 6,
+	separation              = 1,
 	
 	CegTag						= [[genericshellexplosion-large-sparks-burn]],
 	explosionGenerator			= [[custom:lightning_stormbolt]],

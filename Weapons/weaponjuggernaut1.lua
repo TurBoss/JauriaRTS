@@ -15,8 +15,8 @@ local weaponDef = {
 	
 	damage = {
 		default = 530,
-		heavyarmor = 720,
-		lightarmor = 110,
+		heavyarmor = 730,
+		lightarmor = 160,
 		torrearmor = 380,
 	},
 	areaOfEffect            = 60,
@@ -24,8 +24,8 @@ local weaponDef = {
 	--physics
 	
 	weaponVelocity          = 850,
-	reloadtime              = 3.2,
-	range                   = 385,
+	reloadtime              = 3.6,
+	range                   = 390,
 --	sprayAngle              = 45,
 	weaponaceleration       = 600,
 	tolerance               = 10000,
@@ -38,11 +38,11 @@ local weaponDef = {
 	
 	--apperance
 	
-	rgbColor                = [[1 0.25 0.1]],
+	rgbColor                = [[0.6 0.2 0.1]],
 	size                    = 10,
-	stages                  = 4,
-	intensity               = 0.5,
-	separation              = 0.5,
+	stages                  = 5,
+	intensity               = 0.3,
+	separation              = 0.8,
 	explosionScar			= true,
 	
 	--explosionGenerator		= "custom:humo",
