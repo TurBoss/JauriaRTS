@@ -3,6 +3,7 @@ local flare = piece('flare');
 local ojo = piece('ojo');
 local patas = piece('patas');
 local root = piece('root');
+local bola = piece('bola');
 
 
 --local wheel_speed = math.rad(180)

@@ -14,9 +14,9 @@ local weaponDef = {
 	
 	damage = {
 		default = 225,
-		heavyarmor = 190,
+		heavyarmor = 140,
 		lightarmor = 225,
-		torrearmor = 820,
+		torrearmor = 1050,
 	},
 	
 	--explosionGenerator = [[custom:flashslow]],

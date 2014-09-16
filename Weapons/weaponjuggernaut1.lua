@@ -14,12 +14,12 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 530,
-		heavyarmor = 730,
-		lightarmor = 160,
-		torrearmor = 390,
+		default = 730,
+		heavyarmor = 780,
+		lightarmor = 145,
+		torrearmor = 680,
 	},
-	areaOfEffect            = 30,
+	areaOfEffect            = 70,
 	
 	--physics
 	
@@ -39,7 +39,7 @@ local weaponDef = {
 	--apperance
 	
 	rgbColor                = [[0.6 0.2 0.1]],
-	size                    = 10,
+	size                    = 1,
 	stages                  = 5,
 	intensity               = 0.3,
 	separation              = 0.8,

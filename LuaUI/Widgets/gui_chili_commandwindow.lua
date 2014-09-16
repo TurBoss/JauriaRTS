@@ -18,7 +18,7 @@ VFS.Include("LuaRules/Gadgets/Includes/utilities.lua")
 local DEBUG = false
 
 local MAXBUTTONSONROW = 1
-local MAXBUTTONSONROWBUILD = 4
+local MAXBUTTONSONROWBUILD = 8
 
 local COMMANDSTOEXCLUDE = {"timewait","deathwait","squadwait","gatherwait","loadonto","nextmenu","prevmenu"}
 
@@ -215,7 +215,7 @@ function createMyButton(cmd, buildid)
 				align="left";
 				valign="top";
 				caption = string.format("%s ", UnitDefs[-cmd.id].humanName);
-				fontSize = 18;
+				fontSize = 14;
 				fontShadow = true;
 			}
 			local costLabel = Chili.Label:New {
@@ -363,7 +363,7 @@ function widget:Initialize()
 	
 	window0 = Chili.Window:New{
 		x = 10,
-		y = screenHeight-580,	
+		y = screenHeight-245,	
 		dockable = false,
 		parent = screen0,
 		caption = "Commands",
@@ -377,8 +377,8 @@ function widget:Initialize()
 		children = {commandWindow},
 	}
 	window1 = Chili.Window:New{
-		x = 10,
-		y = screenHeight-340,
+		x = 120,
+		y = screenHeight-240,
 		dockable = false,
 		parent = screen0,
 		caption = "States",
@@ -392,16 +392,16 @@ function widget:Initialize()
 		children = {stateCommandWindow},
 	}
 	window2 = Chili.Window:New{
-		x = 10,
-		y = screenHeight-240,
+		x = 120,
+		y = screenHeight-135,
 		dockable = false,
 		parent = screen0,
 		caption = "Construction",
 		draggable = false,
 		resizable = false,
 		dragUseGrip = false,
-		clientWidth = 400,
-		clientHeight = 200,
+		clientWidth = 780,
+		clientHeight = 100,
 		backgroundColor = {0,0,0,1},
 		--skinName  = "DarkGlass",
 		children = {buildCommandWindow},

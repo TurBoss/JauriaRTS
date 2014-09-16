@@ -11,6 +11,9 @@ local piei = piece('piei');
 local piernad = piece('piernad');
 local piernai = piece('piernai');
 local root = piece('root');
+local rodillai = piece('rodillai');
+local team = piece('team');
+local rodillad = piece('rodillad');
 local Animations = {};
 
 Animations['resetAnimation'] = {

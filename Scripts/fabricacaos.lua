@@ -2,6 +2,8 @@
 local portal = piece "portal"
 local flare = piece "flare"
 local buildspot = piece "root"
+local ojo = piece "ojo"
+local team = piece "team"
 
 function script.Create()
 
