@@ -6,7 +6,7 @@ local unitDef = {
 	objectName = "raider.dae",
 	script = "raider.lua",
 	buildPic = "raider.png",
-	iconType = "nm1",
+	iconType = "raider",
 
 	--cost
 
