@@ -25,7 +25,7 @@ local weaponDef = {
 	
 	weaponVelocity          = 850,
 	reloadtime              = 3.6,
-	range                   = 390,
+	range                   = 280,
 --	sprayAngle              = 45,
 	weaponaceleration       = 600,
 	tolerance               = 10000,
@@ -39,7 +39,7 @@ local weaponDef = {
 	--apperance
 	
 	rgbColor                = [[0.6 0.2 0.1]],
-	size                    = 1,
+	size                    = 15,
 	stages                  = 5,
 	intensity               = 0.3,
 	separation              = 0.8,
@@ -47,6 +47,7 @@ local weaponDef = {
 	
 	--explosionGenerator		= "custom:humo",
 	--explosiongenerator			= [[custom:genericshellexplosion-small]],
+	
 	--sounds
 	
 	soundStart              = "disparo_gfx",

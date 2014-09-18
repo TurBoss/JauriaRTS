@@ -1,17 +1,16 @@
-
+--http://springrts.com/wiki/Weapon_Variables#Cannon_.28Plasma.29_Visuals
 local weaponName = "weaponarchaon"
 
 local weaponDef = {
-	
-	name                    = "Rayo Reaper",
-	weaponType              = "BeamLaser",
-	
-	Accuracy=20,
-	movingAccuracy=20,
-	
-	--damage
-	
-	avoidFeature = false,
+	name = [[Laser]],
+	areaOfEffect = 60,
+	beamDecay = 0.9,
+	beamlaser = 1,
+	beamTime = 0.1,
+	beamttl = 50,
+	coreThickness = 1.8,
+	craterBoost = 0,
+	craterMult = 0,
 	
 	damage = {
 		default = 560,
@@ -19,39 +18,35 @@ local weaponDef = {
 		lightarmor = 485,
 		torrearmor = 420,
 	},
---	areaOfEffect            = 10,
 	
-	--physics
-	
-	weaponVelocity          = 800,
-	reloadtime              = 0.1,
-	range                   = 420,
---	sprayAngle              = 45,
-	weaponaceleration       = 300,
-	tolerance               = 18000,
-	lineOfSight             = true,
-	turret                  = true,
-	craterMult              = 0,
---	burst                   = 2,
---	burstrate               = 0.08,
-	--proyectiles             = 2,
-	
-	--apperance
-	
-	rgbColor                = [[1 0 0]],
-	size                    = 4.3,
-	stages                  = 1,
-	intensity               = 8,
-	separation              = 0.8,
-	thickness               = 9,
-	coreThickness           = 0.35,
-	laserFlareSize          = 10,
-	--largeBeamLaser          = true,
-	
-	--sounds
-	
-	soundStart              = "metralleta_gfx",
-	
-	collideFriendly=true,
+	--explosionGenerator = [[custom:flashslow]],
+	fireStarter = 30,
+	impactOnly = true,
+	impulseBoost = 0,
+	impulseFactor = 0.4,
+	interceptedByShieldType = 1,
+	largeBeamLaser = true,
+	laserFlareSize = 6,
+	lineOfSight = true,
+	minIntensity = 1,
+	noSelfDamage = true,
+	range = 400,
+	reloadtime = 1.5,
+	renderType = 0,
+	rgbColor = [[1 0 0]],
+	--soundStart = [[weapon/laser/pulse_laser2]],
+	--soundStartVolume = 0.9,
+	--soundTrigger = true,
+	sweepfire = false,
+	--texture1 = [[largelaser]],
+	--texture2 = [[flare]],
+	--texture3 = [[flare]],
+	--texture4 = [[smallflare]],
+	thickness = 8,
+	tolerance = 18000,
+	turret = true,
+	weaponType = [[BeamLaser]],
+	weaponVelocity = 500,
 }
+
 return lowerkeys({[weaponName] = weaponDef})

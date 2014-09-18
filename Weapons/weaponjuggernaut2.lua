@@ -6,8 +6,8 @@ local weaponDef = {
 	name                    = "Lightningcannon",
 	weaponType              = "Cannon",
 	
-	Accuracy=800,
-	movingAccuracy=1200,
+	Accuracy=40,
+	movingAccuracy=90,
 	--damage
 	
 	damage = {
@@ -22,7 +22,7 @@ local weaponDef = {
 	
 	weaponVelocity          = 800,
 	reloadtime              = 0.5,
-	range                   = 300,
+	range                   = 280,
 	--sprayAngle              = 45,
 	--weaponaceleration       = 25,
 	tolerance               = 10000,
@@ -36,7 +36,7 @@ local weaponDef = {
 	--apperance
 	
 	rgbColor				= [[0.8 0.42 0.1]],
-	size                    = 12,
+	size                    = 3,
 	stages                  = 1,
 	intensity               = 6,
 	separation              = 1,
