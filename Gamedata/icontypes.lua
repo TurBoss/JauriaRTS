@@ -42,6 +42,10 @@ local icontypes = {
 		bitmap='bitmaps/Icons/6.png',
 		size=2,
 	},
+	raider = {
+		bitmap='bitmaps/Icons/raid.png',
+		size=1.4,
+	},
 }
 
 --------------------------------------------------------------------------------
