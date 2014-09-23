@@ -12,6 +12,7 @@ end
 
 function gadget:GamePreload()
 	Spring.SendCommands("bind f4 showmetalmap")
+	Spring.SendCommands("bind d manualfire")
 	
 	Spring.SendCommands("togglelos")
 	Spring.SendCommands("toggleradarandjammer")

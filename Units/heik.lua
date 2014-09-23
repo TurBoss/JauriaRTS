@@ -36,7 +36,7 @@ local unitDef = {
 	sightDistance = 340,
 
 	Category = [[LAND]],
-
+	CanManualFire = true, 
 	CanAttack = true,
 	CanGuard = true,
 	CanMove = true,
@@ -47,6 +47,9 @@ local unitDef = {
 
 	weapons = {
 		[1]={name  = "weaponheik",
+			onlyTargetCategory = [[LAND]],
+		},
+		[2]={name  = "dguntest",
 			onlyTargetCategory = [[LAND]],
 		},
 		--[2]={name  = "shieldheik",
