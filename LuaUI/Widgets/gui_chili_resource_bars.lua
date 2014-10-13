@@ -387,7 +387,7 @@ function CreateWindow()
 
 	--// ENERGY
 	Chili.Image:New{
-		parent = window,
+		parent = window1,
 		height = p(100/bars),
 		width  = 25,
                 right  = 0,
@@ -395,7 +395,7 @@ function CreateWindow()
 		file   = 'LuaUI/Images/energy.png',
 	}
 	bar_energy = Chili.Progressbar:New{
-		parent = window,
+		parent = window1,
 		color  = col_energy,
 		height = p(100/bars),
 		right  = 26,
@@ -405,7 +405,7 @@ function CreateWindow()
 		font   = {color = {1,1,1,1}, outlineColor = {0,0,0,0.7}, },
 	}
 	lbl_energy = Chili.Label:New{
-		parent = window,
+		parent = window1,
 		height = p(100/bars),
 		width  = 60,
                 x      = 10,
@@ -418,7 +418,7 @@ function CreateWindow()
 		tooltip = "Your energy gain.",
 	}
 	lbl_e_income = Chili.Label:New{
-		parent = window,
+		parent = window1,
 		height = p(50/bars),
 		width  = 40,
                 x      = 70,
@@ -431,7 +431,7 @@ function CreateWindow()
 		tooltip = "Your energy income.",
 	}
 	lbl_e_expense = Chili.Label:New{
-		parent = window,
+		parent = window1,
 		height = p(50/bars),
 		width  = 40,
                 x      = 70,
