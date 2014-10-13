@@ -4,7 +4,7 @@ local unitDef = {
 	name				= "Torreta Jauria",
 	Description			= "Torre defensora",
 	objectName			= "torreta.dae",
-	script			= "torreta.lua",
+	script				= "torreta.lua",
 	buildPic			= "torreta.png",
 
 	--cost
@@ -36,7 +36,9 @@ local unitDef = {
 	LeaveTracks = false,
 
 	MetalMake = 0,
-
+	
+	Corpse = "DEAD",
+	
 	weapons = {
 	[1]={name  = "weapontorreta",
 		onlyTargetCategory = [[LAND AIR]],
@@ -44,7 +46,22 @@ local unitDef = {
 	},
 
 	Category = [[LAND]],
-
+	
+	featureDefs = {
+		DEAD = {
+			description = [[Wreckage - Tower]],
+			blocking = true,
+			damage = 3250,
+			energy = 0,
+			--featureDead = [[HEAP]],
+			footprintX = 5,
+			footprintZ = 5,
+			metal = 600,
+			object = "torreta.dae",
+			reclaimable = true,
+			reclaimTime = 600,
+		},
+	},
 }
 
 return lowerkeys({ [unitName] = unitDef })

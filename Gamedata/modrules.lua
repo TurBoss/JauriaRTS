@@ -17,7 +17,7 @@ local modrules = {
 	},
 	
 	featureLOS = {
-		featureVisibility = 0,
+		featureVisibility = 3,
 	}
 }
 

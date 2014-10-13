@@ -21,7 +21,7 @@ end
 ---AIMING & SHOOTING---
 
 function script.Shot(num)
-	Spring.Echo(num)
+	--Spring.Echo(num)
 end
 
 function script.AimFromWeapon()
