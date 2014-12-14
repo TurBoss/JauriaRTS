@@ -1,20 +1,20 @@
 --http://springrts.com/wiki/Sidedata.lua
 local sidedata = {
 	[1] = {
-		name = "Faction Jauria",
+		name = "Jauria",
 		startUnit = "fabricaporreton",
 	},
+	--[2] = {
+	--	name = "Heks",
+	--	startUnit = "fabricaheks",
+	--},
 	[2] = {
-		name = "Faction Heks",
-		startUnit = "fabricaheks",
-	},
-	[3] = {
-		name = "Faction Caos",
+		name = "Chaos",
 		startUnit = "fabricacaos",
 	},
-	[4] = {
-		name = "Faction Europe",
-		startUnit = "fabricaeurope",
-	},
+	--[4] = {
+	--	name = "Europe",
+	--	startUnit = "fabricaeurope",
+	--},
 }
 return sidedata
