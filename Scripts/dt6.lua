@@ -20,6 +20,8 @@ local flarei = piece('flarei');
 
 local Animations = {};
 
+local isMoving, isShooting = false, false
+
 local SIG_WALK = 1	--signal for the walk animation thread
 local SIG_TURN = 2
 local SIG_AIM = 4

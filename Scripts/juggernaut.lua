@@ -16,6 +16,12 @@ local team = piece('team');
 local rodillad = piece('rodillad');
 local Animations = {};
 
+local isMoving, isShooting = false, false
+
+local SIG_WALK = 1
+local SIG_AIM1 = 2
+local SIG_AIM2 = 4
+
 Animations['resetAnimation'] = {
 	{
 		['time'] = 0,
@@ -101,10 +107,6 @@ Animations['moveAnimation'] = {
 		}
 	},
 }
-
-local SIG_WALK = 1
-local SIG_AIM1 = 2
-local SIG_AIM2 = 4
 
 function constructSkeleton(unit, piece, offset)
     if (offset == nil) then

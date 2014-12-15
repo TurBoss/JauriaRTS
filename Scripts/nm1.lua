@@ -22,6 +22,8 @@ local torre_izq = piece('torre_izq');
 
 local Animations = {};
 
+local isMoving, isShooting = false, false
+
 local SIG_WALK = 1	--signal for the walk animation thread
 local SIG_AIM = 2
 local SIG_AIM2 = 4

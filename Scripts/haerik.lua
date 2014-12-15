@@ -32,6 +32,8 @@ local tobilloi = piece('tobilloi');
 local torso = piece('torso');
 local Animations = {};
 
+local isMoving, isShooting = false, false
+
 local SIG_WALK = 1
 
 Animations['moveAnimation'] = {
