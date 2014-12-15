@@ -438,29 +438,30 @@ function PlayAnimation(animname)
 end
 
 
-local function caminapalante()
+local function Walk()
 
 	Signal(SIG_WALK)
 	SetSignalMask(SIG_WALK)
-	while (true) do
+	isMoving = true
+	while true do
 		PlayAnimation('caminar')
 	end
 end
 
-local function caminareset()
-	Sleep(1000)
+local function RestorePose()
+	Signal(SIG_WALK)
+	SetSignalMask(SIG_WALK)
 	PlayAnimation('reset')
 end
 
 function script.StartMoving(heading)
 	Turn(cabeza, z_axis, heading, math.rad(200))
-	StartThread(caminapalante)
+	StartThread(Walk)
 end
 
 function script.StopMoving()
-	--Spring.Echo ("stopped walking!")
-	Signal(SIG_WALK)
-	StartThread(caminareset)
+	isMoving = false
+	StartThread(RestorePose)
 end
 
 

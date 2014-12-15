@@ -20,30 +20,30 @@ Animations['resetAnimation'] = {
 	{
 		['time'] = 0,
 		['commands'] = {
-			{['c']='move',['p']=pied, ['a']=x_axis, ['t']=16.718996, ['s']=0.000000},
-			{['c']='move',['p']=pied, ['a']=y_axis, ['t']=4.375984, ['s']=0.000000},
-			{['c']='move',['p']=pied, ['a']=z_axis, ['t']=11.304741, ['s']=0.000000},
-			{['c']='turn',['p']=pied, ['a']=x_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=pied, ['a']=y_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=pied, ['a']=z_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='move',['p']=piernai, ['a']=x_axis, ['t']=-12.344358, ['s']=0.000000},
-			{['c']='move',['p']=piernai, ['a']=y_axis, ['t']=-0.553763, ['s']=0.000000},
-			{['c']='move',['p']=piernai, ['a']=z_axis, ['t']=25.346201, ['s']=0.000000},
-			{['c']='turn',['p']=piernai, ['a']=x_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=piernai, ['a']=y_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=piernai, ['a']=z_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='move',['p']=piernad, ['a']=x_axis, ['t']=-12.344358, ['s']=0.000000},
-			{['c']='move',['p']=piernad, ['a']=y_axis, ['t']=-0.553763, ['s']=0.000000},
-			{['c']='move',['p']=piernad, ['a']=z_axis, ['t']=25.346201, ['s']=0.000000},
-			{['c']='turn',['p']=piernad, ['a']=x_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=piernad, ['a']=y_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=piernad, ['a']=z_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='move',['p']=piei, ['a']=x_axis, ['t']=-16.535078, ['s']=0.000000},
-			{['c']='move',['p']=piei, ['a']=y_axis, ['t']=4.375985, ['s']=0.000000},
-			{['c']='move',['p']=piei, ['a']=z_axis, ['t']=11.232927, ['s']=0.000000},
-			{['c']='turn',['p']=piei, ['a']=x_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=piei, ['a']=y_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=piei, ['a']=z_axis, ['t']=0.000000, ['s']=0.000000},
+			{['c']='move',['p']=pied, ['a']=x_axis, ['t']=16.718996, ['s']=6.000000},
+			{['c']='move',['p']=pied, ['a']=y_axis, ['t']=4.375984, ['s']=6.000000},
+			{['c']='move',['p']=pied, ['a']=z_axis, ['t']=11.304741, ['s']=6.000000},
+			{['c']='turn',['p']=pied, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='turn',['p']=pied, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='turn',['p']=pied, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='move',['p']=piernai, ['a']=x_axis, ['t']=-12.344358, ['s']=6.000000},
+			{['c']='move',['p']=piernai, ['a']=y_axis, ['t']=-0.553763, ['s']=6.000000},
+			{['c']='move',['p']=piernai, ['a']=z_axis, ['t']=25.346201, ['s']=6.000000},
+			{['c']='turn',['p']=piernai, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='turn',['p']=piernai, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='turn',['p']=piernai, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='move',['p']=piernad, ['a']=x_axis, ['t']=-12.344358, ['s']=6.000000},
+			{['c']='move',['p']=piernad, ['a']=y_axis, ['t']=-0.553763, ['s']=6.000000},
+			{['c']='move',['p']=piernad, ['a']=z_axis, ['t']=25.346201, ['s']=6.000000},
+			{['c']='turn',['p']=piernad, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='turn',['p']=piernad, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='turn',['p']=piernad, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='move',['p']=piei, ['a']=x_axis, ['t']=-16.535078, ['s']=6.000000},
+			{['c']='move',['p']=piei, ['a']=y_axis, ['t']=4.375985, ['s']=6.000000},
+			{['c']='move',['p']=piei, ['a']=z_axis, ['t']=11.232927, ['s']=6.000000},
+			{['c']='turn',['p']=piei, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='turn',['p']=piei, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='turn',['p']=piei, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
 		}
 	},
 }
@@ -169,28 +169,29 @@ function PlayAnimation(animname)
     end
 end
 
-local function caminapalante()
+local function Walk()
 	Signal(SIG_WALK)
 	SetSignalMask(SIG_WALK)
-	while (true) do
+	isMoving = true
+	while true do
 		PlayAnimation('moveAnimation')
 	end
 end
 
-local function caminareset()
-	Sleep(1000)
+local function RestorePose()
+	Signal(SIG_WALK)
+	SetSignalMask(SIG_WALK)
 	PlayAnimation('resetAnimation')
 end
 
 function script.StartMoving(heading)
-	StartThread (caminapalante)
+	StartThread (Walk)
 	Turn(base, z_axis, heading, math.rad(125))
 end
 
 function script.StopMoving()
-	--Spring.Echo ("stopped walking!")
-	Signal(SIG_WALK)
-	StartThread(caminareset)
+	isMoving = false
+	StartThread(RestorePose)
 end
 
 ---AIMING & SHOOTING---
