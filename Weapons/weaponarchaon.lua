@@ -15,7 +15,7 @@ local weaponDef = {
 	damage = {
 		default = 560,
 		heavyarmor = 465,
-		lightarmor = 485,
+		lightarmor = 560,
 		torrearmor = 420,
 	},
 	
@@ -30,8 +30,8 @@ local weaponDef = {
 	lineOfSight = true,
 	minIntensity = 1,
 	noSelfDamage = true,
-	range = 400,
-	reloadtime = 1.5,
+	range = 450,
+	reloadtime = 2.2,
 	renderType = 0,
 	rgbColor = [[1 0 0]],
 	--soundStart = [[weapon/laser/pulse_laser2]],
