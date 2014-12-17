@@ -12,7 +12,7 @@ local unitDef = {
 	buildCostMetal = 500,
 	buildCostEnergy = 0,
 	buildTime = 5,
-	
+	reclaimable			=false,
 	--Health
 
 	maxDamage = 8000,
