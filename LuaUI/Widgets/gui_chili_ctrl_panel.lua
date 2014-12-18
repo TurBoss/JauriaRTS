@@ -232,18 +232,24 @@ function resign()
 	local team = 0
 	if Spring.GetMyTeamID() == 1 then
 		team = 0
+		Spring.SendLuaRulesMsg('resign' .. team)
+
 	elseif  Spring.GetMyTeamID() == 0 then
 		team = 1
+		Spring.SendLuaRulesMsg('resign' .. team)
+
 	end
-	Spring.SendLuaRulesMsg('resign' .. team)
 end
 
 function quit()
 	local team = 0
 	if Spring.GetMyTeamID() == 1 then
 		team = 0
+		Spring.SendLuaRulesMsg('quit' .. team)
+
 	elseif  Spring.GetMyTeamID() == 0 then
 		team = 1
+		Spring.SendLuaRulesMsg('quit' .. team)
+
 	end
-	Spring.SendLuaRulesMsg('quit' .. team)
 end
