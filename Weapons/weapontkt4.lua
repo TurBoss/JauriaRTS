@@ -11,7 +11,7 @@ local weaponDef={
 	
 	--Physic/flight path
 	range=460,
-	reloadtime=4.1,
+	reloadtime=3.8,
 	weaponVelocity=1100,
 	startVelocity=600,
 	weaponAcceleration=480,
@@ -47,9 +47,9 @@ local weaponDef={
 	
 	damage={
 		default=1220,
-		heavyarmor = 680,
-		lightarmor = 980,
-		torrearmor = 1150,
+		heavyarmor = 720,
+		lightarmor = 1010,
+		torrearmor = 1210,
 	},
 	areaOfEffect=110,
 	craterMult=0,
