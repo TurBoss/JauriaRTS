@@ -18,7 +18,7 @@ function widget:GetInfo()
     date      = "2009", --2013 May 12
     license   = "GNU GPL, v2 or later",
     layer     = -10,
-    enabled   = true,  --  loaded by default?
+    enabled   = true  --  loaded by default?
   }
 end
 
@@ -620,7 +620,7 @@ do
       customInfo[unitDefID] = {
         height        = ud.height+14,
         canJump       = (ud.customParams.canjump=="1")or(GetUnitRulesParam(unitID,"jumpReload")),
-        maxShield     = ud.shieldPower,
+        maxShield     = ud.shieldPower - 10,
         canStockpile  = ud.canStockpile,
 		gadgetStock   = ud.customParams.stockpiletime,
         reloadTime    = ud.reloadTime,
