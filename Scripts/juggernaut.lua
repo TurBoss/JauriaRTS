@@ -1,3 +1,8 @@
+
+--------------------------------------------------------------------------------
+-- pieces
+--------------------------------------------------------------------------------
+
 local base = piece('base');
 local caderas = piece('caderas');
 local flare1 = piece('flare1');
@@ -16,11 +21,27 @@ local team = piece('team');
 local rodillad = piece('rodillad');
 local Animations = {};
 
-local isMoving, isShooting = false, false
+--------------------------------------------------------------------------------
+-- constants
+--------------------------------------------------------------------------------
 
 local SIG_WALK = 1
-local SIG_AIM1 = 2
-local SIG_AIM2 = 4
+local SIG_WALK1 = 2
+local SIG_AIM = 4
+local SIG_AIM1 = 8
+local SIG_RESTORE = 16
+
+local RESTORE_DELAY_SHOOT = 4000
+
+--------------------------------------------------------------------------------
+-- vars
+--------------------------------------------------------------------------------
+
+local isMoving, isShooting = false, false
+
+--------------------------------------------------------------------------------
+-- tables
+--------------------------------------------------------------------------------
 
 Animations['resetAnimation'] = {
 	{
@@ -50,6 +71,12 @@ Animations['resetAnimation'] = {
 			{['c']='turn',['p']=piei, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
 			{['c']='turn',['p']=piei, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
 			{['c']='turn',['p']=piei, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='turn',['p']=base, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='turn',['p']=base, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='turn',['p']=base, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
+			{['c']='move',['p']=base, ['a']=x_axis, ['t']=0.035458, ['s']=6.000000},
+			{['c']='move',['p']=base, ['a']=y_axis, ['t']=-0.755547, ['s']=6.000000},
+			{['c']='move',['p']=base, ['a']=z_axis, ['t']=42.280422, ['s']=6.000000},
 		}
 	},
 }
@@ -107,6 +134,37 @@ Animations['moveAnimation'] = {
 		}
 	},
 }
+
+Animations['baseAnimation'] = {
+	{
+		['time'] = 0,
+		['commands'] = {
+			{['c']='turn',['p']=base, ['a']=x_axis, ['t']=-0.053060, ['s']=0.161541},
+			{['c']='turn',['p']=base, ['a']=y_axis, ['t']=-0.060448, ['s']=0.207332},
+			{['c']='turn',['p']=base, ['a']=z_axis, ['t']=0.166343, ['s']=0.402654},
+			{['c']='move',['p']=base, ['a']=x_axis, ['t']=0.035458, ['s']=0.000000},
+			{['c']='move',['p']=base, ['a']=y_axis, ['t']=-0.755547, ['s']=0.000000},
+			{['c']='move',['p']=base, ['a']=z_axis, ['t']=42.280422, ['s']=0.000000},
+		}
+	},
+	{
+		['time'] = 20,
+		['commands'] = {
+			{['c']='turn',['p']=base, ['a']=x_axis, ['t']=0.054634, ['s']=0.161541},
+			{['c']='turn',['p']=base, ['a']=y_axis, ['t']=0.077773, ['s']=0.207332},
+			{['c']='turn',['p']=base, ['a']=z_axis, ['t']=-0.102093, ['s']=0.402654},
+		}
+	},
+	{
+		['time'] = 40,
+		['commands'] = {
+		}
+	},
+}
+
+--------------------------------------------------------------------------------
+-- funcs
+--------------------------------------------------------------------------------
 
 function constructSkeleton(unit, piece, offset)
     if (offset == nil) then
@@ -174,21 +232,50 @@ end
 local function Walk()
 	Signal(SIG_WALK)
 	SetSignalMask(SIG_WALK)
+	
 	isMoving = true
 	while true do
 		PlayAnimation('moveAnimation')
+		Sleep(0)
+	end
+end
+
+local function MoveBase()
+	Signal(SIG_WALK1)
+	SetSignalMask(SIG_WALK1)
+	while true do
+		if not isShooting then
+			PlayAnimation('baseAnimation')
+		end
+		Sleep(0)
 	end
 end
 
 local function RestorePose()
 	Signal(SIG_WALK)
+	Signal(SIG_WALK1)
 	SetSignalMask(SIG_WALK)
+	SetSignalMask(SIG_WALK1)
 	PlayAnimation('resetAnimation')
 end
 
+local function RestoreShoot()
+	Signal(SIG_RESTORE)
+	SetSignalMask(SIG_RESTORE)
+	Sleep(RESTORE_DELAY_SHOOT)
+	isShooting = false
+	
+	PlayAnimation('resetAnimation')
+	
+	Turn(base, z_axis, 0, math.rad(125))
+end
+
 function script.StartMoving(heading)
-	StartThread (Walk)
+	
 	Turn(base, z_axis, heading, math.rad(125))
+	
+	StartThread (Walk)
+	StartThread (MoveBase)
 end
 
 function script.StopMoving()
@@ -197,7 +284,7 @@ function script.StopMoving()
 end
 
 ---AIMING & SHOOTING---
-function script.AimFromWeapon1() 
+function script.AimFromWeapon1()
 	return base
 end
 
@@ -205,7 +292,7 @@ function script.QueryWeapon1()
 	return flare1
 end
 
-function script.AimFromWeapon2() 
+function script.AimFromWeapon2()
 	return base
 end
 
@@ -216,38 +303,36 @@ end
 
 function script.AimWeapon1( heading, pitch )
 	--make sure the aiming animation is only run once
-	Signal(SIG_AIM1)
-	SetSignalMask(SIG_AIM1)
+	Signal(SIG_AIM)
+	SetSignalMask(SIG_AIM)
+	isShooting = true
 	Turn(base, z_axis, heading, math.rad(350))
+	
 	--wait until the weapon is pointed in the right direction
 	WaitForTurn (base, z_axis)
+	StartThread(RestoreShoot)
 	return true
 end
 
 function script.AimWeapon2( heading, pitch )
 	--make sure the aiming animation is only run once
-	Signal(SIG_AIM2)
-	SetSignalMask(SIG_AIM2)
+	Signal(SIG_AIM1)
+	SetSignalMask(SIG_AIM1)
+	isShooting = true
 	Turn(base, z_axis, heading, math.rad(350))
+	
 	--wait until the weapon is pointed in the right direction
 	WaitForTurn (base, z_axis)
+	StartThread(RestoreShoot)
 	return true
 end
 
-
-
-
 --called after the weapon has fired
 function script.FireWeapon1()
-
 end
 
 function script.FireWeapon2()
-
 end
-
-
-
 
 ----death animation: fall over & explode
 function script.Killed(recentDamage, maxHealth)
@@ -259,4 +344,3 @@ function script.Killed(recentDamage, maxHealth)
 	Explode (misil, SFX.SHATTER)
 
 end
-
