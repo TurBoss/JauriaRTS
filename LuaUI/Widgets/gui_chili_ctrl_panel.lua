@@ -14,6 +14,7 @@ end
 -- CONSTANTS
 local DEBUG = true
 
+local speccing = Spring.GetSpectatingState()
 -- MEMBERS
 
 local Chili
@@ -29,8 +30,13 @@ function widget:Initialize()
 	end
 	
 	Chili = WG.Chili
+	if not speccing then
+		CreateWindow()
+	else
+		CreateSpecWindow()
+	end
 	
-	CreateWindow()
+	
 end
 
 function CreateWindow()
@@ -89,6 +95,54 @@ function CreateWindow()
 					function()
 						if exitWindow == nil then
 							CreateExitWindow()
+						end
+					end
+				},
+			},
+		},
+	}
+	
+end
+
+function CreateSpecWindow()
+	
+	local screen0 = Chili.Screen0
+	
+	ctrlSpecWindow = Chili.Window:New{
+		x = 0,
+		y = 80,
+		align="right";
+		valign="top";
+		dockable = true,
+		parent = screen0,
+		caption = '',
+		draggable = true,
+		resizable = false,
+		dragUseGrip = true,
+		clientWidth = 180,
+		clientHeight = 55,
+		backgroundColor = {0.8,0.8,0.8,0.9},
+		
+		children = {
+			Chili.Label:New{
+				caption	= "Control Panel";
+				y		= 0;
+				x		= 0;
+				fontsize = 14;
+			},
+			Chili.Button:New {
+				parent				= ctrlSpecWindow;
+				tooltip				= "Quit";
+				caption				= "Quit";
+				x					= 90;
+				y					= 15;
+				width				= 80;
+				height				= 40;
+				fontsize			= 14;
+				OnClick = {
+					function()
+						if exitSpecWindow == nil then
+							CreateExitSpecWindow()
 						end
 					end
 				},
@@ -218,9 +272,74 @@ function CreateExitWindow()
 	}
 end
 
+function CreateExitSpecWindow()
+	
+	local screen0 = Chili.Screen0
+	
+	exitSpecWindow = Chili.Window:New{
+		x = '40%',
+		y = '40%',
+		align="center";
+		valign="center";
+		dockable = false,
+		parent = screen0,
+		caption = '',
+		draggable = false,
+		resizable = false,
+		dragUseGrip = false,
+		clientWidth = 180,
+		clientHeight = 55,
+		backgroundColor = {0.8,0.8,0.8,0.9},
+		
+		children = {
+			Chili.Label:New{
+				caption	= "Exit?";
+				y		= 0;
+				x		= 0;
+				fontsize = 14;
+			},
+			Chili.Button:New {
+				parent				= exitSpecWindow;
+				tooltip				= "Yes";
+				caption				= "Yes";
+				x					= 0;
+				y					= 15;
+				width				= 80;
+				height				= 40;
+				fontsize			= 14;
+				OnClick = {
+					function()
+						quitSpec()
+					end
+				},
+			},
+			Chili.Button:New {
+				parent				= exitSpecWindow;
+				tooltip				= "No";
+				caption				= "No";
+				x					= 90;
+				y					= 15;
+				width				= 80;
+				height				= 40;
+				fontsize			= 14;
+				OnClick = {
+					function()
+						DestroyExitSpecWindow()
+					end
+				},
+			},
+		},
+	}
+end
+
 function DestroyExitWindow()
 	exitWindow:Dispose()
 	exitWindow = nil
+end
+
+function DestroyExitSpecWindow()
+	exitSpecWindow:Dispose()
+	exitSpecWindow = nil
 end
 
 function DestroyResignWindow()
@@ -252,4 +371,8 @@ function quit()
 		Spring.SendLuaRulesMsg('quit' .. team)
 
 	end
+end
+
+function quitSpec()
+	Spring.SendCommands('quit')
 end
