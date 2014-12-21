@@ -1,8 +1,3 @@
-
---------------------------------------------------------------------------------
--- pieces
---------------------------------------------------------------------------------
-
 local antebrazod = piece('antebrazod');
 local antebrazoi = piece('antebrazoi');
 local armadura = piece('armadura');
@@ -24,22 +19,6 @@ local Sun = piece('Sun');
 local tobillod = piece('tobillod');
 local tobilloi = piece('tobilloi');
 local Animations = {};
-
---------------------------------------------------------------------------------
--- constants
---------------------------------------------------------------------------------
-
-local SIG_WALK = 1
-local SIG_WALK1 = 2
-local SIG_AIM = 4
-local SIG_AIM1 = 8
-local SIG_RESTORE = 16
-
-local RESTORE_DELAY_SHOOT = 4000
-
---------------------------------------------------------------------------------
--- tables
---------------------------------------------------------------------------------
 
 Animations['resetAnimation'] = {
 	{
@@ -169,10 +148,6 @@ Animations['resetAnimation'] = {
 	},
 }
 
---------------------------------------------------------------------------------
--- funcs
---------------------------------------------------------------------------------
-
 function constructSkeleton(unit, piece, offset)
     if (offset == nil) then
         offset = {0,0,0};
@@ -235,3 +210,4 @@ function PlayAnimation(animname)
         end
     end
 end
+            

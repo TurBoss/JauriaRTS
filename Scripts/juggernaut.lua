@@ -19,7 +19,6 @@ local root = piece('root');
 local rodillai = piece('rodillai');
 local team = piece('team');
 local rodillad = piece('rodillad');
-local Animations = {};
 
 --------------------------------------------------------------------------------
 -- constants
@@ -42,6 +41,8 @@ local isMoving, isShooting = false, false
 --------------------------------------------------------------------------------
 -- tables
 --------------------------------------------------------------------------------
+
+local Animations = {};
 
 Animations['resetAnimation'] = {
 	{
