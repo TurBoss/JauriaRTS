@@ -27,7 +27,6 @@ local unitDef = {
 	FootprintZ = 5,
 	
 	maxSlope = 20,
-
 	sightDistance = 500,
 
 	CanAttack = true,
@@ -36,8 +35,8 @@ local unitDef = {
 	CanPatrol = true,
 	CanStop = true,
 	LeaveTracks = false,
-
 	MetalMake = 0,
+	YardMap ="ooo ooo ooo",
 	
 	Corpse = "DEAD",
 	

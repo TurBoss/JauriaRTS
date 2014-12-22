@@ -1,3 +1,8 @@
+
+--------------------------------------------------------------------------------
+-- pieces
+--------------------------------------------------------------------------------
+
 local cabeza = piece('cabeza');
 local canon_der = piece('canon_der');
 local canon_izq = piece('canon_izq');
@@ -20,19 +25,30 @@ local tobillo_izq = piece('tobillo_izq');
 local torre_der = piece('torre_der');
 local torre_izq = piece('torre_izq');
 
-local Animations = {};
-
-local isMoving, isShooting = false, false
+--------------------------------------------------------------------------------
+-- constants
+--------------------------------------------------------------------------------
 
 local SIG_WALK = 1	--signal for the walk animation thread
 local SIG_AIM = 2
 local SIG_AIM2 = 4
 
+--------------------------------------------------------------------------------
+-- vars
+--------------------------------------------------------------------------------
+
 local active_cano = 1		--the barrel that the next shot will be fired from
 local number_of_cano = 2		--how many barrel there are in total
 
+local isMoving, isShooting = false, false
 
 local smoke = SFX.CEG
+
+--------------------------------------------------------------------------------
+-- tables
+--------------------------------------------------------------------------------
+
+local Animations = {};
 
 Animations['caminar'] ={
 	{
@@ -172,6 +188,11 @@ Animations['reset'] = {
 		}
 	},
 }
+
+--------------------------------------------------------------------------------
+-- funcs
+--------------------------------------------------------------------------------
+
 function constructSkeleton(unit, piece, offset)
     if (offset == nil) then
         offset = {0,0,0};

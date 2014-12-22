@@ -4,7 +4,7 @@ local unitDef = {
 	name				= "mortero",
 	Description			= "mortero",
 	objectName			= "mortero.dae",
-	script			= "mortero.lua",
+	script				= "mortero.lua",
 	buildPic			= "mortero.png",
 
 	--cost
@@ -39,7 +39,7 @@ local unitDef = {
 
 	MetalMake = 0,
 	
-Corpse = "DEAD",
+	Corpse = "DEAD",
 	
 	weapons = {
 	[1]={name  = "weaponmortero",
