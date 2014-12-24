@@ -54,6 +54,8 @@ local unitDef = {
 	weapons = {
 		[1]={name  = "weaponberserker",
 			onlyTargetCategory = [[LAND AIR]],
+			maxAngleDif = 210,
+			mainDir = [[0 0 1]],
 		},
 	},
 }
