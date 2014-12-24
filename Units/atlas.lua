@@ -52,12 +52,12 @@ local unitDef = {
 
 
 	weapons = {
-		[1]={name  = "Laser",
+		[1]={name  = "weapondt62",
 			onlyTargetCategory = [[LAND]],
 			--maxAngleDif = 210,
 			--mainDir = [[-1 0 1]],
 		},
-		[2]={name  = "weapondt62",
+		[2]={name  = "Laser",
 			onlyTargetCategory = [[LAND]],
 			--maxAngleDif = 210,
 			--mainDir = [[1 0 1]],
