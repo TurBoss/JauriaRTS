@@ -41,33 +41,12 @@ local modConfig = {}
 modConfig["JAURIA"] = {}
 modConfig["JAURIA"]["unitList"] =
 {
-	armamd = { weapons = { 3 }, differentInbuildDraw = true },		--antinuke
-	armartic = { weapons = { 1 } },		--faraday
-	armdeva = { weapons = { 1 } },		--stardust
-	armpb = { weapons = { 1 } },		--pitbull
-	mahlazer = { weapons = { 1 } },		--starlight
-	armartic = { weapons = { 1 } },		--faraday
-	armanni = { weapons = { 1 } },		--annihilator
-	armbrtha = { weapons = { 1 } },		--bertha
-	tacnuke = { weapons = { 1 } },		--tacnuke
-	armarch = { weapons = { 2 } },		--packo (unused)
-	armcir = { weapons = { 2 } },		--chainsaw
-	armdl = { weapons = { 1 } },		--anemone (unused)
-	corrl = { weapons = { 4 } },		--defender
-	corllt = { weapons = { 1 } },		--LLT
-	corhlt = { weapons = { 1 } },		--HLT
-	corpre = { weapons = { 1 } },		--scorcher (unused)
-	corvipe = { weapons = { 1 } },		--viper (unused)
-	cordoom = { weapons = { 1 } },		--doomsday
-	cordl = { weapons = { 1 } },		--jellyfish (unused)
-	corrazor = { weapons = { 2 } },		--razorkiss
-	corflak = { weapons = { 2 } },		--flak
-	screamer = { weapons = { 2 } },		--screamer
-	missiletower = { weapons = { 2 } },	--hacksaw
-	corbhmth = { weapons = { 1 } },		--behemoth
-	turrettorp = { weapons = { 1 } },	--torpedo launcher
-	torretapro = { weapons = { 1 } },		--adv torpedo launcher (unused)
-	torreta = { weapons = { 1 } },		--newton
+	metralleta = { weapons = { 1 } },
+	mortero = { weapons = { 1 } },
+	torretapro = { weapons = { 1 } },
+	torreta = { weapons = { 1 } },
+	torrun = { weapons = { 1 } },
+	earthturret = { weapons = { 1 } },
 }
 
 local unitDefIDRemap = {}
