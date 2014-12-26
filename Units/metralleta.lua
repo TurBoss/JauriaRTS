@@ -6,6 +6,7 @@ local unitDef = {
 	objectName			= "metralleta.dae",
 	script			= "metralleta.lua",
 	buildPic			= "metralleta.png",
+	iconType = "towers",
 
 	--cost
 

@@ -8,6 +8,11 @@ local icontypes = {
 		size=0,
 		radiusadjust=0,
 	},
+	
+	towers = {
+		bitmap='bitmaps/Icons/towers.png',
+		size=1.8,
+	},
 
 	it0 = {
 		bitmap='bitmaps/Icons/0.png',

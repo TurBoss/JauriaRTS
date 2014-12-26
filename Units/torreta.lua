@@ -6,6 +6,7 @@ local unitDef = {
 	objectName			= "torreta.dae",
 	script				= "torreta.lua",
 	buildPic			= "torreta.png",
+	iconType = "towers",
 
 	--cost
 

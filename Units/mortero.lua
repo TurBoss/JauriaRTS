@@ -6,6 +6,7 @@ local unitDef = {
 	objectName			= "mortero.dae",
 	script				= "mortero.lua",
 	buildPic			= "mortero.png",
+	iconType = "towers",
 
 	--cost
 

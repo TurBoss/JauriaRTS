@@ -6,6 +6,7 @@ local unitDef = {
 	objectName			= "earthturret.dae",
 	script			= "earthturret.lua",
 	buildPic			= "earthturret1.png",
+	iconType = "towers",
 
 	--cost
 

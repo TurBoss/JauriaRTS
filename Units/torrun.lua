@@ -6,6 +6,7 @@ local unitDef = {
 	objectName			= "torrun.dae",
 	script			= "torrun.lua",
 	buildPic			= "torreta.png",
+	iconType = "towers",
 
 	--cost
 
