@@ -3,7 +3,7 @@ local weaponName = "weaponbesieger"
 
 local weaponDef = {
 	name = [[Laser]],
-	areaOfEffect = 8,
+	areaOfEffect = 10,
 	beamDecay = 0.9,
 	beamlaser = 1,
 	beamTime = 0.1,
@@ -13,10 +13,10 @@ local weaponDef = {
 	craterMult = 0,
 	
 	damage = {
-		default = 225,
-		heavyarmor = 640,
-		lightarmor = 825,
-		torrearmor = 1050,
+		default = 24,
+		heavyarmor = 32,
+		lightarmor = 26,
+		torrearmor = 42,
 	},
 	
 	--explosionGenerator = [[custom:flashslow]],
@@ -30,8 +30,8 @@ local weaponDef = {
 	lineOfSight = true,
 	minIntensity = 1,
 	noSelfDamage = true,
-	range = 210,
-	reloadtime = 1.5,
+	range = 240,
+	reloadtime = 0.1,
 	renderType = 0,
 	rgbColor = [[1 0 0]],
 	--soundStart = [[weapon/laser/pulse_laser2]],
