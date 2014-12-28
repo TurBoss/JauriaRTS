@@ -14,8 +14,8 @@ local weaponDef = {
 	
 	damage = {
 		default = 225,
-		heavyarmor = 140,
-		lightarmor = 225,
+		heavyarmor = 640,
+		lightarmor = 825,
 		torrearmor = 1050,
 	},
 	
@@ -30,7 +30,7 @@ local weaponDef = {
 	lineOfSight = true,
 	minIntensity = 1,
 	noSelfDamage = true,
-	range = 120,
+	range = 210,
 	reloadtime = 1.5,
 	renderType = 0,
 	rgbColor = [[1 0 0]],

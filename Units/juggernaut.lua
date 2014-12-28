@@ -16,7 +16,7 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 12480,
+	maxDamage = 16280,
 	idleAutoHeal = 34,
 	idleTime     = 3,
 
@@ -28,7 +28,7 @@ local unitDef = {
 	FootprintX = 4,
 	FootprintZ = 4,
 	MaxSlope = 12,
-	MaxVelocity = 3.2,
+	MaxVelocity = 3.6,
 	MaxWaterDepth = 20,
 	MovementClass = "Default4x4",
 	TurnRate = 1300,
