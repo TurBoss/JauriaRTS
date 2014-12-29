@@ -40,7 +40,7 @@ function script.AimWeapon1( heading, pitch )
 	Signal(SIG_AIM1)
 	SetSignalMask(SIG_AIM1)
 	
-	Turn(portal, z_axis, heading, math.rad(80))
+	Turn(portal, z_axis, heading, math.rad(180))
 	--Turn(basepalo, x_axis, -pitch, math.rad(80))
 	
 	--wait until the weapon is pointed in the right direction
