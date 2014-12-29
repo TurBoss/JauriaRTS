@@ -45,7 +45,7 @@ function CreateWindow()
 	
 	ctrlWindow = Chili.Window:New{
 		x = 0,
-		y = 80,
+		y = 220,
 		align="right";
 		valign="top";
 		dockable = true,
@@ -110,7 +110,7 @@ function CreateSpecWindow()
 	
 	ctrlSpecWindow = Chili.Window:New{
 		x = 0,
-		y = 80,
+		y = 220,
 		align="right";
 		valign="top";
 		dockable = true,
