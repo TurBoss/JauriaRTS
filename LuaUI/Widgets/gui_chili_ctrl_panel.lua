@@ -348,15 +348,27 @@ function DestroyResignWindow()
 end
 
 function resign()
+	local playerlist = Spring.GetPlayerList()
 	local team = Spring.GetMyTeamID()
-	Spring.Echo(team)
-	Spring.SendLuaRulesMsg('resign' .. team)
+	
+	for i=1, #playerlist do
+		local playerID = playerlist[i]
+		if playerID ~= team then
+			Spring.SendLuaRulesMsg('resign' .. playerID)
+		end
+	end
 end
 
 function quit()
+	local playerlist = Spring.GetPlayerList()
 	local team = Spring.GetMyTeamID()
-	Spring.Echo(team)
-	Spring.SendLuaRulesMsg('quit' .. team)
+	
+	for i=1, #playerlist do
+		local playerID = playerlist[i]
+		if playerID ~= team then
+			Spring.SendLuaRulesMsg('quit' .. playerID)
+		end
+	end
 end
 
 function quitSpec()
