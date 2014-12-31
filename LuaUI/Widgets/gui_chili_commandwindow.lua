@@ -417,7 +417,7 @@ function widget:CommandsChanged()
 	
 end
 
-function widget:DrawScreen()
+function widget:Update()
 	if updateRequired then
 		updateRequired = false
 		loadPanel()
