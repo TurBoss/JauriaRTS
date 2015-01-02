@@ -44,26 +44,26 @@ local updateRequired = true
 local spGetActiveCommand	= Spring.GetActiveCommand
 local spGetActiveCmdDesc	= Spring.GetActiveCmdDesc
 local spGetSelectedUnits	= Spring.GetSelectedUnits
+local GetFullBuildQueue		= Spring.GetFullBuildQueue
 local spSendCommands		= Spring.SendCommands
 
 
 -- SCRIPT FUNCTIONS
 
-local function UpdateFactoryBuildQueue(id,cmdid) 
-	local buildQueue = Spring.GetFullBuildQueue(id)
-	local buildQueueUnsorted = {}
-	local count = ''
-	for i=1, #buildQueue do
-		for udid, count in pairs(buildQueue[i]) do
-			buildQueueUnsorted[udid] = (buildQueueUnsorted[udid] or 0) + count
-			if udid == -cmdid then
-				count = buildQueueUnsorted[udid]
-				return count
-			end
-		end
-	end
-	count = ''
-	return count
+local function UpdateFactoryBuildQueue(unitID) 
+  local result = {}
+  local queue = GetFullBuildQueue(unitID)
+  if (queue ~= nil) then
+    for _,buildPair in ipairs(queue) do
+      local udef, count = next(buildPair, nil)
+      if result[-udef]~=nil then
+        result[-udef] = result[-udef] + count
+      else
+        result[-udef] = count
+      end
+    end
+  end
+return result
 end
 
 function LayoutHandler(xIcons, yIcons, cmdCount, commands)
@@ -161,7 +161,10 @@ function createMyButton(cmd, buildid)
 			--Spring.Echo(tooltip)
 			local countText = ''
 			if isFactory then
-				countText = UpdateFactoryBuildQueue(buildings[1],cmd.id)
+				countText = UpdateFactoryBuildQueue(buildings[1])--,cmd.id)
+				if countText[cmd.id] == nil then
+					countText[cmd.id] = ''
+				end
 			end
 			
 			local result = container.xstep % MAXBUTTONSONROWBUILD
@@ -189,7 +192,7 @@ function createMyButton(cmd, buildid)
 				cmdid = cmd.id,
 				OnClick = {ClickFunc},
 			}
-			--countText = tostring(buildQueueUnsorted[-cmd.id])
+			
 			if(countText == 'nil') then countText = '' end
 			local label = Chili.Label:New{
 				parent = button,
@@ -200,7 +203,7 @@ function createMyButton(cmd, buildid)
 				autosize=false;
 				align="right";
 				valign="bottom";
-				caption = string.format("%s ", countText);
+				caption = string.format("%s ", countText[cmd.id]);
 				fontSize = 18;
 				fontShadow = true;
 			}
@@ -414,7 +417,7 @@ function widget:CommandsChanged()
 	
 end
 
-function widget:DrawScreen()
+function widget:Update()
 	if updateRequired then
 		updateRequired = false
 		loadPanel()
