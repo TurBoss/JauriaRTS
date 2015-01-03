@@ -9,6 +9,7 @@ local unitDef = {
 	TEDClass = "PLANT",
 	script = "fabricaporreton.lua",
 	buildPic = "placeholder.png",
+	iconType = "factory",
 	
 	-- Unit limitations and properties
 	

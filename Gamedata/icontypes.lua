@@ -9,6 +9,11 @@ local icontypes = {
 		radiusadjust=0,
 	},
 	
+	factory = {
+		bitmap='bitmaps/Icons/factory.png',
+		size=1.8,
+	},
+	
 	towers = {
 		bitmap='bitmaps/Icons/towers.png',
 		size=1.8,
