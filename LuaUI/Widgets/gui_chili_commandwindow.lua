@@ -193,7 +193,8 @@ function createMyButton(cmd, buildid)
 				OnClick = {ClickFunc},
 			}
 			
-			if(countText == 'nil') then countText = '' end
+			if(countText[cmd.id] == 'nil') then countText[cmd.id] = '' end
+			
 			local label = Chili.Label:New{
 				parent = button,
 				right = 0;
