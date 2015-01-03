@@ -6,6 +6,7 @@ local unitDef = {
 	objectName = "cuellito.dae",
 	script = "cuellito.lua",
 	buildPic = "placeholder.png",
+	iconType = "mobs",
 
 	--cost
 

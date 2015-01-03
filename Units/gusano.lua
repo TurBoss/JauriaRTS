@@ -6,6 +6,7 @@ local unitDef = {
 	objectName = "gusano.dae",
 	script = "gusano.lua",
 	buildPic = "placeholder.png",
+	iconType = "mobs",
 
 	--cost
 
