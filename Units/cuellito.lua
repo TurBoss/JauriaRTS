@@ -6,6 +6,7 @@ local unitDef = {
 	objectName = "cuellito.dae",
 	script = "cuellito.lua",
 	buildPic = "placeholder.png",
+	iconType = "mobs",
 
 	--cost
 
@@ -15,7 +16,7 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 8600,
+	maxDamage = 9000,
 	idleAutoHeal = 26,
 	idleTime     = 3,
 	--Movement

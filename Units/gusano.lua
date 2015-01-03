@@ -6,6 +6,7 @@ local unitDef = {
 	objectName = "gusano.dae",
 	script = "gusano.lua",
 	buildPic = "placeholder.png",
+	iconType = "mobs",
 
 	--cost
 
@@ -15,7 +16,7 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 10800,
+	maxDamage = 12000,
 	idleAutoHeal = 26,
 	idleTime     = 3,
 	--Movement

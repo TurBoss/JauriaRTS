@@ -6,6 +6,7 @@ local unitDef = {
 	objectName = "destructor.dae",
 	script = "destructor.lua",
 	buildPic = "placeholder.png",
+	iconType = "mobs",
 
 	--cost
 

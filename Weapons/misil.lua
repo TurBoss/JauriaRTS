@@ -4,7 +4,7 @@ local weaponDef={
 	name="Bateria de misiles",
 	weaponType=[[MissileLauncher]],
 	
-	Accuracy=2000,
+	Accuracy=200,
 	
 	--Physic/flight path
 	
@@ -44,11 +44,11 @@ local weaponDef={
 	
 	damage={
 		default=0,
-		heavyarmor=260,
-		lightarmor = 240,
+		heavyarmor=480,
+		lightarmor = 920,
 		torrearmor = 0,
 	},
-	areaOfEffect=0,
+	areaOfEffect=75,
 	craterMult=0,
 	
 	--?FIXME***

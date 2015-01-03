@@ -3,7 +3,7 @@ local weaponName = "weaponarchaon"
 
 local weaponDef = {
 	name = [[Laser]],
-	areaOfEffect = 60,
+	areaOfEffect = 80,
 	beamDecay = 0.9,
 	beamlaser = 1,
 	beamTime = 0.1,
@@ -13,10 +13,10 @@ local weaponDef = {
 	craterMult = 0,
 	
 	damage = {
-		default = 560,
-		heavyarmor = 465,
-		lightarmor = 560,
-		torrearmor = 420,
+		default = 2260,
+		heavyarmor = 1565,
+		lightarmor = 2160,
+		torrearmor = 3020,
 	},
 	
 	--explosionGenerator = [[custom:flashslow]],

@@ -9,6 +9,7 @@ local unitDef = {
 	TEDClass = "PLANT",
 	script = "fabricacaos.lua",
 	buildPic = "placeholder.png",
+	iconType = "factory",
 	
 	-- Unit limitations and properties
 	
