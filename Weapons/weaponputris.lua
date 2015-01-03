@@ -13,9 +13,9 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 1250,
-		heavyarmor = 1200,
-		lightarmor = 1630,
+		default = 1150,
+		heavyarmor = 880,
+		lightarmor = 1430,
 		torrearmor = 640,
 	},
 	areaOfEffect            = 240,
@@ -24,7 +24,7 @@ local weaponDef = {
 	myGravity               = 1.2,
 	weaponVelocity          = 865,
 	startVelocity           = 250,
-	reloadtime              = 3.8,
+	reloadtime              = 2.8,
 	range                   = 3200,
 	sprayAngle              = 180,
 	weaponaceleration       = 415,
