@@ -18,6 +18,7 @@ local unitDef = {
 	maxDamage    = 6900,
 	idleAutoHeal = 20,
 	idleTime     = 3,
+	
 	--Movement
 
 	mass=1800,
@@ -29,6 +30,7 @@ local unitDef = {
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
 	TurnRate = 1000,
+	--turninplace = 0,
 
 	sightDistance = 400,
 

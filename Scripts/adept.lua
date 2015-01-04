@@ -29,7 +29,7 @@ local SIG_RC = 1
 local SIG_NANO = 2
 local SIG_RESTORE = 4
 
-local OPEN_DELAY = 5000
+local OPEN_DELAY = 2500
 --------------------------------------------------------------------------------
 -- vars
 --------------------------------------------------------------------------------
@@ -278,7 +278,6 @@ function PlayAnimation(animname)
     end
 end
 
-
 local function Open()
 	Signal(SIG_OPEN)
 	SetSignalMask(SIG_OPEN)
@@ -288,24 +287,31 @@ local function Open()
 end
 
 local function RestorePose()
-	Signal(SIG_RESTORE)
-	SetSignalMask(SIG_RESTORE)
+	Signal(SIG_OPEN)
+	SetSignalMask(SIG_OPEN)
 	PlayAnimation('resetAnimation')
 end
             
 --------BUILDING---------
 
 function script.StopBuilding()
-	isCollecting = false
-	StartThread (RestorePose)
+	if isCollecting then
+		Signal(SIG_RC)
+		SetSignalMask(SIG_RC)
+		SetUnitValue(COB.INBUILDSTANCE, 0)
+		Turn (cuello2, y_axis, 0, math.rad(80))
+		WaitForTurn(cuello2, y_axis)
+		isCollecting = false
+		StartThread (RestorePose)
+	end
 end
 
 function script.StartBuilding(heading, pitch)
-	Signal(SIG_OPEM)
-	SetSignalMask(SIG_OPEN)
+	Signal(SIG_RC)
+	SetSignalMask(SIG_RC)
 	StartThread (Open)
 	Sleep(OPEN_DELAY)
-	Turn (cuello2, y_axis, heading-9, math.rad(80))
+	Turn (cuello2, y_axis, heading-9.3, math.rad(80))
 	WaitForTurn(cuello2, y_axis)
 	SetUnitValue(COB.INBUILDSTANCE, 1)
 	
@@ -316,7 +322,11 @@ function script.QueryNanoPiece()
 end
 
 
-function script.StartMoving(heading)
+function script.StartMoving()
+	--local tx, tz = Spring.GetUnitDirection(unitID)
+	--Spring.Echo(tx)
+	--Spring.Echo(tz)
+	--GG.TurnUnit (unitID, unitDefID, tx, tz, forceTurnRate)
 	Spin(ruedas1, x_axis, wheel_speed)
 	Spin(ruedas2, x_axis, wheel_speed)
 	Spin(ruedas3, x_axis, wheel_speed)
@@ -326,4 +336,7 @@ function script.StopMoving()
 	StopSpin (ruedas1,x_axis)
 	StopSpin (ruedas2,x_axis)
 	StopSpin (ruedas3,x_axis)
+end
+
+function script.Killed(recentDamage, maxHealth)
 end
