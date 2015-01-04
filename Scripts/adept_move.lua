@@ -1,8 +1,3 @@
-
---------------------------------------------------------------------------------
--- pieces
---------------------------------------------------------------------------------
-
 local base = piece('base');
 local bola1 = piece('bola1');
 local bola2 = piece('bola2');
@@ -20,109 +15,9 @@ local ruedas2 = piece('ruedas2');
 local ruedas3 = piece('ruedas3');
 local tapa = piece('tapa');
 local union = piece('union');
-
---------------------------------------------------------------------------------
--- constants
---------------------------------------------------------------------------------
-
-local SIG_RC = 1
-local SIG_NANO = 2
-local SIG_RESTORE = 4
-
-local OPEN_DELAY = 5000
---------------------------------------------------------------------------------
--- vars
---------------------------------------------------------------------------------
-
-local isCollecting = false
-local wheel_speed = math.rad(280);
---------------------------------------------------------------------------------
--- tables
---------------------------------------------------------------------------------
-
 local Animations = {};
 
-Animations['resetAnimation'] = {
-	{
-		['time'] = 0,
-		['commands'] = {
-			{['c']='move',['p']=bola3, ['a']=x_axis, ['t']=-0.308980, ['s']=0.000000},
-			{['c']='move',['p']=bola3, ['a']=y_axis, ['t']=17.319675, ['s']=15.637948},
-			{['c']='move',['p']=bola3, ['a']=z_axis, ['t']=16.563910, ['s']=5.931636},
-			{['c']='turn',['p']=bola3, ['a']=x_axis, ['t']=0.653511, ['s']=0.690609},
-			{['c']='turn',['p']=bola3, ['a']=y_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=bola3, ['a']=z_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='move',['p']=bola1, ['a']=x_axis, ['t']=-0.308980, ['s']=0.000000},
-			{['c']='move',['p']=bola1, ['a']=y_axis, ['t']=30.429237, ['s']=0.000000},
-			{['c']='move',['p']=bola1, ['a']=z_axis, ['t']=17.353741, ['s']=0.000000},
-			{['c']='turn',['p']=bola1, ['a']=x_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=bola1, ['a']=y_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=bola1, ['a']=z_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='move',['p']=cuello1, ['a']=x_axis, ['t']=-0.308982, ['s']=0.000000},
-			{['c']='move',['p']=cuello1, ['a']=y_axis, ['t']=22.065281, ['s']=0.000000},
-			{['c']='move',['p']=cuello1, ['a']=z_axis, ['t']=17.393112, ['s']=0.000000},
-			{['c']='turn',['p']=cuello1, ['a']=x_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=cuello1, ['a']=y_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=cuello1, ['a']=z_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='move',['p']=bola2, ['a']=x_axis, ['t']=-0.308980, ['s']=0.000000},
-			{['c']='move',['p']=bola2, ['a']=y_axis, ['t']=14.917778, ['s']=0.000000},
-			{['c']='move',['p']=bola2, ['a']=z_axis, ['t']=17.304291, ['s']=0.000000},
-			{['c']='turn',['p']=bola2, ['a']=x_axis, ['t']=0.444771, ['s']=1.871617},
-			{['c']='turn',['p']=bola2, ['a']=y_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=bola2, ['a']=z_axis, ['t']=-0.000000, ['s']=0.000000},
-			{['c']='move',['p']=tapa, ['a']=x_axis, ['t']=-0.308983, ['s']=0.000000},
-			{['c']='move',['p']=tapa, ['a']=y_axis, ['t']=17.465088, ['s']=0.000000},
-			{['c']='move',['p']=tapa, ['a']=z_axis, ['t']=27.012741, ['s']=0.000000},
-			{['c']='turn',['p']=tapa, ['a']=x_axis, ['t']=2.111830, ['s']=1.397275},
-			{['c']='turn',['p']=tapa, ['a']=y_axis, ['t']=-0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=tapa, ['a']=z_axis, ['t']=-0.000000, ['s']=0.000000},
-			{['c']='move',['p']=cuello2, ['a']=x_axis, ['t']=-0.308983, ['s']=0.000000},
-			{['c']='move',['p']=cuello2, ['a']=y_axis, ['t']=8.396549, ['s']=0.000000},
-			{['c']='move',['p']=cuello2, ['a']=z_axis, ['t']=17.488117, ['s']=0.000000},
-			{['c']='turn',['p']=cuello2, ['a']=x_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=cuello2, ['a']=y_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=cuello2, ['a']=z_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='move',['p']=cabeza, ['a']=x_axis, ['t']=-0.308982, ['s']=0.000000},
-			{['c']='move',['p']=cabeza, ['a']=y_axis, ['t']=35.866341, ['s']=0.000000},
-			{['c']='move',['p']=cabeza, ['a']=z_axis, ['t']=16.917122, ['s']=0.000000},
-			{['c']='turn',['p']=cabeza, ['a']=x_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=cabeza, ['a']=y_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=cabeza, ['a']=z_axis, ['t']=0.000000, ['s']=0.000000},
-		}
-	},
-	{
-		['time'] = 20,
-		['commands'] = {
-			{['c']='move',['p']=bola3, ['a']=y_axis, ['t']=-2.632193, ['s']=29.927802},
-			{['c']='move',['p']=bola3, ['a']=z_axis, ['t']=16.923403, ['s']=0.539240},
-			{['c']='turn',['p']=bola3, ['a']=x_axis, ['t']=-0.000616, ['s']=0.981190},
-			{['c']='turn',['p']=bola3, ['a']=y_axis, ['t']=-0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=bola3, ['a']=z_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=bola2, ['a']=x_axis, ['t']=0.013805, ['s']=0.646449},
-			{['c']='turn',['p']=bola2, ['a']=y_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=bola2, ['a']=z_axis, ['t']=-0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=tapa, ['a']=x_axis, ['t']=0.746822, ['s']=2.047511},
-			{['c']='turn',['p']=tapa, ['a']=y_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=tapa, ['a']=z_axis, ['t']=0.000000, ['s']=0.000000},
-		}
-	},
-	{
-		['time'] = 40,
-		['commands'] = {
-			{['c']='turn',['p']=tapa, ['a']=x_axis, ['t']=-0.005380, ['s']=1.128304},
-			{['c']='turn',['p']=tapa, ['a']=y_axis, ['t']=0.000000, ['s']=0.000000},
-			{['c']='turn',['p']=tapa, ['a']=z_axis, ['t']=0.000000, ['s']=0.000000},
-		}
-	},
-	{
-		['time'] = 60,
-		['commands'] = {
-		}
-	},
-
-}
-
-Animations['openAnimation'] = {
+Animations['myAnimation'] = {
 	{
 		['time'] = 0,
 		['commands'] = {
@@ -211,10 +106,6 @@ Animations['openAnimation'] = {
 	},
 }
 
---------------------------------------------------------------------------------
--- funcs
---------------------------------------------------------------------------------
-
 function constructSkeleton(unit, piece, offset)
     if (offset == nil) then
         offset = {0,0,0};
@@ -277,53 +168,4 @@ function PlayAnimation(animname)
         end
     end
 end
-
-
-local function Open()
-	Signal(SIG_OPEN)
-	SetSignalMask(SIG_OPEN)
-	
-	PlayAnimation('openAnimation')
-	isCollecting = true
-end
-
-local function RestorePose()
-	Signal(SIG_RESTORE)
-	SetSignalMask(SIG_RESTORE)
-	PlayAnimation('resetAnimation')
-end
             
---------BUILDING---------
-
-function script.StopBuilding()
-	isCollecting = false
-	StartThread (RestorePose)
-end
-
-function script.StartBuilding(heading, pitch)
-	Signal(SIG_OPEM)
-	SetSignalMask(SIG_OPEN)
-	StartThread (Open)
-	Sleep(OPEN_DELAY)
-	Turn (cuello2, y_axis, heading-9, math.rad(80))
-	WaitForTurn(cuello2, y_axis)
-	SetUnitValue(COB.INBUILDSTANCE, 1)
-	
-end
-
-function script.QueryNanoPiece()
-	return cabeza
-end
-
-
-function script.StartMoving(heading)
-	Spin(ruedas1, x_axis, wheel_speed)
-	Spin(ruedas2, x_axis, wheel_speed)
-	Spin(ruedas3, x_axis, wheel_speed)
-end
-
-function script.StopMoving()
-	StopSpin (ruedas1,x_axis)
-	StopSpin (ruedas2,x_axis)
-	StopSpin (ruedas3,x_axis)
-end
