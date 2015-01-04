@@ -14,8 +14,8 @@ local weaponDef = {
 	
 	damage = {
 		default = 1150,
-		heavyarmor = 880,
-		lightarmor = 1430,
+		heavyarmor = 680,
+		lightarmor = 1130,
 		torrearmor = 640,
 	},
 	areaOfEffect            = 240,
