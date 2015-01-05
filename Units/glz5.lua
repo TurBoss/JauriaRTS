@@ -32,7 +32,10 @@ local unitDef = {
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
 	TurnRate = 600,
-
+	
+	TurnInPlace = false,
+	turnInPlaceSpeedLimit  = 2.2,
+	
 	sightDistance = 400,
 
 	Category = [[LAND AIR]],
