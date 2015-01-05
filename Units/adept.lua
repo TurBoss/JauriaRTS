@@ -32,7 +32,7 @@ local unitDef = {
 	MovementClass = "Default3x3",
 	
 	TurnInPlace = false,
-	turnInPlaceSpeedLimit  = 3,
+	turnInPlaceSpeedLimit  = 2,
 	
 	TurnRate = 400,
 	
