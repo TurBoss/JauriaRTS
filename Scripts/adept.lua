@@ -323,10 +323,6 @@ end
 
 
 function script.StartMoving()
-	--local tx, tz = Spring.GetUnitDirection(unitID)
-	--Spring.Echo(tx)
-	--Spring.Echo(tz)
-	--GG.TurnUnit (unitID, unitDefID, tx, tz, forceTurnRate)
 	Spin(ruedas1, x_axis, wheel_speed)
 	Spin(ruedas2, x_axis, wheel_speed)
 	Spin(ruedas3, x_axis, wheel_speed)
