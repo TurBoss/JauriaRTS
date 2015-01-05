@@ -16,7 +16,7 @@ local unitDef = {
 
 	--Health
 
-	maxDamage    = 6900,
+	maxDamage    = 6800,
 	idleAutoHeal = 20,
 	idleTime     = 3,
 	
@@ -27,7 +27,7 @@ local unitDef = {
 	BrakeRate = 0.5,
 	FootprintX = 3,
 	FootprintZ = 3,
-	MaxVelocity = 3.2,
+	MaxVelocity = 3.4,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
 	
@@ -65,8 +65,8 @@ local unitDef = {
 	Builder = true,
 	ShowNanoSpray = true,
 	CanBeAssisted = true, 
-	workerTime = 0.25,
-	repairSpeed = 0.05,
+	workerTime = 0.50,
+	repairSpeed = 1,
 	reclaimSpeed = 30,
 	buildDistance = 160,
 }
