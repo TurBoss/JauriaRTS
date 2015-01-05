@@ -51,18 +51,18 @@ local spSendCommands		= Spring.SendCommands
 -- SCRIPT FUNCTIONS
 
 local function UpdateFactoryBuildQueue(unitID) 
-  local result = {}
-  local queue = GetFullBuildQueue(unitID)
-  if (queue ~= nil) then
-    for _,buildPair in ipairs(queue) do
-      local udef, count = next(buildPair, nil)
-      if result[-udef]~=nil then
-        result[-udef] = result[-udef] + count
-      else
-        result[-udef] = count
-      end
-    end
-  end
+	local result = {}
+	local queue = GetFullBuildQueue(unitID)
+	if (queue ~= nil) then
+		for _,buildPair in ipairs(queue) do
+			local udef, count = next(buildPair, nil)
+			if result[-udef]~=nil then
+				result[-udef] = result[-udef] + count
+			else
+				result[-udef] = count
+			end
+		end
+	end
 return result
 end
 
@@ -159,11 +159,11 @@ function createMyButton(cmd, buildid)
 			
 			local tooltip = "Build Unit: " .. UnitDefs[-cmd.id].humanName .. " - " .. UnitDefs[-cmd.id].tooltip .. "\n"
 			--Spring.Echo(tooltip)
-			local countText = ''
+			local countText = ""
 			if isFactory then
 				countText = UpdateFactoryBuildQueue(buildings[1])--,cmd.id)
 				if countText[cmd.id] == nil then
-					countText[cmd.id] = ''
+					countText[cmd.id] = ""
 				end
 			end
 			
@@ -192,8 +192,6 @@ function createMyButton(cmd, buildid)
 				cmdid = cmd.id,
 				OnClick = {ClickFunc},
 			}
-			
-			if(countText[cmd.id] == 'nil') then countText[cmd.id] = '' end
 			
 			local label = Chili.Label:New{
 				parent = button,
