@@ -23,6 +23,11 @@ local icontypes = {
 		bitmap='bitmaps/Icons/towers.png',
 		size=1.8,
 	},
+	
+	cons = {
+		bitmap='bitmaps/Icons/cons.png',
+		size=1.2
+	},
 
 	it0 = {
 		bitmap='bitmaps/Icons/0.png',

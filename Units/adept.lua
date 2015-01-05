@@ -6,6 +6,7 @@ local unitDef = {
 	objectName = "adept.dae",
 	script = "adept.lua",
 	buildPic = "adept.png",
+	iconType = "cons",
 
 	--cost
 
