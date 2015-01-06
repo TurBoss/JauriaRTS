@@ -24,7 +24,7 @@ end
 
 ---AIMING & SHOOTING---
 function script.AimFromWeapon1() 
-	return canon
+	return flare
 end
 
 function script.QueryWeapon1() 
@@ -38,10 +38,10 @@ function script.AimWeapon1( heading, pitch )
 	Signal(SIG_AIM)
 	SetSignalMask(SIG_AIM)
 	
-	Turn(cabeza, z_axis, heading, math.rad(320))
+	--Turn(cabeza, z_axis, heading, math.rad(320))
 	
 	--wait until the weapon is pointed in the right direction
-	WaitForTurn (cabeza, z_axis)
+	--WaitForTurn (cabeza, z_axis)
 	
 	return true
 end
