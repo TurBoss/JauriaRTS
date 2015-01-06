@@ -55,7 +55,7 @@ local unitDef = {
 	},
 
 	weapons = {
-		[1]={name  = "weaponintruder",
+		[1]={name  = "weaponvalkyria",
 			--maxAngleDif = 210,
 			--mainDir = [[-1 1 1]],
 			onlyTargetCategory = [[LAND]],

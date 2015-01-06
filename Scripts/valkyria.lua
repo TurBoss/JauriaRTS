@@ -1,14 +1,14 @@
 local root = piece "root"
 
-local chasis = piece "chasis"
+--local chasis = piece "chasis"
 
-local rueda = piece "rueda"
+--local rueda = piece "rueda"
 
-local cabeza = piece "cabeza"
+--local cabeza = piece "cabeza"
 
 --pieces used by the weapon:
 
-local canon = piece "canon"
+--local canon = piece "canon"
 
 local flare = piece "flare"
 
@@ -24,7 +24,7 @@ end
 
 ---AIMING & SHOOTING---
 function script.AimFromWeapon1() 
-	return canon
+	return flare
 end
 
 function script.QueryWeapon1() 
@@ -38,10 +38,10 @@ function script.AimWeapon1( heading, pitch )
 	Signal(SIG_AIM)
 	SetSignalMask(SIG_AIM)
 	
-	Turn(cabeza, z_axis, heading, math.rad(320))
+	--Turn(cabeza, z_axis, heading, math.rad(320))
 	
 	--wait until the weapon is pointed in the right direction
-	WaitForTurn (cabeza, z_axis)
+	--WaitForTurn (cabeza, z_axis)
 	
 	return true
 end
@@ -52,13 +52,11 @@ function script.FireWeapon1()
 end
 
 function script.StartMoving(heading)
-	Turn (cabeza, z_axis, heading, math.rad(320))
-	Spin(rueda, x_axis, wheel_speed)
+	
 
 end
 
 function script.StopMoving()
-	StopSpin (rueda,x_axis)
 
 end
 
