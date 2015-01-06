@@ -32,6 +32,9 @@ local unitDef = {
 	MaxWaterDepth = 20,
 	MovementClass = "Default4x4",
 	TurnRate = 1000,
+	
+	TurnInPlace = false,
+	turnInPlaceSpeedLimit  = 3.6,
 
 	sightDistance = 580,
 
