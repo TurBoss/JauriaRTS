@@ -9,7 +9,7 @@ local ignoreweapon =
 	coraak = {1},
 	coramph = {2},	
 }
-local iconFormat = '.dds'
+local iconFormat = '.png'
 
 return ignoreweapon, iconFormat
 

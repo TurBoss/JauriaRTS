@@ -63,7 +63,7 @@ local function UpdateFactoryBuildQueue(unitID)
 			end
 		end
 	end
-return result
+	return result
 end
 
 function LayoutHandler(xIcons, yIcons, cmdCount, commands)
@@ -160,12 +160,12 @@ function createMyButton(cmd, buildid)
 			local tooltip = "Build Unit: " .. UnitDefs[-cmd.id].humanName .. " - " .. UnitDefs[-cmd.id].tooltip .. "\n"
 			--Spring.Echo(tooltip)
 			local countText = ""
-			if isFactory then
-				countText = UpdateFactoryBuildQueue(buildings[1])--,cmd.id)
-				if countText[cmd.id] == nil then
-					countText[cmd.id] = ""
-				end
+			--if isFactory then
+			countText = UpdateFactoryBuildQueue(buildings[1])--,cmd.id)
+			if countText[cmd.id] == nil then
+				countText[cmd.id] = ""
 			end
+			--end
 			
 			local result = container.xstep % MAXBUTTONSONROWBUILD
 			container.xstep = container.xstep + 1
