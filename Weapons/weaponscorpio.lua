@@ -10,7 +10,7 @@ local weaponDef={
 	InterceptedByShieldType= 4,
 	
 	--Physic/flight path
-	range=390,
+	range=375,
 	reloadtime=4.2,
 	weaponVelocity=600,
 	startVelocity=400,
