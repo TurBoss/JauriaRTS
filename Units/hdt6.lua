@@ -28,10 +28,10 @@ local unitDef = {
 	FootprintX = 4,
 	FootprintZ = 4,
 	MaxSlope = 12,
-	MaxVelocity = 3.8,
+	MaxVelocity = 4,
 	MaxWaterDepth = 20,
 	MovementClass = "Default4x4",
-	TurnRate = 1000,
+	TurnRate = 1800,
 
 	sightDistance = 580,
 
