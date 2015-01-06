@@ -4,17 +4,17 @@ local sidedata = {
 		name = "Jauria",
 		startUnit = "fabricaporreton",
 	},
-	--[2] = {
-	--	name = "Heks",
-	--	startUnit = "fabricaheks",
-	--},
 	[2] = {
 		name = "Chaos",
 		startUnit = "fabricacaos",
 	},
-	--[4] = {
-	--	name = "Europe",
-	--	startUnit = "fabricaeurope",
+	[3] = {
+		name = "Europe",
+		startUnit = "fabricaeurope",
+	},
+	--[2] = {
+	--	name = "Heks",
+	--	startUnit = "fabricaheks",
 	--},
 }
 return sidedata
