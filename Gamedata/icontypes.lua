@@ -30,40 +30,40 @@ local icontypes = {
 	},
 
 	it0 = {
-		bitmap='bitmaps/Icons/0.png',
+		bitmap='bitmaps/Icons/it0.png',
 		size=1.0,
 	},
 
 	nm1 = {
-		bitmap='bitmaps/Icons/1.png',
+		bitmap='bitmaps/Icons/nm1.png',
 		size=1.2,
 	},
 
 	rk2 = {
-		bitmap='bitmaps/Icons/2.png',
+		bitmap='bitmaps/Icons/rk2.png',
 		size=1.2,
 	},
 	
 	nk3 = {
-		bitmap='bitmaps/Icons/3.png',
+		bitmap='bitmaps/Icons/nk3.png',
 		size=1.4,
 	},
 
 	tkt4 = {
-		bitmap='bitmaps/Icons/4.png',
+		bitmap='bitmaps/Icons/tkt4.png',
 		size=1.6,
 	},
 	
 	lz5 = {
-		bitmap='bitmaps/Icons/5.png',
+		bitmap='bitmaps/Icons/lz5.png',
 		size=1.8,
 	},
 	dt6 = {
-		bitmap='bitmaps/Icons/6.png',
+		bitmap='bitmaps/Icons/dt6.png',
 		size=2,
 	},
 	raider = {
-		bitmap='bitmaps/Icons/raid.png',
+		bitmap='bitmaps/Icons/raider.png',
 		size=1.4,
 	},
 }
