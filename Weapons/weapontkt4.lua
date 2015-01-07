@@ -4,13 +4,13 @@ local weaponDef={
 	name="weapontkt4",
 	weaponType=[[MissileLauncher]],
 
-	Accuracy=420,
-	movingAccuracy=700,
+	Accuracy=220,
+	movingAccuracy=400,
 	
 	InterceptedByShieldType= 4,
 	
 	--Physic/flight path
-	range=460,
+	range=500,
 	reloadtime=4.3,
 	weaponVelocity=1100,
 	startVelocity=600,

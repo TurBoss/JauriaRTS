@@ -5,24 +5,19 @@ local bola = piece('bola');
 local brazod = piece('brazod');
 local brazoi = piece('brazoi');
 local Cabeza = piece('Cabeza');
+local Camera = piece('Camera');
 local cintura = piece('cintura');
 local codera = piece('codera');
 local entrepiernad = piece('entrepiernad');
 local entrepiernai = piece('entrepiernai');
---local filtros = piece('filtros');
---local hierro = piece('hierro');
---local mascara = piece('mascara');
+local flare = piece('flare');
 local mira = piece('mira');
---local mochila = piece('mochila');
---local ojos = piece('ojos');
---local pechera = piece('pechera');
 local pied = piece('pied');
 local piei = piece('piei');
 local piernad = piece('piernad');
 local piernai = piece('piernai');
 local root = piece('root');
 local torso = piece('torso');
---local visor = piece('visor');
 
 local Animations = {};
 
@@ -112,7 +107,7 @@ end
 
 function script.StartMoving(heading)
 	--StartThread (startMove)
-	Turn(root, z_axis, heading, math.rad(225))
+	Turn(torso, z_axis, heading, math.rad(225))
 end
 
 function script.StopMoving()
@@ -121,18 +116,18 @@ function script.StopMoving()
 end
 
 --called after the weapon has fired
-function script.FireWeapon1()
+function script.FireWeapon1(heading, pitch)
 end
 
 
 ---AIMING & SHOOTING---
 function script.AimFromWeapon1() 
-	return arma
+	return flare
 end
 
 
 function script.QueryWeapon1() 
-	return arma
+	return flare
 end
 
 

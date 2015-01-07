@@ -1,53 +1,64 @@
+local weaponName="weaponberserker"
 
-local weaponName = "weaponberserker"
-
-local weaponDef = {
+local weaponDef={
+	name="Bateria de misiles",
+	weaponType=[[MissileLauncher]],
 	
-	name                    = "misil Berserker",
-	weaponType              = "Cannon",
+	Accuracy=80,
 	
-	Accuracy=30,
-	movingAccuracy=50,
-	--damage
+	--Physic/flight path
 	
-	avoidFeature = false,
+	range=310,
+	reloadtime=3.2,
+	weaponVelocity=600,
+	startVelocity=400,
+	weaponAcceleration=120,
+	flightTime=6,
+	BurnBlow=0,
+	FixedLauncher=false,
+	trajectoryHeight=0.5,
+	dance=0,
+	wobble=0,
+	tolerance=16000,
+	tracks=false,
+	Turnrate=16000,
+	collideFriendly=true,
 	
-	damage = {
-		default = 175,
-		heavyarmor = 210,
+	----APPEARANCE
+	
+	smokeTrail=true,
+	model="misil.dae",
+	--explosionGenerator="custom:redsmoke",
+	--CegTag="smoketrail",
+	
+	----TARGETING
+	
+	turret=true,
+	cylinderTargeting=true,
+	avoidFeature=false,
+	avoidFriendly=false,
+	
+	--commandfire=true,
+	
+	----DAMAGE
+	
+	damage={
+		default=175,
+		heavyarmor=210,
 		lightarmor = 440,
 		torrearmor = 195,
 	},
-	areaOfEffect            = 30,
+	areaOfEffect=30,
+	craterMult=0,
 	
-	--physics
+	--?FIXME***
 	
-	weaponVelocity          = 550,
-	reloadtime              = 3.5,
-	range                   = 360,
-	--sprayAngle              = 45,
-	weaponaceleration       = 120,
-	tolerance               = 8000,
-	lineOfSight             = true,
-	turret                  = true,
-	craterMult              = 0.0,
-	highTrajectory          = 0.5,
-	--burst                   = 2,
-	--burstrate               = 1.5,
-	--proyectiles             = 2,
+	lineOfSight=true,
 	
-	--apperance
+	--sound
 	
-	rgbColor                = [[0.5 0 0]],
-	size                    = 4.5,
-	stages                  = 5,
-	intensity               = 3,
-	separation              = 0,
-	
-	--sounds
-	
-	soundStart              = "disparo_gfx",
-	
-	collideFriendly=true,
+	--soundHit=[[kanoba/SabotHitRemake.ogg]],
+	--soundStart=[[kanoba/RockLit1Remake.ogg]],
 }
-return lowerkeys({[weaponName] = weaponDef})
+
+return lowerkeys ({[weaponName]=weaponDef})

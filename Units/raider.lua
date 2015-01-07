@@ -37,7 +37,7 @@ local unitDef = {
 	turnInPlaceSpeedLimit  = 7,
 	
 
-	sightDistance = 365,
+	sightDistance = 450,
 
 	Category = [[LAND]],
 	

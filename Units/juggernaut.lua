@@ -33,7 +33,7 @@ local unitDef = {
 	MovementClass = "Default4x4",
 	TurnRate = 1300,
 
-	sightDistance = 420,
+	sightDistance = 500,
 
 	Category = [[LAND]],
 
