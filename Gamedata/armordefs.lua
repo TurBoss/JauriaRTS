@@ -3,6 +3,7 @@ local armorDefs = {
 		"fabricaporreton",
 		"fabricacaos",
 		"fabricaheks",
+		"fabricaeurope",
 		--------------
 		"ftkt4",
 		"enk3",
@@ -18,6 +19,10 @@ local armorDefs = {
 		"dbesieger",
 		"aadept",
 		"fdesolator",
+		--------------
+		"fscorpio",
+		"gtaurus",
+		"hatlas",
 	},
 	lightarmor = {
 		"cnm1",
@@ -34,6 +39,12 @@ local armorDefs = {
 		"braider",
 		"cmarauder",
 		"eputris",
+		--------------
+		"aprospector",
+		"bmilitia",
+		"cberserker",
+		"doverkraft",
+		"evalkyria",
 	},
 	torrearmor = {
 		"torreta",
