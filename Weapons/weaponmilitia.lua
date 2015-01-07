@@ -13,10 +13,10 @@ local weaponDef = {
 	craterMult = 0,
 	
 	damage = {
-		default = 150,
-		heavyarmor = 35,
-		lightarmor = 140,
-		torrearmor = 120,
+		default = 18,
+		heavyarmor = 12,
+		lightarmor = 30,
+		torrearmor = 26,
 	},
 	
 	--explosionGenerator = [[custom:flashslow]],
@@ -30,8 +30,8 @@ local weaponDef = {
 	lineOfSight = true,
 	minIntensity = 1,
 	noSelfDamage = true,
-	range = 290,
-	reloadtime = 0.5,
+	range = 235,
+	reloadtime = 0.2,
 	renderType = 0,
 	rgbColor = [[0.5 0.5 1]],
 	--soundStart = [[weapon/laser/pulse_laser2]],

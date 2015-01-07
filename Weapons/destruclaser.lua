@@ -12,15 +12,16 @@ local weaponDef = {
 	movingAccuracy=80,
 	
 	damage = {
-		default = 20,
-		heavyarmor = 21,
+		default = 15.5,
+		heavyarmor = 7,
 		lightarmor = 14,
+		torrearmor = 8,
 	},
 	areaOfEffect            = 0,
 	
 	--physics
 	
-	beamTime				= 0.1,
+	beamTime				= 0.2,
 	beqamTTL				= 100,
 	laserFlareSize			= 10,
 	largeBeamLaser			= true,
