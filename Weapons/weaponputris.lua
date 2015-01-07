@@ -6,17 +6,17 @@ local weaponDef = {
 	name                    = "Mortero Putrido",
 	weaponType              = "Cannon",
 	
-	Accuracy=40,
-	movingAccuracy=80,
+	Accuracy=400,
+	movingAccuracy=800,
 	--damage
 	
 	avoidFeature = false,
 	
 	damage = {
 		default = 1150,
-		heavyarmor = 680,
-		lightarmor = 1130,
-		torrearmor = 640,
+		heavyarmor = 880,
+		lightarmor = 1230,
+		torrearmor = 840,
 	},
 	areaOfEffect            = 240,
 	
@@ -24,7 +24,7 @@ local weaponDef = {
 	myGravity               = 1.2,
 	weaponVelocity          = 865,
 	startVelocity           = 250,
-	reloadtime              = 2.8,
+	reloadtime              = 3.2,
 	range                   = 3200,
 	sprayAngle              = 180,
 	weaponaceleration       = 415,

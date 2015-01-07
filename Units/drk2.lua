@@ -16,7 +16,7 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 2650,
+	maxDamage = 2680,
 	idleAutoHeal = 20,
 	idleTime     = 3,
 
@@ -36,7 +36,7 @@ local unitDef = {
 	TurnInPlace = false,
 	turnInPlaceSpeedLimit  = 4,
 	
-	sightDistance = 380,
+	sightDistance = 400,
 
 	Category = [[LAND]],
 

@@ -4,34 +4,34 @@ local weaponDef={
 	name="weaponscorpio",
 	weaponType=[[MissileLauncher]],
 
-	Accuracy=500,
-	movingAccuracy=800,
+	Accuracy=50,
+	movingAccuracy=80,
 	
 	InterceptedByShieldType= 4,
 	
 	--Physic/flight path
-	range=375,
-	reloadtime=4.2,
-	weaponVelocity=600,
-	startVelocity=400,
-	weaponAcceleration=800,
+	range=360,
+	reloadtime=4.6,
+	weaponVelocity=360,
+	startVelocity=120,
+	weaponAcceleration=200,
 	flightTime=6,
 	BurnBlow=0,
 	FixedLauncher=false,
-	trajectoryHeight=0.4,
-	dance=0,
-	wobble=0,
+	trajectoryHeight=0.2,
+	dance=15,
+	wobble=15,
 	tolerance=16000,
-	tracks=false,
+	tracks=true,
 	Turnrate=16000,
 	collideFriendly=true,
 
 	----APPEARANCE
 	
 	model="disco.dae",
-	smokeTrail=true,
+	--smokeTrail=true,
 	--explosionGenerator="custom:explosion1",
-	CegTag="light1",
+	--CegTag="light1",
 
 	----TARGETING
 	
@@ -46,12 +46,12 @@ local weaponDef={
 	----DAMAGE
 	
 	damage={
-		default=680,
-		heavyarmor = 480,
-		lightarmor = 730,
-		torrearmor = 650,
+		default=300,
+		heavyarmor = 280,
+		lightarmor = 530,
+		torrearmor = 550,
 	},
-	areaOfEffect=145,
+	areaOfEffect=100,
 	craterMult=0,
 	
 	--?FIXME***

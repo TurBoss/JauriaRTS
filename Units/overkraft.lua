@@ -24,18 +24,18 @@ local unitDef = {
 	mass=650,
 	Acceleration = 1,
 	BrakeRate = 3,
-	FootprintX = 3,
-	FootprintZ = 3,
+	FootprintX = 2,
+	FootprintZ = 2,
 	MaxSlope = 12,
-	MaxVelocity = 4.3,
+	MaxVelocity = 5.2,
 	MaxWaterDepth = 20,
-	MovementClass = "Default3x3",
-	TurnRate = 2600,
+	MovementClass = "Default2x2",
+	TurnRate = 2200,
 	
 	TurnInPlace = false,
-	turnInPlaceSpeedLimit  = 3.9,
+	turnInPlaceSpeedLimit  = 4.8,
 
-	sightDistance = 360,
+	sightDistance = 410,
 
 	Category = [[LAND]],
 

@@ -1,16 +1,22 @@
-local root = piece "root"
-
---local chasis = piece "chasis"
-
---local rueda = piece "rueda"
-
---local cabeza = piece "cabeza"
-
---pieces used by the weapon:
-
---local canon = piece "canon"
-
-local flare = piece "flare"
+local antebrazod = piece('antebrazod');
+local antebrazoi = piece('antebrazoi');
+local brazalequipo = piece('brazalequipo');
+local brazod = piece('brazod');
+local brazoi = piece('brazoi');
+local Camera = piece('Camera');
+local cara = piece('cara');
+local culod = piece('culod');
+local culoi = piece('culoi');
+local escudo = piece('escudo');
+local escudo_001 = piece('escudo_001');
+local espalda = piece('espalda');
+local flare = piece('flare');
+local Lamp = piece('Lamp');
+local piernad = piece('piernad');
+local piernai = piece('piernai');
+local root = piece('root');
+local zapatoarmadod = piece('zapatoarmadod');
+local zapatoarmadoi = piece('zapatoarmadoi');
 
 local wheel_speed = math.rad(180)
 
@@ -38,10 +44,10 @@ function script.AimWeapon1( heading, pitch )
 	Signal(SIG_AIM)
 	SetSignalMask(SIG_AIM)
 	
-	--Turn(cabeza, z_axis, heading, math.rad(320))
+	Turn(espalda, z_axis, heading, math.rad(320))
 	
 	--wait until the weapon is pointed in the right direction
-	--WaitForTurn (cabeza, z_axis)
+	WaitForTurn (espalda, z_axis)
 	
 	return true
 end

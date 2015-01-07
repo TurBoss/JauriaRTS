@@ -25,15 +25,15 @@ local unitDef = {
 	mass=800,
 	Acceleration = 1.2,
 	BrakeRate = 5,
-	FootprintX = 2,
-	FootprintZ = 2,
+	FootprintX = 1,
+	FootprintZ = 1,
 	MaxSlope = 12,
 	MaxVelocity = 3.8,
 	MaxWaterDepth = 20,
-	MovementClass = "Default2x2",
+	MovementClass = "Default1x1",
 	TurnRate = 2580,
 
-	sightDistance = 370,
+	sightDistance = 430,
 
 	Category = [[LAND]],
 	

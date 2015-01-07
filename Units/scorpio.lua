@@ -37,7 +37,7 @@ local unitDef = {
 	turnInPlaceSpeedLimit  = 3.2,
 	
 
-	sightDistance = 590,
+	sightDistance = 510,
 
 	Category = [[LAND AIR]],
 
