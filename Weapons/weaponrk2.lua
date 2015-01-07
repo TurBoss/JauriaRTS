@@ -13,17 +13,17 @@ local weaponDef = {
 	avoidFeature = false,
 	
 	damage = {
-		default = 170,
-		heavyarmor = 245,
-		lightarmor = 175,
-		torrearmor = 145,
+		default = 320,
+		heavyarmor = 450,
+		lightarmor = 310,
+		torrearmor = 330,
 	},
 	--areaOfEffect            = 30,
 	
 	--physics
 	
 	weaponVelocity          = 650,
-	reloadtime              = 1.1,
+	reloadtime              = 2.2,
 	range                   = 235,
 	--sprayAngle              = 45,
 	weaponaceleration       = 520,
