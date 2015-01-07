@@ -48,6 +48,8 @@ local GetAllyTeamList = Spring.GetAllyTeamList
 local GetTeamList = Spring.GetTeamList
 local GameOver = Spring.GameOver
 local AreTeamsAllied = Spring.AreTeamsAllied
+local GetTeamUnits = Spring.GetTeamUnits
+local DestroyUnit = Spring.DestroyUnit
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -244,7 +246,7 @@ function gadget:UnitDestroyed(unitID, unitDefID, unitTeamID)
 		return
 	end
 	-----------------------
-	if unitID == 10500 and 10501 and 10502 and 10503 and 10504 and 10505 then
+	if unitID == 10500 or 10501 or 10502 or 10503 or 10504 or 10505 then
 		-- skip turrents
 		return
 	end
@@ -265,16 +267,34 @@ end
 function gadget:UnitTaken(unitID, unitDefID, unitTeamID)
 	gadget:UnitDestroyed(unitID, unitDefID, unitTeamID)
 end
-	
+
+function destroyall(team)
+	Spring.Echo("Destroy")
+	if team == "0" then
+		Spring.Echo("UNO")
+		team = 1
+	elseif team == "1" then
+		Spring.Echo("CERO")
+		team = 0
+	end
+	toDestroy = GetTeamUnits(team)
+	Spring.Echo(toDestroy)
+	for u in pairs(toDestroy) do
+		DestroyUnit(toDestroy[u], true)
+	end
+end
+
 function gadget:RecvLuaMsg(msg)
 	local team = {}
 	if (msg:sub(1,4) == 'quit') then
 		team[0]  = msg:sub(5)
 		Spring.SendLuaUIMsg("gameover" .. team[0])
 		GameOver(team)
+		destroyall(team[0])
 	elseif (msg:sub(1,6) == 'resign') then
 		team[0] = msg:sub(7)
 		Spring.SendLuaUIMsg("gameover" .. team[0])
 		GameOver(team)
+		destroyall(team[0])
 	end
 end
