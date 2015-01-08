@@ -69,10 +69,10 @@ end
 ----death animation: fall over & explode
 function script.Killed(recentDamage, maxHealth)
 
-	Explode (chasis, SFX.SHATTER)	
-	Explode (canon, SFX.FIRE)
-	Explode (cabeza, SFX.FIRE)
-	Explode (rueda, SFX.FIRE)
+	--Explode (chasis, SFX.SHATTER)	
+	--Explode (canon, SFX.FIRE)
+	--Explode (cabeza, SFX.FIRE)
+	--Explode (rueda, SFX.FIRE)
 
 
 end
