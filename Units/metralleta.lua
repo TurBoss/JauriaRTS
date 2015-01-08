@@ -26,6 +26,7 @@ local unitDef = {
 	
 	FootprintX = 5,
 	FootprintZ = 5,
+	TurnRate = 2600,
 	
 	maxSlope = 20,
 

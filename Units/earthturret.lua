@@ -10,7 +10,7 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 24000,
+	buildCostMetal = 25000,
 	buildCostEnergy = 0,
 	buildTime = 150,
 	
@@ -18,7 +18,7 @@ local unitDef = {
 	
 	--Health
 
-	maxDamage = 26000,
+	maxDamage = 36000,
 	idleAutoHeal = 0,
 	idleTime     = 0,
 

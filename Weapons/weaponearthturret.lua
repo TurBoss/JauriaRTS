@@ -12,16 +12,16 @@ local weaponDef = {
 	
 	damage = {
 		default = 0,
-		heavyarmor = 460,
-		lightarmor = 260,
+		heavyarmor = 230,
+		lightarmor = 130,
 	},
-	areaOfEffect            = 2,
+	areaOfEffect            = 100,
 	
 	--physics
 	
 	weaponVelocity          = 2000,
-	reloadtime              = 0.4,
-	range                   = 440,
+	reloadtime              = 0.5,
+	range                   = 468,
 	sprayAngle              = 45,
 	--weaponaceleration       = 25,
 	tolerance               = 10000,
