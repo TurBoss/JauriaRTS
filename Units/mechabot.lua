@@ -15,27 +15,21 @@ local unitDef = {
 	
 	--Health
 
-	maxDamage = 7000,
+	maxDamage = 10000,
 	idleAutoHeal = 0,
 	idleTime     = 0,
 
 	--Movement
 	
-	FootprintX = 2,
-	FootprintZ = 2,
-	collisionvolumeoffsets = "0 0 0",
-	collisionvolumescales = "20 40 20",
-	collisionvolumetype = "cylY",
-	
 	mass=1500,
 	Acceleration = 1,
 	BrakeRate = 1,
-	FootprintX = 3,
-	FootprintZ = 3,
+	FootprintX = 5,
+	FootprintZ = 5,
 	MaxSlope = 12,
 	MaxVelocity = 4,
 	MaxWaterDepth = 20,
-	MovementClass = "Default3x3",
+	MovementClass = "Default5x5",
 	TurnRate = 700,
 	
 	maxSlope = 20,
