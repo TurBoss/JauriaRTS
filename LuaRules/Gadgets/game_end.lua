@@ -269,16 +269,16 @@ function gadget:UnitTaken(unitID, unitDefID, unitTeamID)
 end
 
 function destroyall(team)
-	Spring.Echo("Destroy")
+	--Spring.Echo("Destroy")
 	if team == "0" then
-		Spring.Echo("UNO")
+		--Spring.Echo("UNO")
 		team = 1
 	elseif team == "1" then
-		Spring.Echo("CERO")
+		--Spring.Echo("CERO")
 		team = 0
 	end
 	toDestroy = GetTeamUnits(team)
-	Spring.Echo(toDestroy)
+	--Spring.Echo(toDestroy)
 	for u in pairs(toDestroy) do
 		DestroyUnit(toDestroy[u], true)
 	end
