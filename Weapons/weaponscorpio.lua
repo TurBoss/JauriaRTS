@@ -10,7 +10,7 @@ local weaponDef={
 	InterceptedByShieldType= 4,
 	
 	--Physic/flight path
-	range=380,
+	range=390,
 	reloadtime=4.2,
 	weaponVelocity=320,
 	startVelocity=120,
@@ -51,7 +51,7 @@ local weaponDef={
 		lightarmor = 1300,
 		torrearmor = 800,
 	},
-	areaOfEffect=120,
+	areaOfEffect=150,
 	craterMult=0,
 	
 	--?FIXME***
