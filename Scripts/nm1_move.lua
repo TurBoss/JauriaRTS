@@ -1,8 +1,3 @@
-
---------------------------------------------------------------------------------
--- pieces
---------------------------------------------------------------------------------
-
 local cabeza = piece('cabeza');
 local canon_der = piece('canon_der');
 local canon_izq = piece('canon_izq');
@@ -24,33 +19,9 @@ local tobillo_der = piece('tobillo_der');
 local tobillo_izq = piece('tobillo_izq');
 local torre_der = piece('torre_der');
 local torre_izq = piece('torre_izq');
-
---------------------------------------------------------------------------------
--- constants
---------------------------------------------------------------------------------
-
-local SIG_WALK = 1	--signal for the walk animation thread
-local SIG_AIM = 2
-local SIG_AIM2 = 4
-
---------------------------------------------------------------------------------
--- vars
---------------------------------------------------------------------------------
-
-local active_cano = 1		--the barrel that the next shot will be fired from
-local number_of_cano = 2		--how many barrel there are in total
-
-local isMoving, isShooting = false, false
-
-local smoke = SFX.CEG
-
---------------------------------------------------------------------------------
--- tables
---------------------------------------------------------------------------------
-
 local Animations = {};
 
-Animations['caminar'] ={
+Animations['myAnimation'] = {
 	{
 		['time'] = 0,
 		['commands'] = {
@@ -161,76 +132,6 @@ Animations['caminar'] ={
 		}
 	},
 }
-Animations['reset'] = {
-	{
-		['time'] = 0,
-		['commands'] = {
-			{['c']='turn',['p']=tobillo_der, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=tobillo_der, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=tobillo_der, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='move',['p']=tobillo_der, ['a']=x_axis, ['t']=4.197176, ['s']=6.000000},
-			{['c']='move',['p']=tobillo_der, ['a']=y_axis, ['t']=-0.989708, ['s']=6.000000},
-			{['c']='move',['p']=tobillo_der, ['a']=z_axis, ['t']=1.864918, ['s']=6.000000},
-			{['c']='turn',['p']=espinilla_der, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=espinilla_der, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=espinilla_der, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='move',['p']=espinilla_der, ['a']=x_axis, ['t']=4.174383, ['s']=6.000000},
-			{['c']='move',['p']=espinilla_der, ['a']=y_axis, ['t']=0.565578, ['s']=6.000000},
-			{['c']='move',['p']=espinilla_der, ['a']=z_axis, ['t']=3.622518, ['s']=6.000000},
-			{['c']='turn',['p']=pie_izq, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=pie_izq, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=pie_izq, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='move',['p']=pie_izq, ['a']=x_axis, ['t']=-3.737609, ['s']=6.000000},
-			{['c']='move',['p']=pie_izq, ['a']=y_axis, ['t']=-0.402640, ['s']=6.000000},
-			{['c']='move',['p']=pie_izq, ['a']=z_axis, ['t']=0.709235, ['s']=6.000000},
-			{['c']='turn',['p']=tobillo_izq, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=tobillo_izq, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=tobillo_izq, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='move',['p']=tobillo_izq, ['a']=x_axis, ['t']=-3.720423, ['s']=6.000000},
-			{['c']='move',['p']=tobillo_izq, ['a']=y_axis, ['t']=0.639594, ['s']=6.000000},
-			{['c']='move',['p']=tobillo_izq, ['a']=z_axis, ['t']=1.853120, ['s']=6.000000},
-			{['c']='turn',['p']=espinillas_izq, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=espinillas_izq, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=espinillas_izq, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='move',['p']=espinillas_izq, ['a']=x_axis, ['t']=-3.768878, ['s']=6.000000},
-			{['c']='move',['p']=espinillas_izq, ['a']=y_axis, ['t']=2.063042, ['s']=6.000000},
-			{['c']='move',['p']=espinillas_izq, ['a']=z_axis, ['t']=4.157358, ['s']=6.000000},
-			{['c']='turn',['p']=rodilla_izq, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=rodilla_izq, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=rodilla_izq, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='move',['p']=rodilla_izq, ['a']=x_axis, ['t']=-3.836459, ['s']=6.000000},
-			{['c']='move',['p']=rodilla_izq, ['a']=y_axis, ['t']=3.827839, ['s']=6.000000},
-			{['c']='move',['p']=rodilla_izq, ['a']=z_axis, ['t']=6.794750, ['s']=6.000000},
-			{['c']='turn',['p']=patas_izq, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=patas_izq, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=patas_izq, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='move',['p']=patas_izq, ['a']=x_axis, ['t']=-3.167796, ['s']=6.000000},
-			{['c']='move',['p']=patas_izq, ['a']=y_axis, ['t']=-0.321007, ['s']=6.000000},
-			{['c']='move',['p']=patas_izq, ['a']=z_axis, ['t']=10.910730, ['s']=6.000000},
-			{['c']='turn',['p']=pie_der, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=pie_der, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=pie_der, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='move',['p']=pie_der, ['a']=x_axis, ['t']=4.237518, ['s']=6.000000},
-			{['c']='move',['p']=pie_der, ['a']=y_axis, ['t']=-1.658226, ['s']=6.000000},
-			{['c']='move',['p']=pie_der, ['a']=z_axis, ['t']=0.702982, ['s']=6.000000},
-			{['c']='turn',['p']=rodilla_der, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=rodilla_der, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=rodilla_der, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='move',['p']=rodilla_der, ['a']=x_axis, ['t']=4.148533, ['s']=6.000000},
-			{['c']='move',['p']=rodilla_der, ['a']=y_axis, ['t']=2.525503, ['s']=6.000000},
-			{['c']='move',['p']=rodilla_der, ['a']=z_axis, ['t']=5.716776, ['s']=6.000000},
-			{['c']='turn',['p']=patas_der, ['a']=x_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=patas_der, ['a']=y_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='turn',['p']=patas_der, ['a']=z_axis, ['t']=0.000000, ['s']=6.000000},
-			{['c']='move',['p']=patas_der, ['a']=x_axis, ['t']=3.626065, ['s']=6.000000},
-			{['c']='move',['p']=patas_der, ['a']=y_axis, ['t']=-0.476768, ['s']=6.000000},
-			{['c']='move',['p']=patas_der, ['a']=z_axis, ['t']=10.924619, ['s']=6.000000},
-		}
-	},
-}
---------------------------------------------------------------------------------
--- funcs
---------------------------------------------------------------------------------
 
 function constructSkeleton(unit, piece, offset)
     if (offset == nil) then
@@ -293,83 +194,5 @@ function PlayAnimation(animname)
             Sleep(t*33); -- sleep works on milliseconds
         end
     end
-end
-
-local function Walk()
-	Signal(SIG_WALK)
-	SetSignalMask(SIG_WALK)
-	isMoving = true
-	while true do
-		PlayAnimation('caminar')
-	end
-end
-
-local function RestorePose()
-	Signal(SIG_WALK)
-	SetSignalMask(SIG_WALK)
-	PlayAnimation('reset')
-end
-
-function script.StartMoving(heading)
-	StartThread (Walk)
-	Turn(root, z_axis, heading, math.rad(225))
-end
-
-function script.StopMoving()
-	isMoving = false
-	StartThread(RestorePose)
-end
-
---called after the weapon has fired
-function script.FireWeapon1()
-	EmitSfx(flare_der, smoke)
-end
-
-function script.FireWeapon2()
-	EmitSfx(flare_izq, smoke)
-end
-
----AIMING & SHOOTING---
-function script.AimFromWeapon1() 
-	return torre_der
-end
-
-function script.AimFromWeapon2() 
-	return torre_izq
-end
-
-function script.QueryWeapon1() 
-	return flare_der
-end
-
-function script.QueryWeapon2() 
-	return flare_izq
-end
-
-function script.AimWeapon1( heading, pitch )
-	--make sure the aiming animation is only run once
-	Signal(SIG_AIM)
-	SetSignalMask(SIG_AIM)
-	Turn(torre_der, z_axis, heading, math.rad(350))
-	--wait until the weapon is pointed in the right direction
-	WaitForTurn (torre_der, z_axis)
-	return true
-end
-
-function script.AimWeapon2( heading, pitch )
-	--make sure the aiming animation is only run once
-	Signal(SIG_AIM2)
-	SetSignalMask(SIG_AIM2)
-	Turn(torre_izq, z_axis, heading, math.rad(350))
-	--wait until the weapon is pointed in the right direction
-	WaitForTurn (torre_izq, z_axis)
-	return true
-end
-
-----death animation
-function script.Killed(recentDamage, maxHealth)
-	Explode (cabeza, SFX.SHATTER)
-	Explode (canon_der, SFX.FIRE)
-	Explode (canon_izq, SFX.FIRE)
 end
             
