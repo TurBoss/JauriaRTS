@@ -165,6 +165,7 @@ function createMyButton(cmd, buildid)
 			if countText[cmd.id] == nil then
 				countText[cmd.id] = ""
 			end
+			--Spring.Echo(cmd.id)
 			--end
 			
 			local result = container.xstep % MAXBUTTONSONROWBUILD
