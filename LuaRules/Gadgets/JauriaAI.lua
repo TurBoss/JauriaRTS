@@ -104,25 +104,6 @@ local function makeunit(cmd,line,words,player)--uID)
 	end
 end
 
-local function MineralTable()
-	for _,f in ipairs(Spring.GetAllFeatures()) do
-		if FeatureDefs[Spring.GetFeatureDefID(f)].name == "mineral1" or FeatureDefs[Spring.GetFeatureDefID(f)].name == "mineral2" then
-			local x,y,z = Spring.GetFeaturePosition(f)
-			--Merging algorithm because some KP maps have multiple geos in one spot
-			local newSpot=true
-			for i,s in pairs(spots) do
-				if math.sqrt((x-s.x)*(x-s.x) + (z-s.z)*(z-s.z)) < 64 then
-					newSpot = false
-					break
-				end
-			end
-			if newSpot then
-				table.insert(spots, {x=x, y=y, z=z})
-			end
-		end
-	end
-end
-
 local function FindNearesMineral(t, oriX, oriZ)
 end
 
@@ -163,7 +144,22 @@ end
 function gadget:GameStart()
 	
 	-- Create tables of Geos
-	MineralTable()
+	for _,f in ipairs(Spring.GetAllFeatures()) do
+		if FeatureDefs[Spring.GetFeatureDefID(f)].name == "mineral1" or FeatureDefs[Spring.GetFeatureDefID(f)].name == "mineral2" then
+			local x,y,z = Spring.GetFeaturePosition(f)
+			--Merging algorithm because some KP maps have multiple geos in one spot
+			local newSpot=true
+			for i,s in pairs(spots) do
+				if math.sqrt((x-s.x)*(x-s.x) + (z-s.z)*(z-s.z)) < 64 then
+					newSpot = false
+					break
+				end
+			end
+			if newSpot then
+				table.insert(spots, {x=x, y=y, z=z})
+			end
+		end
+	end
 	
     -- Initialise AI for all teams that are set to use it
     for _,t in ipairs(Spring.GetTeamList()) do
