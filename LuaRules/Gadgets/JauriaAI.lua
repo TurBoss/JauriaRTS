@@ -91,20 +91,39 @@ local function SetupCmdChangeAIDebugVerbosity()
 	Script.AddActionFallback(cmd..' ',help)
 end
 
-local function makeunit(cmd,line,words,player)--uID)
-	local unit=words[1]
-	if unit then
-		Spring.Echo("make a con")
-	end
-	if unit == "RC" then
-		Spring.GiveOrderToUnit(FAC, RC,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		
-	elseif unit == "IT0" then
-		Spring.GiveOrderToUnit(FAC, IT0,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-	end
-end
-
 local function FindNearesMineral(t, oriX, oriZ)
+	--[[local td = teamData[t]
+	Spring.Echo(td)
+	local nicest_geo_so_far = nil
+	local nicest_geo_dist = 0
+
+	for _=1,math.max(#td.positions/2,2) do
+		local p = math.random(#td.positions)
+		local pos = td.positions[p]+
+		Spring.Echo(pos)
+	end
+		if((pos.state==STATE_EMPTY and (not pos.underConstruction) and (not IsItOccupied(pos.x,pos.z))) and ((nicest_geo_so_far==nil) or (pos.dist<=nicest_geo_dist))) then
+			nicest_geo_so_far = p
+			nicest_geo_dist = math.sqrt((pos.x-oriX)*(pos.x-oriX) + (pos.z-oriZ)*(pos.z-oriZ))
+		end
+	end
+
+	if not nicest_geo_so_far then
+		for _=1,2*#td.positions do
+			local p = math.random(#td.positions)
+			local pos = td.positions[p]
+			if((pos.state~=STATE_OWN and (not pos.underConstruction) and (not IsItOccupied(pos.x,pos.z))) and ((nicest_geo_so_far==nil) or (pos.dist<=nicest_geo_dist))) then
+				nicest_geo_so_far = p
+				if(pos.state==STATE_EMPTY) then
+					nicest_geo_dist = math.sqrt((pos.x-oriX)*(pos.x-oriX) + (pos.z-oriZ)*(pos.z-oriZ))
+				else
+					nicest_geo_dist = 2*math.sqrt((pos.x-oriX)*(pos.x-oriX) + (pos.z-oriZ)*(pos.z-oriZ))
+				end
+			end
+		end
+	end
+
+	return nicest_geo_so_far]]--
 end
 
 local function makefirstunits(faction)--uID)
@@ -130,11 +149,7 @@ local function makefirstunits(faction)--uID)
 		Spring.GiveOrderToUnit(FAC1, MILITIA,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
 		Spring.GiveOrderToUnit(FAC1, MILITIA,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
 	end
-end
-function gadget:GameFrame(frame)
-	--if (frame % 30 ==0) then
-		--AIDebugMessage("all","test MSG EVERY 30 Frames ".. frame)
-	--end
+	--FindNearesMineral(0, 300, 300)
 end
 
 function gadget:Initialize()
@@ -196,7 +211,8 @@ function gadget:GameStart()
 				lastAllyDamage=nil,
 			}
             --Spring.Echo(Spring.GetSideData(side))
-            local _,factionName = Spring.GetSideData(side)
+            local startUnit,factionName = Spring.GetSideData(side)
+            table.insert(orders,{FAC1,CMD.MOVE,{2150,0,2900},{}})
             makefirstunits(factionName)
         end
     end
@@ -205,6 +221,53 @@ end
 function gadget:Initialize()
 end
 
+local function RemoveSelfIfNoTeam()
+	local AIcount=0
+	for t,td in pairs(teamData) do
+		AIcount=AIcount+1
+	end
+	if(AIcount==0) then -- #teamData is 0 even when there are teams, and teamData=={} is untrue even when teamData={}
+		AIDebugMessage("none",gadget:GetInfo().name.." removing self")
+		gadgetHandler:RemoveGadget()
+	end
+end
+
+function gadget:GameFrame(f)
+
+	if (f % 30 ==0) then
+		AIDebugMessage("all","test MSG EVERY 30 Frames ".. f)
+	end
+	for i,o in pairs(orders) do
+		if orders[i][5]==2 then -- delete that order in case displaying it causes error
+			orders[i]=nil
+		elseif orders[i][5]==1 then -- display that order in case executing it causes error
+			orders[i][5]=2
+			Spring.Echo("Spring.GiveOrderToUnit(",o[1],o[2],o[3],o[4],")")
+			local cmd_name=o[2]
+			for name,cmd in pairs(CMD) do
+				if cmd == o[2] then
+					cmd_name = name
+				end
+			end
+ 			Spring.Echo(UnitDefs[Spring.GetUnitDefID(o[1])].name.." given invalid "..cmd_name.." order")
+		elseif Spring.ValidUnitID(o[1]) and not Spring.GetUnitIsDead(o[1]) then
+			orders[i][5]=1
+			Spring.GiveOrderToUnit(o[1],o[2],o[3],o[4])
+		else
+			AIDebugMessage("all","attempted to give order to ID="..o[1].." non-existant unit")
+		end
+		orders[i]=nil
+	end
+	
+	_G.teamData=teamData
+	_G.KPAI_Debug_Mode=KPAI_Debug_Mode
+	
+	
+	-- AI update
+	if f % 128 < .1 then
+		RemoveSelfIfNoTeam()
+	end
+end
 function gadget:UnitCreated(u,ud,team,builder)
 end
 
