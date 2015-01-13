@@ -18,9 +18,6 @@ if (gadgetHandler:IsSyncedCode()) then
 
 local faction = ""
 
-local FAC1	= 1000
-local FAC2	= 1001
-
 --Jauria
 local RC			= -4
 local IT0			= -6
@@ -40,8 +37,8 @@ local MARAUDER		= -11
 local BESIEGER		= -14
 local PUTRIS		= -23
 local DESOLATOR		= -30
-local JUGGGRNAUT	= -35 
-local DT6			= -39
+local JUGGERNAUT	= -35 
+local ARCHAON		= -39
 
 --Europe
 local PROSPECTOR	= -3
@@ -87,16 +84,6 @@ local function SetupCmdChangeAIDebugVerbosity()
 	Script.AddActionFallback(cmd..' ',help)
 end
 
-local function SetupCmdMakeUnit()
-	--Spring.Echo("Add cmd")
-	local cmd,func,help
-	cmd  = "con"
-	func = makeunit
-	help = " builds a constructor?"
-	gadgetHandler:AddChatAction(cmd,func,help)
-	Script.AddActionFallback(cmd..' ',help)
-end
-
 function gadget:GameFrame(frame)
 	if (frame % 30 ==0) then
 		AIDebugMessage("all","test MSG EVERY 30 Frames ".. frame)
@@ -106,7 +93,6 @@ end
 function gadget:GameStart()
 
 	SetupCmdChangeAIDebugVerbosity()
-	SetupCmdMakeUnit()
 	
     -- Initialise AI for all teams that are set to use it
     for _,t in ipairs(Spring.GetTeamList()) do
@@ -115,9 +101,8 @@ function gadget:GameStart()
             Spring.Echo("Team "..t.." assigned to "..gadget:GetInfo().name)
             local pos = {}
             local home_x,home_y,home_z = Spring.GetTeamStartPosition(t)
-            Spring.Echo(Spring.GetSideData(side))
-            local _,factionName = Spring.GetSideData(side)
-            makefirstunits(factionName)
+            local factory,factionName = Spring.GetSideData(side)
+            makefirstunits(factionName,t)
         end
     end
 end
@@ -140,43 +125,33 @@ end
 function gadget:RecvLuaMsg(msg, playerID)
 end
 
-function makeunit(cmd,line,words,player)--uID)
-	local unit=words[1]
-	if unit then
-		Spring.Echo("make a con")
-	end
-	if unit == "RC" then
-		Spring.GiveOrderToUnit(FAC, RC,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		
-	elseif unit == "IT0" then
-		Spring.GiveOrderToUnit(FAC, IT0,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-	end
-end
 
-function makefirstunits(faction)--uID)
-
-	--[[if faction == "Jauria" then
-		Spring.GiveOrderToUnit(FAC, RC,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, NM1,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, NM1,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, NM1,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, NM1,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, NM1,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+function makefirstunits(faction, teamID)
+	local units = Spring.GetTeamUnits(teamID)
+	local fac =units[1]
+	
+	if faction == "Jauria" then
+		Spring.GiveOrderToUnit(fac, RC,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, NM1,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, NM1,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, NM1,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, NM1,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, NM1,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
 	elseif faction == "Chaos" then
-		Spring.GiveOrderToUnit(FAC, ADEPT,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, RAIDER,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, RAIDER,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, RAIDER,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, RAIDER,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, RAIDER,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, ADEPT,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, RAIDER,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, RAIDER,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, RAIDER,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, RAIDER,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, RAIDER,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
 	elseif faction == "Europe" then
-		Spring.GiveOrderToUnit(FAC, PROSPECTOR,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, MILITIA,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, MILITIA,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, MILITIA,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, MILITIA,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-		Spring.GiveOrderToUnit(FAC, MILITIA,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
-	end]]--
+		Spring.GiveOrderToUnit(fac, PROSPECTOR,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, MILITIA,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, MILITIA,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, MILITIA,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, MILITIA,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		Spring.GiveOrderToUnit(fac, MILITIA,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+	end
 end
 else
 end
