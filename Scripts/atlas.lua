@@ -15,7 +15,7 @@ local culo = piece('culo');
 local flare1 = piece('flare1');
 local flare2 = piece('flare2');
 local flare3 = piece('flare3');
-local flare3 = piece('flare3');
+local flare4 = piece('flare4');
 local municiones = piece('municiones');
 local piernad = piece('piernad');
 local piernai = piece('piernai');
@@ -32,7 +32,9 @@ local SIG_WALK = 1
 local SIG_WALK1 = 2
 local SIG_AIM = 4
 local SIG_AIM1 = 8
-local SIG_RESTORE = 16
+local SIG_AIM2 = 16
+local SIG_AIM3 = 32
+local SIG_RESTORE = 64
 
 local RESTORE_DELAY_SHOOT = 4000
 
@@ -454,8 +456,8 @@ function script.AimWeapon2( heading, pitch )
 end
 function script.AimWeapon3( heading, pitch )
 	--make sure the aiming animation is only run once
-	Signal(SIG_AIM)
-	SetSignalMask(SIG_AIM)
+	Signal(SIG_AIM2)
+	SetSignalMask(SIG_AIM2)
 	isShooting = true
 	Turn(armadura, z_axis, heading, math.rad(350))
 	
@@ -467,8 +469,8 @@ end
 
 function script.AimWeapon4( heading, pitch )
 	--make sure the aiming animation is only run once
-	Signal(SIG_AIM1)
-	SetSignalMask(SIG_AIM1)
+	Signal(SIG_AIM3)
+	SetSignalMask(SIG_AIM3)
 	isShooting = true
 	Turn(armadura, z_axis, heading, math.rad(350))
 	
