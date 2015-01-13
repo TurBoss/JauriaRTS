@@ -4,8 +4,8 @@ local weaponDef={
 	name="weapontaurus",
 	weaponType=[[MissileLauncher]],
 
-	Accuracy=500,
-	movingAccuracy=800,
+	Accuracy=50,
+	movingAccuracy=80,
 	
 	InterceptedByShieldType= 4,
 	

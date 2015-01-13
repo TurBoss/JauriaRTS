@@ -14,6 +14,8 @@ local craneo = piece('craneo');
 local culo = piece('culo');
 local flare1 = piece('flare1');
 local flare2 = piece('flare2');
+local flare3 = piece('flare3');
+local flare3 = piece('flare3');
 local municiones = piece('municiones');
 local piernad = piece('piernad');
 local piernai = piece('piernai');
@@ -407,6 +409,22 @@ end
 function script.QueryWeapon2() 
 	return flare2
 end
+
+function script.AimFromWeapon3()
+	return armadura
+end
+
+function script.QueryWeapon3() 
+	return flare3
+end
+
+function script.AimFromWeapon4()
+	return armadura
+end
+
+function script.QueryWeapon4() 
+	return flare4
+end
 --
 
 function script.AimWeapon1( heading, pitch )
@@ -423,6 +441,31 @@ function script.AimWeapon1( heading, pitch )
 end
 
 function script.AimWeapon2( heading, pitch )
+	--make sure the aiming animation is only run once
+	Signal(SIG_AIM1)
+	SetSignalMask(SIG_AIM1)
+	isShooting = true
+	Turn(armadura, z_axis, heading, math.rad(350))
+	
+	--wait until the weapon is pointed in the right direction
+	WaitForTurn (armadura, z_axis)
+	StartThread(RestoreShoot)
+	return true
+end
+function script.AimWeapon3( heading, pitch )
+	--make sure the aiming animation is only run once
+	Signal(SIG_AIM)
+	SetSignalMask(SIG_AIM)
+	isShooting = true
+	Turn(armadura, z_axis, heading, math.rad(350))
+	
+	--wait until the weapon is pointed in the right direction
+	WaitForTurn (armadura, z_axis)
+	StartThread(RestoreShoot)
+	return true
+end
+
+function script.AimWeapon4( heading, pitch )
 	--make sure the aiming animation is only run once
 	Signal(SIG_AIM1)
 	SetSignalMask(SIG_AIM1)

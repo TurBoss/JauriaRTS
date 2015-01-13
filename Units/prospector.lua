@@ -49,10 +49,10 @@ local unitDef = {
 	Builder = true,
 	ShowNanoSpray = true,
 	CanBeAssisted = true, 
-	workerTime = 0.25,
-	repairSpeed = 0.05,
+	workerTime = 0.50,
+	repairSpeed = 1,
 	reclaimSpeed = 30,
-	buildDistance = 100,
+	buildDistance = 160,
 }
 
 return lowerkeys({ [unitName] = unitDef })

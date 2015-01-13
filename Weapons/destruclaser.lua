@@ -13,9 +13,9 @@ local weaponDef = {
 	
 	damage = {
 		default = 15.5,
-		heavyarmor = 7,
-		lightarmor = 14,
-		torrearmor = 8,
+		heavyarmor = 10.2,
+		lightarmor = 14.8,
+		torrearmor = 9,
 	},
 	areaOfEffect            = 0,
 	
@@ -26,7 +26,7 @@ local weaponDef = {
 	laserFlareSize			= 10,
 	largeBeamLaser			= true,
 	weaponVelocity          = 350,
-	reloadtime              = 0.2,
+	reloadtime              = 0.3,
 	range                   = 350,
 	--sprayAngle              = 300,
 	tolerance               = 10000,
