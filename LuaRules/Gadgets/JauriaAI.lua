@@ -22,9 +22,6 @@ local spots={}
 
 local orders={}
 
-local FAC1	= 1000
-local FAC2	= 1001
-
 --Jauria
 local RC			= -4
 local IT0			= -6
@@ -44,8 +41,8 @@ local MARAUDER		= -11
 local BESIEGER		= -14
 local PUTRIS		= -23
 local DESOLATOR		= -30
-local JUGGGRNAUT	= -35 
-local DT6			= -39
+local JUGGERNAUT	= -35 
+local ARCHAON		= -39
 
 --Europe
 local PROSPECTOR	= -3
@@ -91,40 +88,13 @@ local function SetupCmdChangeAIDebugVerbosity()
 	Script.AddActionFallback(cmd..' ',help)
 end
 
-local function FindNearesMineral(t, oriX, oriZ)
-	--[[local td = teamData[t]
-	Spring.Echo(td)
-	local nicest_geo_so_far = nil
-	local nicest_geo_dist = 0
-
-	for _=1,math.max(#td.positions/2,2) do
-		local p = math.random(#td.positions)
-		local pos = td.positions[p]+
-		Spring.Echo(pos)
+function gadget:GameFrame(frame)
+	if (frame % 30 ==0) then
+		AIDebugMessage("all","test MSG EVERY 30 Frames ".. frame)
 	end
-		if((pos.state==STATE_EMPTY and (not pos.underConstruction) and (not IsItOccupied(pos.x,pos.z))) and ((nicest_geo_so_far==nil) or (pos.dist<=nicest_geo_dist))) then
-			nicest_geo_so_far = p
-			nicest_geo_dist = math.sqrt((pos.x-oriX)*(pos.x-oriX) + (pos.z-oriZ)*(pos.z-oriZ))
-		end
-	end
-
-	if not nicest_geo_so_far then
-		for _=1,2*#td.positions do
-			local p = math.random(#td.positions)
-			local pos = td.positions[p]
-			if((pos.state~=STATE_OWN and (not pos.underConstruction) and (not IsItOccupied(pos.x,pos.z))) and ((nicest_geo_so_far==nil) or (pos.dist<=nicest_geo_dist))) then
-				nicest_geo_so_far = p
-				if(pos.state==STATE_EMPTY) then
-					nicest_geo_dist = math.sqrt((pos.x-oriX)*(pos.x-oriX) + (pos.z-oriZ)*(pos.z-oriZ))
-				else
-					nicest_geo_dist = 2*math.sqrt((pos.x-oriX)*(pos.x-oriX) + (pos.z-oriZ)*(pos.z-oriZ))
-				end
-			end
-		end
-	end
-
-	return nicest_geo_so_far]]--
 end
+
+function gadget:GameStart()
 
 local function makefirstunits(faction)--uID)
 	if faction == "Jauria" then
