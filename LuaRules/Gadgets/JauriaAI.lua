@@ -16,6 +16,8 @@ end
 -- synced only
 if (gadgetHandler:IsSyncedCode()) then
 
+local DelayCall = GG.Delay.DelayCall
+
 local teamData={}
 local unitPos={}
 local spots={}
@@ -90,33 +92,33 @@ local function SetupCmdChangeAIDebugVerbosity()
 	Script.AddActionFallback(cmd..' ',help)
 end
 
-local function makefirstunits(faction,teamID)--uID)
-
+local function makeFirstUnits(factionName,teamID)--uID)
+	--Spring.Echo(factionName)
 	local units = Spring.GetTeamUnits(teamID)
 	local fac =units[1]
 	
 	--table.insert(orders,{fac,CMD.MOVE,{0,0,0},{}})
 	
-	if faction == "Jauria" then
+	if factionName == "Jauria" then
 	
 		for i = 1 ,5, 1 do
-			Spring.GiveOrderToUnit(fac, NM1,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+			table.insert(orders,{fac, RC,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
-		Spring.GiveOrderToUnit(fac, RC,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		--table.insert(orders,{fac, RC,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		
-	elseif faction == "Chaos" then
+	elseif factionName == "Chaos" then
 	
 		for i = 1 ,5, 1 do
-			Spring.GiveOrderToUnit(fac, RAIDER,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+			table.insert(orders,{fac, RAIDER,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
-		Spring.GiveOrderToUnit(fac, ADEPT,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		--table.insert(orders,{fac, ADEPT,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		
-	elseif faction == "Europe" then
+	elseif factionName == "Europe" then
 	
 		for i = 1 ,5, 1 do
-			Spring.GiveOrderToUnit(fac, MILITIA,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+			table.insert(orders,{fac, MILITIA,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
-		Spring.GiveOrderToUnit(fac, PROSPECTOR,{0,0,0,0},{}) -- uid, id {pos x, pos y, pos z, dir}
+		--table.insert(orders,{fac, PROSPECTOR,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		
 	end
 	
@@ -129,7 +131,7 @@ local function findNearestMineral(t,oriX,oriZ)
 	for _=1,math.max(#td.positions/2,2) do
 		local p = math.random(#td.positions)
 		local pos = td.positions[p]
-		if((pos.state==STATE_EMPTY and (not pos.underConstruction) and (not IsItOccupied(pos.x,pos.z))) and ((nicest_geo_so_far==nil) or (pos.dist<=nicest_geo_dist))) then
+		if((nicest_geo_so_far==nil) or (pos.dist<=nicest_geo_dist))then
 			nicest_geo_so_far = p
 			nicest_geo_dist = math.sqrt((pos.x-oriX)*(pos.x-oriX) + (pos.z-oriZ)*(pos.z-oriZ))
 		end
@@ -139,7 +141,7 @@ local function findNearestMineral(t,oriX,oriZ)
 		for _=1,2*#td.positions do
 			local p = math.random(#td.positions)
 			local pos = td.positions[p]
-			if((pos.state~=STATE_OWN and (not pos.underConstruction) and (not IsItOccupied(pos.x,pos.z))) and ((nicest_geo_so_far==nil) or (pos.dist<=nicest_geo_dist))) then
+			if((nicest_geo_so_far==nil) or (pos.dist<=nicest_geo_dist)) then
 				nicest_geo_so_far = p
 				if(pos.state==STATE_EMPTY) then
 					nicest_geo_dist = math.sqrt((pos.x-oriX)*(pos.x-oriX) + (pos.z-oriZ)*(pos.z-oriZ))
@@ -154,10 +156,30 @@ local function findNearestMineral(t,oriX,oriZ)
 end
 
 local function findMobs()
+	Spring.Echo("searching for mobs")
 	local units = Spring.GetTeamUnits(gaiaTeamID)
 	for u in ipairs(units) do
 		local x,y,z = Spring.GetUnitPosition(u)
 		table.insert(mobs, {x=x, y=y, z=z})
+	end
+end
+
+local function goForMineral(factionName,t)
+	--Spring.Echo("goin for mobs")
+	local units = Spring.GetTeamUnits(t)
+	if factionName == "Jauria" then
+		for _, u in ipairs(units) do
+			local unitdef = Spring.GetUnitDefID(u) 
+			--Spring.Echo(UnitDefs[unitdef].name)
+			if UnitDefs[unitdef].name == "arc" then
+				Spring.Echo("RC")
+				
+				local x,_,z = Spring.GetUnitPosition(u)
+				local mineral = findNearestMineral(t,x,z)
+				
+				table.insert(orders,{u, CMD.RECLAIM,{spots[mineral].x,0,spots[mineral].z,0},{}})
+			end
+		end
 	end
 end
 
@@ -218,9 +240,10 @@ function gadget:GameStart()
 				no_more_enemies_since=0,
 				lastAllyDamage=nil,
 			}
-			local startUnit,factionName = Spring.GetSideData(side)
-			makefirstunits(factionName,t)
-			--findNearestMineral()
+			local _,factionName = Spring.GetSideData(side)
+			makeFirstUnits(factionName,t)
+			DelayCall(findMobs, {}, 100)
+			DelayCall(goForMineral, {factionName,t},1800)
 		end
 	end
 end
@@ -267,12 +290,11 @@ function gadget:GameFrame(f)
 	end
 	
 	_G.teamData=teamData
-	_G.KPAI_Debug_Mode=KPAI_Debug_Mode
+	_G.AI_Debug_Mode=AI_Debug_Mode
 	
 	-- AI update
 	if f % 128 < .1 then
 		RemoveSelfIfNoTeam()
-		findMobs()
 	end
 end
 
