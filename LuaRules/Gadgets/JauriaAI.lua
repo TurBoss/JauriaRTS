@@ -152,28 +152,28 @@ local function findNearestMineral(t,oriX,oriZ)
 	return nicest_geo_so_far
 end
 
-local function findNearestMob(oriX,oriZ)
-	local td = teamData[t]
+local function findNearestMob(t,oriX,oriZ)
+	local pos = {}
+	for i,s in pairs(mobs) do
+		local dist = math.sqrt((oriX-s.x)*(oriX-s.x) + (oriZ-s.z)*(oriZ-s.z))
+		if dist >= 64 then
+			table.insert(pos,{x=s.x, y=s.y, z=s.z,dist = dist, state = STATE_EMPTY, spams = 0, underConstruction=false})
+		end
+	end
 	
-	local nicest_mob_so_far = nil
-	local nicest_mob_dist = 0
+	local nicest_geo_so_far = nil
+	local nicest_geo_dist = 0
 	for i in ipairs(mobs) do
-		local p = math.random(#mobs)
-		local pos = mobs[p]
-		if(nicest_geo_so_far==nil)then
-			nicest_geo_so_far = p
-			nicest_geo_dist = math.sqrt((pos.x-oriX)*(pos.x-oriX) + (pos.z-oriZ)*(pos.z-oriZ))
-			Spring.Echo(nicest_geo_dist)
+		if((nicest_geo_so_far==nil) or (pos[i].dist<=nicest_geo_dist))then
+			nicest_geo_so_far = i
+			nicest_geo_dist = math.sqrt((pos[i].x-oriX)*(pos[i].x-oriX) + (pos[i].z-oriZ)*(pos[i].z-oriZ))
 		end
 	end
 	if not nicest_geo_so_far then
-	for i in ipairs(mobs) do
-			local p = math.random(#mobs)
-			local pos = mobs[p]
-			Spring.Echo(pos)
-			if(nicest_geo_so_far==nil) then
-				nicest_geo_so_far = p
-				nicest_geo_dist = math.sqrt((pos.x-oriX)*(pos.x-oriX) + (pos.z-oriZ)*(pos.z-oriZ))
+		for i in ipairs(mobs) do
+			if((nicest_geo_so_far==nil) or (pos[i].dist<=nicest_geo_dist)) then
+				nicest_geo_so_far = i
+				nicest_geo_dist = math.sqrt((pos[i].x-oriX)*(pos[i].x-oriX) + (pos[i].z-oriZ)*(pos[i].z-oriZ))
 				
 			end
 		end
@@ -197,7 +197,7 @@ local function goForMobs(t)
 		if UnitDefs[ud].name == "cnm1" or UnitDefs[ud].name == "drk2" then
 			army = army + 1
 			local x,_,z = Spring.GetUnitPosition(u)
-			local mob = findNearestMob(x,z)
+			local mob = findNearestMob(t,x,z)
 	
 			table.insert(orders,{u, CMD.FIGHT,{mobs[mob].x,0,mobs[mob].z,0},{}})
 		end
