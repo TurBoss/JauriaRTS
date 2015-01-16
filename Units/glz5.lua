@@ -21,7 +21,7 @@ local unitDef = {
 	idleTime     = 3,
 
 	--Movement
-
+	moveState=0,
 	mass=3200,
 	Acceleration = 0.2,
 	BrakeRate = 0.2,

@@ -102,12 +102,15 @@ local function makeFirstUnits(factionName,teamID)--uID)
 	if factionName == "Jauria" then
 	
 		for i = 1 ,5, 1 do
+			table.insert(orders,{fac, -RC,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
+		end
+		for i = 1 ,5, 1 do
 			table.insert(orders,{fac, -NM1,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
 		for i = 1 ,5, 1 do
 			table.insert(orders,{fac, -RK2,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
-		for i = 1 ,5, 1 do
+		for i = 1 ,2, 1 do
 			table.insert(orders,{fac, -RC,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
 		
@@ -194,26 +197,28 @@ local function goForMobs(t)
 	local army = 0
 	for _,u in ipairs(units) do
 		local ud = Spring.GetUnitDefID(u)
-		if UnitDefs[ud].name == "cnm1" or UnitDefs[ud].name == "drk2" then
+		if ud == NM1 or ud == RK2 then
 			army = army + 1
 			local x,_,z = Spring.GetUnitPosition(u)
 			local mob = findNearestMob(t,x,z)
-	
+			
+			Spring.MarkerAddPoint(mobs[mob].x,0,mobs[mob].z, "MOB")
 			table.insert(orders,{u, CMD.FIGHT,{mobs[mob].x,0,mobs[mob].z,0},{}})
 		end
 	end
 
 end
+
 local function gotArmy(t)
 	local units = Spring.GetAllUnits(t)
 	local army = 0
 	for _,u in ipairs(units) do
 		local ud = Spring.GetUnitDefID(u)
-		if UnitDefs[ud].name == "cnm1" or UnitDefs[ud].name == "drk2" then
+		if ud == NM1 or ud == RK2 then
 			army = army + 1
 		end
 	end
-	if army >= 6 then
+	if army >= 10 then
 		return true
 	else
 		return false
@@ -222,11 +227,30 @@ end
 
 local function goForMineral(u,t)
 	--Spring.Echo(UnitDefs[unitdef].name)
-	local ud = Spring.GetUnitDefID(u)
+	--local ud = Spring.GetUnitDefID(u)
 	local x,_,z = Spring.GetUnitPosition(u)
 	local mineral = findNearestMineral(t,x,z)
 	
 	table.insert(orders,{u, CMD.RECLAIM,{spots[mineral].x,0,spots[mineral].z,0},{}})
+end
+
+local function AttackTower(t,targetTeam)
+	AIDebugMessage(t,"GO!",t,targetTeam)
+	local k = Spring.GetTeamUnitsByDefs(targetTeam,HomeBase)[1]
+	local td = teamData[t]
+	if k then
+		AIDebugMessage(t,"GO!GO!GO!")
+		for _,u in ipairs(Spring.GetTeamUnitsByDefs(t,spam)) do
+			if not td.missions[u] then
+				td.missions[u]=true
+				if unitPos[u] then
+					td.positions[unitPos[u]].spams = td.positions[unitPos[u]].spams - 1
+				end
+				unitPos[u] = nil
+				Spring.GiveOrderToUnit(u,CMD.ATTACK,{k},{})
+			end
+		end
+	end
 end
 
 function gadget:Initialize()
@@ -342,6 +366,7 @@ function gadget:GameFrame(f)
 	if f % 128 < .1 then
 		RemoveSelfIfNoTeam()
 		for t,td in pairs(teamData) do
+			AIDebugMessage(t,gadget:GetInfo().name.." I live!")
 			if gotArmy() then
 				goForMobs(u,t)
 			end
