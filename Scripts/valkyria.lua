@@ -24,8 +24,24 @@ local SIG_AIM = 1
 
 local smoke = SFX.CEG
 
+--local lastcloacked = false
+
+--[[function checkUnitCloaked()
+	while true do
+		local cloacked = Spring.GetUnitIsCloaked(unitID)
+		if (lastcloacked == false) and (cloacked == true) then
+			lastcloacked = true
+			Spring.Echo("cloaked")
+		elseif (lastcloacked == true) and (cloacked == false) then
+			lastcloacked = false
+			Spring.Echo("decloaked")
+		end
+		Sleep(500)
+	end
+end]]--
+
 function script.Create()
-	
+	--StartThread (checkUnitCloaked)
 end
 
 ---AIMING & SHOOTING---
@@ -65,6 +81,7 @@ end
 function script.StopMoving()
 
 end
+
 
 ----death animation: fall over & explode
 function script.Killed(recentDamage, maxHealth)
