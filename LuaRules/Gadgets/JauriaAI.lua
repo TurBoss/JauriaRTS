@@ -33,9 +33,9 @@ local gaiaTeamID = Spring.GetGaiaTeamID()
 
 --Jauria
 --local RC			= 4
-local IT0			= 6
-local NM1			= 12
-local RK2			= 18
+--local IT0			= 6
+--local NM1			= 12
+--local RK2			= 18
 local NK3			= 22
 local TKT4			= 33
 local LZ5			= 36 
@@ -44,7 +44,7 @@ local DT6			= 41
 --Heiks
 
 --Chaos
-local ADEPT			= 1
+--local ADEPT			= 1
 local RAIDER		= 8
 local MARAUDER		= 11
 local BESIEGER		= 14
@@ -54,7 +54,7 @@ local JUGGERNAUT	= 35
 local ARCHAON		= 39
 
 --Europe
-local PROSPECTOR	= 3
+--local PROSPECTOR	= 3
 local MILITIA		= 7
 local BERSERKER		= 9
 local OVERKRAFT		= 17
@@ -101,6 +101,7 @@ end
 local function makeFirstUnits(factionName,teamID)--uID)
 	--Spring.Echo(factionName)
 	local units = Spring.GetTeamUnits(teamID)
+	
 	local fac =units[1]
 	
 	--table.insert(orders,{fac,CMD.MOVE,{0,0,0},{}})
@@ -111,10 +112,10 @@ local function makeFirstUnits(factionName,teamID)--uID)
 			table.insert(orders,{fac, -rc,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
 		for i = 1 ,5, 1 do
-			table.insert(orders,{fac, -NM1,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
+			table.insert(orders,{fac, -nm1,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
 		for i = 1 ,5, 1 do
-			table.insert(orders,{fac, -RK2,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
+			table.insert(orders,{fac, -rk2,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
 		for i = 1 ,2, 1 do
 			table.insert(orders,{fac, -rc,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
@@ -128,7 +129,7 @@ local function makeFirstUnits(factionName,teamID)--uID)
 	elseif factionName == "Europe" then
 	
 		for i = 1 ,5, 1 do
-			table.insert(orders,{fac, -PROSPECTOR,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
+			table.insert(orders,{fac, -prospector,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
 	end
 	
@@ -216,7 +217,7 @@ local function goForMobs(t)
 	local units = Spring.GetAllUnits(t)
 	for _,u in ipairs(units) do
 		local ud = Spring.GetUnitDefID(u)
-		if ud == NM1 or ud == RK2 then
+		if ud == nm1 or ud == rk2 then
 			local x,_,z = Spring.GetUnitPosition(u)
 			local mob = findNearestMob(t,x,z)
 			
@@ -227,11 +228,12 @@ local function goForMobs(t)
 end
 
 local function gotArmy(t)
+	
 	local units = Spring.GetAllUnits(t)
 	local army = 0
 	for _,u in ipairs(units) do
 		local ud = Spring.GetUnitDefID(u)
-		if ud == NM1 or ud == RK2 then
+		if ud == nm1 or ud == nm2 then
 			army = army + 1
 		end
 	end
@@ -240,11 +242,10 @@ local function gotArmy(t)
 	else
 		return false
 	end
+	
 end
 
 local function goForMineral(u,t)
-	--Spring.Echo(UnitDefs[unitdef].name)
-	--local ud = Spring.GetUnitDefID(u)
 	local x,_,z = Spring.GetUnitPosition(u)
 	local mineral = findNearestMineral(t,x,z)
 	
@@ -452,4 +453,7 @@ function gadget:RecvLuaMsg(msg, playerID)
 end
 
 else
+
+--UNSYNCED
+
 end

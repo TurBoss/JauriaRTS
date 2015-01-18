@@ -1,5 +1,3 @@
-
-
 ----------------------------------------
 -- Define individual unit types
 
@@ -9,7 +7,7 @@ fabricaeurope = UnitDefNames.fabricaeurope.id
 fabricaporreton = UnitDefNames.fabricaporreton.id
 fabricaheks = UnitDefNames.fabricaheks.id
 
--- Special Buildings
+-- Towers
 torrun = UnitDefNames.torrun.id
 
 -- Constructors
@@ -18,38 +16,18 @@ adept = UnitDefNames.aadept.id
 prospector = UnitDefNames.aprospector.id
 
 -- Spam
---bit = UnitDefNames.bit.id
---bug = UnitDefNames.bug.id
---bugold = UnitDefNames.bugold.id
---packet = UnitDefNames.packet.id
---virus = UnitDefNames.virus.id
---exploit = UnitDefNames.exploit.id
---fairy = UnitDefNames.fairy.id
+nm1 = UnitDefNames.cnm1.id
+rk2 = UnitDefNames.drk2.id
 
 -- Heavy
---byte = UnitDefNames.byte.id
---worm = UnitDefNames.worm.id
---wormold = UnitDefNames.wormold.id
---connection = UnitDefNames.connection.id
---reimu = UnitDefNames.reimu.id
+nk3 = UnitDefNames.enk3.id
+tkt4 = UnitDefNames.ftkt4.id
 
 -- Arty
---pointer = UnitDefNames.pointer.id
---dos = UnitDefNames.dos.id
---flow = UnitDefNames.flow.id
---marisa = UnitDefNames.marisa.id
+lz5 = UnitDefNames.glz5.id
 
 -- Other
---exploit= UnitDefNames.exploit.id
---logic_bomb = UnitDefNames.logic_bomb.id
---mineblaster = UnitDefNames.mineblaster.id
---badblock = UnitDefNames.badblock.id
---signal = UnitDefNames.signal.id
-
---hand = UnitDefNames.hand.id
---rock = UnitDefNames.rock.id
---paper = UnitDefNames.paper.id
---scissors = UnitDefNames.scissors.id
+it0 = UnitDefNames.bit0.id
 
 ----------------------------------------
 -- Define unit type groups
@@ -68,18 +46,17 @@ cons = {
 	arc,aadepts,aprospector,
 }
 
---spam = {
---	bit,bug,bugold,packet,fairy,
---	virus,exploit,rock,paper,scissors,
---}
+spam = {
+	nm1,rk2,
+}
 
---heavy = {
---	byte,worm,wormold,connection,reimu,
---}
+heavy = {
+	nk3,tkt4,
+}
 
---arty = {
---	pointer,dos,flow,marisa,
---}
+arty = {
+	lz5,
+}
 
 ----------------------------------------
 -- Define isX unit type group tests
@@ -100,34 +77,19 @@ isCons = {
 	[adept]=true,
 	[prospector]=true,
 }
---[[
+
 isSpam = {
-	[bit]=true,
-	[bug]=true,
-	[bugold]=true,
-	[packet]=true,
-	[virus]=true,
-	[exploit]=true,
-	[fairy]=true,
-	[rock]=true,
-	[paper]=true,
-	[scissors]=true,
+	[nm1]=true,
+	[rk2]=true,
 }
 
 isHeavy = {
-	[byte]=true,
-	[worm]=true,
-	[wormold]=true,
-	[connection]=true,
-	[reimu]=true,
+	[nk3]=true,
+	[tkt4]=true,
 }
 
 isArty = {
-	[pointer]=true,
-	[dos]=true,
-	[flow]=true,
-	[marisa]=true,
-}]]--
+	[lz5]=true,
+}
 
 ----------------------------------------
-
