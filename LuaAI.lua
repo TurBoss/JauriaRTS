@@ -2,7 +2,7 @@
 local listOfLuaAIs = {
 	{
 		name = "JauriaAI",
-		desc = "Beats even the best players",
+		desc = "JauriaRTS AI (NOT WORKING)",
 		version = "0.1",
 		author = "TurBoss",
 	},

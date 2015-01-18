@@ -2,7 +2,7 @@
 function gadget:GetInfo()
     return {
         name    = "JauriaAI",
-        desc    = "An AI that knows how to play Mod X",
+        desc    = "JauriaRTS AI (NOT WORKING)",
         author  = "KDR_11k (David Becker), modified by zwzsg adapted to jauria rts by TurBoss",
         date    = "2014-08-25",
         license = "GNU GPL ver 2 or later",
@@ -22,13 +22,17 @@ local teamData={}
 local unitPos={}
 local spots={}
 local mobs={}
+local allyTowers={}
+local enemyTowers={}
 
 local orders={}
+
+local mobRank = {cuellito = 0, gusano = 1}
 
 local gaiaTeamID = Spring.GetGaiaTeamID()
 
 --Jauria
-local RC			= 4
+--local RC			= 4
 local IT0			= 6
 local NM1			= 12
 local RK2			= 18
@@ -60,6 +64,8 @@ local TAURUS		= 37
 local ATLAS			= 40
 
 local AI_Debug_Mode = 1 -- Must be 0 or 1
+
+VFS.Include("LuaRules/Gadgets/jauriaunittypes.lua",nil)
 
 local function ChangeAIDebugVerbosity(cmd,line,words,player)
 	local lvl=tonumber(words[1])
@@ -102,7 +108,7 @@ local function makeFirstUnits(factionName,teamID)--uID)
 	if factionName == "Jauria" then
 	
 		for i = 1 ,5, 1 do
-			table.insert(orders,{fac, -RC,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
+			table.insert(orders,{fac, -rc,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
 		for i = 1 ,5, 1 do
 			table.insert(orders,{fac, -NM1,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
@@ -111,13 +117,13 @@ local function makeFirstUnits(factionName,teamID)--uID)
 			table.insert(orders,{fac, -RK2,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
 		for i = 1 ,2, 1 do
-			table.insert(orders,{fac, -RC,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
+			table.insert(orders,{fac, -rc,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
 		
 	elseif factionName == "Chaos" then
 	
 		for i = 1 ,5, 1 do
-			table.insert(orders,{fac, -ADEPT,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
+			table.insert(orders,{fac, -adept,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
 	elseif factionName == "Europe" then
 	
@@ -159,9 +165,9 @@ local function findNearestMob(t,oriX,oriZ)
 	local pos = {}
 	for i,s in pairs(mobs) do
 		local dist = math.sqrt((oriX-s.x)*(oriX-s.x) + (oriZ-s.z)*(oriZ-s.z))
-		if dist >= 64 then
-			table.insert(pos,{x=s.x, y=s.y, z=s.z,dist = dist, state = STATE_EMPTY, spams = 0, underConstruction=false})
-		end
+		
+		table.insert(pos,{x=s.x, y=s.y, z=s.z,dist = dist, state = STATE_EMPTY, spams = 0, underConstruction=false})
+		
 	end
 	
 	local nicest_geo_so_far = nil
@@ -184,25 +190,36 @@ local function findNearestMob(t,oriX,oriZ)
 	return nicest_geo_so_far
 end
 
+local function findAllyTowers(t)
+	local units = Spring.GetTeamUnits(t)
+	for _,u in ipairs(units) do
+		local ud = Spring.GetUnitDefID(u)
+		local uName = UnitDefs[ud].name
+		if uName == "torrun" then
+			local x,y,z = Spring.GetUnitPosition(u)
+			table.insert(allyTowers, {x=x, y=y, z=z})
+			Spring.MarkerAddPoint(x, 0, z, "TOWER")
+		end
+	end
+end
+
 local function findMobs()
 	local units = Spring.GetTeamUnits(gaiaTeamID)
 	for _,u in ipairs(units) do
 		local x,y,z = Spring.GetUnitPosition(u)
 		table.insert(mobs, {x=x, y=y, z=z})
+		Spring.MarkerAddPoint(x, 0, z, "MOB")
 	end
 end
 
 local function goForMobs(t)
 	local units = Spring.GetAllUnits(t)
-	local army = 0
 	for _,u in ipairs(units) do
 		local ud = Spring.GetUnitDefID(u)
 		if ud == NM1 or ud == RK2 then
-			army = army + 1
 			local x,_,z = Spring.GetUnitPosition(u)
 			local mob = findNearestMob(t,x,z)
 			
-			Spring.MarkerAddPoint(mobs[mob].x,0,mobs[mob].z, "MOB")
 			table.insert(orders,{u, CMD.FIGHT,{mobs[mob].x,0,mobs[mob].z,0},{}})
 		end
 	end
@@ -253,8 +270,23 @@ local function AttackTower(t,targetTeam)
 	end
 end
 
+local function AddConstructor(t,u)
+	AIDebugMessage(t,"I got a cons!")
+	teamData[t].constructors[u]={position=0,}
+end
+
 function gadget:Initialize()
 	SetupCmdChangeAIDebugVerbosity()
+end
+
+function gadget:UnitFinished(u, ud, team, builder)
+
+	if teamData[team] then
+		teamData[team].forceSize = teamData[team].forceSize + 1
+		if isCons[ud] then
+			AddConstructor(team,u)
+		end
+	end
 end
 
 function gadget:GameStart()
@@ -312,7 +344,7 @@ function gadget:GameStart()
 			}
 			local _,factionName = Spring.GetSideData(side)
 			DelayCall(findMobs, {t}, 100)
-			--DelayCall(findNearestMob, {300,300}, 130)
+			DelayCall(findAllyTowers, {t}, 130)
 			makeFirstUnits(factionName,t)
 		end
 	end
@@ -370,7 +402,7 @@ function gadget:GameFrame(f)
 			if gotArmy() then
 				goForMobs(u,t)
 			end
-			for _,u in ipairs(Spring.GetTeamUnitsByDefs(t,RC)) do
+			for _,u in ipairs(Spring.GetTeamUnitsByDefs(t,rc)) do
 				local c = Spring.GetUnitCommands(u)
 				local vx,_,vz=Spring.GetUnitVelocity(u)
 				local metalMake, _, _, _ = Spring.GetUnitResources(u)
@@ -381,7 +413,7 @@ function gadget:GameFrame(f)
 					goForMineral(u,t)
 				end
 			end
-			for _,u in ipairs(Spring.GetTeamUnitsByDefs(t,ADEPT)) do
+			for _,u in ipairs(Spring.GetTeamUnitsByDefs(t,adept)) do
 				local c = Spring.GetUnitCommands(u)
 				local vx,_,vz=Spring.GetUnitVelocity(u)
 				local metalMake, _, _, _ = Spring.GetUnitResources(u)
@@ -392,7 +424,7 @@ function gadget:GameFrame(f)
 					goForMineral(u,t)
 				end
 			end
-			for _,u in ipairs(Spring.GetTeamUnitsByDefs(t,PROSPECTOR)) do
+			for _,u in ipairs(Spring.GetTeamUnitsByDefs(t,prospector)) do
 				local c = Spring.GetUnitCommands(u)
 				local vx,_,vz=Spring.GetUnitVelocity(u)
 				local metalMake, _, _, _ = Spring.GetUnitResources(u)
@@ -411,9 +443,6 @@ function gadget:UnitCreated(u,ud,team,builder)
 end
 
 function gadget:UnitDamaged(u,ud,team, damage, para, weapon,attacker,aud,ateam)
-end
-
-function gadget:UnitFinished(u, ud, team, builder)
 end
 
 function gadget:UnitDestroyed(u,ud,team)
