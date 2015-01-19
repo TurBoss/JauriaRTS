@@ -9,6 +9,15 @@ fabricaheks = UnitDefNames.fabricaheks.id
 
 -- Towers
 torrun = UnitDefNames.torrun.id
+torreta = UnitDefNames.torreta.id
+torretapro = UnitDefNames.torretapro.id
+metralleta = UnitDefNames.metralleta.id
+earthturret = UnitDefNames.earthturret.id
+
+--mobs
+cuellito = UnitDefNames.cuellito.id
+gusano = UnitDefNames.gusano.id
+
 
 -- Constructors
 rc = UnitDefNames.arc.id
@@ -38,12 +47,15 @@ HomeBase = {
 
 
 towers = {
-	torrun,
+	torrun,torreta,torretapro,earthturret,metralleta,
 }
 
+mobs = {
+	cuellito,gusano,
+}
 
 cons = {
-	arc,aadepts,aprospector,
+	rc,adept,prospector,
 }
 
 spam = {
@@ -70,6 +82,15 @@ isHomeBase = {
 
 isTower = {
 	[torrun]=true,
+	[torreta]=true,
+	[torretapro]=true,
+	[metralleta]=true,
+	[earthturret]=true,
+}
+
+isMob = {
+	[cuellito]=true,
+	[gusano]=true,
 }
 
 isCons = {

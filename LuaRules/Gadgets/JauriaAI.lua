@@ -4,8 +4,8 @@ function gadget:GetInfo()
         name    = "JauriaAI",
         desc    = "JauriaRTS AI (NOT WORKING)",
         author  = "KDR_11k (David Becker), modified by zwzsg adapted to jauria rts by TurBoss",
-        date    = "2014-08-25",
-        license = "GNU GPL ver 2 or later",
+        date    = "2008-04-09",
+        license = "Public Domain",
         version = "0.1",
         layer   = 82,
         enabled = true
@@ -21,13 +21,11 @@ local DelayCall = GG.Delay.DelayCall
 local teamData={}
 local unitPos={}
 local spots={}
-local mobs={}
+local mobsPos={}
 local allyTowers={}
 local enemyTowers={}
 
 local orders={}
-
-local mobRank = {cuellito = 0, gusano = 1}
 
 local gaiaTeamID = Spring.GetGaiaTeamID()
 
@@ -164,7 +162,7 @@ end
 
 local function findNearestMob(t,oriX,oriZ)
 	local pos = {}
-	for i,s in pairs(mobs) do
+	for i,s in pairs(mobsPos) do
 		local dist = math.sqrt((oriX-s.x)*(oriX-s.x) + (oriZ-s.z)*(oriZ-s.z))
 		
 		table.insert(pos,{x=s.x, y=s.y, z=s.z,dist = dist, state = STATE_EMPTY, spams = 0, underConstruction=false})
@@ -173,14 +171,14 @@ local function findNearestMob(t,oriX,oriZ)
 	
 	local nicest_geo_so_far = nil
 	local nicest_geo_dist = 0
-	for i in ipairs(mobs) do
+	for i in ipairs(mobsPos) do
 		if((nicest_geo_so_far==nil) or (pos[i].dist<=nicest_geo_dist))then
 			nicest_geo_so_far = i
 			nicest_geo_dist = math.sqrt((pos[i].x-oriX)*(pos[i].x-oriX) + (pos[i].z-oriZ)*(pos[i].z-oriZ))
 		end
 	end
 	if not nicest_geo_so_far then
-		for i in ipairs(mobs) do
+		for i in ipairs(mobsPos) do
 			if((nicest_geo_so_far==nil) or (pos[i].dist<=nicest_geo_dist)) then
 				nicest_geo_so_far = i
 				nicest_geo_dist = math.sqrt((pos[i].x-oriX)*(pos[i].x-oriX) + (pos[i].z-oriZ)*(pos[i].z-oriZ))
@@ -199,7 +197,7 @@ local function findAllyTowers(t)
 		if uName == "torrun" then
 			local x,y,z = Spring.GetUnitPosition(u)
 			table.insert(allyTowers, {x=x, y=y, z=z})
-			Spring.MarkerAddPoint(x, 0, z, "TOWER")
+			--Spring.MarkerAddPoint(x, 0, z, "TOWER")
 		end
 	end
 end
@@ -208,8 +206,8 @@ local function findMobs()
 	local units = Spring.GetTeamUnits(gaiaTeamID)
 	for _,u in ipairs(units) do
 		local x,y,z = Spring.GetUnitPosition(u)
-		table.insert(mobs, {x=x, y=y, z=z})
-		Spring.MarkerAddPoint(x, 0, z, "MOB")
+		table.insert(mobsPos, {x=x, y=y, z=z})
+		--Spring.MarkerAddPoint(x, 0, z, "MOB")
 	end
 end
 
@@ -221,7 +219,7 @@ local function goForMobs(t)
 			local x,_,z = Spring.GetUnitPosition(u)
 			local mob = findNearestMob(t,x,z)
 			
-			table.insert(orders,{u, CMD.FIGHT,{mobs[mob].x,0,mobs[mob].z,0},{}})
+			table.insert(orders,{u, CMD.FIGHT,{mobsPos[mob].x,0,mobsPos[mob].z,0},{}})
 		end
 	end
 
@@ -233,7 +231,7 @@ local function gotArmy(t)
 	local army = 0
 	for _,u in ipairs(units) do
 		local ud = Spring.GetUnitDefID(u)
-		if ud == nm1 or ud == nm2 then
+		if ud == nm1 or ud == rk2 then
 			army = army + 1
 		end
 	end
@@ -248,8 +246,10 @@ end
 local function goForMineral(u,t)
 	local x,_,z = Spring.GetUnitPosition(u)
 	local mineral = findNearestMineral(t,x,z)
-	
-	table.insert(orders,{u, CMD.RECLAIM,{spots[mineral].x,0,spots[mineral].z,0},{}})
+	if mineral then
+		--AIDebugMessage(t,"GO!GO!GO!")
+		table.insert(orders,{u, CMD.RECLAIM,{spots[mineral].x,0,spots[mineral].z,0},{}})
+	end
 end
 
 local function AttackTower(t,targetTeam)
@@ -276,6 +276,16 @@ local function AddConstructor(t,u)
 	teamData[t].constructors[u]={position=0,}
 end
 
+local function AddSpam(t,u,from)
+	AIDebugMessage(t,"I got a spam!")
+	if from and teamData[t].factories[from] then
+		local td = teamData[t]
+		local pos = td.factories[from].position
+		td.positions[pos].spams = td.positions[pos].spams + 1
+		unitPos[u]=pos
+	end
+end
+
 function gadget:Initialize()
 	SetupCmdChangeAIDebugVerbosity()
 end
@@ -293,19 +303,10 @@ end
 function gadget:GameStart()
 	-- Create tables of Mineral
 	for _,f in ipairs(Spring.GetAllFeatures()) do
-		if FeatureDefs[Spring.GetFeatureDefID(f)].name == "mineral1" or FeatureDefs[Spring.GetFeatureDefID(f)].name == "mineral2" then
+		if ((FeatureDefs[Spring.GetFeatureDefID(f)].name == "mineral1") or (FeatureDefs[Spring.GetFeatureDefID(f)].name == "mineral2")) then
 			local x,y,z = Spring.GetFeaturePosition(f)
-			--Merging algorithm because some KP maps have multiple geos in one spot
-			local newSpot=true
-			for i,s in pairs(spots) do
-				if math.sqrt((x-s.x)*(x-s.x) + (z-s.z)*(z-s.z)) < 64 then
-					newSpot = false
-					break
-				end
-			end
-			if newSpot then
-				table.insert(spots, {x=x, y=y, z=z})
-			end
+			--Spring.MarkerAddPoint(x, 0, z, "MINERAL")
+			table.insert(spots, {x=x, y=y, z=z})
 		end
 	end
 	
@@ -351,8 +352,6 @@ function gadget:GameStart()
 	end
 end
 
-function gadget:Initialize()
-end
 
 local function RemoveSelfIfNoTeam()
 	local AIcount=0
@@ -403,29 +402,7 @@ function gadget:GameFrame(f)
 			if gotArmy() then
 				goForMobs(u,t)
 			end
-			for _,u in ipairs(Spring.GetTeamUnitsByDefs(t,rc)) do
-				local c = Spring.GetUnitCommands(u)
-				local vx,_,vz=Spring.GetUnitVelocity(u)
-				local metalMake, _, _, _ = Spring.GetUnitResources(u)
-				-- if ((not c) or #c<2) then
-				if vx==0 and vz==0 and metalMake == 0 then
-					AIDebugMessage(t,"found idle cons["..u.."], dispatching it.")
-					 
-					goForMineral(u,t)
-				end
-			end
-			for _,u in ipairs(Spring.GetTeamUnitsByDefs(t,adept)) do
-				local c = Spring.GetUnitCommands(u)
-				local vx,_,vz=Spring.GetUnitVelocity(u)
-				local metalMake, _, _, _ = Spring.GetUnitResources(u)
-				-- if ((not c) or #c<2) then
-				if vx==0 and vz==0 and metalMake == 0 then
-					AIDebugMessage(t,"found idle cons["..u.."], dispatching it.")
-					 
-					goForMineral(u,t)
-				end
-			end
-			for _,u in ipairs(Spring.GetTeamUnitsByDefs(t,prospector)) do
+			for _,u in ipairs(Spring.GetTeamUnitsByDefs(t,cons)) do
 				local c = Spring.GetUnitCommands(u)
 				local vx,_,vz=Spring.GetUnitVelocity(u)
 				local metalMake, _, _, _ = Spring.GetUnitResources(u)
@@ -441,6 +418,9 @@ function gadget:GameFrame(f)
 end
 
 function gadget:UnitCreated(u,ud,team,builder)
+	if (isSpam[ud]) and teamData[team] then
+		AddSpam(team,u,builder)
+	end
 end
 
 function gadget:UnitDamaged(u,ud,team, damage, para, weapon,attacker,aud,ateam)
