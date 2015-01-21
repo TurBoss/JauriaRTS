@@ -31,6 +31,7 @@ rk2 = UnitDefNames.drk2.id
 -- Heavy
 nk3 = UnitDefNames.enk3.id
 tkt4 = UnitDefNames.ftkt4.id
+dt6 = UnitDefNames.hdt6.id
 
 -- Arty
 lz5 = UnitDefNames.glz5.id

@@ -34,10 +34,10 @@ local gaiaTeamID = Spring.GetGaiaTeamID()
 --local IT0			= 6
 --local NM1			= 12
 --local RK2			= 18
-local NK3			= 22
-local TKT4			= 33
-local LZ5			= 36 
-local DT6			= 41
+--local NK3			= 22
+--local TKT4		= 33
+--local LZ5			= 36 
+--local DT6			= 41
 
 --Heiks
 
@@ -106,7 +106,7 @@ local function makeFirstUnits(factionName,teamID)--uID)
 	
 	if factionName == "Jauria" then
 	
-		for i = 1 ,5, 1 do
+		for i = 1 ,7, 1 do
 			table.insert(orders,{fac, -rc,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
 		for i = 1 ,5, 1 do
@@ -114,9 +114,6 @@ local function makeFirstUnits(factionName,teamID)--uID)
 		end
 		for i = 1 ,5, 1 do
 			table.insert(orders,{fac, -rk2,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
-		end
-		for i = 1 ,2, 1 do
-			table.insert(orders,{fac, -rc,{0,0,0,0},{}}) -- uid, id {pos x, pos y, pos z, dir}
 		end
 		
 	elseif factionName == "Chaos" then
@@ -222,7 +219,6 @@ local function goForMobs(t)
 			table.insert(orders,{u, CMD.FIGHT,{mobsPos[mob].x,0,mobsPos[mob].z,0},{}})
 		end
 	end
-
 end
 
 local function gotArmy(t)
@@ -252,6 +248,15 @@ local function goForMineral(u,t)
 	end
 end
 
+local function goAssist(u,t)
+	
+	local x,_,z = Spring.GetUnitPosition(u)
+	local home = teamData[t].positions[0]
+	if home then
+		table.insert(orders,{u, CMD.GUARD,{teamData[t].startFactory},{}})
+	end
+end
+
 local function AttackTower(t,targetTeam)
 	AIDebugMessage(t,"GO!",t,targetTeam)
 	local k = Spring.GetTeamUnitsByDefs(targetTeam,HomeBase)[1]
@@ -272,8 +277,13 @@ local function AttackTower(t,targetTeam)
 end
 
 local function AddConstructor(t,u)
-	AIDebugMessage(t,"I got a cons!")
+	AIDebugMessage(t,"I got a collector!")
 	teamData[t].constructors[u]={position=0,}
+end
+
+local function AddHelperCon(t,u)
+	AIDebugMessage(t,"I got a helper con!")
+	teamData[t].helperCon[u]={position=0,}
 end
 
 local function AddSpam(t,u,from)
@@ -293,9 +303,17 @@ end
 function gadget:UnitFinished(u, ud, team, builder)
 
 	if teamData[team] then
-		teamData[team].forceSize = teamData[team].forceSize + 1
-		if isCons[ud] then
+		if isCons[ud] and teamData[team].conSize < 5 then
+			AIDebugMessage(team,"Recollector")
+			teamData[team].conSize = teamData[team].conSize + 1
 			AddConstructor(team,u)
+		elseif isCons[ud] then
+			AIDebugMessage(team,"Helper")
+			teamData[team].helperConSize = teamData[team].helperConSize + 1
+			AddHelperCon(team,u)
+		elseif not isCons[ud] and not isTower[ud] then
+			AIDebugMessage(team,"Other")
+			teamData[team].forceSize = teamData[team].forceSize + 1
 		end
 	end
 end
@@ -317,6 +335,16 @@ function gadget:GameStart()
 			Spring.Echo("Team "..t.." assigned to "..gadget:GetInfo().name)
 			local pos = {}
 			local home_x,home_y,home_z = Spring.GetTeamStartPosition(t)
+			local factory,factionName = Spring.GetSideData(side)
+			
+			local units = Spring.GetTeamUnits(t)
+			local factoryUID = 0
+			for _,u in ipairs(units) do
+				local uDID = Spring.GetUnitDefID(u)
+				if UnitDefs[uDID].name == factory then
+					factoryUID = u
+				end
+			end
 			pos[0]={x=home_x, y=home_y, z=home_z, dist=0, state=HOMEBASE, spams = 0, underConstruction=false}
 			for i,s in pairs(spots) do
 				local dist = math.sqrt((home_x-s.x)*(home_x-s.x) + (home_z-s.z)*(home_z-s.z))
@@ -324,29 +352,33 @@ function gadget:GameStart()
 					table.insert(pos,{x=s.x, y=s.y, z=s.z,dist = dist, state = STATE_EMPTY, spams = 0, underConstruction=false})
 				end
 			end
-			for i,_ in pairs(pos) do
-				AIDebugMessage(t,"pos["..i.."] @(x="..math.floor(pos[i].x)..",z="..math.floor(pos[i].z)..") dist="..math.floor(pos[i].dist))
-			end
+			--for i,_ in pairs(pos) do
+			--	AIDebugMessage(t,"pos["..i.."] @(x="..math.floor(pos[i].x)..",z="..math.floor(pos[i].z)..") dist="..math.floor(pos[i].dist))
+			--end
 			if #pos==0 then
 				table.insert(pos,pos[0]) -- just to prevent bug on geoless maps
 			end
 			local _,_,_,_,_,at = Spring.GetTeamInfo(t)
+			
 			teamData[t]= {
+				startFactory=factoryUID,
 				positions=pos,
 				missions={},
 				constructors={},
+				helperCon={},
 				factories={},
 				dangers={},
 				threatRating=0,
 				com={},
 				lastMove=0,
+				conSize=0,
+				helperConSize=0,
 				forceSize=0,
 				no_more_enemies_since=0,
 				lastAllyDamage=nil,
 			}
-			local _,factionName = Spring.GetSideData(side)
-			DelayCall(findMobs, {t}, 100)
-			DelayCall(findAllyTowers, {t}, 130)
+			DelayCall(findMobs, {t}, 90)
+			DelayCall(findAllyTowers, {t}, 120)
 			makeFirstUnits(factionName,t)
 		end
 	end
@@ -366,9 +398,9 @@ end
 
 function gadget:GameFrame(f)
 
-	if (f % 30 ==0) then
-		AIDebugMessage("all","test MSG EVERY 30 Frames ".. f)
-	end
+	--if (f % 30 ==0) then
+	--	AIDebugMessage("all","test MSG EVERY 30 Frames ".. f)
+	--end
 	for i,o in pairs(orders) do
 		if orders[i][5]==2 then -- delete that order in case displaying it causes error
 			orders[i]=nil
@@ -399,18 +431,30 @@ function gadget:GameFrame(f)
 		RemoveSelfIfNoTeam()
 		for t,td in pairs(teamData) do
 			AIDebugMessage(t,gadget:GetInfo().name.." I live!")
-			if gotArmy() then
-				goForMobs(u,t)
-			end
-			for _,u in ipairs(Spring.GetTeamUnitsByDefs(t,cons)) do
+			--if gotArmy() then
+			--	goForMobs(u,t)
+			--end
+			--for _,u in ipairs(Spring.GetTeamUnitsByDefs(t,cons)) do
+			for u,_ in pairs(teamData[t].constructors) do
 				local c = Spring.GetUnitCommands(u)
 				local vx,_,vz=Spring.GetUnitVelocity(u)
 				local metalMake, _, _, _ = Spring.GetUnitResources(u)
 				-- if ((not c) or #c<2) then
 				if vx==0 and vz==0 and metalMake == 0 then
-					AIDebugMessage(t,"found idle cons["..u.."], dispatching it.")
+					AIDebugMessage(t,"found idle collector["..u.."], dispatching it.")
 					 
 					goForMineral(u,t)
+				end
+			end
+			for u,_ in pairs(teamData[t].helperCon) do
+				local c = Spring.GetUnitCommands(u)
+				local vx,_,vz=Spring.GetUnitVelocity(u)
+				local metalMake, _, _, _ = Spring.GetUnitResources(u)
+				-- if ((not c) or #c<2) then
+				if vx==0 and vz==0 and metalMake == 0 then
+					AIDebugMessage(t,"found idle helpercons["..u.."], dispatching it.")
+					 
+					goAssist(u,t)
 				end
 			end
 		end
