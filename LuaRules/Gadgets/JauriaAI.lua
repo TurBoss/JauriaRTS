@@ -249,10 +249,11 @@ local function goForMineral(u,t)
 end
 
 local function goAssist(u,t)
-	
+	local td = teamData[t]
 	local x,_,z = Spring.GetUnitPosition(u)
 	local home = teamData[t].positions[0]
 	if home then
+		td.missions[u]=true
 		table.insert(orders,{u, CMD.GUARD,{teamData[t].startFactory},{}})
 	end
 end
@@ -293,6 +294,36 @@ local function AddSpam(t,u,from)
 		local pos = td.factories[from].position
 		td.positions[pos].spams = td.positions[pos].spams + 1
 		unitPos[u]=pos
+	end
+end
+
+local function SuicideIfAlone(t)
+	if Spring.GetTeamUnitCount(t) and Spring.GetTeamUnitCount(t)>1 then
+		local td = teamData[t]
+		local living_enemy_teams=0
+		for _,ot in ipairs(Spring.GetTeamList()) do	
+			if not Spring.AreTeamsAllied(ot,t) then
+				local _,_,isDead,isAiTeam,side,_=Spring.GetTeamInfo(ot)
+				if not isDead and Spring.GetTeamUnitCount(ot) and Spring.GetTeamUnitCount(ot)>0 then
+					AIDebugMessage(t,"Other enemy is "..side)
+					living_enemy_teams=1+living_enemy_teams
+				end
+			end
+		end
+		if living_enemy_teams==0 then
+			if (not td.no_more_enemies_since) or (td.no_more_enemies_since==0) then
+				td.no_more_enemies_since=Spring.GetGameSeconds()		
+			else
+				if Spring.GetGameSeconds() - td.no_more_enemies_since > 30+(7*t)%16 then
+					AIDebugMessage(t,"suicide because of loneliness")
+					Spring.GiveOrderToUnitArray(Spring.GetTeamUnits(t),CMD.SELFD,{},{})
+					td.no_more_enemies_since=7+Spring.GetGameSeconds()
+				end
+			end
+		else
+			td.no_more_enemies_since=0
+			AIDebugMessage(t,"I have enemies!")
+		end
 	end
 end
 
@@ -451,12 +482,14 @@ function gadget:GameFrame(f)
 				local vx,_,vz=Spring.GetUnitVelocity(u)
 				local metalMake, _, _, _ = Spring.GetUnitResources(u)
 				-- if ((not c) or #c<2) then
-				if vx==0 and vz==0 and metalMake == 0 then
-					AIDebugMessage(t,"found idle helpercons["..u.."], dispatching it.")
-					 
-					goAssist(u,t)
+				if vx==0 and vz==0 then
+					if not td.missions[u] then
+						AIDebugMessage(t,"found idle helpercons["..u.."], dispatching it.")
+						goAssist(u,t)
+					end
 				end
 			end
+			SuicideIfAlone(t)
 		end
 	end
 end
@@ -479,5 +512,37 @@ end
 else
 
 --UNSYNCED
+
+--return false
+
+function gadget:DrawWorldPreUnit()
+	local team = Spring.GetLocalTeamID()
+	if SYNCED.AI_Debug_Mode and SYNCED.AI_Debug_Mode>0 and SYNCED.teamData and SYNCED.teamData[team] then
+		--local OwnColor={Spring.GetTeamColor(team)}
+		--local EnemyColor={1-OwnColor[1],1-OwnColor[2],1-OwnColor[3],0.5}
+		local     OwnColor = {0,1,0,0.5}
+		local   EmptyColor = {1,1,0,0.5}
+		local   EnemyColor = {1,0,0,0.5}
+		local  LockedColor = {1,0,1,0.5}
+		local UnknownColor = {0,1,1,0.5}
+		local size=32
+		
+		for _,p in spairs(SYNCED.teamData[team].positions) do
+			if p.state == STATE_EMPTY then
+				gl.Color(unpack(EmptyColor))
+			elseif p.state == STATE_OWN then
+				gl.Color(unpack(OwnColor))
+			elseif p.state == STATE_ENEMY then
+				gl.Color(unpack(EnemyColor))
+			elseif p.state == STATE_LOCKED then
+				gl.Color(unpack(LockedColor))
+			else
+				gl.Color(unpack(UnknownColor))
+			end
+			gl.DrawGroundQuad(p.x - size, p.z - size, p.x + size, p.z + size)
+		end
+	end
+	gl.Color(1,1,1,1)
+end
 
 end

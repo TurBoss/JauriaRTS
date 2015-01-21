@@ -373,4 +373,5 @@ end
 
 function quitSpec()
 	Spring.SendCommands('quit')
+	Spring.SendCommands('quitforce')
 end
