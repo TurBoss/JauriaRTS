@@ -1,6 +1,6 @@
 function widget:GetInfo()
    return {
-      name      = "Commands FX",
+      name      = "GUI Commands FX",
       desc      = "Shows commands given by allies",
       author    = "Floris, Bluestone",
       date      = "July 2014",

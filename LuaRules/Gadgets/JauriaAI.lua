@@ -489,7 +489,7 @@ function gadget:GameFrame(f)
 					end
 				end
 			end
-			SuicideIfAlone(t)
+		SuicideIfAlone(t)
 		end
 	end
 end
@@ -512,37 +512,5 @@ end
 else
 
 --UNSYNCED
-
---return false
-
-function gadget:DrawWorldPreUnit()
-	local team = Spring.GetLocalTeamID()
-	if SYNCED.AI_Debug_Mode and SYNCED.AI_Debug_Mode>0 and SYNCED.teamData and SYNCED.teamData[team] then
-		--local OwnColor={Spring.GetTeamColor(team)}
-		--local EnemyColor={1-OwnColor[1],1-OwnColor[2],1-OwnColor[3],0.5}
-		local     OwnColor = {0,1,0,0.5}
-		local   EmptyColor = {1,1,0,0.5}
-		local   EnemyColor = {1,0,0,0.5}
-		local  LockedColor = {1,0,1,0.5}
-		local UnknownColor = {0,1,1,0.5}
-		local size=32
-		
-		for _,p in spairs(SYNCED.teamData[team].positions) do
-			if p.state == STATE_EMPTY then
-				gl.Color(unpack(EmptyColor))
-			elseif p.state == STATE_OWN then
-				gl.Color(unpack(OwnColor))
-			elseif p.state == STATE_ENEMY then
-				gl.Color(unpack(EnemyColor))
-			elseif p.state == STATE_LOCKED then
-				gl.Color(unpack(LockedColor))
-			else
-				gl.Color(unpack(UnknownColor))
-			end
-			gl.DrawGroundQuad(p.x - size, p.z - size, p.x + size, p.z + size)
-		end
-	end
-	gl.Color(1,1,1,1)
-end
 
 end
