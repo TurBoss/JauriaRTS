@@ -267,7 +267,7 @@ function widget:Initialize()
 		caption="Quit",
 		tooltip = "Quit the game";
 		OnClick = {function()
-			sendCmd ("quit")
+			sendCmd ("quitforce")
 			end}
 	}
 	

@@ -297,6 +297,17 @@ local function AddSpam(t,u,from)
 	end
 end
 
+local function RemoveSelfIfNoTeam()
+	local AIcount=0
+	for t,td in pairs(teamData) do
+		AIcount=AIcount+1
+	end
+	if(AIcount==0) then -- #teamData is 0 even when there are teams, and teamData=={} is untrue even when teamData={}
+		AIDebugMessage("none",gadget:GetInfo().name.." removing self")
+		gadgetHandler:RemoveGadget()
+	end
+end
+
 local function SuicideIfAlone(t)
 	if Spring.GetTeamUnitCount(t) and Spring.GetTeamUnitCount(t)>1 then
 		local td = teamData[t]
@@ -412,18 +423,6 @@ function gadget:GameStart()
 			DelayCall(findAllyTowers, {t}, 120)
 			makeFirstUnits(factionName,t)
 		end
-	end
-end
-
-
-local function RemoveSelfIfNoTeam()
-	local AIcount=0
-	for t,td in pairs(teamData) do
-		AIcount=AIcount+1
-	end
-	if(AIcount==0) then -- #teamData is 0 even when there are teams, and teamData=={} is untrue even when teamData={}
-		AIDebugMessage("none",gadget:GetInfo().name.." removing self")
-		gadgetHandler:RemoveGadget()
 	end
 end
 
