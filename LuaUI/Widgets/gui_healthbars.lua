@@ -1443,16 +1443,16 @@ function widget:GetConfigData(data)
     savedTable = {}
     savedTable.drawBarPercentage				= drawBarPercentage
     savedTable.alwaysDrawBarPercentageForComs	= alwaysDrawBarPercentageForComs
-    savedTable.currentOption					= currentOption
     savedTable.addGlow							= addGlow
+    savedTable.currentOption					= currentOption
     return savedTable
 end
 
 function widget:SetConfigData(data)
-    if data.drawBarPercentage ~= nil    			then  drawBarPercentage	= data.drawBarPercentage end
-    if data.alwaysDrawBarPercentageForComs ~= nil   then  alwaysDrawBarPercentageForComs = data.alwaysDrawBarPercentageForComs end
-    if data.currentOption ~= nil					then  currentOption = data.currentOption end
-    if data.addGlow ~= nil							then  addGlow = data.addGlow end
+    if data.drawBarPercentage ~= nil    									then  drawBarPercentage	= data.drawBarPercentage end
+    if data.alwaysDrawBarPercentageForComs ~= nil  							then  alwaysDrawBarPercentageForComs = data.alwaysDrawBarPercentageForComs end
+    if data.addGlow ~= nil													then  addGlow = data.addGlow end
+    if data.currentOption ~= nil  and  OPTIONS[data.currentOption] ~= nil	then  currentOption = data.currentOption end
 end
 
 function widget:TextCommand(command)
