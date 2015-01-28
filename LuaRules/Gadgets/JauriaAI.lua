@@ -186,15 +186,24 @@ local function findNearestMob(t,oriX,oriZ)
 	return nicest_geo_so_far
 end
 
-local function findAllyTowers(t)
-	local units = Spring.GetTeamUnits(t)
+local function findTowers(team)
+	local units = Spring.GetAllUnits()
 	for _,u in ipairs(units) do
 		local ud = Spring.GetUnitDefID(u)
-		local uName = UnitDefs[ud].name
-		if uName == "torrun" then
+		if isTower[ud] then
 			local x,y,z = Spring.GetUnitPosition(u)
-			table.insert(allyTowers, {x=x, y=y, z=z})
-			--Spring.MarkerAddPoint(x, 0, z, "TOWER")
+			local uteam = Spring.GetUnitTeam(u)
+			local ally = Spring.AreTeamsAllied(team,uteam)
+			local state
+			if ally then
+				state = "ALLY"
+			else
+				state = "ENEMY"
+			end
+			
+			table.insert(allyTowers, {x=x, y=y, z=z, state = state})
+			
+			Spring.MarkerAddPoint(x, 0, z, state)
 		end
 	end
 end
@@ -342,24 +351,6 @@ function gadget:Initialize()
 	SetupCmdChangeAIDebugVerbosity()
 end
 
-function gadget:UnitFinished(u, ud, team, builder)
-
-	if teamData[team] then
-		if isCons[ud] and teamData[team].conSize < 5 then
-			AIDebugMessage(team,"Recollector")
-			teamData[team].conSize = teamData[team].conSize + 1
-			AddConstructor(team,u)
-		elseif isCons[ud] then
-			AIDebugMessage(team,"Helper")
-			teamData[team].helperConSize = teamData[team].helperConSize + 1
-			AddHelperCon(team,u)
-		elseif not isCons[ud] and not isTower[ud] then
-			AIDebugMessage(team,"Other")
-			teamData[team].forceSize = teamData[team].forceSize + 1
-		end
-	end
-end
-
 function gadget:GameStart()
 	-- Create tables of Mineral
 	for _,f in ipairs(Spring.GetAllFeatures()) do
@@ -387,11 +378,11 @@ function gadget:GameStart()
 					factoryUID = u
 				end
 			end
-			pos[0]={x=home_x, y=home_y, z=home_z, dist=0, state=HOMEBASE, spams = 0, underConstruction=false}
+			pos[0]={x=home_x, y=home_y, z=home_z, dist=0, state=HOMEBASE}
 			for i,s in pairs(spots) do
 				local dist = math.sqrt((home_x-s.x)*(home_x-s.x) + (home_z-s.z)*(home_z-s.z))
 				if dist >= 64 then
-					table.insert(pos,{x=s.x, y=s.y, z=s.z,dist = dist, state = STATE_EMPTY, spams = 0, underConstruction=false})
+					table.insert(pos,{x=s.x, y=s.y, z=s.z,dist = dist})
 				end
 			end
 			--for i,_ in pairs(pos) do
@@ -420,7 +411,7 @@ function gadget:GameStart()
 				lastAllyDamage=nil,
 			}
 			DelayCall(findMobs, {t}, 90)
-			DelayCall(findAllyTowers, {t}, 120)
+			DelayCall(findTowers, {t}, 120)
 			makeFirstUnits(factionName,t)
 		end
 	end
@@ -499,10 +490,39 @@ function gadget:UnitCreated(u,ud,team,builder)
 	end
 end
 
+function gadget:UnitFinished(u, ud, team, builder)
+
+	if teamData[team] then
+		if isCons[ud] and teamData[team].conSize < 5 then
+			AIDebugMessage(team,"Recollector")
+			teamData[team].conSize = teamData[team].conSize + 1
+			AddConstructor(team,u)
+		elseif isCons[ud] then
+			AIDebugMessage(team,"Helper")
+			teamData[team].helperConSize = teamData[team].helperConSize + 1
+			AddHelperCon(team,u)
+		elseif not isCons[ud] and not isTower[ud] then
+			AIDebugMessage(team,"Other")
+			teamData[team].forceSize = teamData[team].forceSize + 1
+		end
+	end
+end
+
 function gadget:UnitDamaged(u,ud,team, damage, para, weapon,attacker,aud,ateam)
 end
 
 function gadget:UnitDestroyed(u,ud,team)
+
+	if teamData[team] then
+		local td = teamData[team]
+		td.forceSize = td.forceSize - 1
+	end
+	
+	for i,o in pairs(orders) do
+		if o[1]==u then
+			orders[i]=nil
+		end
+	end
 end
 
 function gadget:RecvLuaMsg(msg, playerID)
