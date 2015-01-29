@@ -136,7 +136,7 @@ function widget:Initialize() -- create lighttable
 		local weaponDef = WeaponDefs[w]
 		if not BlackList[weaponDef.name] then	-- prevent projectile light, if the weapon has some other light effect
 			if (weaponDef.type == 'Cannon' or weaponDef.type == 'EmgCannon') then
-				plighttable[w] = {1.0,1.0,0.5,0.5*((weaponDef.size-0.65)/3.0)}
+				plighttable[w] = {1.0,1.0,0.5,0.1*((weaponDef.size-0.65)/3.0)}
 			elseif (weaponDef.type == 'LaserCannon') then
 				local colour = weaponDef.visuals
 				plighttable[w] = {
@@ -148,11 +148,11 @@ function widget:Initialize() -- create lighttable
 			elseif (weaponDef.type == 'BeamLaser') then
 				local colour, alpha, thick, blend = weaponDef.visuals, 0.75, 0.45, 0.0
 				if weaponDef.largeBeamLaser==true then
-					alpha, thick, blend = 0.16, 0.58, 0.12
+					alpha, thick, blend = 0.1, 0.1, 0.1
 				end
 				plighttable[w] = {colour.colorR+blend/2, colour.colorG+blend, colour.colorB, alpha, true, 64*colour.thickness^thick, 1.07}
 			elseif (weaponDef.type == 'Flame') then
-				plighttable[w]={1.0,0.6,0.3,0.55}  --{0,1,0,0.6}
+				plighttable[w]={1.0,0.6,0.3,0.1}  --{0,1,0,0.6}
 			end
 		end
 	end
@@ -165,6 +165,10 @@ local x2, y2 = Game.mapSizeX, Game.mapSizeZ
 local x, y, z, dx, dz, nx, ny, nz, ang
 local a, f, h = {}, {}, {}
 function widget:DrawWorldPreUnit()
+
+	if IsTooHigh() then
+		return
+	end
 
 	if frame < spGetGameFrame() then
 		frame = spGetGameFrame()
@@ -204,7 +208,7 @@ function widget:DrawWorldPreUnit()
 
 		if lightparams then	-- there is a light defined for this projectile type
 			x, y, z = spGetProjectilePosition(pID)
-			if (x and y>0.0) and ( not IsTooHigh()) then -- projectile is above water					
+			if (x and y>0.0) then -- projectile is above water					
 				if lightparams[5] and type(lightparams[5])=="boolean" then -- BeamLaser and LightningCannon
 					tx,ty,tz = spGetProjectileVelocity(pID)
 					if tx then

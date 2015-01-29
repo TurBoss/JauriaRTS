@@ -1,9 +1,9 @@
 function widget:GetInfo()
    return {
-      name      = "GUI Commands FX",
+      name      = "Commands FX",
       desc      = "Shows commands given by allies",
       author    = "Floris, Bluestone",
-      date      = "27 January 2015",
+      date      = "28 January 2015",
       license   = "GNU GPL, v2 or later",
       layer     = 2,
       enabled   = true,
@@ -26,6 +26,7 @@ local spIsGUIHidden = Spring.IsGUIHidden
 local spTraceScreenRay = Spring.TraceScreenRay
 local spIsUnitSelected = Spring.IsUnitSelected
 local spGetUnitDefID = Spring.GetUnitDefID
+local spLoadCmdColorsConfig	= Spring.LoadCmdColorsConfig
 
 local GL_SRC_ALPHA = GL.SRC_ALPHA
 local GL_ONE_MINUS_SRC_ALPHA = GL.ONE_MINUS_SRC_ALPHA
@@ -69,23 +70,26 @@ local drawPulseAllways	= false
 local drawLineTexture	= true
 
 local opacity      		= 1
-local duration     		= 1.7
+local duration     		= 2
 
 local lineWidth	   		= 5
-local lineOpacity		= 0.8
-local lineDuration 		= 0.9		-- set a value <= 1
-local lineWidthEnd		= 0.5		-- multiplier		
+local lineOpacity		= 0.85
+local lineDuration 		= 1		-- set a value <= 1
+local lineWidthEnd		= 0.5		-- multiplier (this wont affect textured lines)
+local lineTextureLength = 4.5
+local lineTextureSpeed  = 2
 
-local glowRadius    	= 28
-local glowDuration  	= 0.7
-local glowOpacity   	= 0.17
+local glowRadius    	= 32
+local glowDuration  	= 0.3
+local glowOpacity   	= 0.13
 
-local pulseRadius		= 19
-local pulseDuration 	= 0.95		-- set a value <= 1
-local pulseOpacity  	= 0.9
+local pulseRadius		= 21
+local pulseDuration 	= 0.85		-- set a value <= 1
+local pulseOpacity  	= 1
+local pulseRotateSpeed  = 1		-- not working yet
 
 
-local pulseImg			= LUAUI_DIRNAME.."Images/commandsfx/pulse52.png"
+local pulseImg			= LUAUI_DIRNAME.."Images/commandsfx/pulse.png"
 local glowImg			= LUAUI_DIRNAME.."Images/commandsfx/glow.png"
 local lineImg			= LUAUI_DIRNAME.."Images/commandsfx/line.png"
 
@@ -197,14 +201,46 @@ function SetUnitConf()
 end
 
 
+local function setCmdLineColors(alpha)
+
+	spLoadCmdColorsConfig('move        0.5  1.0  0.5  '..alpha)
+	spLoadCmdColorsConfig('attack      1.0  0.2  0.2  '..alpha)
+	spLoadCmdColorsConfig('fight       0.5  0.5  1.0  '..alpha)
+	spLoadCmdColorsConfig('wait        0.5  0.5  0.5  '..alpha)
+	spLoadCmdColorsConfig('build       0.0  1.0  0.0  '..alpha)
+	spLoadCmdColorsConfig('guard       0.3  0.3  1.0  '..alpha)
+	spLoadCmdColorsConfig('stop        0.0  0.0  0.0  '..alpha)
+	spLoadCmdColorsConfig('patrol      0.3  0.3  1.0  '..alpha)
+	spLoadCmdColorsConfig('capture     1.0  1.0  0.3  '..alpha)
+	spLoadCmdColorsConfig('repair      0.3  1.0  1.0  '..alpha)
+	spLoadCmdColorsConfig('reclaim     1.0  0.2  1.0  '..alpha)
+	spLoadCmdColorsConfig('restore     0.0  1.0  0.0  '..alpha)
+	spLoadCmdColorsConfig('resurrect   0.2  0.6  1.0  '..alpha)
+	spLoadCmdColorsConfig('load        0.3  1.0  1.0  '..alpha)
+	spLoadCmdColorsConfig('unload      1.0  1.0  0.0  '..alpha)
+	spLoadCmdColorsConfig('deathWatch  0.5  0.5  0.5  '..alpha)
+end
+
 function widget:Initialize()
 	--SetUnitConf()
+	
+	--spLoadCmdColorsConfig('useQueueIcons  0 ')
+	spLoadCmdColorsConfig('queueIconScale  0.75 ')
+	spLoadCmdColorsConfig('queueIconAlpha  0.4 ')
+	--spLoadCmdColorsConfig('unitBox           0.0  1.0  0.0  0.85')
+	
+	setCmdLineColors(0.4)
 end
 
 function widget:Shutdown()
 
+	--spLoadCmdColorsConfig('useQueueIcons  1 ')
+	spLoadCmdColorsConfig('queueIconScale  1 ')
+	spLoadCmdColorsConfig('queueIconAlpha  1 ')
+	--spLoadCmdColorsConfig('unitBox           0.0  1.0  0.0  1.0')
+	
+	setCmdLineColors(0.7)
 end
-
 
 
 local pi = math.pi
@@ -284,28 +320,28 @@ local function DrawLineEndTex(x1,y1,z1, x2,y2,z2, width, texLength, texOffset)
     local zOffset2 = zOffset / 1.35
 	
 	-- first rounding
-	gl.TexCoord(0.55-texOffset,0.85)
+	gl.TexCoord(0.2-texOffset,0)
     gl.Vertex(x1+xOffset2, y1, z1+zOffset2)
-	gl.TexCoord(0.55-texOffset,0.15)
+	gl.TexCoord(0.2-texOffset,1)
     gl.Vertex(x1-xOffset2, y1, z1-zOffset2)
     
-	gl.TexCoord(0.2-texOffset,0)
+	gl.TexCoord(0.55-texOffset,0.85)
     gl.Vertex(x2-xOffset, y2, z2-zOffset)
-	gl.TexCoord(0.2-texOffset,1)
+	gl.TexCoord(0.55-texOffset,0.15)
     gl.Vertex(x2+xOffset, y2, z2+zOffset)
     
     -- second rounding
-	gl.TexCoord(0.55-texOffset,0.15)
+	gl.TexCoord(0.8-texOffset,0.7)
     gl.Vertex(x1+xOffset2, y1, z1+zOffset2)
-	gl.TexCoord(0.55-texOffset,0.85)
+	gl.TexCoord(0.8-texOffset,0.3)
     gl.Vertex(x1-xOffset2, y1, z1-zOffset2)
 	
     xOffset2 = xOffset / 3.22
     zOffset2 = zOffset / 3.22
 	
-	gl.TexCoord(0.8-texOffset,0.7)
+	gl.TexCoord(0.55-texOffset,0.15)
     gl.Vertex(x1_2-xOffset2, y1, z1_2-zOffset2)
-	gl.TexCoord(0.8-texOffset,0.3)
+	gl.TexCoord(0.55-texOffset,0.85)
     gl.Vertex(x1_2+xOffset2, y1, z1_2+zOffset2)
 end
 
@@ -323,7 +359,7 @@ local function DrawLine(x1,y1,z1, x2,y2,z2, width) -- long thin rectangle
 end
 
 local function DrawLineTex(x1,y1,z1, x2,y2,z2, width, texLength, texOffset) -- long thin rectangle
-	
+
 	local xDifference		= x2 - x1
 	local yDifference		= y2 - y1
 	local zDifference		= z2 - z1
@@ -333,26 +369,27 @@ local function DrawLineTex(x1,y1,z1, x2,y2,z2, width, texLength, texOffset) -- l
     local zOffset = cos(pi-theta) * width / 2
     local xOffset = sin(pi-theta) * width / 2
     
-	gl.TexCoord(0-texOffset,0)
+	gl.TexCoord(((distance/width)/texLength)+1-texOffset, 1)
     gl.Vertex(x1+xOffset, y1, z1+zOffset)
-	gl.TexCoord(0-texOffset,1)
+	gl.TexCoord(((distance/width)/texLength)+1-texOffset, 0)
     gl.Vertex(x1-xOffset, y1, z1-zOffset)
     
-	gl.TexCoord(((distance/width)/texLength)+1-texOffset, 1)
+	gl.TexCoord(0-texOffset,0)
     gl.Vertex(x2-xOffset, y2, z2-zOffset)
-	gl.TexCoord(((distance/width)/texLength)+1-texOffset, 0)
+	gl.TexCoord(0-texOffset,1)
     gl.Vertex(x2+xOffset, y2, z2+zOffset)
 end
 
-local function DrawGroundquad(wx,gy,wz,size)
+local function DrawGroundquad(x,y,z,size)
+
 	gl.TexCoord(0,0)
-	gl.Vertex(wx-size,gy,wz-size)
+	gl.Vertex(x-size,y,z-size)
 	gl.TexCoord(0,1)
-	gl.Vertex(wx-size,gy,wz+size)
+	gl.Vertex(x-size,y,z+size)
 	gl.TexCoord(1,1)
-	gl.Vertex(wx+size,gy,wz+size)
+	gl.Vertex(x+size,y,z+size)
 	gl.TexCoord(1,0)
-	gl.Vertex(wx+size,gy,wz-size)
+	gl.Vertex(x+size,y,z-size)
 end
 
 ------------------------------------------------------------------------------------
@@ -455,8 +492,10 @@ local function IsPointInView(x,y,z)
     return false
 end
 
-local prevTexOffset = 0
-local texOffset = 0
+local prevRotationOffset	= 0
+local rotationOffset		= 0
+local prevTexOffset			= 0
+local texOffset				= 0
 local prevOsClock = os.clock()
 
 function widget:DrawWorldPreUnit()
@@ -467,9 +506,12 @@ function widget:DrawWorldPreUnit()
     gl.Blending(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
     gl.DepthTest(false)
 	if drawLineTexture then
-		texOffset = prevTexOffset + ((osClock - prevOsClock)*2.2)
+		texOffset = prevTexOffset - ((osClock - prevOsClock)*lineTextureSpeed)
 		texOffset = texOffset - math.floor(texOffset)
 		prevTexOffset = texOffset
+		rotationOffset = prevRotationOffset - ((osClock - prevOsClock)*pulseRotateSpeed)
+		rotationOffset = rotationOffset - math.floor(texOffset)
+		prevRotationOffset = rotationOffset
     end
 	prevOsClock = os.clock()
     local i = minCommand
@@ -520,7 +562,7 @@ function widget:DrawWorldPreUnit()
 							if drawLineTexture then
 								usedLineWidth = lineWidth
 								gl.Texture(lineImg)
-								gl.BeginEnd(GL.QUADS, DrawLineTex, prevX,prevY,prevZ, X, Y, Z, usedLineWidth, 7, texOffset)
+								gl.BeginEnd(GL.QUADS, DrawLineTex, prevX,prevY,prevZ, X, Y, Z, usedLineWidth, lineTextureLength, texOffset)
 								gl.Texture(false)
 							else
 								gl.BeginEnd(GL.QUADS, DrawLine, prevX,prevY,prevZ, X, Y, Z, usedLineWidth)
@@ -546,7 +588,7 @@ function widget:DrawWorldPreUnit()
 							-- draw pulse if unit was selected when the cmd was given
 							if drawPulse and commands[i].selected or drawPulseAllways then
 								local pulseProgress = 0.7 - ((progress/1.5) / pulseDuration)
-								if progress < 0.12 then
+								if progress < 0.05 then
 									pulseProgress = 0.57 + ((progress/1.5) / pulseDuration)
 								end
 								local pulseAlphaMultiplier  = 1 - (progress / pulseDuration)
@@ -565,7 +607,7 @@ function widget:DrawWorldPreUnit()
 								if drawLineTexture then
 									gl.Texture(lineImg)
 									gl.Color(lineColour[1],lineColour[2],lineColour[3],lineAlpha)
-									gl.BeginEnd(GL.QUADS, DrawLineEndTex, prevX,prevY,prevZ, X, Y, Z, usedLineWidth, 7, texOffset)
+									gl.BeginEnd(GL.QUADS, DrawLineEndTex, prevX,prevY,prevZ, X, Y, Z, usedLineWidth, lineTextureLength, texOffset)
 									gl.Texture(false)
 								else
 									gl.Color(lineColour[1],lineColour[2],lineColour[3],lineAlpha)
