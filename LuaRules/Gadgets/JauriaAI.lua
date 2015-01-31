@@ -29,38 +29,6 @@ local orders={}
 
 local gaiaTeamID = Spring.GetGaiaTeamID()
 
---Jauria
---local RC			= 4
---local IT0			= 6
---local NM1			= 12
---local RK2			= 18
---local NK3			= 22
---local TKT4		= 33
---local LZ5			= 36 
---local DT6			= 41
-
---Heiks
-
---Chaos
---local ADEPT			= 1
-local RAIDER		= 8
-local MARAUDER		= 11
-local BESIEGER		= 14
-local PUTRIS		= 23
-local DESOLATOR		= 30
-local JUGGERNAUT	= 35 
-local ARCHAON		= 39
-
---Europe
---local PROSPECTOR	= 3
-local MILITIA		= 7
-local BERSERKER		= 9
-local OVERKRAFT		= 17
-local VALKYRIA		= 25
-local SCORPIO		= 32
-local TAURUS		= 37 
-local ATLAS			= 40
-
 local AI_Debug_Mode = 1 -- Must be 0 or 1
 
 VFS.Include("LuaRules/Gadgets/jauriaunittypes.lua",nil)

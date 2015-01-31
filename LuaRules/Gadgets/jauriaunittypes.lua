@@ -28,16 +28,36 @@ prospector = UnitDefNames.aprospector.id
 nm1 = UnitDefNames.cnm1.id
 rk2 = UnitDefNames.drk2.id
 
+raider = UnitDefNames.braider.id
+marauder = UnitDefNames.cmarauder.id
+
+militia = UnitDefNames.bmilitia.id
+berserker = UnitDefNames.cberserker.id
+overcraft = UnitDefNames.dovercraft.id
+
+
 -- Heavy
 nk3 = UnitDefNames.enk3.id
 tkt4 = UnitDefNames.ftkt4.id
 dt6 = UnitDefNames.hdt6.id
 
+besieger = UnitDefNames.dbesieger.id
+desolator = UnitDefNames.fputris.id
+juggernaut = UnitDefNames.gjuggernaut.id
+archaon = UnitDefNames.harchaon.id
+
+scorpio = UnitDefNames.fscorpio.id
+taurus = UnitDefNames.gtaurus.id
+atlas = UnitDefNames.hatlas.id
+
 -- Arty
 lz5 = UnitDefNames.glz5.id
 
+putris = UnitDefNames.eputris.id
+
 -- Other
 it0 = UnitDefNames.bit0.id
+valkyria = UnitDefNames.evalkyria.id
 
 ----------------------------------------
 -- Define unit type groups
