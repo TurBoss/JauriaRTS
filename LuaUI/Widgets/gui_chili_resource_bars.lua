@@ -136,7 +136,7 @@ function widget:Update(s)
 		bar_metal:SetColor( col_metal )
 	end
 
-	local wastingE = false
+	--[[local wastingE = false
 	if options.eexcessflashalways.value then
 		wastingE = (WG.energyWasted > 0)
 	else
@@ -157,7 +157,7 @@ function widget:Update(s)
 	elseif (blinkE_status) then
 		blinkE_status = false
 		bar_energy:SetColor( col_energy )
-	end
+	end]]--
 
 
 	local mPercent = 100 * mCurr / mStor
@@ -170,7 +170,7 @@ function widget:Update(s)
 		bar_metal:SetCaption( ("%i/%i"):format(mCurr, mStor) )
 	end
 
-	if (not blinkE_status) then
+--[[	if (not blinkE_status) then
 		bar_energy:SetValue( ePercent )
 	end
 	if stallingE then
@@ -180,7 +180,7 @@ function widget:Update(s)
 	else
 		bar_energy:SetCaption( ("%i/%i"):format(eCurr, eStor) )
 	end
-
+--]]
 
 	--// UPDATE THE LABELS JUST ONCE PER SECOND!
   local time_now = GetTimer()
@@ -211,7 +211,7 @@ function widget:Update(s)
 		lbl_metal:SetCaption( ("%+.1f"):format(mTotal) )
 	end
 
-	local eTotal
+--[[	local eTotal
 	if options.onlyShowExpense.value then
 		eTotal = eInco - eExpe
 	else
@@ -234,17 +234,17 @@ function widget:Update(s)
 		lbl_energy:SetCaption( ("%+.0f"):format(eTotal) )
 	else
 		lbl_energy:SetCaption( ("%+.1f"):format(eTotal) )
-	end
+	end]]--
 
 	if options.onlyShowExpense.value then
 		lbl_m_expense:SetCaption( ("%.1f"):format(mExpe) )
-		lbl_e_expense:SetCaption( ("%.1f"):format(eExpe) )
+		--lbl_e_expense:SetCaption( ("%.1f"):format(eExpe) )
 	else
 		lbl_m_expense:SetCaption( ("%.1f"):format(mPull) )
-		lbl_e_expense:SetCaption( ("%.1f"):format(ePull) )
+		--lbl_e_expense:SetCaption( ("%.1f"):format(ePull) )
 	end
 	lbl_m_income:SetCaption( ("%.1f"):format(mInco) )
-	lbl_e_income:SetCaption( ("%.1f"):format(eInco) )
+	--lbl_e_income:SetCaption( ("%.1f"):format(eInco) )
 
 
 	if options.workerUsage.value then
@@ -315,10 +315,10 @@ function CreateWindow()
 		parent = Chili.Screen0,
 		dockable = true,
 		name="ResourceBars",
-		right = 0,
+		x = "30%",
 		y = 0,
 		clientWidth  = 445,
-		clientHeight = 45,
+		clientHeight = 60,
 		draggable = false,
 		resizable = false,
 		tweakDraggable = true,
@@ -330,7 +330,7 @@ function CreateWindow()
 		parent = window,
 		height = p(100/bars),
 		width  = 25,
-                y      = p(100/bars),
+                y      = 0, --p(100/bars),
 		right  = 0,
 		file   = 'LuaUI/Images/ibeam.png',
 	}
@@ -340,16 +340,16 @@ function CreateWindow()
 		height = p(100/bars),
 		right  = 26,
                 x      = 110,
-                y      = p(100/bars),
+                y      = 0, --p(100/bars),
 		tooltip = "This shows your current metal reserves",
 		font   = {color = {1,1,1,1}, outlineColor = {0,0,0,0.7}, },
 	}
 	lbl_metal = Chili.Label:New{
 		parent = window,
-		height = p(100/bars),
+		height = 0, --p(100/bars),
 		width  = 60,
                 x      = 10,
-                y      = p(100/bars),
+                y      = 5, --p(100/bars),
 		valign = "center",
 		align  = "right",
 		caption = "0",
@@ -362,7 +362,7 @@ function CreateWindow()
 		height = p(50/bars),
 		width  = 40,
                 x      = 70,
-                y      = p(100/bars),
+                y      = 0,-- p(100/bars),
 		caption = "10.0",
 		valign = "center",
  		align  = "center",
@@ -375,7 +375,7 @@ function CreateWindow()
 		height = p(50/bars),
 		width  = 40,
                 x      = 70,
-                y      = p(1.5*100/bars),
+                y      = 10, --p(1.5*100/bars),
 		caption = "10.0",
 		valign = "center",
 		align  = "center",
@@ -386,7 +386,7 @@ function CreateWindow()
 
 
 	--// ENERGY
-	Chili.Image:New{
+--[[	Chili.Image:New{
 		parent = window1,
 		height = p(100/bars),
 		width  = 25,
@@ -442,7 +442,7 @@ function CreateWindow()
 		autosize = false,
 		font   = {size = 12, outline = true, color = {1,0,0,1}},
 		tooltip = "Your energy expense.",
-	}
+	}]]--
 
 	if not options.workerUsage.value then return end
 	-- worker usage

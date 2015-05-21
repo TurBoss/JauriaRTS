@@ -1091,9 +1091,9 @@ local function MakeMessageWindow(name, enabled)
 		local integralWidth = math.max(350, math.min(450, screenWidth*screenHeight*0.0004))
 		local integralHeight = math.min(screenHeight/4.5, 200*integralWidth/450)
 		width = 450
-		x = 0--integralWidth
+		x = "30%"--integralWidth
 		height = integralHeight*0.84
-		bottom = "28%" --integralHeight*0.84
+		bottom = "15%" --integralHeight*0.84
 	else
 		local resourceBarWidth = 430
 		local maxWidth = math.min(screenWidth/2 - resourceBarWidth/2, screenWidth - 400 - resourceBarWidth)

@@ -50,7 +50,7 @@ local function MakeMinimapWindow(screenH)
 		resizable = false,
 		width     = "18%", 
 		height    = "28%",
-		x         = 0,
+		right         = 0,
 		bottom    = 0,
 		padding   = {6,6,6,6},
 	}
