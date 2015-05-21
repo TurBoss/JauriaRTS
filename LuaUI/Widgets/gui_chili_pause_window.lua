@@ -5,7 +5,7 @@ function widget:GetInfo()
 		author		= "TurBoss",
 		date		= "2014-07-11",
 		license		= "GNU GPL v2 or later",
-		layer		= 2,
+		layer		= 0,
 		enabled		= true  --  loaded by default?
 	}
 end

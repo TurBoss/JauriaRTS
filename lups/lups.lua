@@ -182,7 +182,41 @@ frameOffset     = 0
 LupsConfig      = {}
 
 local noDrawUnits = {}
+
 function SetUnitLuaDraw(unitID,nodraw)
+	if (nodraw) then
+		noDrawUnits[unitID] = (noDrawUnits[unitID] or 0) + 1
+		if (noDrawUnits[unitID]==1) then
+			--if (Game.version=="0.76b1") then
+			if Spring.UnitRendering then  
+				if   Spring.UnitRendering.ActivateMaterial then
+					Spring.UnitRendering.ActivateMaterial(unitID,1)
+				end
+				--Spring.UnitRendering.SetLODLength(unitID,1,-1000)
+				for pieceID in ipairs(Spring.GetUnitPieceList(unitID) or {}) do
+					Spring.UnitRendering.SetPieceList(unitID,1,pieceID,nilDispList)
+				end
+			--else
+			--  Spring.UnitRendering.SetUnitLuaDraw(unitID,true)
+			--end
+			end
+		end
+	else
+		noDrawUnits[unitID] = (noDrawUnits[unitID] or 0) - 1
+		if (noDrawUnits[unitID]==0) then
+		--if (Game.version=="0.76b1") then
+			if Spring.UnitRendering and Spring.UnitRendering.DeactivateMaterial then  
+				Spring.UnitRendering.DeactivateMaterial(unitID,1)
+			--else
+			--  Spring.UnitRendering.SetUnitLuaDraw(unitID,false)
+			--end
+				noDrawUnits[unitID] = nil
+			end
+		end
+	end
+end
+
+--[[function SetUnitLuaDraw(unitID,nodraw)
   if (nodraw) then
     noDrawUnits[unitID] = (noDrawUnits[unitID] or 0) + 1
     if (noDrawUnits[unitID]==1) then
@@ -207,7 +241,7 @@ function SetUnitLuaDraw(unitID,nodraw)
       noDrawUnits[unitID] = nil
     end
   end
-end
+end]]--
 
 local function DrawUnit(_,unitID,drawMode)
 --[[

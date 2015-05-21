@@ -140,11 +140,11 @@ function widget:Initialize() -- create lighttable
 			elseif (weaponDef.type == 'LaserCannon') then
 				local colour = weaponDef.visuals
 				plighttable[w] = {
-					colour.colorR, colour.colorG, colour.colorB, 0.6,
-					weaponDef.projectilespeed * weaponDef.duration, colour.thickness^0.33333}			
+					colour.colorR, colour.colorG, colour.colorB, 0.1,
+					weaponDef.projectilespeed * weaponDef.duration, colour.thickness^0.33333}
 			elseif (weaponDef.type == 'LightningCannon') then
 				local colour = weaponDef.visuals
-				plighttable[w] = {colour.colorR, colour.colorG, colour.colorB, 0.75, true, 64*colour.thickness^0.45, 1.1}					
+				plighttable[w] = {colour.colorR, colour.colorG, colour.colorB, 0.75, true, 64*colour.thickness^0.45, 1.1}
 			elseif (weaponDef.type == 'BeamLaser') then
 				local colour, alpha, thick, blend = weaponDef.visuals, 0.75, 0.45, 0.0
 				if weaponDef.largeBeamLaser==true then

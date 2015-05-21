@@ -9,7 +9,7 @@ function widget:GetInfo()
     license   = "GNU GPL, v2 or later",
     layer     = 0,
     experimental = false,
-    enabled   = true,
+    enabled   = false,
   }
 end
 
@@ -695,8 +695,7 @@ local function WriteGroupInfo()
 	local unitInfoString = 
 		"Selected Units " .. numformat(unitInfoSum.count) ..
 		"\nHealth " .. numformat(unitInfoSum.hp) .. " / " ..  numformat(unitInfoSum.maxhp) ..
-		"\nCost " .. numformat(unitInfoSum.cost) .. " / " ..  numformat(unitInfoSum.finishedcost) ..
-		metal .. energy ..	buildpower .. dgunStatus
+		"\n" .. dgunStatus
 	
 	label_unitInfo = Label:New{ --recreate chili element (rather than just updating caption) to avoid color bug
 		parent = window_corner;
@@ -1769,7 +1768,7 @@ local function MakeToolTip_UD(tt_table)
 			tt_table.morph_data 
 				and { name= 'bp', directcontrol = 'buildpic_morph' }
 				or { name= 'bp', directcontrol = 'buildpic_ud' },
-			{ name = 'cost', icon = 'LuaUI/images/ibeam.png', text = cyan .. numformat(tt_table.unitDef.metalCost), },
+			--{ name = 'cost', icon = 'LuaUI/images/ibeam.png', text = cyan .. numformat(tt_table.unitDef.metalCost), },
 		},
 		main = {
 			{ name = 'udname', icon = iconPath, text = tt_table.unitDef.humanName, fontSize=6 },
@@ -1835,10 +1834,10 @@ local function MakeToolTip_Unit(data, tooltip)
 	local tt_structure = {
 		leftbar = {
 			{ name= 'bp', directcontrol = 'buildpic_unit' },
-			{ name= 'cost', icon = 'LuaUI/images/ibeam.png', text = cyan .. numformat((tt_ud and tt_ud.metalCost) or '0') },
+			--{ name= 'cost', icon = 'LuaUI/images/ibeam.png', text = cyan .. numformat((tt_ud and tt_ud.metalCost) or '0') },
 			
-			{ name='res_m', icon = 'LuaUI/images/metalplus.png', text = m },
-			{ name='res_e', icon = 'LuaUI/images/energy.png', text = e },
+			--{ name='res_m', icon = 'LuaUI/images/metalplus.png', text = m },
+			--{ name='res_e', icon = 'LuaUI/images/energy.png', text = e },
 		},
 		main = {
 			{ name='uname', icon = iconPath, text = fullname, fontSize=4, },
@@ -1882,10 +1881,10 @@ local function MakeToolTip_SelUnit(data, tooltip)
 	local tt_structure = {
 		leftbar = {
 			{ name= 'bp', directcontrol = 'buildpic_selunit' },
-			{ name= 'cost', icon = 'LuaUI/images/ibeam.png', text = cyan .. numformat((stt_ud and stt_ud.metalCost) or '0') },
+			--{ name= 'cost', icon = 'LuaUI/images/ibeam.png', text = cyan .. numformat((stt_ud and stt_ud.metalCost) or '0') },
 			
-			{ name='res_m', icon = 'LuaUI/images/metalplus.png', text = m },
-			{ name='res_e', icon = 'LuaUI/images/energy.png', text = e },
+			--{ name='res_m', icon = 'LuaUI/images/metalplus.png', text = m },
+			--{ name='res_e', icon = 'LuaUI/images/energy.png', text = e },
 		},
 		main = {
 			{ name='uname', icon = iconPath, text = fullname, fontSize=4, }, --name in window
@@ -1948,15 +1947,15 @@ local function MakeToolTip_Feature(data, tooltip)
 	
 	local leftbar = tt_ud and {
 		{ name= 'bp', directcontrol = 'buildpic_feature' },
-		{ name='cost', icon = 'LuaUI/images/ibeam.png', text = cyan .. numformat((tt_ud and tt_ud.metalCost) or '0'), },
+		--{ name='cost', icon = 'LuaUI/images/ibeam.png', text = cyan .. numformat((tt_ud and tt_ud.metalCost) or '0'), },
 		
-		{ name='res_m', icon = 'LuaUI/images/metalplus.png', text = m },
-		{ name='res_e', icon = 'LuaUI/images/energy.png', text = e },
+		--{ name='res_m', icon = 'LuaUI/images/metalplus.png', text = m },
+		--{ name='res_e', icon = 'LuaUI/images/energy.png', text = e },
 	}
 	or {
 		
-		{ name='res_1', icon = 'LuaUI/images/metalplus.png', text = m },
-		{ name='res_2', icon = 'LuaUI/images/energy.png', text = e },
+		--{ name='res_1', icon = 'LuaUI/images/metalplus.png', text = m },
+		--{ name='res_2', icon = 'LuaUI/images/energy.png', text = e },
 	}
 	
 	local tt_structure = {
@@ -2535,9 +2534,9 @@ function widget:Initialize()
     real_window_corner = Window:New{
 		name  = 'selections',
 		color = {0, 0, 0, 0},
-		x = x,
-		y = screenHeight-height,
-        width = 450,
+		x = "34%",
+		bottom = 0,
+        width = 330,
 		height = height,
 		dockable = true,
 		draggable = false,
@@ -2545,16 +2544,16 @@ function widget:Initialize()
 		tweakDraggable = true,
 		tweakResizable = true,
 		padding = {0, 0, 0, 0},
-        minWidth = 450, 
+        minWidth = 330, 
 		minHeight = 120,
 	}
     
-	window_corner = Panel:New{
+	window_corner = Window:New{
 		parent = real_window_corner,
         name   = 'unitinfo2';
 		x = 0,
 		y = 0,
-		backgroundColor = {1, 1, 1, options.selection_opacity.value},
+		--backgroundColor = {1, 1, 1, options.selection_opacity.value},
 		width = "100%";
 		height = "100%";
 		dockable = false,

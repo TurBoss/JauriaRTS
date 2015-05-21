@@ -33,7 +33,7 @@ marauder = UnitDefNames.cmarauder.id
 
 militia = UnitDefNames.bmilitia.id
 berserker = UnitDefNames.cberserker.id
-overcraft = UnitDefNames.dovercraft.id
+overkraft = UnitDefNames.doverkraft.id
 
 
 -- Heavy
@@ -42,7 +42,7 @@ tkt4 = UnitDefNames.ftkt4.id
 dt6 = UnitDefNames.hdt6.id
 
 besieger = UnitDefNames.dbesieger.id
-desolator = UnitDefNames.fputris.id
+desolator = UnitDefNames.fdesolator.id
 juggernaut = UnitDefNames.gjuggernaut.id
 archaon = UnitDefNames.harchaon.id
 

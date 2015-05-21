@@ -1,7 +1,7 @@
 function widget:GetInfo()
   return {
-    name      = "replay control buttons",
-    desc      = "GUI for votes",
+    name      = "Replay control buttons",
+    desc      = "Gui for replay buttons",
     author    = "knorke",
     date      = "August 2012",
     license   = "stackable",

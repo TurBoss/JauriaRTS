@@ -1,130 +1,118 @@
 function widget:GetInfo()
   return {
-    name      = "BAR's Minimap",
-    desc      = "Chili Minimap",
-    author    = "Licho, CarRepairer, Funkencool",
-    date      = "@2010",
+    name      = "Minimap",
+    desc      = "Displays the minimap",
+    author    = "Funkencool",
+    date      = "2014",
     license   = "GNU GPL, v2 or later",
-    layer     = -100000,
-    enabled   = false,
+    layer     = -99,
+    enabled   = true,
   }
 end
 
 
-local minimap
 local Chili
-local glDrawMiniMap = gl.DrawMiniMap
-local glResetState = gl.ResetState
-local glResetMatrices = gl.ResetMatrices
+local minimap
 
+-- Localize
+local glGetViewSizes  = gl.GetViewSizes
+local glConfigMiniMap = gl.ConfigMiniMap
+local glDrawMiniMap   = gl.DrawMiniMap
+local glPushAttrib    = gl.PushAttrib
+local glPopAttrib     = gl.PopAttrib
+local glMatrixMode    = gl.MatrixMode
+local glPushMatrix    = gl.PushMatrix
+local glPopMatrix     = gl.PopMatrix
+local GL_ALL_ATTRIB_BITS = GL.ALL_ATTRIB_BITS
+local GL_PROJECTION      = GL.PROJECTION
+local GL_MODELVIEW       = GL.MODELVIEW
+--
 
-local tabbedMode = false
+local function MakeMinimapWindow(screenH)
+	
+	if (minimap) then
+		minimap:Dispose()
+	end
 
-local function MakeMinimapWindow()
-   
-   if (minimap) then
-      minimap:Dispose()
-   end
-
-   local aspect = Game.mapX/Game.mapY
-   local h = Chili.Screen0.height * 0.3
-   local w = h * aspect
-   
-   if (aspect > 1) then
-      w = h * aspect^0.5
-      h = w / aspect
-   end
-   
-   minimap = Chili.Window:New{
-      name    = "Minimap",
-      parent  = Chili.Screen0,
-      resizable = false,
-      width   = w,
-      height  = h,
-      x       = 10,
-      top     = 0,
-      padding = {5,5,5,5},
-      margin  = {0,0,0,0},
-   }
-   
+	local aspect = Game.mapX/Game.mapY
+	local h = screenH * 0.3
+	local w = h * aspect
+	
+	if aspect > 1 then
+		w = h * aspect^0.5
+		h = w / aspect
+	end
+	
+	minimap = Chili.Window:New{
+		name      = "Minimap", 
+		parent    = Chili.Screen0,
+		draggable = false,
+		resizable = false,
+		width     = "18%", 
+		height    = "28%",
+		x         = 0,
+		bottom    = 0,
+		padding   = {6,6,6,6},
+	}
+	
 end
 
-function widget:KeyRelease(key, mods, label, unicode)
-   if key == 0x009 then --// "0x009" is equal to "tab". Reference: uikeys.txt
-      local mode = Spring.GetCameraState()["mode"]
-      if mode == 7 and not tabbedMode then
-         minimap:Hide()
-         tabbedMode = true
-      end
-      if mode ~= 7 and tabbedMode then
-         minimap:Show()
-         tabbedMode = false
-      end
-   end
-end
-
-function widget:ViewResize(vsx, vsy)
-   MakeMinimapWindow()
+function widget:ViewResize(_, vsy)
+	MakeMinimapWindow(vsy)
 end
 
 function widget:Initialize()
-   
-   if (Spring.GetMiniMapDualScreen()) then
-      Spring.Echo("ChiliMinimap: auto disabled (DualScreen is enabled).")
-      widgetHandler:RemoveWidget()
-      return
-   end
+	
+	if Spring.GetMiniMapDualScreen() then
+		Spring.Echo("ChiliMinimap: auto disabled (DualScreen is enabled).")
+		widgetHandler:RemoveWidget()
+		return
+	end
 
-   if (not WG.Chili) then
-      widgetHandler:RemoveWidget()
-      return
-   end
-   
-   Chili = WG.Chili
-   
-   MakeMinimapWindow()
-   
-   gl.SlaveMiniMap(true)
+	if not WG.Chili then
+		widgetHandler:RemoveWidget()
+		return
+	end
+	
+	Chili = WG.Chili
+	
+	MakeMinimapWindow(Chili.Screen0.height)
+	
+	gl.SlaveMiniMap(true)
 end
 
 function widget:Shutdown()
-   --// reset engine default minimap rendering
-   gl.SlaveMiniMap(false)
-   Spring.SendCommands("minimap geo " .. Spring.GetConfigString("MiniMapGeometry"))
-
-   --// free the chili window
-   if (minimap) then
-      minimap:Dispose()
-   end
-end
-
-
-local lx, ly, lw, lh
-
-function widget:DrawScreen()
-   
-   if (minimap.hidden) then
-      gl.ConfigMiniMap(0,0,0,0) --// a phantom map still clickable if this is not present.
-      return
-   else
-      local vsx,vsy = gl.GetViewSizes()
-      local cx,cy,cw,ch = Chili.unpack4(minimap.clientArea)
-      cx,cy = minimap:LocalToScreen(cx,cy)
-      gl.ConfigMiniMap(cx,vsy-ch-cy,cw,ch)      
-   end
-
-
-   gl.PushAttrib(GL.ALL_ATTRIB_BITS)
-   gl.MatrixMode(GL.PROJECTION)
-   gl.PushMatrix()
-   gl.MatrixMode(GL.MODELVIEW)
-   gl.PushMatrix()
-   
-   glDrawMiniMap()
-   
-   gl.MatrixMode(GL.PROJECTION)
-   gl.PopMatrix()
-   gl.MatrixMode(GL.MODELVIEW)
-   gl.PopMatrix()
-   gl.PopAttrib()
+	-- reset engine default minimap rendering
+	gl.SlaveMiniMap(false)
+	Spring.SendCommands("minimap geo " .. Spring.GetConfigString("MiniMapGeometry"))
 end 
+
+function widget:DrawScreen() 
+	
+	if minimap.hidden then
+		-- a phantom map is still clickable if this is not present.
+		glConfigMiniMap(0,0,0,0)
+		return 
+	else
+		local vsx,vsy = glGetViewSizes()
+		local cx,cy,cw,ch = Chili.unpack4(minimap.clientArea)
+		cx,cy = minimap:LocalToScreen(cx,cy)
+		glConfigMiniMap(cx,vsy-ch-cy,cw,ch)		
+	end
+
+
+	glPushAttrib(GL_ALL_ATTRIB_BITS)
+	glMatrixMode(GL_PROJECTION)
+	glPushMatrix()
+	glMatrixMode(GL_MODELVIEW)
+	glPushMatrix()
+	
+	glDrawMiniMap()
+	
+	glMatrixMode(GL_PROJECTION)
+	glPopMatrix()
+	glMatrixMode(GL_MODELVIEW)
+	glPopMatrix()
+	glPopAttrib()
+end 
+

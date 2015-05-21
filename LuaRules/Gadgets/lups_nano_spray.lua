@@ -264,7 +264,7 @@ local factionsNanoFx = {
 local builders = {}
 
 	function gadget:GameFrame(frame)
-		if ((unitID + frame) % 30 >= 1) then --// only update once per second
+		if (frame % 30 >= 1) then --// only update once per second
 			return
 		end
 
