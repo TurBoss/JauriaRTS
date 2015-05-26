@@ -1,8 +1,8 @@
-local unitName = "aadept"
+local unitName = "Adept"
 
 local unitDef = {
 	name = "Adept",
-	Description = "Armored assault operator",
+	Description = "Armored Assault Unit (AAU)",
 	objectName = "adept.dae",
 	script = "adept.lua",
 	buildPic = "adept.png",
