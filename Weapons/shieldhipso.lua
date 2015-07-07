@@ -2,20 +2,20 @@
 local weaponName = "shieldhipso"
 
 local weaponDef = {
-	
+
 	name					= "shieldhipso",
 	weaponType				= "Shield",
-	
+
 	damage = {
 		default = 10,
 	},
 	texture1				= "shield4",
-	
+
 	exteriorShield			= true,
 	shieldAlpha				= 0.2,
 	shieldBadColor			= [[1 0.1 0.1]],
 	shieldGoodColor			= [[0 0.2 1]],
-	InterceptType			= 511,
+	--InterceptType			= 511,
 	shieldInterceptType		= 511,
 	shieldPower				= 1650,
 	shieldPowerRegen		= 38,
@@ -29,6 +29,6 @@ local weaponDef = {
 	visibleShield			= true,
 	visibleShieldHitFrames	= 4,
 	visibleShieldRepulse	= true,
-	
+
 }
 return lowerkeys({[weaponName] = weaponDef})

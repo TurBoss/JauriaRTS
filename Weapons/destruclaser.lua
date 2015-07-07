@@ -5,12 +5,12 @@ local weaponDef = {
 
 	name                    = "destruclaser",
 	weaponType              = "LaserCannon",
-	
+
 	--damage
-	
+
 	Accuracy=50,
 	movingAccuracy=80,
-	
+
 	damage = {
 		default = 15.5,
 		heavyarmor = 10.2,
@@ -18,11 +18,11 @@ local weaponDef = {
 		torrearmor = 9,
 	},
 	areaOfEffect            = 0,
-	
+
 	--physics
-	
+
 	beamTime				= 0.2,
-	beqamTTL				= 100,
+	--beqamTTL				= 100,
 	laserFlareSize			= 10,
 	largeBeamLaser			= true,
 	weaponVelocity          = 350,
@@ -33,9 +33,9 @@ local weaponDef = {
 	lineOfSight             = true,
 	turret                  = true,
 	craterMult              = 0,
-	
+
 	--apperance
-	
+
 	rgbColor                = [[0 1 0.1]],
 	size                    = 4,
 	stages                  = 20,

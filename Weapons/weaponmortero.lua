@@ -2,15 +2,15 @@
 local weaponName = "weaponmortero"
 
 local weaponDef = {
-	
+
 	name= "weaponmortero",
 	weaponType=[[MissileLauncher]],
-	
+
 	Accuracy=100,
 	movingAccuracy=700,
-	
+
 	----DAMAGE
-	
+
 	damage={
 		default=1780,
 		heavyarmor = 2130,
@@ -19,9 +19,9 @@ local weaponDef = {
 	},
 	areaOfEffect=210,
 
-	
+
 	--physics
-	
+
 	range=1000,
 	reloadtime=50,
 	weaponVelocity=200,
@@ -36,19 +36,19 @@ local weaponDef = {
 	craterMult              = 0.5,
 	--burst                   = 2,
 	--burstrate               = 0.08,
-	proyectiles             = 1,
+	--proyectiles             = 1,
 	commandfire = true,
-	
+
 	--apperance
-	
+
 	model="cobete.dae",
 	smokeTrail=true,
 	--explosionGenerator="custom:explosion1",
 	CegTag="light1",
 	--sounds
-	
+
 	--soundStart              = "disparo_gfx",
-	
+
 	collideFriendly=true,
 }
 return lowerkeys({[weaponName] = weaponDef})
