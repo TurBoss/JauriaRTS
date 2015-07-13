@@ -12,12 +12,17 @@ end
 
 function widget:Initialize()
         -- always, los, radar, jammer
-        Spring.SetLosViewColors(
-        { 0.0, 0.5, 0, 0 },
-        { 0.0, 0.5, 0, 0 },
-        { 0.0, 0.5, 0, 0 }
-        )
+
+        local fog = {0.0, 0.0, 0.0, 1}
+    	local los = {0.5, 0.5, 0.5, 1}
+    	local radar = {0.0, 0.0, 0.0, 1}
+    	local jam = {0.0, 0.0, 0.0, 1}
+    	local radar2 = {0.0, 0.0, 0.0, 1}
+
+        Spring.SetLosViewColors(fog, los, radar, jam, radar2)
+        --{ 0.0, 0.5, 0.0, 0.0 },
+        --{ 0.0, 0.5, 0.0, 0.0 },
+        --{ 0.0, 0.5, 0.0, 0.0 }
+        --)
         widgetHandler:RemoveWidget()
 end
-
-

@@ -36,7 +36,7 @@ local featureBarWidth  = 10
 local featureBarAlpha  = 0.6
 
 local drawBarTitles = true
-local drawBarPercentages = true 
+local drawBarPercentages = true
 local titlesAlpha   = 0.3*barAlpha
 
 local drawFullHealthBars = false
@@ -63,16 +63,16 @@ local DISARM_DECAY_FRAMES = 1200
 --------------------------------------------------------------------------------
 -- OPTIONS
 --------------------------------------------------------------------------------
-local function OptionsChanged() 
+local function OptionsChanged()
 	drawFeatureHealth = options.drawFeatureHealth.value
 	drawBarPercentages = options.drawBarPercentages.value
 	debugMode = options.debugMode.value
-end 
+end
 
 options_path = 'Settings/Interface/Healthbars'
 options_order = { 'showhealthbars', 'drawFeatureHealth', 'drawBarPercentages', 'debugMode', 'minReloadTime'}
 options = {
-	
+
 	showhealthbars = {
 		name = 'Show Healthbars',
 		type = 'bool',
@@ -86,7 +86,7 @@ options = {
 		desc = 'Shows healthbars on corpses',
 		OnChange = OptionsChanged,
 	},
-	
+
 	drawBarPercentages = {
 		name = 'Draw percentages',
 		type = 'bool',
@@ -104,8 +104,8 @@ options = {
 		step = 1,
 		desc = 'Min reload time (sec)',
 		OnChange = OptionsChanged,
-	},	
-	
+	},
+
 	debugMode = {
 		name = 'Debug Mode',
 		type = 'bool',
@@ -113,8 +113,8 @@ options = {
 		advanced = true,
 		desc = 'Pings units with debug information',
 		OnChange = OptionsChanged,
-	},	
-	
+	},
+
 
 }
 
@@ -186,6 +186,7 @@ local blink = false;
 local gameFrame = 0;
 
 local empDecline = 32/30/40;
+--local empDecline = 1/40;
 
 local cx, cy, cz = 0,0,0;  --// camera pos
 
@@ -503,10 +504,10 @@ do
       DrawUnitBar(yoffset,barInfo.progress,barInfo.color)
       if (fullText) then
         if (barShader) then glMyText(1) end
-        if (drawBarPercentages) then 
+        if (drawBarPercentages) then
 			glColor(1,1,1,barAlpha)
 			glText(barInfo.text,barStart,yoffset,4,"r")
-		end 
+		end
         if (drawBarTitles) then
           glColor(1,1,1,titlesAlpha)
           glText(barInfo.title,0,yoffset,2.5,"cd")
@@ -526,7 +527,7 @@ do
       DrawFeatureBar(yoffset,barInfo.progress,barInfo.color)
       if (fullText) then
         if (barShader) then glMyText(1) end
-        if (drawBarPercentages) then 
+        if (drawBarPercentages) then
 			glColor(1,1,1,featureBarAlpha)
 			glText(barInfo.text,fBarStart,yoffset,4,"r")
 		end
@@ -575,29 +576,29 @@ do
 
   local customInfo = {}
   local ci
-  
+
   function JustGetOverlayInfos(unitID,unitDefID, ud)
-    
+
 	ux, uy, uz = GetUnitViewPosition(unitID)
 	if not ux then return end
     dx, dy, dz = ux-cx, uy-cy, uz-cz
     dist = dx*dx + dy*dy + dz*dz
-	
+
 	if (dist > 9000000) then
       return
     end
     --// GET UNIT INFORMATION
     health,maxHealth,paralyzeDamage = GetUnitHealth(unitID)
-	
+
     local empHP = ((not paralyzeOnMaxHealth) and health) or maxHealth
     emp = (paralyzeDamage or 0)/empHP
     hp  = (health or 0)/maxHealth
     morph = UnitMorphs[unitID]
-  
+
     if (drawUnitsOnFire)and(GetUnitRulesParam(unitID,"on_fire")==1) then
       onFireUnits[#onFireUnits+1]=unitID
     end
-  
+
     --// PARALYZE
 	local stunned, _, inbuild = GetUnitIsStunned(unitID)
 	if (emp>0)and(hp>0)and((not morph) or morph.combatMorph) and (emp<1e8) and (paralyzeDamage >= empHP) then
@@ -605,7 +606,7 @@ do
         paraUnits[#paraUnits+1]=unitID
       end
 	end
-	
+
 	--// DISARM
 	if not stunned then
       local disarmed = GetUnitRulesParam(unitID,"disarmed")
@@ -656,11 +657,11 @@ do
     local empHP = (not paralyzeOnMaxHealth) and health or maxHealth
     emp = (paralyzeDamage or 0)/empHP
     hp  = (health or 0)/maxHealth
-    
+
     if hp < 0 then
         hp = 0
     end
-    
+
     morph = UnitMorphs[unitID]
 
     if (drawUnitsOnFire)and(GetUnitRulesParam(unitID,"on_fire")==1) then
@@ -736,7 +737,7 @@ do
         local empcolor_index = (stunned and ((blink and "emp_b") or "emp_p")) or ("emp")
         AddBar("paralyze",emp,empcolor_index,infotext)
       end
-	  
+
 	   --// DISARM
 	  local disarmFrame = GetUnitRulesParam(unitID,"disarmframe")
 	  if disarmFrame and disarmFrame ~= -1 and disarmFrame > gameFrame then
@@ -760,14 +761,14 @@ do
       if ((capture or -1)>0) then
         AddBar("capture",capture,"capture",(fullText and floor(capture*100)..'%') or '')
       end
-	  
+
 	  --// CAPTURE RECHARGE
 	  local captureReloadState = GetUnitRulesParam(unitID,"captureRechargeFrame")
       if (captureReloadState and captureReloadState > 0) then
 		local capture = 1-(captureReloadState-gameFrame)/captureReloadTime
         AddBar("capture reload",capture,"reload",(fullText and floor(capture*100)..'%') or '')
       end
-	  
+
 	  --// WATER TANK
 	  local waterTank = GetUnitRulesParam(unitID,"watertank")
       if (ci.maxWaterTank and waterTank) then
@@ -776,7 +777,7 @@ do
 			AddBar("water tank",prog,"tank",(fullText and floor(prog*100)..'%') or '')
 		end
       end
-	  
+
 	  --// Teleport progress
 	  local TeleportEnd = GetUnitRulesParam(unitID,"teleportend")
 	  local TeleportCost = GetUnitRulesParam(unitID,"teleportcost")
@@ -785,7 +786,7 @@ do
 		if TeleportEnd > 1 then
 			-- End frame given
 			prog = 1 - (TeleportEnd - gameFrame)/TeleportCost
-		else 
+		else
 			-- Same parameters used to display a static progress
 			prog = 1 - TeleportEnd
 		end
@@ -795,14 +796,14 @@ do
       end
 
 	  --// SPECIAL WEAPON
-	  
+
 	  local specialReloadState = GetUnitRulesParam(unitID,"specialReloadFrame")
       if (specialReloadState and specialReloadState > gameFrame) then
 		local special = 1-(specialReloadState-gameFrame)/(ud.customParams.specialreloadtime or 1*30)
         AddBar("ability",special,"reload2",(fullText and floor(special*100)..'%') or '')
-      end	  
-	  
-	  
+      end
+
+
       --// RELOAD
       if (ci.reloadTime>=options.minReloadTime.value) then
         _,reloaded,reloadFrame = GetUnitWeaponState(unitID,ci.primaryWeapon - reverseCompat)
@@ -810,7 +811,7 @@ do
 		  local slowState = 1-(GetUnitRulesParam(unitID,"slowState") or 0)
 		  local reloadTime = Spring.GetUnitWeaponState(unitID, ci.primaryWeapon - reverseCompat , 'reloadTime')
 		  ci.reloadTime = reloadTime
-		  -- When weapon is disabled the reload time is constantly set to be almost complete. 
+		  -- When weapon is disabled the reload time is constantly set to be almost complete.
 		  -- It results in a bunch of units walking around with 99% reload bars.
 		  if reloadFrame > gameFrame + 4 then -- UPDATE_PERIOD in unit_attributes.lua.
             reload = 1 - ((reloadFrame-gameFrame)/30) / ci.reloadTime;
@@ -826,19 +827,19 @@ do
 	  if sheathState and (sheathState < 1) then
 			AddBar("sheath",sheathState,"sheath",(fullText and floor(sheathState*100)..'%') or '')
 	  end
-      	  
+
 	  --// SLOW
       local slowState = GetUnitRulesParam(unitID,"slowState")
       if (slowState and (slowState>0)) then
         AddBar("slow",slowState,"slow",(fullText and floor(slowState*100)..'%') or '')
       end
-	  
+
 	  --// GOO
       local gooState = GetUnitRulesParam(unitID,"gooState")
       if (gooState and (gooState>0)) then
         AddBar("goo",gooState,"goo",(fullText and floor(gooState*100)..'%') or '')
       end
-	  
+
       --// JUMPJET
       if (drawJumpJet)and(ci.canJump) then
         local jumpReload = GetUnitRulesParam(unitID,"jumpReload")
@@ -846,12 +847,12 @@ do
           AddBar("jump",jumpReload,"jump",(fullText and floor(jumpReload*100)..'%') or '')
         end
       end
-	  
+
     if debugMode then
 	  local x,y,z = Spring.GetUnitPosition(unitID)
       Spring.MarkerAddPoint(x,y,z,"N" .. barsN)
     end
-	
+
     if (barsN>0)or(numStockpiled) then
       glPushMatrix()
       glTranslate(ux, uy+ci.height, uz )
@@ -916,7 +917,7 @@ do
     hp = (health or 0)/(maxHealth or 1)
 
     --// filter all walls and none resurrecting features
-    if (resurrect == 0) and 
+    if (resurrect == 0) and
        (reclaimLeft == 1) and
        (hp > featureHpThreshold)
     then return end
@@ -1007,7 +1008,7 @@ do
       glTexGen(GL_S, GL_TEXTURE_GEN_MODE, GL_EYE_LINEAR)
       v = cvs.forward
       glTexGen(GL_S, GL_EYE_PLANE, v[1]*0.008,v[2]*0.008,v[3]*0.008, shift)
-	  
+
 	  if (#paraUnits>0) then
         glTexture("LuaUI/Images/paralyzed.png")
         glColor(0,1,1,alpha*1.1)
@@ -1022,7 +1023,7 @@ do
           glUnit(disarmUnits[i],true)
         end
 	  end
-	  
+
       glTexture(false)
       glTexGen(GL_T, false)
       glTexGen(GL_S, false)
@@ -1071,7 +1072,7 @@ do
   local glMultiTexCoord      = gl.MultiTexCoord
 
   function widget:DrawWorld()
-    if not Spring.IsGUIHidden() then 
+    if not Spring.IsGUIHidden() then
       if (#visibleUnits+#visibleFeatures==0) then
         return
       end
@@ -1081,11 +1082,11 @@ do
       --gl.Fog(false)
       --gl.DepthTest(true)
       glDepthMask(true)
-      
+
       cx, cy, cz = GetCameraPosition()
-      
+
       if (barShader) then gl.UseShader(barShader); glMyText(0); end
-      
+
       --// draw bars of units
       local unitID,unitDefID,unitDef
       for i=1,#visibleUnits do
@@ -1112,7 +1113,7 @@ do
           end
         end
       end
-      
+
       --// draw bars for features
       local wx, wy, wz, dx, dy, dz, dist, featureID, valid
       local featureInfo
@@ -1149,11 +1150,11 @@ do
 
     if (barShader) then gl.UseShader(0) end
     glDepthMask(false)
-	
+
 	DrawOverlays()
     glMultiTexCoord(1,1,1,1)
     glColor(1,1,1,1)
-	
+
     --gl.DepthTest(false)
   end
 end --//end do
@@ -1228,4 +1229,3 @@ end
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
-
