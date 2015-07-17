@@ -47,10 +47,10 @@ local function SetupDefaultPreset()
 	widgetHandler:DisableWidget("Watchdog")
 	widgetHandler:DisableWidget("HealthBars")
 	--widgetHandler:DisableWidget("Show All Commands v2")
-	
-	
-	
-	
+
+
+
+
 	-- Enable
 	widgetHandler:EnableWidget("CameraShake")
 	widgetHandler:EnableWidget("SmoothCam")
@@ -91,7 +91,8 @@ local function SetupDefaultPreset()
 	widgetHandler:EnableWidget("CustomFormations2")
 	widgetHandler:EnableWidget("UnitShapes")
 	widgetHandler:EnableWidget("Show All Commands v2")
-	
+	widgetHandler:EnableWidget("Settings")
+
 
 end
 
@@ -103,8 +104,8 @@ options_order = {'setToDefault'}
 options = {
 	setToDefault = {
 		name  = "Set To Default Once",
-		type  = "bool", 
-		value = true, 
+		type  = "bool",
+		value = true,
 		desc = "Resets the HUD to the default next time this widget is initialized.(Needs Restart or /luaui reload)",
 		advanced = true,
 	},

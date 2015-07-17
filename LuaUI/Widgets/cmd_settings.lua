@@ -1,6 +1,6 @@
 function widget:GetInfo()
 	return {
-		name      = "settings",
+		name      = "Settings",
 		desc      = "Widget to set various settings on game start",
 		author    = "TurBoss",
 		date      = "14-7-2014",
