@@ -11,11 +11,10 @@ function gadget:GetInfo()
 end
 
 function gadget:GamePreload()
-	--Spring.SendCommands("bind f4 showmetalmap")
 	Spring.SendCommands("bind d manualfire")
-
-	--Spring.SendCommands("togglelos")
-	--Spring.SendCommands("toggleradarandjammer")
-
 	Spring.LoadCmdColorsConfig('move  0.5 1.0 0.5 0.0')
+end
+
+function gadget:GameStart()
+	Spring.SendCommands("togglelos")
 end
