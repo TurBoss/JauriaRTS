@@ -75,11 +75,11 @@ local isMoving, isShooting = false, false
 
 local Animations = {};
 
-Animations['resetAnimation'] = VFS.Include("Scripts/animations/adept/reset.lua", scriptEnv);
+Animations['resetAnimation'] = VFS.Include("Scripts/animations/atlas/reset.lua", scriptEnv);
 
-Animations['moveAnimation'] = VFS.Include("Scripts/animations/adept/move.lua", scriptEnv);
+Animations['moveAnimation'] = VFS.Include("Scripts/animations/atlas/move.lua", scriptEnv);
 
-Animations['armsAnimation'] = VFS.Include("Scripts/animations/adept/arms.lua", scriptEnv);
+Animations['armsAnimation'] = VFS.Include("Scripts/animations/atlas/arms.lua", scriptEnv);
 
 --------------------------------------------------------------------------------
 -- funcs
@@ -158,7 +158,7 @@ local function Walk()
 
 	isMoving = true
 	while true do
-		PlayAnimation('moveAnimation')
+		PlayAnimation('moveAnimation', false)
 		Sleep(0)
 	end
 end
@@ -168,7 +168,7 @@ local function MoveArms()
 	SetSignalMask(SIG_WALK1)
 	while true do
 		if not isShooting then
-			PlayAnimation('armsAnimation')
+			PlayAnimation('armsAnimation', false)
 		end
 		Sleep(0)
 	end
@@ -179,7 +179,7 @@ local function RestorePose()
 	Signal(SIG_WALK1)
 	SetSignalMask(SIG_WALK)
 	SetSignalMask(SIG_WALK1)
-	PlayAnimation('resetAnimation')
+	PlayAnimation('resetAnimation', false)
 end
 
 local function RestoreShoot()
@@ -188,7 +188,7 @@ local function RestoreShoot()
 	Sleep(RESTORE_DELAY_SHOOT)
 	isShooting = false
 
-	PlayAnimation('resetAnimation')
+	PlayAnimation('resetAnimation', false)
 
 	Turn(culo, z_axis, 0, math.rad(125))
 end
