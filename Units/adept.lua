@@ -19,7 +19,7 @@ local unitDef = {
 	maxDamage    = 6800,
 	idleAutoHeal = 20,
 	idleTime     = 3,
-	
+
 	--Movement
 
 	mass=1800,
@@ -30,12 +30,12 @@ local unitDef = {
 	MaxVelocity = 3.4,
 	MaxWaterDepth = 20,
 	MovementClass = "Default3x3",
-	
+
 	TurnInPlace = false,
 	turnInPlaceSpeedLimit  = 2,
-	
+
 	TurnRate = 400,
-	
+
 	sightDistance = 400,
 
 	Category = [[LAND]],
@@ -45,26 +45,19 @@ local unitDef = {
 	CanMove = true,
 	CanPatrol = true,
 	CanStop = true,
-	LeaveTracks = false, 
-	
+	LeaveTracks = false,
+
 	sfxtypes = {
 		explosiongenerators = {
 			"custom:smoke1",
 		},
 	},
-		weapons = {
-		[1]={name  = "weaponadept",
-			onlyTargetCategory = [[LAND]],
-			--maxAngleDif = 210,
-			--mainDir = [[-1 0 1]],
-		},
-	},
-
+	
 	--building
 
 	Builder = true,
 	ShowNanoSpray = true,
-	CanBeAssisted = true, 
+	CanBeAssisted = true,
 	workerTime = 0.50,
 	repairSpeed = 1,
 	reclaimSpeed = 30,
