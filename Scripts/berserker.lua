@@ -19,7 +19,7 @@ local piernai = piece('piernai');
 local root = piece('root');
 local torso = piece('torso');
 
-scriptEnv = {
+local scriptEnv = {
 	antebrazod = antebrazod,
 	antebrazoi = antebrazoi,
 	cabeza = cabeza,
@@ -38,7 +38,7 @@ scriptEnv = {
 	x_axis = x_axis,
 	y_axis = y_axis,
 	z_axis = z_axis,
-
+}
 
 --------------------------------------------------------------------------------
 -- constants
@@ -155,6 +155,7 @@ local function RestorePose()
 	Signal(SIG_WALK)
 	SetSignalMask(SIG_WALK)
 	PlayAnimation('resetAnimation', false)
+	isShooting = false
 end
 
 local function RestoreShoot()
@@ -163,7 +164,7 @@ local function RestoreShoot()
 	Sleep(RESTORE_DELAY_SHOOT)
 	isShooting = false
 
-	PlayAnimation('resetAnimation' false)
+	PlayAnimation('resetAnimation', false)
 
 	Turn(torso, z_axis, 0, math.rad(125))
 end
