@@ -2,7 +2,7 @@ local unitName = "arc"
 
 local unitDef = {
 	name = "RC",
-	Description = "Recolector",
+	Description = "The Recolector provides a simple way to increase income, while being efficently mobile.",
 	objectName = "rc.dae",
 	script = "rc.lua",
 	buildPic = "rc.png",
@@ -10,7 +10,7 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 200,
+	buildCostMetal = 180,
 	buildCostEnergy = 0,
 	buildTime = 10,
 
