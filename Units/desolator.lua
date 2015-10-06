@@ -2,7 +2,7 @@ local unitName = "fdesolator"
 
 local unitDef = {
 	name = "Desolator",
-	Description = "Armored vehicle antiswarm",
+	Description = "Armored Anti-Raider Vehicle",
 	objectName = "desolator.dae",
 	script = "desolator.lua",
 	buildPic = "desolator.png",
@@ -16,7 +16,7 @@ local unitDef = {
 
 	--Health
 
-	maxDamage = 7540,
+	maxDamage = 7350,
 	idleAutoHeal = 26,
 	idleTime     = 4,
 
