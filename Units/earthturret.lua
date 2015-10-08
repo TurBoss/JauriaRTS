@@ -1,8 +1,8 @@
 local unitName = "earthturret"
 
 local unitDef = {
-	name				= "earthturret",
-	Description			= "Torre defensora",
+	name				= "EarthTurret",
+	Description			= "The Earth Turret is a natural defense obsrtuction that can help you defend your base. However, it may also attack you!",
 	objectName			= "earthturret.dae",
 	script			= "earthturret.lua",
 	buildPic			= "earthturret1.png",

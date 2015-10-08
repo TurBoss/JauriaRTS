@@ -23,7 +23,7 @@ local weaponDef = {
 	--physics
 
 	range=1000,
-	reloadtime=50,
+	reloadtime=38,
 	weaponVelocity=200,
 	startVelocity=150,
 	weaponAcceleration=480,
