@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Fast raiding vehicle",
 	objectName = "raider.dae",
 	script = "raider.lua",
-	buildPic = "raider.png",
+	buildPic = "braider.png",
 	iconType = "raider",
 
 	--cost

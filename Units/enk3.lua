@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Light Tank",
 	objectName = "nk3.dae",
 	script = "nk3.lua",
-	buildPic = "nk3.png",
+	buildPic = "enk3.png",
 	iconType = "nk3",
 
 	--cost

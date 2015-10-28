@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Armored Construction Bot",
 	objectName = "adept.dae",
 	script = "adept.lua",
-	buildPic = "adept.png",
+	buildPic = "aadept.png",
 	iconType = "cons",
 
 	--cost

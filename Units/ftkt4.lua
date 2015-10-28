@@ -6,7 +6,7 @@ local unitDef = {
 	Description = "heavy Tank",
 	objectName = "tkt4.dae",
 	script = "tkt4.lua",
-	buildPic = "tkt4.png",
+	buildPic = "ftkt4.png",
 	iconType = "tkt4",
 
 	--cost

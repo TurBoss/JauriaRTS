@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Heavy Infantry",
 	objectName = "rk2.dae",
 	script = "rk2.lua",
-	buildPic = "rk2.png",
+	buildPic = "drk2.png",
 	iconType = "rk2",
 
 	--cost

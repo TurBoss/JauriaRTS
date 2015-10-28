@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Spy Unit",
 	objectName = "it0.dae",
 	script = "it0.lua",
-	buildPic = "it0.png",
+	buildPic = "bit0.png",
 	iconType = "it0",
 
 	--cost

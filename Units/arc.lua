@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Recolector",
 	objectName = "rc.dae",
 	script = "rc.lua",
-	buildPic = "rc.png",
+	buildPic = "arc.png",
 	iconType = "cons",
 
 	--cost
