@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Simple, recolector",
 	objectName = "heiker.dae",
 	script = "heiker.lua",
-	buildPic = "placeholder.png",
+	buildPic = "aheiker.png",
 
 	--cost
 

@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Simple, mobile unit",
 	objectName = "cuellito.dae",
 	script = "cuellito.lua",
-	buildPic = "placeholder.png",
+	buildPic = "cuellito.png",
 	iconType = "mobs",
 
 	--cost

@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "High movility fighter",
 	objectName = "marauder.dae",
 	script = "marauder.lua",
-	buildPic = "marauder.png",
+	buildPic = "cmarauder.png",
 	iconType = "nm1",
 
 	--cost

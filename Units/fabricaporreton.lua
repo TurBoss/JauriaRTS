@@ -8,7 +8,7 @@ local unitDef = {
 	ObjectName = "fabricaporreton.dae",	
 	TEDClass = "PLANT",
 	script = "fabricaporreton.lua",
-	buildPic = "placeholder.png",
+	buildPic = "fabricaporreton.png",
 	iconType = "factory",
 	
 	-- Unit limitations and properties

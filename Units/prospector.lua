@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Simple, recolector",
 	objectName = "prospector.dae",
 	script = "prospector.lua",
-	buildPic = "placeholder.png",
+	buildPic = "aprospector.png",
 
 	--cost
 

@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Misile Launcher.",
 	objectName = "lz5.dae",
 	script = "lz5.lua",
-	buildPic = "lz5.png",
+	buildPic = "glz5.png",
 	iconType = "lz5",
 
 	--cost

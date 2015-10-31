@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Heavy Armored Mech",
 	objectName = "dt6.dae",
 	script = "dt6.lua",
-	buildPic = "dt6.png",
+	buildPic = "hdt6.png",
 	iconType = "dt6",
 
 	--cost

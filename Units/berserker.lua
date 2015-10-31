@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Heavy Infantry",
 	objectName = "berserker.dae",
 	script = "berserker.lua",
-	buildPic = "placeholder.png",
+	buildPic = "cberserker.png",
 	iconType = "berserker",
 
 	--cost

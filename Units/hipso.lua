@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Complex, mobile unit.",
 	objectName = "hipso.dae",
 	script = "hipso.lua",
-	buildPic = "placeholder.png",
+	buildPic = "dhipso.png",
 	iconType = "rk2",
 
 	--cost
