@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Jungle",
 	objectName = "escorpion.dae",
 	script = "escorpion.lua",
-	buildPic = "placeholder.png",
+	buildPic = "escorpion.png",
 	iconType = "mobs",
 
 	--cost

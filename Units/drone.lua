@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Light Tank",
 	objectName = "drone.dae",
 	script = "drone.lua",
-	buildPic = "placeholder.png",
+	buildPic = "drone.png",
 	iconType = "drone",
 
 	--cost
