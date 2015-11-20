@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Simple, mobile unit",
 	objectName = "valkyria.dae",
 	script = "valkyria.lua",
-	buildPic = "placeholder.png",
+	buildPic = "evalkyria.png",
 	iconType = "nm1",
 
 	--cost
