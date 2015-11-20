@@ -5,7 +5,7 @@ local unitDef = {
 	Description			= "jungler",
 	objectName			= "mechabot.dae",
 	script			= "mechabot.lua",
-	buildPic			= "mechabot1.png",
+	buildPic			= "mechabot.png",
 
 	--cost
 

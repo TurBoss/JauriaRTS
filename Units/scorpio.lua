@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Long range slow catapult",
 	objectName = "scorpio.dae",
 	script = "scorpio.lua",
-	buildPic = "placeholder.png",
+	buildPic = "fscorpio.png",
 	iconType = "scorpio",
 
 	--cost

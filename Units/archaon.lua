@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Ultimate heavy tank",
 	objectName = "archaon.dae",
 	script = "archaon.lua",
-	buildPic = "archaon.png",
+	buildPic = "harchaon.png",
 	iconType = "dt6",
 
 	--cost

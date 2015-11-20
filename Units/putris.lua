@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Long range slow catapult",
 	objectName = "putris.dae",
 	script = "putris.lua",
-	buildPic = "putris.png",
+	buildPic = "eputris.png",
 	iconType = "lz5",
 
 	--cost

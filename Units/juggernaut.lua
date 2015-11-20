@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "All-terrain heavy fighter",
 	objectName = "juggernaut.dae",
 	script = "juggernaut.lua",
-	buildPic = "juggernaut.png",
+	buildPic = "gjuggernaut.png",
 	iconType = "nk3",
 
 	--cost

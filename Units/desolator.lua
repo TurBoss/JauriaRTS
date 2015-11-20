@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Armored Anti-Raider Vehicle",
 	objectName = "desolator.dae",
 	script = "desolator.lua",
-	buildPic = "desolator.png",
+	buildPic = "fdesolator.png",
 	iconType = "rk2",
 
 	--cost
