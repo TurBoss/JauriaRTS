@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Simple, mobile unit",
 	objectName = "atlas.dae",
 	script = "atlas.lua",
-	buildPic = "placeholder.png",
+	buildPic = "atlas.png",
 	iconType = "dt6",
 
 	--cost

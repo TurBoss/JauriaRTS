@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Simple, mobile unit",
 	objectName = "overkraft.dae",
 	script = "overkraft.lua",
-	buildPic = "placeholder.png",
+	buildPic = "doverkraft.png",
 
 	--cost
 

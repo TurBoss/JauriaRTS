@@ -5,7 +5,7 @@ local unitDef = {
 	Description			= "Torre defensora",
 	objectName			= "torretapro.dae",
 	script			= "torretapro.lua",
-	buildPic			= "torreta.png",
+	buildPic			= "torretapro.png",
 	iconType = "towers",
 
 	--cost
