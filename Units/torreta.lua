@@ -24,8 +24,8 @@ local unitDef = {
 
 	--Movement
 	
-	FootprintX = 5,
-	FootprintZ = 5,
+	FootprintX = 3,
+	FootprintZ = 3,
 	
 	maxSlope = 20,
 	sightDistance = 500,

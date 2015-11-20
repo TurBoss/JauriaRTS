@@ -5,7 +5,7 @@ local unitDef = {
 	Description = "Complex, mobile unit.",
 	objectName = "hekor.dae",
 	script = "hekor.lua",
-	buildPic = "hekor.png",
+	buildPic = "ehekor.png",
 	iconType = "rk2",
 
 	--cost

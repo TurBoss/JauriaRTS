@@ -6,7 +6,7 @@ local unitDef = {
 	Description = "Heavy tank",
 	objectName = "taurus.dae",
 	script = "taurus.lua",
-	buildPic = "placeholder.png",
+	buildPic = "gtaurus.png",
 	iconType = "tkt4",
 
 	--cost
