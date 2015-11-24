@@ -1,6 +1,6 @@
 model = {
    radius = 26,
-   --height = 100,
+   height = 105,
    midpos = {0,10,0}, -- model center offset
    --[[tex1 = "corraid1_512.dds", -- same as S3O texture 1
    tex2 = "corraid2_512.dds", -- same as S3O texture 2
