@@ -9,22 +9,16 @@ function widget:GetInfo()
     date      = "2010.10.27 - 2011.10.29", --YYYY.MM.DD, created - updated
     license   = "GPL",
     layer     = 0,
-    enabled   = false,
+    enabled   = true,
     --detailsDefault = 3
   }
 end
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
-if VFS.FileExists("nomapedgewidget.txt") then
-	return
-end
-
 local spGetGroundHeight = Spring.GetGroundHeight
 local spTraceScreenRay = Spring.TraceScreenRay
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
-local gridTex = "LuaUI/Images/vr_grid_large.dds"
---local gridTex = "bitmaps/PD/shield3hex.png"
 local realTex = '$grass'
 
 local dList
@@ -39,88 +33,17 @@ local uleft
 local ugrid
 local ubrightness
 
-local island = false
+local island = nil -- Later it will be checked and set to true of false
+local drawingEnabled = true
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 
-local function ResetWidget()
-	if dList then
-		gl.DeleteList(dList)
-		widget:Initialize()
-	end
-end
+local USE_SHADER = true
+local GRID_SIZE = 32
+local TEXTURE_BRIGHTNESS = 0.5
+local CURVATURE = false
 
-options_path = 'Settings/Graphics/Map/Map Extension'
-options = {
-	--when using shader the map is stored once in a DL and drawn 8 times with vertex mirroring and bending
-        --when not, the map is drawn mirrored 8 times into a display list
-	drawForIslands = {
-		name = "Draw for islands",
-		type = 'bool',
-		value = false,
-		desc = "Draws mirror map when map is an island",		
-	},
-	useShader = {
-		name = "Use shader",
-		type = 'bool',
-		value = true,
-		desc = 'Use a shader when mirroring the map',
-		OnChange = ResetWidget,
-	},
-	gridSize = {
-		name = "Tile size (32-512)",
-		advanced = true,
-		type = 'number',
-		min = 32, 
-		max = 512, 
-		step = 32,
-		value = 32,
-		desc = 'Sets tile size (smaller = more heightmap detail)\nStepsize is 32; recommend powers of 2',
-		OnChange = ResetWidget,
-	},
-	useRealTex = {
-		name = "Use realistic texture",
-		type = 'bool',
-		value = false,
-		desc = 'Use a realistic texture instead of a VR grid',
-		OnChange = ResetWidget,
-	},	
-	textureBrightness = {
-		name = "Texture Brightness",
-		advanced = true,
-		type = 'number',
-		min = 0, 
-		max = 1, 
-		step = 0.01,
-		value = 0.27,
-		desc = 'Sets the brightness of the realistic texture (doesn\'t affect the grid)',
-		OnChange = ResetWidget,
-	},
-	northSouthText = {
-		name = "North, East, South, & West text",
-		type = 'bool',
-		value = false,
-		desc = 'Help you identify map direction under rotation by placing a "North/South/East/West" text on the map edges',
-		OnChange = ResetWidget,	
-	},
-	
-	fogEffect = {
-		name = "Edge Fog Effect",
-		type = 'bool',
-		value = true,
-		desc = 'Blurs the edges of the map slightly to distinguish it from the extension.',
-		OnChange = ResetWidget,
-	},
-	curvature = {
-		name = "Curvature Effect",
-		type = 'bool',
-		value = false,
-		desc = 'Add a curvature to the extension.',
-		OnChange = ResetWidget,
-	},
-	
-}
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 
@@ -138,8 +61,7 @@ local function SetupShaderTable()
 		grid = 0,
 		brightness = 1.0,
 	  },
-	  vertex = (options.curvature.value and "#define curvature \n" or '')
-		.. (options.fogEffect.value and "#define edgeFog \n" or '')
+	  vertex = (CURVATURE and "#define curvature \n" or '')
 		.. [[
 		// Application to vertex shader
 		uniform float mirrorX;
@@ -245,32 +167,6 @@ local function IsIsland()
 	return true
 end
 
-local function TextOutside()
-	if (options.northSouthText.value) then
-		local mapSizeX = Game.mapSizeX
-		local mapSizeZ = Game.mapSizeZ
-		local average = (GetGroundHeight(mapSizeX/2,0) + GetGroundHeight(0,mapSizeZ/2) + GetGroundHeight(mapSizeX/2,mapSizeZ) +GetGroundHeight(mapSizeX,mapSizeZ/2))/4
-
-		gl.Rotate(-90,1,0,0)
-		gl.Translate (0,0,average)		
-		gl.Text("North", mapSizeX/2, 200, 200, "co")
-		
-		gl.Rotate(-90,0,0,1)
-		gl.Text("East", mapSizeZ/2, mapSizeX+200, 200, "co")
-		
-		gl.Rotate(-90,0,0,1)	
-		gl.Text("South", -mapSizeX/2, mapSizeZ +200, 200, "co")
-		
-		gl.Rotate(-90,0,0,1)
-		gl.Text("West", -mapSizeZ/2,200, 200, "co")
-		
-		-- gl.Text("North", mapSizeX/2, 100, 200, "on")
-		-- gl.Text("South", mapSizeX/2,-mapSizeZ, 200, "on")
-		-- gl.Text("East", mapSizeX,-(mapSizeZ/2), 200, "on")
-		-- gl.Text("West", 0,-(mapSizeZ/2), 200, "on")
-	end
-end
-
 local function DrawMapVertices(useMirrorShader)
 
 	local floor = math.floor
@@ -280,7 +176,7 @@ local function DrawMapVertices(useMirrorShader)
 	gl.Color(1,1,1,1)
 
 	local function doMap(dx,dz,sx,sz)
-		local Scale = options.gridSize.value
+		local Scale = GRID_SIZE
 		local sggh = Spring.GetGroundHeight
 		local Vertex = gl.Vertex
 		local glColor = gl.Color
@@ -340,9 +236,8 @@ end
 
 local function DrawOMap(useMirrorShader)
 	gl.Blending(GL.SRC_ALPHA,GL.ONE_MINUS_SRC_ALPHA)
-	gl.DepthTest(GL.LEQUAL)
-        if options.useRealTex.value then gl.Texture(realTex)
-	else gl.Texture(gridTex) end
+	gl.DepthTest(GL.LEQUAL) 
+		gl.Texture(realTex)
 	gl.BeginEnd(GL.TRIANGLE_STRIP,DrawMapVertices, useMirrorShader)
 	gl.DepthTest(false)
 	gl.Color(1,1,1,1)
@@ -354,29 +249,36 @@ local function DrawOMap(useMirrorShader)
 	gl.DepthMask(false)
 	gl.DepthTest(false)
 	gl.Color(1,1,1,1)
-	TextOutside()
 	gl.PopAttrib()
 	----	
 end
 
 function widget:Initialize()
-  SetupShaderTable()
-        Spring.SendCommands("luaui disablewidget External VR Grid")
-        island = IsIsland()
-	if gl.CreateShader and options.useShader.value then
+	
+	if not drawingEnabled then
+		return
+	end
+	
+	--Spring.SendCommands("mapborder 0")
+	
+	if island == nil then
+		island = IsIsland()
+	end
+
+	SetupShaderTable()
+	Spring.SendCommands("luaui disablewidget External VR Grid")
+	if gl.CreateShader and USE_SHADER then
 		mirrorShader = gl.CreateShader(shaderTable)
 		if (mirrorShader == nil) then
-	    Spring.Log(widget:GetInfo().name, LOG.ERROR, "Map Edge Extension widget: mirror shader error: "..gl.GetShaderLog())
-	  end
+			Spring.Log(widget:GetInfo().name, LOG.ERROR, "Map Edge Extension widget: mirror shader error: "..gl.GetShaderLog())
+		end
 	end
 	if not mirrorShader then
 		widget.DrawWorldPreUnit = function()
-                        if (not island) or options.drawForIslands.value then
-                            gl.DepthMask(true)
-                            --gl.Texture(tex)
-                            gl.CallList(dList)
-                            gl.Texture(false)
-                        end
+			gl.DepthMask(true)
+			--gl.Texture(tex)
+			gl.CallList(dList)
+			gl.Texture(false)
 		end
 	else
 		umirrorX = gl.GetUniformLocation(mirrorShader,"mirrorX")
@@ -400,73 +302,77 @@ function widget:Shutdown()
 	end
 end
 
-function widget:DrawWorldPreUnit() --is overwritten when not using the shader
-    if (not island) or options.drawForIslands.value then
-        local glTranslate = gl.Translate
-        local glUniform = gl.Uniform
-        local GamemapSizeZ, GamemapSizeX = Game.mapSizeZ,Game.mapSizeX
-        
-        gl.Fog(true)
-        gl.FogCoord(1)
-        gl.UseShader(mirrorShader)
-        gl.PushMatrix()
-        gl.DepthMask(true)
-        if options.useRealTex.value then 
-        		gl.Texture(realTex)
-        		glUniform(ubrightness, options.textureBrightness.value)
-        		glUniform(ugrid, 0)
-				else 
-						gl.Texture(gridTex) 
-        		glUniform(ubrightness, 1.0)
-        		glUniform(ugrid, 1)
-				end
-        if wiremap then
-            gl.PolygonMode(GL.FRONT_AND_BACK, GL.LINE)
-        end
-        glUniform(umirrorX, GamemapSizeX)
-        glUniform(umirrorZ, GamemapSizeZ)
-        glUniform(ulengthX, GamemapSizeX)
-        glUniform(ulengthZ, GamemapSizeZ)
-        glUniform(uleft, 1)
-        glUniform(uup, 1)
-        glTranslate(-GamemapSizeX,0,-GamemapSizeZ)
-        gl.CallList(dList)
-        glUniform(uleft , 0)
-        glTranslate(GamemapSizeX*2,0,0)
-        gl.CallList(dList)
-        gl.Uniform(uup, 0)
-        glTranslate(0,0,GamemapSizeZ*2)
-        gl.CallList(dList)
-        glUniform(uleft, 1)
-        glTranslate(-GamemapSizeX*2,0,0)
-        gl.CallList(dList)
-        
-        glUniform(umirrorX, 0)
-        glTranslate(GamemapSizeX,0,0)
-        gl.CallList(dList)
-        glUniform(uleft, 0)
-        glUniform(uup, 1)
-        glTranslate(0,0,-GamemapSizeZ*2)
-        gl.CallList(dList)
-        
-        glUniform(uup, 0)
-        glUniform(umirrorZ, 0)
-        glUniform(umirrorX, GamemapSizeX)
-        glTranslate(GamemapSizeX,0,GamemapSizeZ)
-        gl.CallList(dList)
-        glUniform(uleft, 1)
-        glTranslate(-GamemapSizeX*2,0,0)
-        gl.CallList(dList)
-        if wiremap then
-            gl.PolygonMode(GL.FRONT_AND_BACK, GL.FILL)
-        end
-        gl.DepthMask(false)
-        gl.Texture(false)
-        gl.PopMatrix()
-        gl.UseShader(0)
-        
-        gl.Fog(false)
-    end
+local function DrawWorldFunc() --is overwritten when not using the shader
+
+	local glTranslate = gl.Translate
+	local glUniform = gl.Uniform
+	local GamemapSizeZ, GamemapSizeX = Game.mapSizeZ,Game.mapSizeX
+	
+	gl.Fog(true)
+	gl.FogCoord(1)
+	gl.UseShader(mirrorShader)
+	gl.PushMatrix()
+	gl.DepthMask(true)
+		gl.Texture(realTex)
+		glUniform(ubrightness, TEXTURE_BRIGHTNESS)
+		glUniform(ugrid, 0)
+	if wiremap then
+		gl.PolygonMode(GL.FRONT_AND_BACK, GL.LINE)
+	end
+	glUniform(umirrorX, GamemapSizeX)
+	glUniform(umirrorZ, GamemapSizeZ)
+	glUniform(ulengthX, GamemapSizeX)
+	glUniform(ulengthZ, GamemapSizeZ)
+	glUniform(uleft, 1)
+	glUniform(uup, 1)
+	glTranslate(-GamemapSizeX,0,-GamemapSizeZ)
+	gl.CallList(dList)
+	glUniform(uleft , 0)
+	glTranslate(GamemapSizeX*2,0,0)
+	gl.CallList(dList)
+	gl.Uniform(uup, 0)
+	glTranslate(0,0,GamemapSizeZ*2)
+	gl.CallList(dList)
+	glUniform(uleft, 1)
+	glTranslate(-GamemapSizeX*2,0,0)
+	gl.CallList(dList)
+	
+	glUniform(umirrorX, 0)
+	glTranslate(GamemapSizeX,0,0)
+	gl.CallList(dList)
+	glUniform(uleft, 0)
+	glUniform(uup, 1)
+	glTranslate(0,0,-GamemapSizeZ*2)
+	gl.CallList(dList)
+	
+	glUniform(uup, 0)
+	glUniform(umirrorZ, 0)
+	glUniform(umirrorX, GamemapSizeX)
+	glTranslate(GamemapSizeX,0,GamemapSizeZ)
+	gl.CallList(dList)
+	glUniform(uleft, 1)
+	glTranslate(-GamemapSizeX*2,0,0)
+	gl.CallList(dList)
+	if wiremap then
+		gl.PolygonMode(GL.FRONT_AND_BACK, GL.FILL)
+	end
+	gl.DepthMask(false)
+	gl.Texture(false)
+	gl.PopMatrix()
+	gl.UseShader(0)
+	
+	gl.Fog(false)
+end
+
+function widget:DrawWorldPreUnit()
+	if drawingEnabled then
+		DrawWorldFunc()
+	end
+end
+function widget:DrawWorldRefraction()
+	if drawingEnabled then
+		DrawWorldFunc()
+	end
 end
 
 function widget:MousePress(x, y, button)
