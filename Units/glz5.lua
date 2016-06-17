@@ -2,7 +2,7 @@ local unitName = "glz5"
 
 local unitDef = {
 	name = "LZ-5",
-	Description = "Misile Launcher.",
+	Description = "The LZ-5 is a powerful missle launcher designed to take care of tough targets. However, you should have an adequate escort for it - it does not fare well against fast units that can get in close.",
 	objectName = "lz5.dae",
 	script = "lz5.lua",
 	buildPic = "lz5.png",
@@ -10,7 +10,7 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 1380,
+	buildCostMetal = 1300,
 	buildCostEnergy = 0,
 	buildTime = 69,
 
