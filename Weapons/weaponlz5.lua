@@ -10,12 +10,12 @@ local weaponDef={
 	movingAccuracy=50,
 	
 	--Physic/flight path
-	range=1100,
-	reloadtime=16,
+	range=1300,
+	reloadtime=20,
 	weaponVelocity=500,
 	startVelocity=300,
 	weaponAcceleration=50,
-	flightTime=6,
+	flightTime=5,
 	BurnBlow=0,
 	FixedLauncher=false,
 	trajectoryHeight=1.8,
@@ -45,7 +45,7 @@ local weaponDef={
 	----DAMAGE
 	
 	damage={
-		default = 1780,
+		default = 1500,
 		heavyarmor = 2130,
 		lightarmor = 2680,
 		torrearmor = 3450,
