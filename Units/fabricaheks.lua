@@ -13,11 +13,11 @@ local unitDef = {
 	
 	-- Unit limitations and properties
 	
-	Description = "a simple factory that builds mobile units",
+	Description = "A factory that builds mobile ground units.",
 	MaxDamage = 15000,
-	Name = "Fabrica Heks",
+	Name = "Heks Factory",
 	RadarDistance = 0,
-	SightDistance = 500,
+	SightDistance = 200,
 	Upright = 1,
 	levelground = 1,
 	
@@ -34,7 +34,7 @@ local unitDef = {
 	MetalStorage = 0,
 	EnergyMake = 0, 
 	MakesMetal = 0, 
-	MetalMake = 5,
+	MetalMake = 2.5,
 	
 	--Pathfinding and related
 	
@@ -46,7 +46,7 @@ local unitDef = {
 	-- Building
 	
 	Builder = true,
-	canMove = true,
+	canMove = false,
 	Reclaimable = false,
 	ShowNanoSpray = true,
 	CanBeAssisted = true,
