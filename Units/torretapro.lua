@@ -1,8 +1,8 @@
 local unitName = "torretapro"
 
 local unitDef = {
-	name				= "Torreta Jauria",
-	Description			= "Torre defensora",
+	name				= "Turret",
+	Description			= "Defense Turret.",
 	objectName			= "torretapro.dae",
 	script			= "torretapro.lua",
 	buildPic			= "torretapro.png",
@@ -32,9 +32,9 @@ local unitDef = {
 	sightDistance = 500,
 
 	CanAttack = true,
-	CanGuard = true,
+	CanGuard = false,
 	CanMove = false,
-	CanPatrol = true,
+	CanPatrol = false,
 	CanStop = true,
 	LeaveTracks = false,
 
