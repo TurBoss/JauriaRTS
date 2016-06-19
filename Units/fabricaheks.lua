@@ -46,7 +46,7 @@ local unitDef = {
 	-- Building
 	
 	Builder = true,
-	canMove = false,
+	canMove = true,
 	Reclaimable = false,
 	ShowNanoSpray = true,
 	CanBeAssisted = true,
