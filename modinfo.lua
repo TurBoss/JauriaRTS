@@ -10,8 +10,7 @@ local modinfo = {
 	modtype = 1,
 	depend = {
 		"cursors.sdz",
-		"Chili Framework",
-		"Spring Features v1.6"
+		"Chili Framework v2014.0",
 	}
 }
 return modinfo
