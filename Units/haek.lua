@@ -2,7 +2,7 @@ local unitName = "fhaek"
 
 local unitDef = {
 	name = "Haek",
-	Description = "Complex, mobile unit.",
+	Description = "Fighter vehicle that has decent specs.",
 	objectName = "haek.dae",
 	script = "haek.lua",
 	buildPic = "fhaek.png",
@@ -10,13 +10,13 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 840,
+	buildCostMetal = 800,
 	buildCostEnergy = 0,
 	buildTime = 42,
 
 	--Health
 
-	maxDamage = 3400,
+	maxDamage = 3200,
 	idleAutoHeal = 28,
 	idleTime     = 3,
 
@@ -33,7 +33,7 @@ local unitDef = {
 	MovementClass = "Default2x2",
 	TurnRate = 3300,
 
-	sightDistance = 480,
+	sightDistance = 500,
 
 	Category = [[LAND]],
 
