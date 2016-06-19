@@ -2,7 +2,7 @@ local unitName = "evalkyria"
 
 local unitDef = {
 	name = "Valkyria",
-	Description = "Simple, mobile unit",
+	Description = "Scout vehicle",
 	objectName = "valkyria.dae",
 	script = "valkyria.lua",
 	buildPic = "evalkyria.png",
@@ -10,20 +10,20 @@ local unitDef = {
 
 	--cost
 
-	buildCostMetal = 620,
+	buildCostMetal = 530,
 	buildCostEnergy = 0,
 	buildTime = 31,
 
 	--Health
 
-	maxDamage = 3850,
+	maxDamage = 3800,
 	idleAutoHeal = 120,
 	idleTime     = 5,
 
 	--Movement
 
 	mass=800,
-	Acceleration = 1.2,
+	Acceleration = 1.4,
 	BrakeRate = 5,
 	FootprintX = 1,
 	FootprintZ = 1,
@@ -31,9 +31,9 @@ local unitDef = {
 	MaxVelocity = 3.8,
 	MaxWaterDepth = 20,
 	MovementClass = "Default1x1",
-	TurnRate = 2580,
+	TurnRate = 2600,
 
-	sightDistance = 430,
+	sightDistance = 500,
 
 	Category = [[LAND]],
 	

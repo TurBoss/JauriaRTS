@@ -1,6 +1,5 @@
 JauriaRTS
 =========
 
-El Juego Jauria
+An open-source RTS for the spring engine.
 
-a open source rts game for the spring-rts engine
