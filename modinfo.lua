@@ -5,12 +5,13 @@ local modinfo = {
 	game = "jauria",
 	shortgame = "jauria",
 	description = "Jauria RTS Game",
-	url = "http://jauriarts.com",
+	url = "https://jauriarts.com",
 	version = "$VERSION",
 	modtype = 1,
 	depend = {
 		"cursors.sdz",
-		"Chili Framework"
+		"Chili Framework",
+		"Spring Features v1.6"
 	}
 }
 return modinfo
