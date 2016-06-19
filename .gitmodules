@@ -1,0 +1,3 @@
+[submodule "libs/chonsole"]
+	path = libs/chonsole
+	url = https://github.com/gajop/chonsole.git
