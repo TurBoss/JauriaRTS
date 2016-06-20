@@ -12,4 +12,5 @@ local modinfo = {
 		"cursors.sdz",
 	}
 }
+
 return modinfo
