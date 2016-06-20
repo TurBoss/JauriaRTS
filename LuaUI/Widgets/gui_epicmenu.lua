@@ -380,11 +380,11 @@ end
 
 --------------------------------------------------------------------------------
 
---WG.crude.SetSkin = function(Skin)
---  if Chili then
---    Chili.theme.skin.general.skinName = Skin
---  end
---end
+WG.crude.SetSkin = function(Skin)
+  if Chili then
+    Chili.theme.skin.general.skinName = Skin
+  end
+end
 
 --Reset custom widget settings, defined in Initialize
 WG.crude.ResetSettings 	= function() end
