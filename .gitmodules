@@ -1,6 +1,0 @@
-[submodule "libs/chonsole"]
-	path = libs/chonsole
-	url = https://github.com/gajop/chonsole.git
-[submodule "libs/chiliui"]
-	path = libs/chiliui
-	url = https://github.com/jk3064/chiliui/
