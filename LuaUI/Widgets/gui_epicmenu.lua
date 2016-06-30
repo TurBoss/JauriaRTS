@@ -1,7 +1,7 @@
 function widget:GetInfo()
   return {
     name      = "EPIC Menu",
-    desc      = "v1.438 Extremely Powerful Ingame Chili Menu.",
+    desc      = "v1.439 Extremely Powerful Ingame Chili Menu.",
     author    = "CarRepairer",
     date      = "2009-06-02", --2014-05-3
     license   = "GNU GPL, v2 or later",
@@ -37,21 +37,26 @@ local max = math.max
 local echo = Spring.Echo
 
 --------------------------------------------------------------------------------
+local isMission = Game.modDesc:find("Mission Mutator")
 
 -- Config file data
-local keybind_file, defaultkeybinds, defaultkeybind_date, confdata
+local keybind_dir, keybind_file, defaultkeybinds, defaultkeybind_date, confdata
 do
 	--load config file:
 	local file = LUAUI_DIRNAME .. "Configs/epicmenu_conf.lua"
 	confdata = VFS.Include(file, nil, VFS.RAW_FIRST)
 	--assign keybind file:
-	keybind_file = LUAUI_DIRNAME .. 'Config/' .. Game.modShortName:lower() .. '_keys.lua' --example: zk_keys.lua
-
+	keybind_dir = LUAUI_DIRNAME .. 'Configs/'
+	keybind_file = Game.modShortName:lower() .. '_keys.lua' --example: zk_keys.lua
+	if isMission then
+		--FIXME: find modname instead of using hardcoded mission_keybinds_file name
+		keybind_file = (confdata.mission_keybinds_file and confdata.mission_keybinds_file) or keybind_file --example: singleplayer_keys.lua
+	end
 	--check for validity, backup or delete
-	CheckLUAFileAndBackup(keybind_file,'') --this utility create backup file in user's Spring folder OR delete them if they are not LUA content (such as corrupted or wrong syntax). included in "utility_two.lua"
+	CheckLUAFileAndBackup(keybind_dir .. keybind_file,'') --this utility create backup file in user's Spring folder OR delete them if they are not LUA content (such as corrupted or wrong syntax). included in "utility_two.lua"
 	--load default keybinds:
 	--FIXME: make it automatically use same name for mission, multiplayer, and default keybinding file
-	local default_keybind_file = LUAUI_DIRNAME .. 'Configs/' .. confdata.default_source_file
+	local default_keybind_file = keybind_dir .. confdata.default_source_file
 	local file_return = VFS.FileExists(default_keybind_file, VFS.ZIP) and VFS.Include(default_keybind_file, nil, VFS.ZIP) or {keybinds={},date=0}
 	defaultkeybinds = file_return.keybinds
 	defaultkeybind_date = file_return.date
@@ -121,6 +126,24 @@ local pathoptions = {}
 local actionToOption = {}
 
 local exitWindowVisible = false
+
+local br = '\n'
+local showTidal = false
+if not confdata.description then confdata.description = '' end
+local gameInfoText = ''
+	..Game.modName ..br..br
+	..'Spring Engine version: '..Game.version..br..br	
+	..'Map: ' ..Game.mapName ..br
+		
+	..'    Size: '..Game.mapX..' x '..Game.mapY..br        
+	..'    Gravity: '..math.round(Game.gravity)..br
+	.. (showTidal and ('    Tidal Power: '..Game.tidal..br) or '')
+	..'    Water Damage: '..Game.waterDamage..br
+	..'    '.. Game.mapDescription..br
+	..br..br
+	..confdata.description 
+	
+
 --------------------------------------------------------------------------------
 -- Key bindings
 -- KEY BINDINGS AND YOU:
@@ -166,12 +189,14 @@ local keybind_date = 0
 local settings = {
 	versionmin = 50,
 	lang = 'en',
+	country = 'wut',
 	widgets = {},
 	show_crudemenu = true,
 	music_volume = 0.5,
 	showAdvanced = false,
 }
 
+local confLoaded = false
 
 
 ----------------------------------------------------------------
@@ -387,13 +412,13 @@ end
 local function SaveKeybinds()
 	local keybindfile_table = { keybinds = keybounditems, date=keybind_date } 
 	--table.save( keybindfile_table, keybind_file )
-	WG.SaveTable(keybindfile_table, keybind_file, nil, {concise = true, prefixReturn = true, endOfFile = true})
+	WG.SaveTable(keybindfile_table, keybind_dir, keybind_file, nil, {concise = true, prefixReturn = true, endOfFile = true})
 end
 
 local function LoadKeybinds()
 	local loaded = false
-	if VFS.FileExists(keybind_file, VFS.RAW) then
-		local file_return = VFS.Include(keybind_file, nil, VFS.RAW)
+	if VFS.FileExists(keybind_dir .. keybind_file, VFS.RAW) then
+		local file_return = VFS.Include(keybind_dir .. keybind_file, nil, VFS.RAW)
 		if file_return then
 			keybounditems, keybind_date = file_return.keybinds, file_return.date
 			if keybounditems and keybind_date then
@@ -533,6 +558,9 @@ local function KillSubWindow(makingNew)
 	if window_sub_cur then
 		settings.sub_pos_x = window_sub_cur.x
 		settings.sub_pos_y = window_sub_cur.y
+		
+		settings.subwindow_height = window_sub_cur.height
+		
 		window_sub_cur:Dispose()
 		window_sub_cur = nil
 		curPath = ''
@@ -554,35 +582,15 @@ end
 
 VFS.Include("LuaUI/Utilities/json.lua");
 
-local function UTF8SupportCheck()
-	local version=Game.version
-	local first_dot=string.find(version,"%.")
-	local major_version = (first_dot and string.sub(version,0,first_dot-1)) or version
-	local major_version_number = tonumber(major_version)
-	return major_version_number>=98
-end
-local UTF8SUPPORT = UTF8SupportCheck()
-
-local function SetLangFontConf()
-	if UTF8SUPPORT and VFS.FileExists("Luaui/Configs/nonlatin/"..WG.lang..".json", VFS.ZIP) then
-		WG.langData = Spring.Utilities.json.decode(VFS.LoadFile("Luaui/Configs/nonlatin/"..WG.lang..".json", VFS.ZIP))
-		WG.langFont = nil
-		WG.langFontConf = nil
-	else
-		WG.langData = nil
-		WG.langFont = nil
-		WG.langFontConf = nil
-	end
-end
-
 local function SetCountry(self) 
 	echo('Setting country: "' .. self.country .. '" ') 
 	
 	WG.country = self.country
 	settings.country = self.country
 	
-	WG.lang = self.countryLang 
-	SetLangFontConf()
+	if WG.lang then
+		WG.lang(self.countryLang)
+	end
 	
 	settings.lang = self.countryLang
 	
@@ -860,7 +868,9 @@ local function CreateOptionAction(path, option)
 		end
 	end
 	local actionName = GetActionName(path, option)
-	AddAction(actionName, kbfunc, nil, "t")
+	if (not option.dontRegisterAction) then
+		AddAction(actionName, kbfunc, nil, "t")
+	end
 	actionToOption[actionName] = option
 	
 	if option.hotkey then
@@ -1120,7 +1130,6 @@ local function AddOption(path, option, wname ) --Note: this is used when loading
 		end
 		
 		CreateOptionAction(path, option)
-		
 	--Keybinds for radiobuttons
 	elseif option.type == 'radioButton' then --if its a list of checkboxes:
 		for i=1, #option.items do --prepare keybinds for each of radioButton's checkbox
@@ -1575,6 +1584,7 @@ local function SearchElement(termToSearch,path)
 						local found = SearchInText(lowercase_name,termToSearch) or SearchInText(lowercase_desc,termToSearch)
 						if found then
 							filtered_pathOptions[#filtered_pathOptions+1] = {currentPath,option}
+							break;
 						end
 					end
 				end
@@ -1705,11 +1715,13 @@ MakeSubWindow = function(path, pause)
 				local escapeSearch = searchedElement and option.desc and option.desc:find(currentPath) and option.isDirectoryButton --this type of button will open sub-level when pressed (defined in "AddOption(path, option, wname )")
 				local disabled = option.DisableFunc and option.DisableFunc()
 				local icon = option.icon
+				local button_height = root and 36 or 30
 				local button = Button:New{
 					name = option.wname .. " " .. option.name;
 					x=0,
-					minHeight = root and 36 or 30,
-					caption = option.name, 
+					minHeight = button_height,
+					--caption = option.name, 
+					caption = '', 
 					OnClick = escapeSearch and {function() filterUserInsertedTerm = ''; end,option.OnChange} or {option.OnChange},
 					backgroundColor = disabled and color.disabled_bg or {1, 1, 1, 1},
 					textColor = disabled and color.disabled_fg or color.sub_button_fg, 
@@ -1722,7 +1734,10 @@ MakeSubWindow = function(path, pause)
 					local width = root and 24 or 16
 					Image:New{ file= icon, width = width, height = width, parent = button, x=4,y=4,  }
 				end
-				tree_children[#tree_children+1] = MakeHotkeyedControl(button, path, option,nil,option.isDirectoryButton )
+				
+				Label:New{ parent = button, x=35,y=button_height*0.2,  caption=option.name}
+				
+				tree_children[#tree_children+1] = MakeHotkeyedControl(button, path, option,nil,option.isDirectoryButton or option.noHotkey)
 			end
 			
 		elseif option.type == 'label' then	
@@ -1752,7 +1767,8 @@ MakeSubWindow = function(path, pause)
 				textColor = color.sub_fg, 
 				tooltip   = option.desc,
 			}
-			tree_children[#tree_children+1] = MakeHotkeyedControl(chbox,  path, option)
+			option.epic_reference = chbox
+			tree_children[#tree_children+1] = MakeHotkeyedControl(chbox,  path, option, icon, option.noHotkey)
 			
 		elseif option.type == 'number' then	
 			settings_height = settings_height + B_HEIGHT
@@ -1827,7 +1843,7 @@ MakeSubWindow = function(path, pause)
 					tooltip = item.desc, --tooltip
 				}
 				local icon = option.items[i].icon
-				tree_children[#tree_children+1] = MakeHotkeyedControl( cb, path, item, icon)
+				tree_children[#tree_children+1] = MakeHotkeyedControl( cb, path, item, icon, option.noHotkey)
 					
 			end
 			tree_children[#tree_children+1] = Label:New{ caption = '', }
@@ -1964,7 +1980,8 @@ MakeSubWindow = function(path, pause)
 		x = settings.sub_pos_x,  
 		y = settings.sub_pos_y, 
 		clientWidth = window_width,
-		clientHeight = window_height+B_HEIGHT*4,
+		--clientHeight = window_height+B_HEIGHT*4,
+		height = settings.subwindow_height,
 		minWidth = 250,
 		minHeight = 350,		
 		--resizable = false,
@@ -2125,7 +2142,7 @@ local function MakeMenuBar()
 		resizable = false,
 		minimizable = false,
 		backgroundColor = color.main_bg,
-		--color = color.main_bg,
+		color = color.main_bg,
 		margin = {0,0,0,0},
 		padding = {0,0,0,0},
 		parent = screen0,
@@ -2193,7 +2210,10 @@ local function MakeMenuBar()
 								width=70,
 								trackColor = color.main_fg,
 								value = spGetConfigInt("snd_volmaster", 50),
-								OnChange = { function(self)	spSendCommands{"set snd_volmaster " .. self.value} end	},
+								OnChange = { function(self)
+									spSendCommands{"set snd_volmaster " .. self.value}
+									if WG.ttsNotify then WG.ttsNotify() end
+								end	},
 							},
 							
 							Image:New{ tooltip = 'Music', file=LUAUI_DIRNAME .. 'Images/epicmenu/vol_music.png', width= 18,height= 18, },
@@ -2208,16 +2228,24 @@ local function MakeMenuBar()
 								value = settings.music_volume or 0.5,
 								prevValue = settings.music_volume or 0.5,
 								OnChange = { 
-									function(self)	
-										if (WG.music_start_volume or 0 > 0) then 
+									function(self)
+										if ((WG.music_start_volume or 0) > 0) then 
 											Spring.SetSoundStreamVolume(self.value / WG.music_start_volume) 
 										else 
 											Spring.SetSoundStreamVolume(self.value) 
 										end 
 										settings.music_volume = self.value
 										WG.music_volume = self.value
-										if (self.prevValue > 0 and self.value <=0) then widgetHandler:DisableWidget("Music Player") end 
-										if (self.prevValue <=0 and self.value > 0) then widgetHandler:EnableWidget("Music Player") end 
+										if (self.prevValue > 0 and self.value <=0) then 
+											widgetHandler:DisableWidget("Music Player") 
+										end 
+										if (self.prevValue <=0 and self.value > 0) then
+											-- Disable first in case widget is already enabled.
+											-- This is required for it to notice the volume
+											-- change from 0 in some cases.
+											widgetHandler:DisableWidget("Music Player")
+											widgetHandler:EnableWidget("Music Player") 
+										end 
 										self.prevValue = self.value
 									end	
 								},
@@ -2308,10 +2336,14 @@ local function MakeQuitButtons()
 		value = 'Quit game',
 		key='Quit game',
 	})
+	
+	local imgPath = LUAUI_DIRNAME  .. 'images/'
+
 	AddOption('',{
 		type='button',
 		name='Vote Resign',
 		desc = "Ask teammates to resign",
+		icon = imgPath..'epicmenu/whiteflag_check.png',
 		OnChange = function()
 				if not (Spring.GetSpectatingState() or PlayingButNoTeammate() or isMission) then
 					spSendCommands("say !voteresign")
@@ -2325,8 +2357,9 @@ local function MakeQuitButtons()
 	})
 	AddOption('',{
 		type='button',
-		name='Resign',
+		name='Resign...',
 		desc = "Abandon team and become spectator",
+		icon = imgPath..'epicmenu/whiteflag.png',
 		OnChange = function()
 				if not (isMission or Spring.GetSpectatingState()) then
 					MakeExitConfirmWindow("Are you sure you want to resign?", function() 
@@ -2345,8 +2378,9 @@ local function MakeQuitButtons()
 	})
 	AddOption('',{
 		type='button',
-		name='Exit to Desktop',
+		name='Exit to Desktop...',
 		desc = "Exit game completely",
+		icon = imgPath..'epicmenu/exit.png',
 		OnChange = function() 
 			MakeExitConfirmWindow("Are you sure you want to quit the game?", function()
 				local paused = select(3, Spring.GetGameSpeed())
@@ -2370,6 +2404,8 @@ RemakeEpicMenu = function()
 		MakeSubWindow(lastPath, true)
 	end
 end
+
+WG.RemakeEpicMenu = RemakeEpicMenu
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -2414,9 +2450,12 @@ function widget:Initialize()
 	
 	-- Set default positions of windows on first run
 	local screenWidth, screenHeight = Spring.GetWindowGeometry()
+	if not settings.subwindow_height then
+		settings.subwindow_height = 550
+	end
 	if not settings.sub_pos_x then
 		settings.sub_pos_x = screenWidth/2 - 150
-		settings.sub_pos_y = screenHeight/2 - 200
+		settings.sub_pos_y = screenHeight/2 - settings.subwindow_height * 0.55
 	end
 	
 	if not keybounditems then
@@ -2425,19 +2464,20 @@ function widget:Initialize()
 	if not settings.config then
 		settings.config = {}
 	end
-	
-	if not settings.country or settings.country == 'wut' then
-		myCountry = select(8, Spring.GetPlayerInfo( Spring.GetLocalPlayerID() ) ) 
-		if not myCountry or myCountry == '' then
-			myCountry = 'wut'
+
+	if not confLoaded then
+		if not settings.country or settings.country == 'wut' then
+			myCountry = select(8, Spring.GetPlayerInfo(Spring.GetLocalPlayerID()))
+			if not myCountry or myCountry == '' then
+				myCountry = 'wut'
+			end
+			settings.country = myCountry
 		end
-		settings.country = myCountry
+
+		WG.country = settings.country
+		WG.lang(settings.lang)
 	end
-	
-	WG.country = settings.country	
-	WG.lang = settings.lang
-	SetLangFontConf()
-	
+
 		-- add custom widget settings to crudemenu
 	AddAllCustSettings()
 
@@ -2461,6 +2501,15 @@ function widget:Initialize()
 	end
 	
 	MakeQuitButtons()
+	
+	AddOption('',{ type='label',name='',value = '',key='',})
+	AddOption('Game',{
+		type='text',
+		name='About...',
+		value=gameInfoText,
+		--desc = "about game",
+		key='About',
+	})
 	
 	-- Clears all saved settings of custom widgets stored in crudemenu's config
 	WG.crude.ResetSettings = function()
@@ -2623,8 +2672,8 @@ function widget:Initialize()
 	init = false
 	
 	--intialize remote menu trigger
-	WG.crude.OpenPath = function(path) --Note: declared here so that it work in local copy
-		MakeSubWindow(path)	-- FIXME should pause the game
+	WG.crude.OpenPath = function(path, pause) --Note: declared here so that it work in local copy
+		MakeSubWindow(path, pause)	-- FIXME should pause the game
 	end
 	
 	--intialize remote menu trigger 2
@@ -2684,11 +2733,26 @@ function widget:GetConfigData()
 end
 
 function widget:SetConfigData(data)
+	confLoaded = true
 	if (data and type(data) == 'table') then
 		if data.versionmin and data.versionmin >= 50 then
 			settings = data
 		end
 	end
+
+	-- set language. Needs to be done ASAP, before other widgets are even loaded!
+	-- This is because option paths are done right on load and they can use translations.
+	if not settings.country or settings.country == 'wut' then
+		myCountry = select(8, Spring.GetPlayerInfo(Spring.GetLocalPlayerID()))
+		if not myCountry or myCountry == '' then
+			myCountry = 'wut'
+		end
+		settings.country = myCountry
+	end
+
+	WG.country = settings.country
+	--WG.lang(settings.lang)
+
 	WG.music_volume = settings.music_volume or 0.5
 	LoadKeybinds()
 end
