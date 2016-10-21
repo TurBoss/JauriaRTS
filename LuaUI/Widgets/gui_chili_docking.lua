@@ -1,71 +1,107 @@
+local version = "v1.001"
+
 function widget:GetInfo()
   return {
     name      = "Chili Docking",
-    desc      = "Provides docking and position saving for chili windows",
-    author    = "Licho, jK",
-    date      = "2010, 2013",
+    desc      = version .." Provides docking and position saving for chili windows",
+    author    = "Licho",
+    date      = "@2010",
     license   = "GNU GPL, v2 or later",
     layer     = 50,
     experimental = false,
+    handler   = true, -- to read widget status. eg: "widgetHandler.knownWidgets[name]"
     enabled   = true  --  loaded by default?
   }
 end
 
-
 local Chili
+local Window
+local screen0
 
+local lastPos = {} -- "windows" indexed array of {x,y,x2,y2}
+local settings = {} -- "window name" indexed array of {x,y,x2,y,2}
+local buttons = {} -- "window name" indexed array of minimize buttons
 local forceUpdate = false 
-options_path = 'Settings/Interface/Docking'
-options_order = { 'dockEnabled', 'dockThreshold', }
+local frameCounter = 0
+
+local lastCount = 0
+local lastWidth = 0
+local lastHeight = 0
+
+----------------------------------------------------
+-- Options
+----------------------------------------------------
+options_path = 'Settings/HUD Panels/Docking'
+options_order = { 'dockEnabled', 'minimizeEnabled', 'dockThreshold'}
 options = {
 	dockThreshold = {
 		name = "Docking distance",
 		type = 'number',
 		advanced = true,
-		value = 10,
+		value = 5,
 		min=1,max=50,step=1,
 		OnChange = {function() 
 			forceUpdate = true
 		end },
 	},
-	
 	dockEnabled = {
 		name = 'Use docking',
 		advanced = false,
 		type = 'bool',
 		value = true,
+		noHotkey = true,
 		desc = 'Dock windows to screen edges and each other to prevent overlaps',
+	},
+	minimizeEnabled = {
+		name = 'Minimizable windows',
+		advanced = false,
+		type = 'bool',
+		value = true,
+		noHotkey = true,
+		desc = 'When enabled certain windows will have minimization tabs.',
 	},
 }
 
+----------------------------------------------------
+----------------------------------------------------
 
+local function Docking_GetWindowSettings(name)
+	if name and settings and settings[name] then
+		local settingsPos = settings[name]
+		
+		local x = settingsPos[1]
+		local y = settingsPos[2]
+		local w = settingsPos[3] - x
+		local h = settingsPos[4] - y
+		return x,y,w,h
+	end
+end
 
-local lastPos  = {} -- "window name" indexed array of {x,y,x2,y2}
-local settings = {} -- "window name" indexed array of {x,y,w,h}
-local buttons  = {} -- "window name" indexed array of minimize buttons
-
+function WG.SetWindowPosAndSize(window,x,y,w,h)
+	lastPos[window] = nil
+	settings[window] = {x,y,x+w,y+h}
+end
 
 function widget:Initialize()
 	if (not WG.Chili) then
-		widgetHandler:RemoveWidget()
+		widgetHandler:RemoveWidget(widget) --"widget" as extra argument because "handler=true"
 		return
 	end
+	WG.Docking_GetWindowSettings = Docking_GetWindowSettings
 
 	-- setup Chili
 	Chili = WG.Chili
+	Window = Chili.Window
+	screen0 = Chili.Screen0
 end 
 
-local frameCounter = 0
-
-
-
 -- returns snap orientation of box A compared to box B and distance of their edges  - orientation = L/R/T/D and distance of snap
-local function GetBoxRelation(boxa, boxb)
+local function GetBoxRelation(boxa, boxb) 
 	local mpah = 0 -- midposition a horizontal
 	local mpbh = 0
 	local mpav = 0
 	local mpbv = 0
-
+	
 	local snaph, snapv
 	
 	if not (boxa[2] > boxb[4] or boxa[4] < boxb[2]) then  -- "vertical collision" they are either to left or to right
@@ -79,7 +115,6 @@ local function GetBoxRelation(boxa, boxb)
 		mpbv = (boxb[4] + boxb[2])/2 
 		snapv = true
 	end 
-	
 	
 	local axis = nil
 	local dist = 99999
@@ -110,25 +145,25 @@ local function GetBoxRelation(boxa, boxb)
 		end 
 	end 
 	
-	if axis ~= nil then return axis, dist 
-	else return nil, nil end
+	if axis ~= nil then 
+		return axis, dist 
+	else 
+		return nil, nil 
+	end
 end
 
- 
-
-
--- returns closest axis to snap to existing windows or screen edges - first parameter is axis (L/R/T/D) second is snap distance
+-- returns closest axis to snap to existing windows or screen edges - first parameter is axis (L/R/T/D) second is snap distance 
 local function GetClosestAxis(winPos, dockWindows, win)
-	local dockDist = options.dockThreshold.value
+	local dockDist = options.dockThreshold.value 
 	local minDist =  dockDist + 1
-	local minAxis= 'L'
+	local minAxis= 'L'	
 	
 	local function CheckAxis(dist, newAxis) 
 		if dist < minDist and dist ~= 0 then 
-			if newAxis == 'L' and (winPos[1] - dist < 0 or winPos[3] - dist > Chili.Screen0.width) then return end 
-			if newAxis == 'R' and (winPos[1] + dist < 0 or winPos[3] + dist > Chili.Screen0.width) then return end 
-			if newAxis == 'T' and (winPos[2] - dist < 0 or winPos[4] - dist > Chili.Screen0.height) then return end 
-			if newAxis == 'D' and (winPos[2] + dist < 0 or winPos[4] + dist > Chili.Screen0.height) then return end 
+			if newAxis == 'L' and (winPos[1] - dist < 0 or winPos[3] - dist > screen0.width) then return end 
+			if newAxis == 'R' and (winPos[1] + dist < 0 or winPos[3] + dist > screen0.width) then return end 
+			if newAxis == 'T' and (winPos[2] - dist < 0 or winPos[4] - dist > screen0.height) then return end 
+			if newAxis == 'D' and (winPos[2] + dist < 0 or winPos[4] + dist > screen0.height) then return end 
 			minDist = dist
 			minAxis = newAxis
 		end 
@@ -136,8 +171,8 @@ local function GetClosestAxis(winPos, dockWindows, win)
 
 	CheckAxis(winPos[1], 'L') 
 	CheckAxis(winPos[2], 'T')
-	CheckAxis(Chili.Screen0.width  - winPos[3], 'R')
-	CheckAxis(Chili.Screen0.height - winPos[4], 'D')
+	CheckAxis(screen0.width - winPos[3], 'R')
+	CheckAxis(screen0.height - winPos[4], 'D')
 	if (minDist < dockDist and minDist ~= 0) then 
 		return minAxis, minDist  -- screen edges have priority ,dont check anything else
 	end 
@@ -154,33 +189,27 @@ local function GetClosestAxis(winPos, dockWindows, win)
 	
 	if minDist < dockDist and minDist ~= 0 then 
 		return minAxis, minDist
-	else
+	else 
 		return nil, nil
-	end
-end
-
-
--- snaps box data with axis and distance 
-local function SnapBox(wp, a,d)
-	if a == 'L' then
-		wp[1] = wp[1] - d
-		wp[3] = wp[3] - d
-	elseif a== 'R' then
-		wp[1] = wp[1] + d
-		wp[3] = wp[3] + d
-	elseif a== 'T' then
-		wp[2] = wp[2] - d
-		wp[4] = wp[4] - d
-	elseif a== 'D' then
-		wp[2] = wp[2] + d
-		wp[4] = wp[4] + d
-	end
+	end 
 end 
 
-
-local lastCount = 0
-local lastWidth = 0
-local lastHeight= 0
+-- snaps box data with axis and distance 
+local function SnapBox(wp, a,d) 
+	if a == 'L' then 
+		wp[1] = wp[1] - d 
+		wp[3] = wp[3] - d 
+	elseif a== 'R' then 
+		wp[1] = wp[1] + d 
+		wp[3] = wp[3] + d 
+	elseif a== 'T' then 
+		wp[2] = wp[2] - d 
+		wp[4] = wp[4] - d 
+	elseif a== 'D' then 
+		wp[2] = wp[2] + d 
+		wp[4] = wp[4] + d 
+	end 
+end 
 
 local function GetButtonPos(win)
 	local size = 5 -- button thickness
@@ -193,18 +222,17 @@ local function GetButtonPos(win)
 		mode = 'T'
 	end 
 	
-	dist = (Chili.Screen0.width - win.x - win.width)*5000 + win.height
+	dist = (screen0.width - win.x - win.width)*5000 + win.height
 	if dist < mindist then
 		mindist = dist
 		mode = 'R'
 	end
 	
-	dist = (Chili.Screen0.height - win.y - win.height)*5000 + win.width
+	dist = (screen0.height - win.y - win.height)*5000 + win.width
 	if dist < mindist then
 		mindist = dist
 		mode = 'B'
 	end
-	
 	
 	if mode == 'L' then
 		return {x=win.x-3, y= win.y, width = size, height = win.height}
@@ -215,294 +243,199 @@ local function GetButtonPos(win)
 	elseif mode=='B' then
 		return {x=win.x, y= win.y + win.height - size-3, width = win.width, height = size}
 	end 
-end
+end 
 
+function widget:Update() 
+	frameCounter = frameCounter +1
+	if (not screen0) or (frameCounter % 88 ~= 87 and #screen0.children == lastCount) then 
+		return 
+	end 
+	lastCount = #screen0.children
+	
+	local posChanged = false -- has position changed since last check
 
-local function GetEdgePositions(win)
-	local pw = win.parent.width
-	local ph = win.parent.height
+	if (screen0.width ~= lastWidth or screen0.height ~= lastHeight) then 
+		forceUpdate = true
+		lastWidth = screen0.width
+		lastHeight = screen0.height
+	end 
+	
+	local present = {}
+	local names = {}
+	for _, win in ipairs(screen0.children) do  -- NEEDED FOR MINIMIZE BUTTONS: table.shallowcopy( 
+		if win.dockable or win.dockableSavePositionOnly then 
+			names[win.name] = win
+			present[win.name] = true
+			local lastWinPos = lastPos[win.name]
+			if lastWinPos == nil then  -- new window appeared
+				posChanged = true 
+				local settingsPos = settings[win.name]
+				if settingsPos ~= nil then  -- and we have setings stored for new window, apply it
+					local w = settingsPos[3] - settingsPos[1]
+					local h = settingsPos[4] - settingsPos[2]
 
-	local distLeft   = win.x / pw
-	local distTop    = win.y / ph
-	local distRight  = (pw - (win.x + win.width )) / pw
-	local distBottom = (ph - (win.y + win.height)) / ph
+					if win.fixedRatio then 
+						local limit = 0
+						if (w > h) then limit = w else limit = h end 
+						if (win.width > win.height) then
+							w = limit
+							h = limit*win.height/win.width
+						else 
+							h = limit 
+							w = limit*win.width/win.height
+						end 
+					end
 
-	local edgePos = {distLeft, distTop, win.width / pw, win.height / ph}
-	if (distRight < distLeft) then
-		edgePos[1] = tostring(-distRight) -- tostring to preserve "-0", as number it would become +0
-	end
-	if (distBottom < distTop) then
-		edgePos[2] = tostring(-distBottom)
-	end
-
-	return edgePos
-end
-
-
-local function ApplySavedSettingToWindow(win)
-	local settingsPos = settings[win.name]
-	if not settingsPos then
-		-- we don't have settings stored for new window
-		return
-	end
-
-	local pw = (win.parent and win.parent.width ) or Chili.Screen0.width
-	local ph = (win.parent and win.parent.height) or Chili.Screen0.height
-
-	do
-		local w = settingsPos[3] * pw
-		local h = settingsPos[4] * ph
-
-		if win.fixedRatio then
-			local limit = 0
-			if (w > h) then limit = w else limit = h end 
-			if (win.width > win.height) then
-				w = limit
-				h = limit * (win.height/win.width)
-			else 
-				h = limit
-				w = limit * (win.width/win.height)
-			end
+					if (win.resizable or win.tweakResizable) and not win.dockableNoResize then
+						win:Resize(w, h, false, false)
+					end
+					
+					win:SetPos(settingsPos[1], settingsPos[2])
+					if (not options.dockEnabled.value) or win.dockableSavePositionOnly then 
+						lastPos[win.name] = { win.x, win.y, win.x + win.width, win.y + win.height, keepPresent = win.dockableSavePositionOnly }
+					end 
+				end 
+			elseif lastWinPos[1] ~= win.x or lastWinPos[2] ~= win.y or lastWinPos[3] ~= win.x+win.width or lastWinPos[4] ~= win.y + win.height then  -- window changed position
+				posChanged = true 
+				settings[win.name] = { win.x, win.y, win.x + win.width, win.y + win.height } --save data immediately (useful when docking is not enabled)
+			end 
+		end 
+	end 
+	
+	for winName, data in pairs(lastPos) do  -- delete those not present atm (Redo/refresh docking when window un-minimized)
+		if not (data.keepPresent or present[winName]) then
+			lastPos[winName] = nil 
 		end
-		if win.resizable or win.tweakResizable then
-			win:Resize(w, h)
-		end
-	end
+	end 
 
-	do
-		win.x = nil
-		win.y = nil
-		if (1 / settingsPos[1]) > 0 then
-			win.x = settingsPos[1] * pw
-		else
-			win.right = -settingsPos[1] * pw
-		end
-		if (1 / settingsPos[2]) > 0 then
-			win.y = settingsPos[2] * ph
-		else
-			win.bottom = -settingsPos[2] * ph
-		end
-		win:DetectRelativeBounds()
-		win:AlignControl()
-	end
-end
-
-
-local function MinimizeDispose(obj)
-	buttons[obj.name]:Dispose()
-	buttons[obj.name] = nil
-end
-
-
-local function MinimizeResize(obj)
-	local pos = GetButtonPos(obj)
-	buttons[obj.name]:SetPos(pos.x, pos.y, pos.width, pos.height)
-end
-
-
-local function HandleMinimizeBar(objs)
 	-- BUTTONS to minimize stuff
-	for name, win in pairs(objs) do
-		if win.minimizable then
+	-- FIXME HACK use object:IsDescendantOf(screen0) from chili to detect visibility, not this silly hack stuff with button.winVisible
+	for name, win in pairs(names) do 
+		if win.minimizable and options.minimizeEnabled.value then
 			local button = buttons[name]
-
-			if not button then
+			if not button then 
 				button = Chili.Button:New{
-					x = win.x, y = win.y; width=50; height=20;
-					caption  = '';
-					dockable = false;
-					tooltip  = 'Minimize ' .. win.name;
-					backgroundColor = {0,1,0,1};
-					parent  = Chili.Screen0;
+					x = win.x, 
+					y = win.y, 
+					width = 50,
+					height = 20,
+					caption = '',
+					dockable = false,
+					winName = win.name,
+					tooltip = 'Minimize ' .. win.name,
+					backgroundColor={0,1,0,1},
+					widgetName = win.parentWidgetName,
+					win = win,
 					OnClick = {
 						function(self)
-							if win.visible then
-								self.tooltip = 'Expand ' .. win.name
-								self.backgroundColor={1,0,0,1}
+							if button.winVisible then
+								win.hidden = true -- todo this is needed for minimap to hide self, remove when windows can detect if its on the sreen or not
+								button.tooltip = 'Expand ' .. button.winName
+								button.backgroundColor={1,0,0,1}
 								if not win.selfImplementedMinimizable then
-									win:Hide()
+									screen0:RemoveChild(win)
 								else
 									win.selfImplementedMinimizable(false)
 								end
 							else 
-								self.tooltip = 'Minimize ' .. win.name
-								self.backgroundColor={0,1,0,1}
+								win.hidden = false
+								button.tooltip = 'Minimize ' .. button.winName
+								button.backgroundColor={0,1,0,1}
 								if not win.selfImplementedMinimizable then
-									win:Show()
+									screen0:AddChild(win)
 								else
 									win.selfImplementedMinimizable(true)
 								end
-							end
+							end 
+							button.winVisible = not button.winVisible
 						end
 					}
 				}
-				buttons[name] = button
+				screen0:AddChild(button)
 				button:BringToFront()
-
-				win.OnDispose[#win.OnDispose + 1] = MinimizeDispose
-				win.OnResize[#win.OnResize + 1]   = MinimizeResize
+				buttons[name] = button
+			end
+			local pos = GetButtonPos(win)
+			button:SetPos(pos.x,pos.y, pos.width, pos.height)
+			if not button.winVisible then
+				button.winVisible = true 
+				win.hidden = false
+				button.tooltip = 'Minimize ' .. button.winName
+				button.backgroundColor={0,1,0,1}
+				button:Invalidate()
+			end
+		else
+			local button = buttons[name]
+			if button then
+				screen0:RemoveChild(button)
+				buttons[name] = nil
 			end
 		end
-	end
-end
-
-
-local function sign(x)
-	if (x==0) then
-		return 0
-	elseif (x>0) then
-		return 1
-	else
-		return -1
-	end
-end
-
-
-local function DockResize(obj)
-	local collideWindows = {}
-	for _, win in ipairs(obj.parent.children) do
-		if win.collide or win.dockable then
-			collideWindows[win] = {win.x, win.y, win.x + win.width, win.y + win.height}
+	end 
+	
+	for name, button in pairs(buttons) do
+		if not names[name] and button.winVisible then -- widget hid externally
+			button.winVisible = false
+            button.tooltip = 'Expand ' .. button.winName
+			button.backgroundColor={1,0,0,1}
+			button:Invalidate()
+		end
+		local widgetInfo = button.widgetName and widgetHandler.knownWidgets[button.widgetName]
+		if widgetInfo and not widgetInfo.active then --check if widget was removed
+			button:Dispose();
+			buttons[name] = nil
+		end
+		if button.win.parent and button.win.parent.name ~= screen0.name then
+			button:Dispose();
+			buttons[name] = nil
 		end
 	end
-
-	local wp = {obj.x, obj.y, obj.x + obj.width, obj.y + obj.height}
-	local dp = {obj.x, obj.y, obj.x + obj.width, obj.y + obj.height}
-	local lp = lastPos[obj.name]
-
-	-- dock windows
-	repeat
-		local numTries = 5
-		local clipDirs = {}
-		repeat
-			local a,d = GetClosestAxis(dp, collideWindows, obj)
-			if a then
-				SnapBox(dp,a,d)
-				clipDirs[a] = true
-			end
-			numTries = numTries - 1
-		until (not a) or numTries == 0
-
-		if (dp[1] == obj.x) and (dp[2] == obj.y) then
-			break
-		end
-
-		if (obj.dragging) then
-			if clipDirs["L"] and (sign(wp[1] - lp[1]) > 0) then
-				break
-			end
-			if clipDirs["R"] and (sign(wp[1] - lp[1]) < 0) then
-				break
-			end
-			if clipDirs["T"] and (sign(wp[2] - lp[2]) > 0) then
-				break
-			end
-			if clipDirs["D"] and (sign(wp[2] - lp[2]) < 0) then
-				break
-			end
-
-			--//FIXME this is a workaround OnResize get strange calls that are filtered with this
-			if sign(wp[1] - lp[1]) == 0 then
-				break
-			end
-			if sign(wp[2] - lp[2]) == 0 then
-				break
-			end
-		elseif (resizing) then
-			--FIXME
-		end
-
-		obj:SetPos(dp[1], dp[2])
-		break
-	until true
-
-	local winPos = { obj.x, obj.y, obj.x + obj.width, obj.y + obj.height }
-	lastPos[obj.name] = winPos
-	settings[obj.name] = GetEdgePositions(obj)
-end
-
-
-function widget:DrawScreen() 
-	frameCounter = frameCounter + 1
-	if (frameCounter % 88 ~= 87) and (#Chili.Screen0.children == lastCount) then return end
-	lastCount = #Chili.Screen0.children
-
-	if (Chili.Screen0.width ~= lastWidth or Chili.Screen0.height ~= lastHeight) then
-		forceUpdate = true
-		lastWidth  = Chili.Screen0.width
-		lastHeight = Chili.Screen0.height
-	end
-
-	local newWindow = true
-
-	local bynames = {}
-	for _, win in ipairs(Chili.Screen0.children) do
-		if win.dockable then
-			bynames[win.name] = win
-			local lastWinPos = lastPos[win.name]
-			if (not lastWinPos)or(forceUpdate) then  -- new window appeared
-				newWindow = true
-				ApplySavedSettingToWindow(win)
-				if not options.dockEnabled.value then
-					lastPos[win.name] = { win.x, win.y, win.x + win.width, win.y + win.height }
-				end
-				win.OnResize[#win.OnResize + 1] = DockResize
-			end
-		end
-	end
-
-	if forceUpdate or (newWindow and options.dockEnabled.value) then 
+	
+	if forceUpdate or (posChanged and options.dockEnabled.value) then 
 		forceUpdate = false
-		local dockWindows = {}
-		local collideWindows = {}
-		for _, win in ipairs(Chili.Screen0.children) do
-			if
-				win.dockable and win.dragging --or (win.custom_freshlyMoved) --FIXME
-			then
+		local dockWindows = {}	 -- make work array of windows 
+		for _, win in ipairs(screen0.children) do
+			local dock = win.collide or win.dockable
+			if (dock) then 
 				dockWindows[win] = {win.x, win.y, win.x + win.width, win.y + win.height}
-			end
-
-			if win.collide or win.dockable then
-				collideWindows[win] = {win.x, win.y, win.x + win.width, win.y + win.height}
-			end
-		end
-
-		-- dock windows
+			end 
+		end 
+		
+		-- dock windows 
 		local mc = 2
-		repeat
-			for win, wp in pairs(dockWindows) do
+		repeat 
+			for win, wp in pairs(dockWindows) do  
 				local numTries = 5
 				repeat 
-					local a,d = GetClosestAxis(wp, collideWindows, win)
-					if a then
+					--Spring.Echo("box "..wp[1].. " " ..wp[2] .. " " ..wp[3] .. " " .. wp[4])
+					local a,d = GetClosestAxis(wp,dockWindows, win)
+					if a~=nil then 
 						SnapBox(wp,a,d)
-					end
-					numTries = numTries - 1
-				until (not a) or numTries == 0
-
+						--Spring.Echo("snap "..a .. "  " ..d)
+					end 
+					numTries = numTries - 1 
+				until a == nil or numTries == 0
+				
 				win:SetPos(wp[1], wp[2])
-			end
+				local winPos = { win.x, win.y, win.x + win.width, win.y + win.height }
+				lastPos[win.name] = winPos
+				settings[win.name] = winPos
+			end 
 
 			mc = mc -1
 		until mc == 0
 
-		for win in pairs(dockWindows) do
-			local winPos = { win.x, win.y, win.x + win.width, win.y + win.height }
-			lastPos[win.name]  = winPos
-			settings[win.name] = GetEdgePositions(win)
-		end
 	end 
+end 
 
-	HandleMinimizeBar(bynames)
-
-	windowMoved = false
+function widget:ViewResize(vsx, vsy)
+	scrW = vsx
+	scrH = vsy
 end
-
 
 function widget:SetConfigData(data)
 	settings = data
 end
-
 
 function widget:GetConfigData()
 	return settings
