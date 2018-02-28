@@ -1,0 +1,3 @@
+[submodule "submodule_tes"]
+	path = submodule_tes
+	url = https://github.com/TurBoss/submodule_tes.git
