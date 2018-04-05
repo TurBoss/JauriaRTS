@@ -15,13 +15,11 @@ end
 ------------------------------------------
 
 local loadscreens = VFS.DirList("bitmaps/loadpictures/")
-local screenNum = math.random(#loadscreens) 
---local backgroundTexture = loadscreens[screenNum]
-local backgroundTexture = loadscreens[1+(math.floor((1000*os.clock())%#loadscreens))] -- hacky hotfix for http://springrts.com/mantis/view.php?id=4572
+local backgroundTexture = loadscreens[ math.random(#loadscreens) ]
 local aspectRatio
 
-function addon.DrawLoadScreen()
 
+function addon.DrawLoadScreen()
 	local loadProgress = SG.GetLoadProgress()
 
 	if not aspectRatio then
@@ -45,6 +43,7 @@ function addon.DrawLoadScreen()
 	end
 
 	-- background
+	--fade in: gl.Color(1,1,1,1 - (1 - loadProgress)^5)
 	gl.Color(1,1,1,1)
 	gl.Texture(backgroundTexture)
 	gl.TexRect(0+xDiv,0+yDiv,1-xDiv,1-yDiv)

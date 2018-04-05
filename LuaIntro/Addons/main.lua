@@ -29,18 +29,11 @@ function addon.DrawLoadScreen()
 
 	local vsx, vsy = gl.GetViewSizes()
 
-
-	
 	-- draw progressbar
 	local hbw = 3.5/vsx
 	local vbw = 3.5/vsy
 	local hsw = 0.2
 	local vsw = 0.2
-	
-	gl.PushMatrix()
-	gl.Scale(.4,.4,1)
-	gl.Translate(-0.1,0,0)
-	
 	gl.BeginEnd(GL.QUADS, function()
 		--shadow topleft
 		gl.Color(0,0,0,0)
@@ -168,15 +161,13 @@ function addon.DrawLoadScreen()
 		local barTextSize = vsy * (0.05 - 0.015)
 
 		--font:Print(lastLoadMessage, vsx * 0.5, vsy * 0.3, 50, "sc")
-		--font:Print(Game.gameName, vsx * 0.5, vsy * 0.95, vsy * 0.07, "sca")
-		font:Print(lastLoadMessage, vsx * 0.2, vsy * 0.14, barTextSize, "sa")
+		font:Print(Game.gameName, vsx * 0.5, vsy * 0.95, vsy * 0.07, "sca")
+		font:Print(lastLoadMessage, vsx * 0.2, vsy * 0.14, barTextSize * 0.5, "sa")
 		if loadProgress>0 then
 			font:Print(("%.0f%%"):format(loadProgress * 100), vsx * 0.5, vsy * 0.165, barTextSize, "oc")
 		else
 			font:Print("Loading...", vsx * 0.5, vsy * 0.165, barTextSize, "oc")
 		end
-	gl.PopMatrix()
-	
 	gl.PopMatrix()
 end
 
