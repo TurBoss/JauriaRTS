@@ -7,7 +7,6 @@
 -------------------------------------------------------------------------------------
 
 Spring.Utilities = Spring.Utilities or {}
-Spring.Echo(Spring.Utilities)
 
 local SCRIPT_DIR = Script.GetName() .. '/'
 local utilFiles = VFS.DirList(SCRIPT_DIR .. 'Utilities/', "*.lua")

@@ -1,5 +1,5 @@
 unitDef = {
-  unitname               = [[mex]],
+  unitname               = [[xmex]],
   name                   = [[Metal Extractor]],
   description            = [[Produces Metal]],
   acceleration           = 0,
@@ -72,4 +72,4 @@ unitDef = {
 
 }
 
-return lowerkeys({ mex = unitDef })
+return lowerkeys({ xmex = unitDef })
